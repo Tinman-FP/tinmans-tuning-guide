@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- Added a complete process-tab reference for OrcaSlicer and TinmanX1.
+- Added original plain-language guidance for every setting group: what it
+  controls, when to use it, and the desired result.
+- Documented all TinmanX1 process-level fiber settings, filament fiber fields,
+  FibreSeek printer-contract fields, Strength Lens, and Wave Overhang groups.
+- Annotated shared and TinmanX1-only features and published the exact source,
+  Wiki, and application versions used for the comparison.
+- Added a single linked PDF edition with internal contents and cross-references.
 - Added a toolpath-first diagnostic for repeated top-surface line-end defects.
 - Documented how short unretracted hops can create endpoint beads even after
   flow ratio and pressure advance are correctly tuned.

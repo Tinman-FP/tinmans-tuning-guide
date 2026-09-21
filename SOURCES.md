@@ -21,7 +21,14 @@ flow tuning, while using dimensions and fit tests for geometry.
 
 ## OrcaSlicer
 
+The application comparison in the settings reference is based on OrcaSlicer
+`v2.4.2`, source commit `8500fcdccaa10b5099ac20d252af3a7c560046f1`.
+The terminology review used the official OrcaSlicer Wiki at commit
+`f132cbf1c1e48573d229d1783ee471e61e50aaf3`, dated 2026-09-17. Fixing these
+revisions makes later UI changes distinguishable from errors in this edition.
+
 - [Calibration overview](https://github.com/OrcaSlicer/OrcaSlicer/wiki/Calibration)
+- [Official OrcaSlicer downloads](https://github.com/SoftFever/OrcaSlicer/releases/latest)
 - [Temperature calibration](https://github.com/OrcaSlicer/OrcaSlicer/wiki/temp_calib)
 - [Pressure-advance calibration](https://github.com/OrcaSlicer/OrcaSlicer/wiki/pressure_advance_calib)
 - [Flow ratio and pressure advance settings](https://github.com/OrcaSlicer/OrcaSlicer/wiki/material_flow_ratio_and_pressure_advance)
@@ -58,3 +65,19 @@ the source before reproducing a formal benchmark.
 No source listed above endorses Tinmans Tuning Guide. This repository does not
 bundle third-party calibration models or images. Follow each source's license
 and attribution requirements before redistributing its files.
+
+The settings chapters are an original operational interpretation. Upstream
+documentation and source code were used to identify controls and behavior, then
+the material was reorganized around diagnosis, appropriate use, and acceptance
+criteria. Text was not copied from the OrcaSlicer Wiki.
+
+## TinmanX1 Reference
+
+The TinmanX1 comparison and custom-feature documentation are based on source
+commit `cf0cabb04146c4ff9f21b963517717acfec66055`, whose application compatibility
+version is `2.4.2`. The installed macOS application examined on 2026-09-21 also
+reported `CFBundleShortVersionString 2.4.2`. TinmanX1 custom features documented
+from that revision include continuous-fiber planning, FibreSeek profile
+contracts, Strength Lens, and experimental Wave Overhangs.
+
+- [Official public TinmanX1 downloads](https://github.com/Tinman-FP/TinManX1/releases/latest)

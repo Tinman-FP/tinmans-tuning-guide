@@ -34,6 +34,10 @@ with Codex in September 2026.
 - **SoftFever and the OrcaSlicer contributors** for the integrated calibration
   tools and documentation covering temperature, volumetric speed, flow ratio,
   pressure advance, tolerance, shrinkage, precision, seams, and surfaces.
+- **TinmanX1 contributors** for the source implementation used to document its
+  continuous-fiber planning, FibreSeek contracts, Strength Lens, and Wave
+  Overhang extensions. William Tinney directed the practical scope of this
+  documentation; Codex authored the plain-language operational reference.
 - **Kevin O'Connor and the Klipper contributors** for the pressure-advance
   implementation and calibration documentation.
 - **The Marlin contributors** for Linear Advance and its calibration

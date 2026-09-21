@@ -9,6 +9,16 @@
 A source-backed, printer-neutral handbook for building reliable FFF/FDM
 filament profiles.
 
+**[Download the complete linked PDF](output/pdf/Tinmans-Tuning-Guide.pdf)**
+
+Slicer downloads:
+
+- [Download the latest official OrcaSlicer release](https://github.com/SoftFever/OrcaSlicer/releases/latest)
+- [Download the latest public TinmanX1 release](https://github.com/Tinman-FP/TinManX1/releases/latest)
+
+Release pages move forward over time. The settings reference states the exact
+versions and source revisions used for this edition.
+
 This guide explains what to tune, why the order matters, how to read each test,
 and how to preserve evidence so a good profile can be reproduced instead of
 rediscovered. It is written for ordinary Cartesian, CoreXY, delta, bedslinger,
@@ -31,6 +41,8 @@ If the printer is mechanically sound and the filament is dry, use this order:
 
 For a symptom-first route, use the [diagnostic matrix](guide/diagnostic-matrix.md).
 For unfamiliar terms, use the [glossary](guide/glossary.md).
+For plain-language slicer controls, start with the [OrcaSlicer and TinmanX1
+settings reference](guide/11-orca-tinmanx1-settings-reference.md).
 
 ## The Short Version
 
@@ -102,12 +114,21 @@ defending a value for a defined setup.
 | [Seams and surfaces](guide/08-seams-and-surfaces.md) | Seam diagnosis and surface refinement |
 | [Validation](guide/09-validation.md) | Acceptance tests and profile release |
 | [Material families](guide/10-material-families.md) | Material-specific starting priorities |
+| [Settings reference and versions](guide/11-orca-tinmanx1-settings-reference.md) | Scope, version basis, and Orca/TinmanX1 difference labels |
+| [Quality tab](guide/12-quality-tab.md) | Geometry, walls, surfaces, seams, and precision |
+| [Strength tab](guide/13-strength-tab.md) | Shells, infill, structural paths, and Strength Lens |
+| [Speed tab](guide/14-speed-tab.md) | Feature speeds, acceleration, jerk, and transitions |
+| [Support tab](guide/15-support-tab.md) | Conventional, tree, raft, and TinmanX1 Wave Overhang support |
+| [Multimaterial tab](guide/16-multimaterial-tab.md) | Prime towers, assignments, purge, and interlocking |
+| [Others tab](guide/17-others-tab.md) | Adhesion, special modes, output, and scripts |
+| [TinmanX1 fiber and strength tools](guide/18-tinmanx1-fiber-and-strength-tools.md) | Process, filament, and machine fiber controls |
 | [Diagnostic matrix](guide/diagnostic-matrix.md) | Symptom-to-cause triage |
 | [Glossary](guide/glossary.md) | Definitions and formulas |
 | [Experiment log](templates/experiment-log.md) | Reusable test record |
 | [Release checklist](templates/profile-release-checklist.md) | Final profile audit |
 | [Sources](SOURCES.md) | Primary references and further reading |
 | [Credits](CREDITS.md) | Attribution and authorship |
+| [Complete PDF](output/pdf/Tinmans-Tuning-Guide.pdf) | Single-file publication with linked contents and cross-references |
 
 ## Evidence Standard
 
@@ -122,6 +143,19 @@ Every accepted value should have:
 - an explicit decision: `candidate`, `accepted`, `rejected`, or `superseded`.
 
 The [experiment template](templates/experiment-log.md) is designed for this.
+
+## Rebuild the PDF
+
+The PDF is generated from the repository's Markdown sources so the web and
+single-file editions stay synchronized.
+
+```bash
+python3 -m pip install -r requirements-pdf.txt
+python3 scripts/build_pdf.py
+```
+
+The finished publication is written to
+`output/pdf/Tinmans-Tuning-Guide.pdf`.
 
 ## License and Attribution
 
