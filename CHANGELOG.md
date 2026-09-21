@@ -4,6 +4,10 @@
 
 - Corrected the PDF cover renderer to preserve the artwork's native X/Y
   proportions and center the circular composition on the portrait page.
+- Removed Markdown fence-language labels from literal examples and converted
+  the calibration-order Mermaid source into a reader-facing workflow table.
+- Suppressed web-only end-of-chapter navigation crumbs in the PDF so they do
+  not create stranded single-line pages.
 - Added a complete process-tab reference for OrcaSlicer and TinmanX1.
 - Added original plain-language guidance for every setting group: what it
   controls, when to use it, and the desired result.

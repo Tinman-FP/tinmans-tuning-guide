@@ -246,6 +246,23 @@ def build_styles():
             spaceBefore=4,
             spaceAfter=9,
         ),
+        "flow_number": ParagraphStyle(
+            "FlowNumber",
+            parent=body,
+            fontName="Helvetica-Bold",
+            fontSize=8.5,
+            leading=11,
+            textColor=colors.white,
+            alignment=TA_CENTER,
+            spaceAfter=0,
+        ),
+        "flow_text": ParagraphStyle(
+            "FlowText",
+            parent=body,
+            fontSize=8.8,
+            leading=11.5,
+            spaceAfter=0,
+        ),
         "toc_title": ParagraphStyle(
             "TOCTitle",
             parent=sample["Title"],
@@ -413,6 +430,43 @@ def make_table(lines, source, file_anchors, heading_anchors, styles, available_w
     return table
 
 
+def make_mermaid_flow(lines, styles, available_width):
+    steps = []
+    seen = set()
+    for line in lines:
+        for node, label in re.findall(r"([A-Za-z0-9_]+)\[([^]]+)\]", line):
+            if node in seen:
+                continue
+            seen.add(node)
+            steps.append(label)
+
+    if not steps:
+        return Preformatted("\n".join(lines), styles["code"])
+
+    data = [
+        [
+            Paragraph(str(index), styles["flow_number"]),
+            Paragraph(html.escape(label), styles["flow_text"]),
+        ]
+        for index, label in enumerate(steps, start=1)
+    ]
+    table = Table(data, colWidths=[0.34 * inch, available_width - 0.34 * inch], hAlign="LEFT")
+    table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (0, -1), colors.HexColor("#0D6B63")),
+        ("ROWBACKGROUNDS", (1, 0), (1, -1), [colors.HexColor("#F3F7F6"), colors.white]),
+        ("BOX", (0, 0), (-1, -1), 0.45, colors.HexColor("#BFCAC8")),
+        ("INNERGRID", (0, 0), (-1, -1), 0.3, colors.HexColor("#D7DEDC")),
+        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        ("LEFTPADDING", (0, 0), (0, -1), 3),
+        ("RIGHTPADDING", (0, 0), (0, -1), 3),
+        ("TOPPADDING", (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        ("LEFTPADDING", (1, 0), (1, -1), 7),
+        ("RIGHTPADDING", (1, 0), (1, -1), 7),
+    ]))
+    return table
+
+
 def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, available_width):
     source = rel_path
     lines = (ROOT / rel_path).read_text(encoding="utf-8").splitlines()
@@ -434,6 +488,12 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
         joined = " ".join(line.strip() for line in paragraph_lines).strip()
         paragraph_lines = []
         if not joined:
+            return
+        plain_text = strip_markdown(joined)
+        if re.match(
+            r"^(Proceed to|Continue with|Move to|Next, tune|Finish with|Return to)\b",
+            plain_text,
+        ):
             return
         style = styles["lead"] if first_heading and len(flows) < 3 else styles["body"]
         flows.append(Paragraph(inline_markup(joined, source, file_anchors, heading_anchors), style))
@@ -461,8 +521,10 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
                 for wrapped in textwrap.wrap(lines[index], width=92, replace_whitespace=False, drop_whitespace=False) or [""]:
                     code_lines.append(wrapped)
                 index += 1
-            title = f"[{language}]\n" if language else ""
-            flows.append(Preformatted(title + "\n".join(code_lines), styles["code"]));
+            if language.lower() == "mermaid":
+                flows.append(make_mermaid_flow(code_lines, styles, available_width))
+            else:
+                flows.append(Preformatted("\n".join(code_lines), styles["code"]))
             index += 1
             continue
         heading = re.match(r"^(#{1,3})\s+(.+?)\s*$", line)
