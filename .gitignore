@@ -1,0 +1,9 @@
+.DS_Store
+*.gcode
+*.bgcode
+*.3mf
+*.stl
+*.step
+*.stp
+*.log
+
