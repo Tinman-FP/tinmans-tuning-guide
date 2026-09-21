@@ -23,6 +23,8 @@
 - [ ] Dimensions were tuned only after extrusion stabilized.
 - [ ] Seam settings were tuned after PA, flow, and retraction.
 
+<!-- pdf:page-break-before -->
+
 ## Validation
 
 - [ ] Broad top surface passes.
@@ -48,4 +50,3 @@ Accepted operating envelope:
 Known limitations:
 Supersedes:
 ```
-

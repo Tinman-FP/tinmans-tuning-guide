@@ -53,6 +53,8 @@ assuming every screen and option will be identical.
 These labels describe the stated source revisions, not every older or future
 release. A setting added to OrcaSlicer after 2.4.2 may later become shared.
 
+<!-- pdf:page-break-before -->
+
 ## Scope
 
 The following chapters cover every process-profile tab and group in the

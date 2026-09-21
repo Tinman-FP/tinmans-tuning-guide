@@ -34,6 +34,8 @@ inspection of the machine baseline.
 | Good small print, bad large print | chamber, warp, long-flow demand | heat soak, MVS | retraction tower |
 | Good calibration, bad real part | test not representative | actual speeds, widths, cooling | arbitrary multiplier |
 
+<!-- pdf:page-break-before -->
+
 ## Triage Order
 
 When several symptoms appear together:
@@ -58,4 +60,3 @@ When several symptoms appear together:
 
 This classification often identifies the correct settings family before a
 single value is changed.
-

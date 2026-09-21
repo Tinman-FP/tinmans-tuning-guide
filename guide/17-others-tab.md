@@ -42,6 +42,8 @@ the edge.
 
 A brim cannot correct oil, debris, a bad Z offset, or severe enclosure drafts.
 
+<!-- pdf:page-break-before -->
+
 ## Special Mode
 
 **What:** changes how geometry is interpreted and how objects or layers are
@@ -83,6 +85,8 @@ fits, holes, or first-layer edges.
 - First-layer application extends texture to the bed-contact layer.
 
 Do not use fuzzy skin as evidence that an underlying extrusion defect is fixed.
+
+<!-- pdf:page-break-before -->
 
 ## G-code Output
 

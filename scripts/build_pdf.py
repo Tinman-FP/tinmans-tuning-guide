@@ -209,8 +209,8 @@ def build_styles():
             fontSize=14,
             leading=18,
             textColor=colors.HexColor("#0D6B63"),
-            spaceBefore=13,
-            spaceAfter=7,
+            spaceBefore=11,
+            spaceAfter=6,
             keepWithNext=True,
         ),
         "h3": ParagraphStyle(
@@ -245,6 +245,41 @@ def build_styles():
             backColor=colors.HexColor("#F6F7F8"),
             spaceBefore=4,
             spaceAfter=9,
+        ),
+        "literal": ParagraphStyle(
+            "Literal",
+            parent=body,
+            fontName="Helvetica",
+            fontSize=8.7,
+            leading=11.5,
+            leftIndent=8,
+            rightIndent=8,
+            borderColor=colors.HexColor("#D1D5DB"),
+            borderWidth=0.5,
+            borderPadding=7,
+            backColor=colors.HexColor("#F6F7F8"),
+            spaceBefore=4,
+            spaceAfter=9,
+        ),
+        "list_item": ParagraphStyle(
+            "ListItem",
+            parent=body,
+            leading=12.6,
+            spaceAfter=0,
+        ),
+        "compact_body": ParagraphStyle(
+            "CompactBody",
+            parent=body,
+            fontSize=9.1,
+            leading=12.5,
+            spaceAfter=4,
+        ),
+        "compact_list_item": ParagraphStyle(
+            "CompactListItem",
+            parent=body,
+            fontSize=9.1,
+            leading=12.2,
+            spaceAfter=0,
         ),
         "flow_number": ParagraphStyle(
             "FlowNumber",
@@ -469,6 +504,9 @@ def make_mermaid_flow(lines, styles, available_width):
 
 def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, available_width):
     source = rel_path
+    compact_document = rel_path.as_posix() == "CREDITS.md"
+    body_style = styles["compact_body"] if compact_document else styles["body"]
+    list_item_style = styles["compact_list_item"] if compact_document else styles["list_item"]
     lines = (ROOT / rel_path).read_text(encoding="utf-8").splitlines()
     has_heading = any(re.match(r"^#{1,3}\s+", line) for line in lines)
     flows = []
@@ -495,7 +533,7 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
             plain_text,
         ):
             return
-        style = styles["lead"] if first_heading and len(flows) < 3 else styles["body"]
+        style = styles["lead"] if first_heading and len(flows) < 3 else body_style
         flows.append(Paragraph(inline_markup(joined, source, file_anchors, heading_anchors), style))
 
     seen_slugs = {}
@@ -512,6 +550,11 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
                 in_html_block = False
             index += 1
             continue
+        if stripped == "<!-- pdf:page-break-before -->":
+            flush_paragraph()
+            flows.append(PageBreak())
+            index += 1
+            continue
         if stripped.startswith("```"):
             flush_paragraph()
             language = stripped[3:].strip()
@@ -523,6 +566,8 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
                 index += 1
             if language.lower() == "mermaid":
                 flows.append(make_mermaid_flow(code_lines, styles, available_width))
+            elif language.lower() == "text":
+                flows.append(Preformatted("\n".join(code_lines), styles["literal"]))
             else:
                 flows.append(Preformatted("\n".join(code_lines), styles["code"]))
             index += 1
@@ -576,8 +621,8 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
                         index += 1
                     else:
                         break
-                item_para = Paragraph(inline_markup(item, source, file_anchors, heading_anchors), styles["body"])
-                items.append(ListItem(item_para, leftIndent=12))
+                item_para = Paragraph(inline_markup(item, source, file_anchors, heading_anchors), list_item_style)
+                items.append(ListItem(item_para))
                 if index < len(lines) and not lines[index].strip():
                     lookahead = index + 1
                     if lookahead < len(lines) and re.match(r"^\s*([-*]|\d+\.)\s+", lines[lookahead]):

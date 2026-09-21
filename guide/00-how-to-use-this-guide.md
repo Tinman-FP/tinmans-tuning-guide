@@ -86,6 +86,8 @@ Use four result states:
 The [experiment log](../templates/experiment-log.md) captures the minimum useful
 record.
 
+<!-- pdf:page-break-before -->
+
 ## Measure Carefully
 
 - Let the part fully cool before measuring.
@@ -119,4 +121,3 @@ same spool. Chasing an invisible difference can reduce strength, speed, or
 reliability.
 
 Move to [Foundations](01-foundations.md) before changing filament values.
-

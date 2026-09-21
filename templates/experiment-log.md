@@ -44,6 +44,8 @@ Photo paths or URLs:
 Photo orientation and lighting:
 ```
 
+<!-- pdf:page-break-before -->
+
 ## Controlled Test
 
 ```text
@@ -73,4 +75,3 @@ Values still provisional:
 Next test:
 Reviewer:
 ```
-

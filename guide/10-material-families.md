@@ -43,6 +43,8 @@ Priorities:
 Warping, corner lift, and layer splitting are usually thermal-management
 problems before they are flow problems.
 
+<!-- pdf:page-break-before -->
+
 ## Polycarbonate and PC Blends
 
 Priorities:
@@ -82,6 +84,8 @@ Priorities:
 Hardness alone does not define print behavior. Different TPU chemistries with
 the same Shore rating can need different profiles.
 
+<!-- pdf:page-break-before -->
+
 ## Fiber-, Metal-, Wood-, and Mineral-Filled Materials
 
 Priorities:
@@ -106,4 +110,3 @@ Priorities:
 - storage and post-processing safety.
 
 Validate the complete material pair, not each filament in isolation.
-

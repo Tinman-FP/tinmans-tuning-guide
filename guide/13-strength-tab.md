@@ -47,6 +47,8 @@ crowding small features or adding unnecessary mass.
   with Arachne, inspect the preview because variable-width walls already solve
   many thin-feature cases.
 
+<!-- pdf:page-break-before -->
+
 ## Top and Bottom Shells
 
 **What:** controls the solid roofs and floors that close the part and transfer
@@ -106,6 +108,8 @@ crossings.
 
 Pattern-specific controls do nothing unless their matching pattern is active.
 Change them only after the broad pattern and density are justified by the load.
+
+<!-- pdf:page-break-before -->
 
 ## Advanced Strength
 

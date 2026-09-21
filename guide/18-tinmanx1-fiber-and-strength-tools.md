@@ -305,6 +305,8 @@ behavior without overrunning the controller's intended motion capacity.
 
 These are **profile-contract fields**, not speed-tuning shortcuts.
 
+<!-- pdf:page-break-before -->
+
 ## Printer Profile: Cut and Contact
 
 **What:** defines cutter travel, restart feed, nozzle clearance, lane roles, and
