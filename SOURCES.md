@@ -4,7 +4,7 @@ This guide favors official documentation and well-documented experimental work.
 Pages can change over time, so record the access date when using a source for a
 formal experiment or publication.
 
-Last source review: 2026-09-20.
+Last source review: 2026-09-21.
 
 ## Prusa Research
 
@@ -30,6 +30,8 @@ flow tuning, while using dimensions and fit tests for geometry.
 - [Tolerance calibration](https://github.com/OrcaSlicer/OrcaSlicer/wiki/tolerance-calib)
 - [Seam settings](https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_seam)
 - [Line-width settings](https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_line_width)
+- [Top and bottom shell settings](https://github.com/OrcaSlicer/OrcaSlicer/wiki/strength_settings_top_bottom_shells)
+- [Infill and surface pattern reference](https://github.com/OrcaSlicer/OrcaSlicer/wiki/strength_settings_patterns)
 
 ## Firmware Documentation
 
@@ -56,4 +58,3 @@ the source before reproducing a formal benchmark.
 No source listed above endorses Tinmans Tuning Guide. This repository does not
 bundle third-party calibration models or images. Follow each source's license
 and attribution requirements before redistributing its files.
-

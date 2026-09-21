@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Added a toolpath-first diagnostic for repeated top-surface line-end defects.
+- Documented how short unretracted hops can create endpoint beads even after
+  flow ratio and pressure advance are correctly tuned.
+- Added a one-variable Monotonic Line versus Monotonic comparison procedure.
+
 ## 1.0.1 - 2026-09-20
 
 - Added a full-width cover to the repository front page.

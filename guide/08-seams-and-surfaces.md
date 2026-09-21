@@ -89,6 +89,31 @@ Surface quality depends on more than flow:
 Tune ironing last. It can hide top texture but introduces its own flow, spacing,
 speed, heat, and edge behavior.
 
+### Read repeated line-end defects as path evidence
+
+When one edge of a top surface has a bead at nearly every line endpoint while
+the center has adequate coverage, do not immediately lower global flow. Inspect
+the sliced toolpath first:
+
+1. Count the separate surface strokes and the non-extruding moves between them.
+2. Compare those travel distances with the minimum retraction distance.
+3. Check whether retraction and wipe are actually emitted in the G-code.
+4. Compare line starts with line ends; a fat end and lean start indicates a
+   pressure transition rather than too much material across the whole surface.
+
+Short hops between adjacent lines often fall below the retraction threshold.
+The nozzle then stops, moves, and restarts pressure repeatedly along the same
+boundary. The resulting endpoint beads, hairs, or visible seam can survive an
+otherwise correct flow ratio and pressure-advance value.
+
+Change the path topology before disturbing a validated material profile. A
+one-variable comparison between Monotonic Line and Monotonic is a useful test:
+the former avoids perimeter overlap but can leave visible seams, while the
+latter may trade those seams for more material interaction at the perimeter.
+Judge both the boundary and the center. If pattern choice does not solve the
+artifact, test retraction and wipe behavior separately. Do not combine a
+pattern, flow, line-width, and pressure-advance change in one trial.
+
 ## Judge in Appropriate Light
 
 Glossy and dark polymers exaggerate small ridges under flash. Use diffuse and
@@ -96,4 +121,3 @@ glancing light, touch the surface, and compare a control. Decide whether the
 surface fails the intended use, not whether one photograph can reveal a line.
 
 Finish with [Validation and Profile Release](09-validation.md).
-
