@@ -17,6 +17,16 @@ The worked `20.00 mm -> 20.13 mm -> 100.65% -> 20.00 mm` dimensional example
 comes from a controlled calibration performed by William Tinney and analyzed
 with Codex in September 2026.
 
+## Cover Artwork
+
+- The central TinmanX1 thumbnail logo is the original project icon supplied by
+  William Tinney. It is reproduced without redrawing or replacing the mark.
+- The circular title composition, calibration-ring motif, typography, layout,
+  and production artwork were designed and prepared by Codex, OpenAI, at
+  William Tinney's direction.
+- The editable source, rendered cover, original logo copy, and provenance are
+  retained in the repository's `assets` directory.
+
 ## Technical Foundations
 
 - **Prusa Research** for its public knowledge base, especially its extrusion
@@ -47,4 +57,3 @@ authorship of this guide, sponsorship, affiliation, or endorsement.
 
 Contributors should identify the source of any new method, formula, diagram,
 or test model in the same pull request that introduces it.
-

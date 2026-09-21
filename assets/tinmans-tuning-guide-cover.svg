@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1600" height="900" viewBox="0 0 1600 900" role="img"
+     aria-labelledby="cover-title cover-description">
+  <title id="cover-title">Tinmans Tuning Guide</title>
+  <desc id="cover-description">
+    The TinmanX1 thumbnail logo centered inside circular industrial lettering
+    that reads Tinmans Tuning Guide.
+  </desc>
+
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1015"/>
+      <stop offset="0.52" stop-color="#172029"/>
+      <stop offset="1" stop-color="#090d11"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#77818a"/>
+      <stop offset="0.24" stop-color="#f2f5f6"/>
+      <stop offset="0.48" stop-color="#8e989f"/>
+      <stop offset="0.72" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#59646d"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff4a50"/>
+      <stop offset="0.5" stop-color="#d91826"/>
+      <stop offset="1" stop-color="#7d0710"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#009789" stop-opacity="0.24"/>
+      <stop offset="0.62" stop-color="#009789" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#009789" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#b8c2c8"
+            stroke-opacity="0.055" stroke-width="1"/>
+    </pattern>
+    <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22"
+                    flood-color="#000000" flood-opacity="0.65"/>
+    </filter>
+    <filter id="text-glow" x="-20%" y="-30%" width="140%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0.592
+                0 0 0 0 0.537
+                0 0 0 0.42 0" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="logo-clip">
+      <rect x="588" y="238" width="424" height="424" rx="74"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#background)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <ellipse cx="800" cy="450" rx="620" ry="410" fill="url(#halo)"/>
+
+  <g fill="none" transform="translate(800 450)">
+    <circle r="392" stroke="#dbe1e4" stroke-opacity="0.18" stroke-width="1"/>
+    <circle r="365" stroke="url(#steel)" stroke-width="3"/>
+    <circle r="344" stroke="#009789" stroke-opacity="0.6" stroke-width="2"/>
+    <circle r="253" stroke="#dbe1e4" stroke-opacity="0.15" stroke-width="1"/>
+  </g>
+
+  <g transform="translate(800 450)" stroke-linecap="square">
+    <g id="major-ticks" stroke="#dce3e6" stroke-width="3">
+      <path d="M 0 -392 V -365"/>
+      <path d="M 0 392 V 365"/>
+      <path d="M -392 0 H -365"/>
+      <path d="M 392 0 H 365"/>
+    </g>
+    <g stroke="#009789" stroke-width="2" opacity="0.85">
+      <path d="M 0 -392 V -376" transform="rotate(30)"/>
+      <path d="M 0 -392 V -376" transform="rotate(60)"/>
+      <path d="M 0 -392 V -376" transform="rotate(120)"/>
+      <path d="M 0 -392 V -376" transform="rotate(150)"/>
+      <path d="M 0 -392 V -376" transform="rotate(210)"/>
+      <path d="M 0 -392 V -376" transform="rotate(240)"/>
+      <path d="M 0 -392 V -376" transform="rotate(300)"/>
+      <path d="M 0 -392 V -376" transform="rotate(330)"/>
+    </g>
+    <g fill="url(#red)">
+      <path d="M 0 -405 l -8 18 h 16 z" transform="rotate(45)"/>
+      <path d="M 0 -405 l -8 18 h 16 z" transform="rotate(135)"/>
+      <path d="M 0 -405 l -8 18 h 16 z" transform="rotate(225)"/>
+      <path d="M 0 -405 l -8 18 h 16 z" transform="rotate(315)"/>
+    </g>
+  </g>
+
+  <g filter="url(#soft-shadow)">
+    <rect x="568" y="218" width="464" height="464" rx="92"
+          fill="#080c10" stroke="#3e4951" stroke-width="4"/>
+    <image x="588" y="238" width="424" height="424"
+           xlink:href="tinmanx1-thumbnail-logo.png"
+           clip-path="url(#logo-clip)" preserveAspectRatio="xMidYMid meet"/>
+  </g>
+
+  <g font-family="'DIN Condensed', Eurostile, Impact, sans-serif"
+     font-weight="700" text-anchor="middle" dominant-baseline="middle"
+     fill="url(#steel)" stroke="#ffffff" stroke-opacity="0.16"
+     stroke-width="1" paint-order="stroke" font-size="96">
+    <text x="800" y="78" transform="rotate(-54 800 450)">T</text>
+    <text x="800" y="78" transform="rotate(-36 800 450)">I</text>
+    <text x="800" y="78" transform="rotate(-18 800 450)">N</text>
+    <text x="800" y="78">M</text>
+    <text x="800" y="78" transform="rotate(18 800 450)">A</text>
+    <text x="800" y="78" transform="rotate(36 800 450)">N</text>
+    <text x="800" y="78" transform="rotate(54 800 450)">S</text>
+  </g>
+
+  <g font-family="'DIN Condensed', Eurostile, Impact, sans-serif"
+     font-weight="700" text-anchor="middle" dominant-baseline="middle"
+     fill="url(#steel)" stroke="#ffffff" stroke-opacity="0.16"
+     stroke-width="1" paint-order="stroke" font-size="76">
+    <text x="800" y="822" transform="rotate(57 800 450)">T</text>
+    <text x="800" y="822" transform="rotate(46 800 450)">U</text>
+    <text x="800" y="822" transform="rotate(35 800 450)">N</text>
+    <text x="800" y="822" transform="rotate(24 800 450)">I</text>
+    <text x="800" y="822" transform="rotate(13 800 450)">N</text>
+    <text x="800" y="822" transform="rotate(2 800 450)">G</text>
+    <text x="800" y="822" transform="rotate(-13 800 450)">G</text>
+    <text x="800" y="822" transform="rotate(-24 800 450)">U</text>
+    <text x="800" y="822" transform="rotate(-35 800 450)">I</text>
+    <text x="800" y="822" transform="rotate(-46 800 450)">D</text>
+    <text x="800" y="822" transform="rotate(-57 800 450)">E</text>
+  </g>
+
+  <g font-family="'DIN Condensed', 'Avenir Next Condensed', sans-serif"
+     fill="#819098" letter-spacing="3" text-anchor="middle">
+    <text x="800" y="878" font-size="14">FFF / FDM FILAMENT CALIBRATION</text>
+  </g>
+
+  <g font-family="'DIN Condensed', sans-serif" font-size="13"
+     fill="#68767d" letter-spacing="2">
+    <text x="72" y="96">TEMP</text>
+    <text x="72" y="123">FLOW</text>
+    <text x="72" y="150">PRESSURE</text>
+    <text x="1452" y="96">COOLING</text>
+    <text x="1452" y="123">SCALE</text>
+    <text x="1452" y="150">SEAM</text>
+  </g>
+
+  <g stroke="#d91826" stroke-width="3">
+    <path d="M 72 174 H 206"/>
+    <path d="M 1394 174 H 1528"/>
+  </g>
+  <g stroke="#009789" stroke-width="2" opacity="0.9">
+    <path d="M 72 188 H 158"/>
+    <path d="M 1442 188 H 1528"/>
+  </g>
+</svg>

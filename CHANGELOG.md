@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 - 2026-09-20
+
+- Added a full-width cover to the repository front page.
+- Centered the original TinmanX1 thumbnail logo inside circular title lettering.
+- Retained an editable SVG source, rendered PNG, and logo provenance record.
+
 ## 1.0.0 - 2026-09-20
 
 - Published the printer-neutral dependency-aware tuning workflow.
@@ -8,4 +14,3 @@
 - Added a diagnostic matrix, glossary, experiment log, and release checklist.
 - Added the experimentally validated measured-percentage dimensional example.
 - Added source attribution, contribution guidance, and CC BY 4.0 licensing.
-

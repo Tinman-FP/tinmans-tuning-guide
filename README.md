@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="assets/tinmans-tuning-guide-cover.png"
+       alt="Tinmans Tuning Guide encircling the TinmanX1 thumbnail logo"
+       width="100%">
+</p>
+
 # Tinmans Tuning Guide
 
 A source-backed, printer-neutral handbook for building reliable FFF/FDM
@@ -126,4 +132,3 @@ The original text and diagrams in this repository are licensed under
 Project initiated and experimentally informed by William Tinney. Researched,
 written, organized, and published with Codex by OpenAI. No source author,
 project, or company listed here has endorsed this guide.
-
