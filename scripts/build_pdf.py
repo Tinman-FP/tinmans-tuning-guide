@@ -20,6 +20,7 @@ from reportlab.platypus import (
     Flowable,
     Frame,
     Image,
+    KeepTogether,
     ListFlowable,
     ListItem,
     PageBreak,
@@ -57,6 +58,7 @@ DOCUMENTS = [
     ("Multimaterial Tab", Path("guide/16-multimaterial-tab.md")),
     ("Others Tab", Path("guide/17-others-tab.md")),
     ("TinmanX1 Fiber and Strength Tools", Path("guide/18-tinmanx1-fiber-and-strength-tools.md")),
+    ("Motion Diagnostics", Path("guide/19-motion-diagnostics.md")),
     ("Diagnostic Matrix", Path("guide/diagnostic-matrix.md")),
     ("Glossary", Path("guide/glossary.md")),
     ("Experiment Log", Path("templates/experiment-log.md")),
@@ -443,6 +445,13 @@ def make_table(lines, source, file_anchors, heading_anchors, styles, available_w
         weights.append(longest)
     total = sum(weights)
     widths = [available_width * weight / total for weight in weights]
+    if source.name == "diagnostic-matrix.md" and column_count == 4:
+        widths = [
+            available_width * 0.29,
+            available_width * 0.27,
+            available_width * 0.24,
+            available_width * 0.20,
+        ]
     data = []
     for row_index, row in enumerate(rows):
         style = styles["small"]
@@ -553,6 +562,29 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
         if stripped == "<!-- pdf:page-break-before -->":
             flush_paragraph()
             flows.append(PageBreak())
+            index += 1
+            continue
+        image_match = re.fullmatch(r"!\[([^]]*)\]\(([^)]+)\)", stripped)
+        if image_match:
+            flush_paragraph()
+            image_target = image_match.group(2).strip()
+            image_path = (ROOT / source.parent / image_target).resolve()
+            if not image_path.is_relative_to(ROOT.resolve()) or not image_path.exists():
+                raise FileNotFoundError(image_path)
+            figure = Image(str(image_path))
+            figure._restrictSize(available_width, 3.75 * inch)
+            figure.hAlign = "CENTER"
+            caption = strip_markdown(image_match.group(1))
+            figure_flows = [figure]
+            if caption:
+                figure_flows.extend(
+                    [
+                        Spacer(1, 5),
+                        Paragraph(html.escape(caption), styles["small"]),
+                    ]
+                )
+            flows.append(KeepTogether(figure_flows))
+            flows.append(Spacer(1, 10))
             index += 1
             continue
         if stripped.startswith("```"):

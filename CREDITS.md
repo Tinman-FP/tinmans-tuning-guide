@@ -17,6 +17,12 @@ The worked `20.00 mm -> 20.13 mm -> 100.65% -> 20.00 mm` dimensional example
 comes from a controlled calibration performed by William Tinney and analyzed
 with Codex in September 2026.
 
+The motion-diagnostics field photographs and physical FibreSeek experiments
+were made and supplied by William Tinney. Codex designed the controlled tests,
+audited the emitted G-code, analyzed the evidence, and authored the worked
+interpretation. The published photographs have their device and location
+metadata removed.
+
 ## Cover Artwork
 
 - The central TinmanX1 thumbnail logo is the original project icon supplied by

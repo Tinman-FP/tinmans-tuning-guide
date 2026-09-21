@@ -120,4 +120,6 @@ Glossy and dark polymers exaggerate small ridges under flash. Use diffuse and
 glancing light, touch the surface, and compare a control. Decide whether the
 surface fails the intended use, not whether one photograph can reveal a line.
 
-Finish with [Validation and Profile Release](09-validation.md).
+If the evidence changes with direction or steady wall speed, continue with
+[Motion Diagnostics](19-motion-diagnostics.md). Otherwise finish with
+[Validation and Profile Release](09-validation.md).

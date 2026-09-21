@@ -37,7 +37,8 @@ If the printer is mechanically sound and the filament is dry, use this order:
 6. [Balance cooling, bridges, and retraction](guide/06-cooling-and-retraction.md).
 7. [Correct dimensions and fit](guide/07-dimensional-accuracy.md).
 8. [Refine seams and surfaces](guide/08-seams-and-surfaces.md).
-9. [Validate and release the profile](guide/09-validation.md).
+9. [Separate acceleration, input-shaping, and VFA evidence](guide/19-motion-diagnostics.md).
+10. [Validate and release the profile](guide/09-validation.md).
 
 For a symptom-first route, use the [diagnostic matrix](guide/diagnostic-matrix.md).
 For unfamiliar terms, use the [glossary](guide/glossary.md).
@@ -122,6 +123,7 @@ defending a value for a defined setup.
 | [Multimaterial tab](guide/16-multimaterial-tab.md) | Prime towers, assignments, purge, and interlocking |
 | [Others tab](guide/17-others-tab.md) | Adhesion, special modes, output, and scripts |
 | [TinmanX1 fiber and strength tools](guide/18-tinmanx1-fiber-and-strength-tools.md) | Process, filament, and machine fiber controls |
+| [Motion diagnostics](guide/19-motion-diagnostics.md) | Acceleration towers, input shaping, VFA, and a worked field example |
 | [Diagnostic matrix](guide/diagnostic-matrix.md) | Symptom-to-cause triage |
 | [Glossary](guide/glossary.md) | Definitions and formulas |
 | [Experiment log](templates/experiment-log.md) | Reusable test record |

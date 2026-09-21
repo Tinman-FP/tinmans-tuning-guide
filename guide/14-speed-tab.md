@@ -151,4 +151,8 @@ entire model more than necessary.
 This is an advanced transition tool, not a replacement for the filament's
 maximum volumetric speed.
 
+Use [Motion Diagnostics](19-motion-diagnostics.md) when the question is whether
+texture comes from acceleration, input shaping, VFA, or hidden geometry rather
+than a single feature-speed setting.
+
 Continue with the [Support tab](15-support-tab.md).

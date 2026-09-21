@@ -6,4 +6,4 @@
 *.step
 *.stp
 *.log
-
+tmp/

@@ -39,10 +39,14 @@ revisions makes later UI changes distinguishable from errors in this edition.
 - [Line-width settings](https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_line_width)
 - [Top and bottom shell settings](https://github.com/OrcaSlicer/OrcaSlicer/wiki/strength_settings_top_bottom_shells)
 - [Infill and surface pattern reference](https://github.com/OrcaSlicer/OrcaSlicer/wiki/strength_settings_patterns)
+- [VFA calibration](https://github.com/OrcaSlicer/OrcaSlicer/wiki/vfa_calib)
 
 ## Firmware Documentation
 
 - [Klipper pressure advance](https://www.klipper3d.org/Pressure_Advance.html)
+- [Klipper resonance compensation](https://www.klipper3d.org/Resonance_Compensation.html)
+- [Klipper accelerometer-based resonance measurement](https://www.klipper3d.org/Measuring_Resonances.html)
+- [Klipper ringing-tower test model](https://github.com/Klipper3d/klipper/blob/master/docs/prints/ringing_tower.stl)
 - [Marlin Linear Advance](https://marlinfw.org/docs/features/lin_advance.html)
 
 Firmware implementations use different commands and numeric ranges. Never copy
