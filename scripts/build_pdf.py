@@ -14,6 +14,7 @@ from reportlab.lib.enums import TA_CENTER, TA_LEFT
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
+from reportlab.lib.utils import ImageReader
 from reportlab.platypus import (
     BaseDocTemplate,
     Flowable,
@@ -124,24 +125,47 @@ class GuideDocTemplate(BaseDocTemplate):
 
 
 class FullPageCover(Flowable):
-    def __init__(self, image_path: Path, page_width: float, page_height: float, frame_height: float):
+    def __init__(
+        self,
+        image_path: Path,
+        page_width: float,
+        page_height: float,
+        frame_height: float,
+        left_margin: float,
+        bottom_margin: float,
+    ):
         super().__init__()
         self.image_path = image_path
         self.page_width = page_width
         self.page_height = page_height
+        self.left_margin = left_margin
+        self.bottom_margin = bottom_margin
         self.width = 1
         self.height = frame_height
 
     def draw(self):
+        image_width, image_height = ImageReader(str(self.image_path)).getSize()
+        rendered_height = self.page_width
+        scale = rendered_height / image_height
+        rendered_width = image_width * scale
+        page_x = -self.left_margin
+        page_y = -self.bottom_margin
+        image_x = page_x + (self.page_width - rendered_width) / 2
+        image_y = page_y + (self.page_height - rendered_height) / 2
+
+        self.canv.saveState()
+        self.canv.setFillColor(colors.HexColor("#181F26"))
+        self.canv.rect(page_x, page_y, self.page_width, self.page_height, stroke=0, fill=1)
         self.canv.drawImage(
             str(self.image_path),
-            -0.72 * inch,
-            -0.68 * inch,
-            width=self.page_width,
-            height=self.page_height,
-            preserveAspectRatio=False,
+            image_x,
+            image_y,
+            width=rendered_width,
+            height=rendered_height,
+            preserveAspectRatio=True,
             mask="auto",
         )
+        self.canv.restoreState()
 
 
 def build_styles():
@@ -537,7 +561,14 @@ def build_pdf(output: Path):
     )
     story = []
     cover = ROOT / "assets" / "tinmans-tuning-guide-cover.png"
-    story.append(FullPageCover(cover, letter[0], letter[1], doc.height))
+    story.append(FullPageCover(
+        cover,
+        letter[0],
+        letter[1],
+        doc.height,
+        doc.leftMargin,
+        doc.bottomMargin,
+    ))
     story.append(PageBreak())
     story.append(Spacer(1, 0.55 * inch))
     story.append(Paragraph("Tinmans Tuning Guide", styles["front_title"]))
