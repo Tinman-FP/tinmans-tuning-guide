@@ -127,7 +127,37 @@ test remained controlled because the value stayed fixed across every speed
 band, but the record had to use the live value. Do not infer active motion
 state from the first matching command in a file.
 
-![Broad X-marked face of the same acceleration tower. The smooth, registered wall contrasts with the geometry-dependent echoes and motivates a speed-dependent VFA test instead of another global flow change.](../assets/field-tests/fibreseek-acceleration-tower-x-face.jpeg)
+### Physical VFA result
+
+The printed sweep resolved a useful quality window. Read this particular
+artifact by height: the final file changed every outer wall from `20` to
+`80 mm/s` in 5 mm bands from bottom to top. The embossed speed numbers around
+the base came from the source model and did not identify the active speed of
+each vane after postprocessing.
+
+Under both diffuse and glancing light, the coarsest repeating texture appeared
+from `30-50 mm/s`. The `60 mm/s` band improved, while `70-80 mm/s` formed the
+broadest quiet region. The result was also direction-sensitive: some vane
+orientations displayed the pattern much more strongly than others at the same
+height. That combination supports a speed-dependent motion interaction rather
+than random moisture, global flow error, or Z-axis banding.
+
+![The most revealing vane orientation shows coarse texture in the lower and middle speed bands, followed by a quieter upper region. Read the bands from bottom to top, not from the embossed base labels.](../assets/field-tests/fibreseek-vfa-noisy-orientation.jpeg)
+
+The selected candidate was `70 mm/s`, with acceleration held at
+`1200 mm/s2`. Although `80 mm/s` was often visually competitive, its nominal
+flow request was `14.4 mm3/s` against a recorded `15 mm3/s` material limit.
+Choosing `70 mm/s` preserved more melt-flow margin and followed the rule of
+using the middle of a broad quiet region. The value remained a candidate until
+confirmed on the original curved cover.
+
+![A differently oriented vane is quieter through much of the same height, showing why every major face must be inspected before choosing a VFA band.](../assets/field-tests/fibreseek-vfa-quiet-orientation.jpeg)
+
+Do not score the unsupported free-edge loops as broad-wall VFA. The thin test
+edge and abrupt speed changes can expose pressure and corner-velocity
+transients that are not representative of a closed production wall. Judge the
+field away from the edge, then validate the selected speed on the real
+geometry.
 
 This example is evidence about one machine, material, nozzle, and setup. Its
 numbers are not universal recommendations. The reusable lesson is the decision

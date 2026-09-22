@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Added a photographed FibreSeek VFA case study that selects `70 mm/s` as a
+  provisional outer-wall candidate and explains orientation and free-edge
+  artifacts.
 - Use the guide's body typeface for plain-language examples, formulas, acceptance
   criteria, and worksheet fields while reserving monospace type for actual code.
 - Correct bullet and numbered-list alignment and tighten list spacing for faster
