@@ -148,8 +148,7 @@ The selected candidate was `70 mm/s`, with acceleration held at
 `1200 mm/s2`. Although `80 mm/s` was often visually competitive, its nominal
 flow request was `14.4 mm3/s` against a recorded `15 mm3/s` material limit.
 Choosing `70 mm/s` preserved more melt-flow margin and followed the rule of
-using the middle of a broad quiet region. The value remained a candidate until
-confirmed on the original curved cover.
+using the middle of a broad quiet region.
 
 ![A differently oriented vane is quieter through much of the same height, showing why every major face must be inspected before choosing a VFA band.](../assets/field-tests/fibreseek-vfa-quiet-orientation.jpeg)
 
@@ -158,6 +157,42 @@ edge and abrupt speed changes can expose pressure and corner-velocity
 transients that are not representative of a closed production wall. Judge the
 field away from the edge, then validate the selected speed on the real
 geometry.
+
+### Representative-part confirmation
+
+The same machine then printed the original curved cover with only the normal
+outer-wall speed changed from `48` to `70 mm/s`. First-layer walls retained
+their original speed, acceleration remained `1200 mm/s2`, pressure advance
+remained `0.025`, and the production nozzle, layer height, line width,
+temperature, cooling schedule, wall order, flow, and input shaping were held
+constant. The uploaded and downloaded G-code matched byte-for-byte, and live
+firmware state confirmed the intended contract during the print.
+
+![The completed production cover on the printer bed. This representative geometry, rather than the calibration tower alone, confirmed the selected wall-speed range.](../assets/field-tests/fibreseek-back-cover-70-overall.jpeg)
+
+The broad repeating texture on the production curves was substantially reduced.
+That confirmed `70 mm/s` as the production outer-wall value for this exact
+machine, material, `0.6 mm` nozzle, `0.30 mm` layer, and `0.60 mm` line-width
+profile. It is not a general maximum or a universal FibreSeek setting.
+
+![The curved collar is smooth through most of its height after the 70 mm/s representative validation, confirming that the broad VFA was speed-dependent.](../assets/field-tests/fibreseek-back-cover-70-curved-wall.jpeg)
+
+One horizontal texture and gloss band remained on a tall wall. Toolpath review
+showed no change to that wall's XY geometry or commanded outer-wall speed at
+the band. Other regions on the same layers changed from wall-dominated motion
+to solid infill, bridge, and top-surface work; layer time fell and normal fan
+commands increased. That makes cooling and layer context the stronger next
+hypothesis.
+
+![A localized horizontal band remains even though the broad curved-wall VFA improved. Treat this as a layer-context or cooling transition, not proof that the XY curve needs finer Z layers.](../assets/field-tests/fibreseek-back-cover-layer-transition-band.jpeg)
+
+Adaptive layer height is not the right first tool for this vertical curve.
+The curve is traced in XY on every layer, so changing Z height does not add XY
+facets or correct a speed-dependent wall texture. Adaptive layers help sloped
+or curved surfaces whose shape changes with Z. For this residual band, keep
+geometry and motion fixed and run a one-variable cooling comparison instead.
+The next validation therefore holds ordinary part cooling at 20% while
+preserving the original 100% bridge-fan pulses and fan-off commands.
 
 This example is evidence about one machine, material, nozzle, and setup. Its
 numbers are not universal recommendations. The reusable lesson is the decision

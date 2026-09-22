@@ -2,9 +2,12 @@
 
 ## Unreleased
 
-- Added a photographed FibreSeek VFA case study that selects `70 mm/s` as a
-  provisional outer-wall candidate and explains orientation and free-edge
-  artifacts.
+- Expanded the photographed FibreSeek VFA case study with representative-part
+  confirmation, releasing `70 mm/s` for the documented machine/profile and
+  separating the remaining layer-context band from broad VFA.
+- Added production-cover photographs, a toolpath-based cooling diagnosis, and
+  guidance explaining why adaptive layer height does not correct vertical XY
+  curves.
 - Use the guide's body typeface for plain-language examples, formulas, acceptance
   criteria, and worksheet fields while reserving monospace type for actual code.
 - Correct bullet and numbered-list alignment and tighten list spacing for faster
