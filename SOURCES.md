@@ -4,7 +4,7 @@ This guide favors official documentation and well-documented experimental work.
 Pages can change over time, so record the access date when using a source for a
 formal experiment or publication.
 
-Last source review: 2026-10-07.
+Last source review: 2026-10-08.
 
 ## Prusa Research
 
@@ -71,6 +71,28 @@ a pressure-advance value between firmware families without recalibrating.
 These authors emphasize empirical testing and distinguish melt-capacity limits
 from commanded extrusion. Their exact methods and conclusions should be read at
 the source before reproducing a formal benchmark.
+
+## Dimensional Metrology and Test Artifacts
+
+- **FDM Assessment Protocol — Kickstarter/Autodesk project.**
+  [Primary repository and protocol](https://github.com/kickstarter/kickstarter-autodesk-3d/tree/master/FDM-protocol).
+  Used here as the credited source for the tiered X/Y measurement concept and
+  the warning that a meaningful X-versus-Y difference needs investigation.
+- **Calistar (formerly Fleur de Cali) — `dirtdigger`.**
+  [Primary repository, worksheet, and GPL-3.0 license](https://github.com/dirtdigger/fleur_de_cali).
+  Used here as the credited source for the multi-point dimensionality/skew
+  artifact and matched inner/outer measurement approach. Calistar models and
+  worksheets remain the author's work; this repository neither republishes nor
+  modifies them.
+- **Teaching Tech Calibration Guide — Teaching Tech.**
+  [Primary calibration guide](https://teachingtechyt.github.io/calibration).
+  Used here as the credited source for the distinction between commanded raw
+  motion measured with rigid metrology and dimensions of printed plastic.
+
+These sources distinguish characterization of a cooled printed part from
+calibration of commanded machine motion. Use their models and worksheets under
+their respective licenses and retain their attribution; this repository does
+not redistribute them.
 
 ## Motion-System Mechanics
 

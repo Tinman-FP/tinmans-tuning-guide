@@ -20,6 +20,33 @@ Measurement protocol:
    uncertainty.
 7. Include external and internal features.
 
+## Choose the Test by the Question
+
+No one print can establish every kind of geometric accuracy. Use the artifact
+that separates the suspected causes instead of applying a correction from the
+most convenient print.
+
+| Question | Appropriate evidence | Do not conclude |
+| --- | --- | --- |
+| Is the printer broadly producing a clean, recognizable part? | A Benchy or another geometry-rich benchmark; inspect hull, bridges, text, holes, overhangs, seams, and ringing. | That one Benchy dimension proves axis calibration or a global scale value. |
+| Is cooled-part size proportional over several sizes? | A tiered dimensional stack with several nominal X/Y lengths; record the signed X and Y results for every tier. | That a single 20 mm cube is enough to distinguish flow, contour width, shrinkage, or motion. |
+| Are X/Y scale, skew, and flow-related contour offset separable? | A purpose-built multi-point grid such as the open-source Calistar pattern; measure matched outer and inner spans at every marked location. | That a shared XY shrinkage value is valid when the axes disagree. |
+| Does the machine move the commanded distance? | A dial indicator or other rigid external metrology while commanding raw axis motion. | That a printed plastic feature alone justifies changing rotation distance or steps. |
+
+The [Kickstarter/Autodesk FDM assessment protocol](https://github.com/kickstarter/kickstarter-autodesk-3d/tree/master/FDM-protocol)
+is a useful tiered reference: it asks for separate X and Y measurements at
+multiple nominal sizes and explicitly compares the axis averages. Its published
+scoring conditions use a controlled PLA material; a PCTG run is still valuable
+as a machine-and-material characterization, but its score is not comparable to
+that PLA reference.
+
+Benchy is an excellent diagnostic artifact, not a dimensional-compensation
+calculator. Its nominal `60 × 31 × 48 mm` envelope is a useful reference, but
+the hull/deck transition, wall sequencing, infill support, cooling, and line
+width make it the wrong sole basis for changing machine motion or a whole-model
+scale. Treat a localized hull line as a model/thermal diagnostic unless the
+same periodic or directional error appears on a separate artifact.
+
 ## Classify the Error Model
 
 ### Proportional material scale error
@@ -46,6 +73,23 @@ changes. Do not scale the entire model.
 
 Investigate belts, squareness, mechanics, axis-specific motion, cooling
 direction, and measurement method before applying one shared material value.
+
+### Opposite-signed X/Y error is a stop condition
+
+If one axis is long while the other is short, do **not** apply a shared XY
+shrinkage value, global model scale, or a flow change. A common proportional
+correction cannot make `X = nominal + error` and `Y = nominal - error` both
+better. First run a multi-size or multi-point XY artifact, keep the material
+profile unchanged, and inspect belt path/tension, gantry squareness, motion
+repeatability, cooling direction, and the measurement method. Only then decide
+whether the result is a motion issue, skew, a persistent contour offset, or
+material behavior.
+
+For example, a Benchy whose length is `+0.50 mm` from its nominal reference
+while width is `-0.50 mm` is evidence for an axis-specific follow-up test, not
+evidence for a `+/- 0.5 mm` slicer-scale edit. Record the signed readings;
+averaging their magnitudes would hide the diagnostic fact that the signs
+disagree.
 
 ## Proportional Compensation Formula
 
@@ -130,4 +174,3 @@ do not bake a calibration transform into a project and apply the same profile
 correction again.
 
 With geometry credible, refine [Seams and Surfaces](08-seams-and-surfaces.md).
-

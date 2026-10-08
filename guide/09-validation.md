@@ -16,6 +16,13 @@ surface defects.
 Checks X, Y, and Z scale, external contours, several hole sizes, elephant foot,
 and at least one functional clearance.
 
+Use more than one dimensional artifact when the symptom crosses categories. A
+Benchy is a strong geometry-and-surface diagnostic but is not a substitute for
+a multi-size dimensional stack, a multi-point XY/skew grid, or raw dial-gauge
+motion verification. Preserve signed X and Y readings rather than reporting
+only absolute error; opposite signs require an axis-specific investigation
+before any global compensation is accepted.
+
 ### 3. Geometry artifact
 
 Checks bridges, overhangs, small towers, text, curves, corners, and travel
