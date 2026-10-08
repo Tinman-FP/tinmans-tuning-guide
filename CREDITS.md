@@ -57,6 +57,19 @@ device and location metadata removed.
 - **The PrusaSlicer and SuperSlicer contributors** for the slicer features and
   calibration lineage inherited by later open-source slicers.
 
+## Third-Party Figure Assets
+
+- **Calistar (formerly Fleur de Cali) by dirtdigger** for the GPL-3.0
+  measurement-layout SVG reproduced as a raster figure in the dimensional
+  accuracy chapter. The original SVG and its GPL-3.0 notice are retained in
+  `assets/third-party/calistar/`; those files are not relicensed under this
+  guide's CC BY 4.0 license.
+- **Adam Meadows / Vector 3D** for the official
+  [Califlower Calibration Tool Mk2](https://vector3d.shop/products/califlower-calibration-tool-mk2)
+  reference. Califlower is a separately licensed commercial product; this
+  guide names and links it as an alternative but reproduces none of its files
+  or instructions.
+
 Specific links are collected in [SOURCES.md](SOURCES.md).
 
 ## Attribution Policy

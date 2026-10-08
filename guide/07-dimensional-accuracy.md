@@ -33,6 +33,28 @@ most convenient print.
 | Are X/Y scale, skew, and flow-related contour offset separable? | A purpose-built multi-point grid such as the open-source Calistar pattern; measure matched outer and inner spans at every marked location. | That a shared XY shrinkage value is valid when the axes disagree. |
 | Does the machine move the commanded distance? | A dial indicator or other rigid external metrology while commanding raw axis motion. | That a printed plastic feature alone justifies changing rotation distance or steps. |
 
+<!-- pdf:page-break-before -->
+
+### Calistar 120 x 3 measurement layout
+
+![Calistar 120 x 3 measurement map. Blue arrows identify outer measurements; red arrows identify inner measurements. Record X1 through X3, Y1 through Y3, and both diagonal directions.](../assets/third-party/calistar/measurement-locations-120x3.png)
+
+**Figure attribution and license.** This figure is rendered from the original,
+unmodified SVG measurement map from
+[Calistar (formerly Fleur de Cali) by dirtdigger](https://github.com/dirtdigger/fleur_de_cali).
+It is distributed with the Calistar project under GPL-3.0; the source SVG and
+a copy of that license are included in this repository at
+`assets/third-party/calistar/` and are **not** relicensed under this guide's
+CC BY 4.0 license. The PNG above is only a white-background raster rendering
+for this PDF. Calistar is an independent, open-source tool; use its models and
+worksheet under the project's own license and attribution terms.
+
+**Commercial alternative credit.** The separately licensed, paid
+[Califlower Calibration Tool Mk2 by Adam Meadows / Vector 3D](https://vector3d.shop/products/califlower-calibration-tool-mk2)
+is the official for-profit product commonly associated with this style of
+dimensional-and-skew calibration. It is not the source of the Calistar diagram
+above, and no Califlower files or instructions are reproduced in this guide.
+
 The [Kickstarter/Autodesk FDM assessment protocol](https://github.com/kickstarter/kickstarter-autodesk-3d/tree/master/FDM-protocol)
 is a useful tiered reference: it asks for separate X and Y measurements at
 multiple nominal sizes and explicitly compares the axis averages. Its published

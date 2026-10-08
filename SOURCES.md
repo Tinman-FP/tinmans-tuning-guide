@@ -82,17 +82,25 @@ the source before reproducing a formal benchmark.
   [Primary repository, worksheet, and GPL-3.0 license](https://github.com/dirtdigger/fleur_de_cali).
   Used here as the credited source for the multi-point dimensionality/skew
   artifact and matched inner/outer measurement approach. Calistar models and
-  worksheets remain the author's work; this repository neither republishes nor
-  modifies them.
+  worksheets remain the author's work. This repository includes only the
+  separately identified, unmodified GPL-3.0 measurement-layout SVG and its
+  PDF rendering in `assets/third-party/calistar/`; it does not reproduce the
+  Calistar models or worksheet.
 - **Teaching Tech Calibration Guide — Teaching Tech.**
   [Primary calibration guide](https://teachingtechyt.github.io/calibration).
   Used here as the credited source for the distinction between commanded raw
   motion measured with rigid metrology and dimensions of printed plastic.
+- **Califlower Calibration Tool Mk2 — Adam Meadows / Vector 3D.**
+  [Official paid product page](https://vector3d.shop/products/califlower-calibration-tool-mk2).
+  Listed as a separately licensed commercial option for dimensional-and-skew
+  calibration. It is not the source of the Calistar measurement diagram and
+  none of its files or instructions are reproduced here.
 
 These sources distinguish characterization of a cooled printed part from
 calibration of commanded machine motion. Use their models and worksheets under
-their respective licenses and retain their attribution; this repository does
-not redistribute them.
+their respective licenses and retain their attribution. Except for the
+explicitly identified GPL-3.0 figure assets, this repository does not
+redistribute their files.
 
 ## Motion-System Mechanics
 
