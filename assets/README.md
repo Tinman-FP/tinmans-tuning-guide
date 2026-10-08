@@ -28,3 +28,14 @@ replaced.
 The circular title composition, calibration-ring motif, typography, and layout
 were created by Codex, OpenAI, at William Tinney's direction.
 
+## Field-Test Photographs
+
+The photographs under `assets/field-tests/` were supplied by William Tinney
+from the documented tuning sessions. They are retained as experimental
+evidence and are captioned with the scope of the result. In particular:
+
+- `fibreseek-seam-mismatched-0p6-staggered.jpeg` records a rejected seam trial
+  made under an incorrect `0.6 mm` process assumption. It is diagnostic
+  evidence, not an accepted profile result.
+- `fibreseek-seam-corrected-0p4.jpeg` records the same geometry after restoring
+  the correct `0.4 mm` plastic-tool baseline.

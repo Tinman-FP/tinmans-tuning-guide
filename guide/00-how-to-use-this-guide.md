@@ -17,6 +17,23 @@ Keep these categories separate:
 A symptom can cross categories, but a correction should live where its cause
 lives. A single spool should not redefine the machine's X-axis calibration.
 
+Values in the filament layer are still machine-specific unless independently
+validated elsewhere. PA, MVS, retraction, cooling response, and temperature
+under flow can change with the extruder, hotend, nozzle, and enclosure. Use a
+separate compatibility-gated filament profile for each proven
+machine/tool/nozzle combination.
+
+## Prove the Test Identity
+
+One-variable testing is meaningful only after the baseline identity is true.
+The physical tool and nozzle, printer profile, filament profile, process
+geometry, and final G-code must agree. A familiar preset name or settings-panel
+screenshot proves intent, not execution.
+
+Run the [profile-integrity gate](20-profile-integrity-and-experimental-resets.md)
+before the first calibration and after nozzle, hotend, firmware, slicer, or
+profile changes.
+
 ## Define the Question Before Printing
 
 A useful test begins with one sentence:
@@ -85,6 +102,11 @@ Use four result states:
 
 The [experiment log](../templates/experiment-log.md) captures the minimum useful
 record.
+
+If a later audit finds that the wrong nozzle, tool, or resolved profile was
+used, preserve the observation but change its status to `rejected - invalid
+baseline`. Such a trial can show how a control influences a defect, but its
+numerical value cannot be promoted to the intended profile.
 
 <!-- pdf:page-break-before -->
 

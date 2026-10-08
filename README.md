@@ -30,15 +30,16 @@ names vary, but the physical problems are the same.
 If the printer is mechanically sound and the filament is dry, use this order:
 
 1. [Define the baseline](guide/01-foundations.md).
-2. [Condition the filament and tune temperature](guide/02-conditioning-and-temperature.md).
-3. [Find a safe maximum volumetric flow](guide/03-volumetric-flow.md).
-4. [Tune pressure or linear advance](guide/04-pressure-advance.md).
-5. [Tune global and feature-specific flow](guide/05-flow-ratio.md).
-6. [Balance cooling, bridges, and retraction](guide/06-cooling-and-retraction.md).
-7. [Correct dimensions and fit](guide/07-dimensional-accuracy.md).
-8. [Refine seams and surfaces](guide/08-seams-and-surfaces.md).
-9. [Separate acceleration, input-shaping, and VFA evidence](guide/19-motion-diagnostics.md).
-10. [Validate and release the profile](guide/09-validation.md).
+2. [Verify profile, tool, and nozzle identity](guide/20-profile-integrity-and-experimental-resets.md).
+3. [Condition the filament and tune temperature](guide/02-conditioning-and-temperature.md).
+4. [Find a safe maximum volumetric flow](guide/03-volumetric-flow.md).
+5. [Tune pressure or linear advance](guide/04-pressure-advance.md).
+6. [Tune global and feature-specific flow](guide/05-flow-ratio.md).
+7. [Balance cooling, bridges, and retraction](guide/06-cooling-and-retraction.md).
+8. [Correct dimensions and fit](guide/07-dimensional-accuracy.md).
+9. [Refine seams and surfaces](guide/08-seams-and-surfaces.md).
+10. [Separate acceleration, input-shaping, and VFA evidence](guide/19-motion-diagnostics.md).
+11. [Validate and release the profile](guide/09-validation.md).
 
 For a symptom-first route, use the [diagnostic matrix](guide/diagnostic-matrix.md).
 For unfamiliar terms, use the [glossary](guide/glossary.md).
@@ -66,14 +67,15 @@ pressure response, stringing, and layer adhesion. A pressure-advance change can
 alter corners and seams. Dimensional compensation should therefore come after
 the extrusion system is stable.
 
-## Four Rules That Prevent Most Tuning Mistakes
+## Five Rules That Prevent Most Tuning Mistakes
 
-1. Change one causal variable at a time after any broad search.
-2. Keep a control sample and record the complete conditions.
-3. Tune extrusion quality before dimensional compensation.
-4. Use the setting that matches the error model.
+1. Verify the physical tool, nozzle, resolved profiles, and final G-code agree.
+2. Change one causal variable at a time after any broad search.
+3. Keep a control sample and record the complete conditions.
+4. Tune extrusion quality before dimensional compensation.
+5. Use the setting that matches the error model.
 
-That fourth rule is crucial:
+That fifth rule is crucial:
 
 - Use flow ratio to correct how much material is deposited.
 - Use pressure advance to correct pressure lag during speed changes.
@@ -124,6 +126,7 @@ defending a value for a defined setup.
 | [Others tab](guide/17-others-tab.md) | Adhesion, special modes, output, and scripts |
 | [TinmanX1 fiber and strength tools](guide/18-tinmanx1-fiber-and-strength-tools.md) | Process, filament, and machine fiber controls |
 | [Motion diagnostics](guide/19-motion-diagnostics.md) | Acceleration towers, input shaping, VFA, and a worked field example |
+| [Profile integrity and experimental resets](guide/20-profile-integrity-and-experimental-resets.md) | Tool/nozzle identity, false baselines, machine-specific profiles, and a photographed FibreSeek reset |
 | [Diagnostic matrix](guide/diagnostic-matrix.md) | Symptom-to-cause triage |
 | [Glossary](guide/glossary.md) | Definitions and formulas |
 | [Experiment log](templates/experiment-log.md) | Reusable test record |

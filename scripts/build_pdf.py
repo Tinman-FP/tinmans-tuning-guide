@@ -59,6 +59,7 @@ DOCUMENTS = [
     ("Others Tab", Path("guide/17-others-tab.md")),
     ("TinmanX1 Fiber and Strength Tools", Path("guide/18-tinmanx1-fiber-and-strength-tools.md")),
     ("Motion Diagnostics", Path("guide/19-motion-diagnostics.md")),
+    ("Profile Integrity and Experimental Resets", Path("guide/20-profile-integrity-and-experimental-resets.md")),
     ("Diagnostic Matrix", Path("guide/diagnostic-matrix.md")),
     ("Glossary", Path("guide/glossary.md")),
     ("Experiment Log", Path("templates/experiment-log.md")),

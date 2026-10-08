@@ -12,6 +12,8 @@ inspection of the machine baseline.
 | Bulged non-seam corners | PA low | acceleration, wall order | global flow alone |
 | Starved approach to corners | PA high | flow transitions, MVS | retraction alone |
 | One vertical scar | seam transition | PA, retraction, wipe, gap | whole-model flow |
+| Seam changes move or spread a broad defect | tool/nozzle/profile mismatch | resolved widths, layer height, final G-code | more scarf or stagger variables |
+| Several scars after staggering | one transition error distributed across walls | aligned baseline, nozzle identity, PA | randomizing again |
 | Ringing after corners | input shaping, belts, rigidity | acceleration | flow ratio |
 | Random pits or bubbles | moisture, contamination | temperature, nozzle debris | seam placement |
 | Fine hairs everywhere | moisture, temperature | retraction, travel | dimensions |
@@ -42,7 +44,8 @@ When several symptoms appear together:
 
 1. Stop for unsafe motion, thermal faults, collisions, or severe adhesion loss.
 2. Check filament dryness and nozzle condition.
-3. Confirm machine baseline and active profile.
+3. Confirm the physical tool/nozzle, machine baseline, resolved profiles, and
+   final G-code agree.
 4. Determine whether the defect is global, feature-specific, speed-dependent,
    directional, layer-dependent, or localized to a seam.
 5. Run the smallest test that isolates the leading cause.
@@ -57,6 +60,8 @@ When several symptoms appear together:
 - **Transition-localized:** appears at corners, starts, stops, or seams.
 - **Bottom-only:** first-layer/Z/bed interaction.
 - **Geometry-specific:** holes, bridges, overhangs, or top surfaces only.
+- **Identity-dependent:** appears after a tool, nozzle, firmware, slicer, or
+  profile change and resists ordinary one-variable tuning.
 
 This classification often identifies the correct settings family before a
 single value is changed.

@@ -47,6 +47,24 @@ less concentrated but hide a systematic error.
 Change one control at a time because several of these alter the same material
 transition.
 
+## Know When to Reset the Baseline
+
+If several seam controls only move, lengthen, or multiply the disturbed region,
+stop changing seam values. Reconfirm the physical nozzle, selected tool,
+resolved line widths, layer height, PA, and final G-code. A false nozzle or tool
+baseline can make scarf and stagger experiments look active without making any
+of their numerical results valid.
+
+Use aligned seams during diagnosis. Staggering can distribute one transition
+error into several wall regions and make cause and effect harder to read. A
+scarf can likewise spread an incorrect pressure or geometry transition instead
+of curing it.
+
+The photographed [FibreSeek seam reset](20-profile-integrity-and-experimental-resets.md#worked-fibreseek-seam-reset)
+shows this pattern: a broad disturbed region survived many cosmetic controls,
+then collapsed to one narrow seam when the actual `0.4 mm` nozzle and matching
+process geometry were restored.
+
 ## Scarf Seams
 
 A scarf seam spreads a layer transition over a distance instead of placing the

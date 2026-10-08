@@ -64,15 +64,29 @@ A single cube cannot validate all of these.
 
 Before a final release, inspect the sliced result for:
 
-- selected tool and nozzle;
+- selected physical tool and nozzle, not only the preset label;
 - bed mesh and offset behavior;
 - temperature transitions;
 - fan commands and chamber behavior;
 - PA or Linear Advance commands;
 - flow and feature-specific overrides;
 - actual volumetric-flow range;
+- layer heights and line widths consistent with the installed nozzle;
 - model scaling and compensation;
+- unexpected auxiliary, fiber, or tool-change commands;
 - unintended calibration-mode commands.
+
+Where the machine exposes live state, compare the important emitted commands
+with the effective firmware values after printing begins. The last writer wins;
+an earlier start-G-code command can be replaced by a later slicer command.
+
+For a networked multi-tool printer, extend this review to the complete job
+lifecycle. Confirm the uploaded file path, perform a real home before launch,
+and audit not only the start tool but every load, purge, cutter, tool-change,
+and unload command through the end block. Then verify the remote printer's
+active filename, selected tool, temperatures, PA, and job progress after it
+starts. A control request timing out does not establish its outcome; live state
+is the authoritative record.
 
 ## Version the Profile
 
@@ -87,6 +101,15 @@ Record:
 
 Never overwrite the only known-good profile during experimentation. Duplicate
 it, mark the new copy `candidate`, and promote it after validation.
+
+Keep tuned filament profiles machine-specific. Include the machine, tool/nozzle,
+purpose, and revision in the name or metadata, and restrict compatibility to
+the matching printer definition. Preserve the generic or supplier profile as
+an untouched reference.
+
+A visually improved coupon is still a candidate. Promote it only after a clean
+project reproduces the slice and a representative functional part passes its
+dimensional, fit, surface, and strength requirements.
 
 ## Regression Triggers
 
@@ -105,4 +128,3 @@ Use the [profile release checklist](../templates/profile-release-checklist.md).
 A released profile should state what it is optimized for: visual quality,
 balanced use, speed, strength, dimensional work, or a specific process. One
 profile does not need to win every tradeoff.
-

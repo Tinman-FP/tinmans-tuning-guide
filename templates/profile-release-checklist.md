@@ -4,10 +4,15 @@
 
 - [ ] Filament identity, color, lot, and condition are recorded.
 - [ ] Printer, tool, nozzle, firmware, and slicer versions are recorded.
+- [ ] The installed physical tool and nozzle match the printer definition.
+- [ ] Resolved layer heights and line widths are credible for that nozzle.
+- [ ] The filament profile is compatibility-gated to this machine/tool/nozzle.
 - [ ] Parent printer and process profiles are identified.
 - [ ] Every promoted value links to an accepted experiment.
 - [ ] Project files, final G-code, photos, and measurements are preserved.
 - [ ] Profile purpose and known limitations are stated.
+- [ ] Each physical print used an isolated slicer session/project, with no
+      concurrent-printer state carried into the job.
 
 ## Calibration Order
 
@@ -36,6 +41,14 @@
 - [ ] Mechanical comparison passes where strength matters.
 - [ ] G-code review confirms the expected tool, temperatures, fans, PA, flow,
       MVS, mesh, offsets, and compensation.
+- [ ] G-code contains no unintended tool-change, fiber, auxiliary, or
+      calibration commands.
+- [ ] Start, transition, and end G-code map every load, purge, cutter, and
+      unload operation to the intended physical tool path.
+- [ ] The printer was homed before launch and live state confirms the intended
+      uploaded file is executing.
+- [ ] Important emitted commands agree with effective live firmware state where
+      that state is available.
 - [ ] A clean project reproduces the result without calibration overrides.
 
 ## Release

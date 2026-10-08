@@ -74,6 +74,17 @@ Create or duplicate a known working printer profile. Record:
 Calibration generators can leave temporary overrides in a project. Start a
 fresh project after using them and verify the resulting G-code.
 
+### Nozzle and profile identity gate
+
+Do not infer nozzle diameter from the profile name. Verify the installed tool,
+the printer definition, process line widths, and emitted G-code as separate
+pieces of evidence. If they disagree, stop tuning and follow [Profile Integrity
+and Experimental Resets](20-profile-integrity-and-experimental-resets.md).
+
+A wrong nozzle assumption can make PA, seam, retraction, line-width, and flow
+experiments appear internally consistent while every accepted number belongs
+to a setup that does not physically exist.
+
 ## Filament Identity
 
 Give each profile a precise identity:
@@ -100,5 +111,8 @@ Before advanced tuning, print a simple artifact that includes:
 The purpose is not perfection. It confirms that the printer can complete a
 controlled test and reveals obvious mechanical or thermal faults.
 
-Proceed to [Conditioning and Temperature](02-conditioning-and-temperature.md).
+If probing, homing, nozzle condition, or tool selection is not repeatable, log
+that as a machine event and suspend filament tuning. Do not count failed starts
+or hardware faults as material outcomes.
 
+Proceed to [Conditioning and Temperature](02-conditioning-and-temperature.md).

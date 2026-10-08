@@ -2,6 +2,24 @@
 
 ## Unreleased
 
+- Added networked multi-tool workflow controls: one isolated slicer session per
+  physical print, a required pre-launch home, live-state confirmation after
+  upload, and complete start-to-end tool-path auditing.
+- Clarified that a bridge-focused artifact is required to validate bridge
+  cooling and that bridge-only stress overrides must not silently replace
+  normal production cooling.
+
+- Added a photographed FibreSeek profile-integrity case study showing how an
+  assumed `0.6 mm` process produced misleading seam experiments and how the
+  verified `0.4 mm` baseline collapsed the broad disturbance to one narrow seam.
+- Added a four-identity preflight gate covering the physical machine, printer
+  profile, machine-specific filament profile, process, and final G-code.
+- Added an experimental-reset procedure that preserves useful negative results
+  while preventing values from an invalid baseline from entering a released
+  profile.
+- Expanded seam diagnosis, validation, the diagnostic matrix, and the release
+  checklist with nozzle/profile mismatch, machine-specific compatibility, and
+  unintended tool or fiber-command checks.
 - Expanded the photographed FibreSeek VFA case study with representative-part
   confirmation, releasing `70 mm/s` for the documented machine/profile and
   separating the remaining layer-context band from broad VFA.

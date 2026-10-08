@@ -66,6 +66,20 @@ Tune them as a feature after general temperature and cooling are credible.
 
 Test the span lengths and directions that matter to the actual part.
 
+### Keep Bridge Evidence Separate from Normal Cooling
+
+A tall temperature or flow tower may contain occasional bridging, but it does
+not replace a bridge-focused artifact. Use a compact bridge model with known
+span, line direction, and anchor geometry after temperature, MVS, PA, and flow
+are credible. Record the bridge-fan and bridge-speed overrides separately from
+the normal part-cooling value.
+
+It is valid to use an aggressive bridge-only fan setting to find the geometry
+limit while keeping a lower normal fan value for layer bonding. Do not silently
+copy that stress-test fan value into a production profile. After choosing a
+bridge setting, confirm it on a representative part at the intended chamber
+condition.
+
 ## Retraction Purpose
 
 Retraction temporarily relieves or removes material from the nozzle entrance
@@ -120,4 +134,3 @@ Too much retraction can create:
 
 Once deposited geometry and travel behavior are stable, move to
 [Dimensional Accuracy](07-dimensional-accuracy.md).
-
