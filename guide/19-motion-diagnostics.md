@@ -187,7 +187,7 @@ before state, change one identified condition, re-run any motion compensation
 invalidated by that change, and repeat the same final G-code. A compact
 `0/45/90/135` degree control provides both equal-loop and isolated-loop views.
 
-#### Bounded field finding: GT1.5 conversion
+### Bounded field finding: GT1.5 conversion
 
 One controlled CORE One L-to-L+ investigation used GT1.5 belts, 21-tooth motor
 pulleys, and byte-identical `40-160 mm/s` VFA G-code across repeated prints.
@@ -196,12 +196,23 @@ maximum volumetric flow had been settled. Gantry squaring, belt tuning, phase
 stepping, input shaping, homing, Z alignment, and load-cell checks did not
 remove the direction-dependent face waves.
 
+The three photographs below are from the same completed job and the same final
+G-code. Read each wall from the lower `40 mm/s` band toward the upper
+`160 mm/s` band. Lighting and camera angle differ, so use them to compare onset
+and pattern family rather than to calculate a numerical amplitude ratio.
+
+![The 90 degree wall loads both CoreXY loops equally. Its lower bands are comparatively calm, while broad diagonal waves become prominent through the upper, faster bands.](../assets/field-tests/prusa-core-one-lplus-vfa-both-loops-90deg.jpeg)
+
 Axis-aligned walls were worst in the `130-160 mm/s` bands. With `1.50 mm`
 pitch, those speeds produce `86.7-106.7 Hz` tooth pass; the `130` and
 `140 mm/s` bands produce `86.7` and `93.3 Hz`, inside the machine's documented
 `85-95 Hz` belt-tuning range. The isolated `45` degree face began showing the
 same family around `90-100 mm/s`, close to the `90.2-100.8 mm/s` range predicted
 by the `sqrt(2)` loop-speed shift.
+
+![The actual 45 degree wall isolates one loop in the ideal CoreXY transform. The broad packets begin at a lower Cartesian speed than on the equal-loop axis wall, which is the diagnostic shift predicted by the square-root-of-two loop-speed relationship.](../assets/field-tests/prusa-core-one-lplus-vfa-upper-loop-45deg.jpeg)
+
+![This vane is labeled 60 degrees by the source layout, but its emitted wall segment is approximately 120 degrees and is dominated by the opposite loop. It also carries the high-speed wave family, so the evidence does not support only one affected loop.](../assets/field-tests/prusa-core-one-lplus-vfa-lower-loop-dominant-120deg.jpeg)
 
 That agreement promoted the GT1.5 pulley, idler, belt-plane, and shared-gantry
 interfaces above more filament tuning. It did **not** prove that a particular
