@@ -4,7 +4,7 @@ This guide favors official documentation and well-documented experimental work.
 Pages can change over time, so record the access date when using a source for a
 formal experiment or publication.
 
-Last source review: 2026-09-21.
+Last source review: 2026-10-07.
 
 ## Prusa Research
 
@@ -14,6 +14,14 @@ Last source review: 2026-09-21.
 - [ABS material guide](https://help.prusa3d.com/article/abs_2058)
 - [Under-extrusion](https://help.prusa3d.com/article/under-extrusion_2007)
 - [Calibration index](https://help.prusa3d.com/category/calibration_199)
+- [CORE One, CORE One L, and CORE One INDX belt alignment and tension](https://help.prusa3d.com/article/adjusting-belt-tension-core-one-core-one-indx-core-one-l_845048)
+- [CORE One L+ belts upgrade](https://help.prusa3d.com/guide/3-belts-upgrade_1178740)
+- [CORE One L selftest and X-rail settling](https://help.prusa3d.com/article/selftest-failed-core-one-l_972648)
+- [CORE One family X-homing and motor-pulley checks](https://help.prusa3d.com/article/homing-error-x-31304-core-one-35304-core-one-l-36304-core-one-indx-17304-xl_857401)
+- [GT1.5 21-tooth pulley](https://www.prusa3d.com/product/pulley-gt1-5-21t/)
+- [CORE One and CORE One L phase stepping](https://help.prusa3d.com/article/phase-stepping-core-one-l-core-one_914247)
+- [Input Shaper](https://help.prusa3d.com/article/input-shaper-core-one-mk4-s-mk3-9-s-mk3-5-s-xl-mini_451816)
+- [Firmware 6.8.1 release and CORE One L+ GT1.5 support](https://github.com/prusa3d/Prusa-Firmware-Buddy/releases/tag/v6.8.1)
 
 Prusa documents both visual and measured extrusion-multiplier methods. This
 guide recommends the visual/tactile top-surface method for routine filament
@@ -63,6 +71,19 @@ a pressure-advance value between firmware families without recalibrating.
 These authors emphasize empirical testing and distinguish melt-capacity limits
 from commanded extrusion. Their exact methods and conclusions should be read at
 the source before reproducing a formal benchmark.
+
+## Motion-System Mechanics
+
+- [CoreXY kinematic theory](https://corexy.com/theory.html)
+- [Gates PowerGrip GT3 drive-design manual](https://www.gates.com/content/dam/documents-library/catalogs/powergrip-gt3-drive-design-manual-en.pdf)
+- [Gates light-power and precision-drive manual](https://www.gates.com/content/dam/documents-library/catalogs/light-power-and-precision-manual.pdf)
+- [THK linear-guide mounting and maintenance](https://www.thk.com/us/en/products/lm_guide/maintenance/0002/)
+
+The CoreXY transform and belt-drive references support the angle-to-loop and
+tooth-order method in the motion-diagnostics chapter. They do not establish
+that a matching frequency identifies one failed component; pulley, idler,
+belt-plane, rail, and gantry interfaces still require controlled physical
+inspection and a one-change repeat.
 
 ## Source Use
 

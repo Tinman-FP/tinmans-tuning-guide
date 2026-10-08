@@ -105,6 +105,110 @@ the dominant variable in the tested range. Investigate internal-feature
 print-through, wall thickness/order, belt or roller periodicity, and
 feature-role transitions before changing material flow.
 
+### Use wall angle to localize a CoreXY motion source
+
+A multi-vane VFA specimen can do more than select a quiet speed. On a CoreXY
+machine, different wall headings load the two motor-and-belt loops by different
+amounts. If the same height band is quiet on one heading and noisy on another,
+the contrast can separate a motion path from a filament-wide problem.
+
+For the common ideal CoreXY transform, a unit move at heading `theta` gives
+relative loop demand:
+
+```text
+A = cos(theta) + sin(theta)
+B = cos(theta) - sin(theta)
+```
+
+Use the absolute values when comparing demand. Motor names, signs, and which
+physical belt is called A or B vary by machine, so verify the printer's routing
+before naming a component. Also derive the actual line heading from the model
+or G-code; an embossed vane label can describe the panel arrangement rather
+than the emitted segment direction.
+
+| Actual wall heading | Relative loop A | Relative loop B | Diagnostic value |
+| ---: | ---: | ---: | --- |
+| 0 degrees | 1.000 | 1.000 | both loops equally |
+| 30 degrees | 1.366 | 0.366 | A dominant, not exclusive |
+| 45 degrees | 1.414 | 0.000 | A isolated in the ideal transform |
+| 90 degrees | 1.000 | 1.000 | both loops equally, with a different Cartesian direction |
+| 135 degrees | 0.000 | 1.414 | B isolated in the ideal transform |
+
+This comparison is strongest when the specimen includes both `45` and `135`
+degree walls. Without the opposite diagonal, one loop can be isolated while
+the other remains only dominant, which limits the conclusion.
+
+Classify the mark before assigning it to a loop:
+
+- broad periodic waves that continue through a constant-speed wall field are
+  motion evidence;
+- beads, pits, or curls confined to a seam, free edge, corner, or band change
+  remain pressure-advance, retraction, cornering, and thin-wall candidates;
+- progressive thinning or missing extrusion across every heading remains a
+  melt-flow or feed-path candidate;
+- a band fixed at the same Z height on every heading is more consistent with a
+  layer event or Z-related source than an XY-loop order.
+
+Do not stop at a visual angle comparison. Test whether the wavelength or onset
+speed matches a physical order. For belt pitch `p`, pulley tooth count `N`, and
+linear belt speed `v_belt`:
+
+```text
+tooth-pass frequency = v_belt / p
+one-pulley-revolution distance = N x p
+```
+
+On an axis-aligned CoreXY move, each active loop commonly runs at the Cartesian
+wall speed. On a single-loop `45` or `135` degree move, the active loop runs at
+approximately `sqrt(2)` times Cartesian speed. A belt-related frequency should
+therefore appear at about `1/sqrt(2)` of the axis-wall Cartesian speed on the
+single-loop diagonal. The corresponding wall-space orders are `p` versus
+`p/sqrt(2)` for one tooth and `N x p` versus `N x p/sqrt(2)` for one pulley
+revolution.
+
+A matching order is evidence, not a verdict. A plucked-belt tuning frequency is
+not guaranteed to equal the loaded operating mode, and the same order can be
+amplified by pulley eccentricity, idler runout, belt-edge contact, gantry
+compliance, or rail preload. Preserve the current state before touching it,
+then inspect in this order:
+
+1. Both motor pulleys: set screw on the shaft flat, second screw tight, correct
+   axial height, no axial walk, low runout, and full-revolution clearance.
+2. Every idler and spacer in each loop: no notchiness, axial play, wobble,
+   debris, tooth-on-smooth-idler contact, or persistent belt-edge witness mark.
+3. Belt planes and anchors: no twist, edge polish, fray, vertical tracking
+   change, asymmetric toolhead seating, or loose clamp.
+4. Shared gantry interfaces: square geometry, X-rail mounting stress or tight
+   spots, carriage rock, Y-guide drag, and position-dependent cable or PTFE
+   load.
+
+Do not repeatedly retension by feel between comparison prints. Record the
+before state, change one identified condition, re-run any motion compensation
+invalidated by that change, and repeat the same final G-code. A compact
+`0/45/90/135` degree control provides both equal-loop and isolated-loop views.
+
+#### Bounded field finding: GT1.5 conversion
+
+One controlled CORE One L-to-L+ investigation used GT1.5 belts, 21-tooth motor
+pulleys, and byte-identical `40-160 mm/s` VFA G-code across repeated prints.
+The walls remained fully fed after temperature, flow, pressure advance, and
+maximum volumetric flow had been settled. Gantry squaring, belt tuning, phase
+stepping, input shaping, homing, Z alignment, and load-cell checks did not
+remove the direction-dependent face waves.
+
+Axis-aligned walls were worst in the `130-160 mm/s` bands. With `1.50 mm`
+pitch, those speeds produce `86.7-106.7 Hz` tooth pass; the `130` and
+`140 mm/s` bands produce `86.7` and `93.3 Hz`, inside the machine's documented
+`85-95 Hz` belt-tuning range. The isolated `45` degree face began showing the
+same family around `90-100 mm/s`, close to the `90.2-100.8 mm/s` range predicted
+by the `sqrt(2)` loop-speed shift.
+
+That agreement promoted the GT1.5 pulley, idler, belt-plane, and shared-gantry
+interfaces above more filament tuning. It did **not** prove that a particular
+pulley or belt was defective, and the investigation had not yet completed the
+one-component correction test at publication time. This is the appropriate
+claim boundary for a frequency-and-angle correlation.
+
 ## Worked Field Example
 
 A moving-bed printer produced dimensionally correct ABS parts but showed broad
