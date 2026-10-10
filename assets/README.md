@@ -39,3 +39,14 @@ evidence and are captioned with the scope of the result. In particular:
   evidence, not an accepted profile result.
 - `fibreseek-seam-corrected-0p4.jpeg` records the same geometry after restoring
   the correct `0.4 mm` plastic-tool baseline.
+
+## Elegoo PET-CF Drying and Temperature-Tower Field Photographs
+
+- `field-tests/elegoo-pet-cf-dry-vs-undried-overview.jpg` combines four
+  same-process comparison photographs. In each paired view, the undried tower
+  is on the left and the dried tower is on the right.
+- `field-tests/elegoo-pet-cf-dried-tower-detail.jpg` combines three views of the
+  dried tower used to select a working nozzle temperature.
+- Original HEIC photographs: William Tinney, 2026.
+- The composites preserve the photographed specimens; only orientation,
+  scaling, spacing, and JPEG conversion were applied for publication.

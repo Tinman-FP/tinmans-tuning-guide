@@ -33,6 +33,22 @@ Record:
 - time between drying and printing;
 - whether the spool remained in a dry box during the test.
 
+## Controlled PET-CF Drying Comparison
+
+The photographs below compare Elegoo PET-CF printed from the same G-code on
+the same Qidi Plus 4, nozzle, settings, and room conditions. The operator
+reported the left tower as undried and the right tower as dried. The dried
+specimen has markedly cleaner bridges, fewer loose strands, more coherent
+overhangs, and a more uniform surface. This is a controlled A/B result for one
+spool and process, not a universal drying schedule.
+
+![Elegoo PET-CF temperature-tower comparison. In every paired view, the undried specimen is on the left and the dried specimen is on the right. Same G-code, printer, nozzle, settings, and room conditions. Field photographs by William Tinney, 2026.](../assets/field-tests/elegoo-pet-cf-dry-vs-undried-overview.jpg)
+
+The comparison is also a useful diagnostic warning: moisture can produce
+defects that look like excessive temperature, poor retraction, weak bridging,
+or unstable flow. Dry and stabilize the spool before changing several slicer
+variables to chase those symptoms.
+
 ## What Nozzle Temperature Changes
 
 Higher temperature generally lowers melt viscosity and can improve high-flow
@@ -86,6 +102,24 @@ For high-flow work, confirm the selected temperature again during the
 volumetric-flow test. A visually good low-speed tower section may not melt fast
 enough for production.
 
+### Preserve Margin Above a Cold-Flow Failure
+
+The dried Elegoo PET-CF tower below ran from `265 C` at the bottom through
+`260 C`, `255 C`, and `250 C`. Two attempts stopped at approximately the same
+point as the program moved toward the next, colder step. After cancellation,
+the same filament path extruded `300 mm` normally after the nozzle was heated
+to `300 C`. That result is consistent with insufficient melt capacity at the
+low-temperature endpoint rather than a persistent clog.
+
+![Dried Elegoo PET-CF tower details after removal from the plate. The repeated tower stopped below the completed 250 C tier; the 255 C tier provides the best balance of surface quality and temperature margin for the next controlled tests. Field photographs by William Tinney, 2026.](../assets/field-tests/elegoo-pet-cf-dried-tower-detail.jpg)
+
+For this machine, `0.6 mm` nozzle, and test flow, `255 C` is the defensible
+working selection. The `250 C` tier is visually competitive, but it is only one
+`5 C` step above the repeatable loss-of-flow boundary. The `255 C` tier retains
+clean walls, readable detail, and acceptable bridge behavior while preserving
+process margin. Treat that value as a test-specific starting point and confirm
+it again at the intended production volumetric flow.
+
 ## First-Layer Temperature
 
 A hotter first layer can improve wetting and reliability, but it is a separate
@@ -105,4 +139,3 @@ are correct.
 
 Once temperature is bracketed, find the system's usable
 [volumetric-flow limit](03-volumetric-flow.md).
-

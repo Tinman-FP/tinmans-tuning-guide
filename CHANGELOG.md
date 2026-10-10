@@ -20,6 +20,12 @@
 - Expanded seam diagnosis, validation, the diagnostic matrix, and the release
   checklist with nozzle/profile mismatch, machine-specific compatibility, and
   unintended tool or fiber-command checks.
+- Added a controlled Elegoo PET-CF undried-versus-dried photo comparison to the
+  conditioning chapter, with original field-photo attribution and a warning
+  against compensating for moisture through unrelated slicer settings.
+- Documented a repeatable low-temperature PET-CF flow stop and selected
+  `255 C` as the test-specific working value above the observed cold-flow
+  boundary for the documented Qidi Plus 4 and `0.6 mm` nozzle.
 - Expanded the photographed FibreSeek VFA case study with representative-part
   confirmation, releasing `70 mm/s` for the documented machine/profile and
   separating the remaining layer-context band from broad VFA.
