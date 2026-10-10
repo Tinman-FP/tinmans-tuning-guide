@@ -50,3 +50,15 @@ evidence and are captioned with the scope of the result. In particular:
 - Original HEIC photographs: William Tinney, 2026.
 - The composites preserve the photographed specimens; only orientation,
   scaling, spacing, and JPEG conversion were applied for publication.
+
+## R3Men Build-Plate Adhesion Field Photographs
+
+- `field-tests/r3men-pctg-pa018-adhesion-failure.jpg` is a live K2 Plus camera
+  frame from the third controlled pressure-advance attempt. The dry 3D-Fuel
+  PCTG specimen released by PA `0.018` and formed a filament nest.
+- `field-tests/r3men-pctg-nano-polymer-completion.jpg` is the completion frame
+  from the unchanged fourth attempt after a thorough warm soap-and-water plate
+  wash and a fresh Vision Miner Nano Polymer application. The tower remained
+  attached through PA `0.048` and normal completion.
+- Field camera frames: William Tinney, 2026. The repository copies are
+  unaltered from the preserved evidence files.

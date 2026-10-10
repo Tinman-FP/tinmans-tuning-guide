@@ -107,7 +107,7 @@ defending a value for a defined setup.
 | File | Purpose |
 | --- | --- |
 | [How to use this guide](guide/00-how-to-use-this-guide.md) | Test design, evidence, and decision rules |
-| [Foundations](guide/01-foundations.md) | Mechanical and slicer baseline |
+| [Foundations](guide/01-foundations.md) | Mechanical, slicer, first-layer, and bed-adhesion baseline |
 | [Conditioning and temperature](guide/02-conditioning-and-temperature.md) | Moisture, temperature towers, adhesion |
 | [Volumetric flow](guide/03-volumetric-flow.md) | Melt-capacity ceiling and speed conversion |
 | [Pressure advance](guide/04-pressure-advance.md) | Pressure lag, test reading, firmware notes |

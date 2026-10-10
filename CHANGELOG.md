@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Added an image-backed R3Men carbon-fiber build-plate adhesion section. The
+  field result records Vision Miner Nano Polymer as the only consistently
+  successful adhesive in the maintained Tinman tests, while preserving the
+  required thorough soap-and-water cleaning, fresh application, small-part
+  brim, and physical-inspection boundaries.
 - Added networked multi-tool workflow controls: one isolated slicer session per
   physical print, a required pre-launch home, live-state confirmation after
   upload, and complete start-to-end tool-path auditing.
