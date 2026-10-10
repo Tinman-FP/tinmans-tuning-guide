@@ -97,6 +97,8 @@ Colorants and additives can change flow, temperature, and cooling behavior.
 Treat a different color or lot as unverified until a short confirmation print
 passes.
 
+<!-- pdf:page-break-before -->
+
 ## Baseline Acceptance Print
 
 Before advanced tuning, print a simple artifact that includes:
