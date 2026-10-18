@@ -1,5 +1,11 @@
 # TinmanX1 Fiber and Strength Tools
 
+**Historical experimental reference:** this chapter describes the TinmanX1
+revision identified in the [version table](11-orca-tinmanx1-settings-reference.md).
+TinmanX1 is private; use public Tinman's release notes to establish which custom
+features are available in your build. Documentation of a control does not
+qualify its machine contract or physical output.
+
 Everything in this chapter is a **TinmanX1 addition** relative to OrcaSlicer
 2.4.2. The settings are distributed across three profile types because they
 answer different questions:

@@ -1,6 +1,18 @@
 # Changelog
 
-## Unreleased
+## 1.0.2 - 2026-10-18
+
+- Updated public download links and version identification for Tinman Preview 4;
+  distinguished its selected backports from Orca 2.5 alpha and stable 2.4.2.
+- Added an upgrade chapter covering changed calibration generators, scarf
+  planning, nozzle variants, migration, CLI profile resolution, and targeted
+  revalidation of walls, bridges, overhangs, and support interfaces.
+- Updated PA, retraction, and seam instructions with version-specific behavior.
+- Added standard machine-specific candidate/tuned/retired naming, recoverable
+  retirement, authoritative-profile checks, and job-owned session cleanup.
+- Rebuilt the linked PDF with the updated version reference and upgrade chapter.
+
+### Changes Since 1.0.1
 
 - Added an image-backed R3Men carbon-fiber build-plate adhesion section. The
   field result records Vision Miner Nano Polymer as the only consistently

@@ -5,6 +5,11 @@ wall can all look like vertical bands in a photograph. They do not respond to
 the same setting. Use the shape, direction, and repeatability of the evidence to
 choose the test before changing the profile.
 
+Orca 2.5 alpha changes nozzle-aware VFA generation and motion-test limits.
+Record actual geometry and attainable speeds before comparing versions; see
+[calibration changes](21-slicer-upgrades-and-calibration-changes.md#additional-orca-alpha-calibration-changes).
+Those additions are not among Tinman's selected Preview 3/4 backports.
+
 ## Separate the Failure Families
 
 | Evidence | Best first test | What the test can establish | What it cannot establish |

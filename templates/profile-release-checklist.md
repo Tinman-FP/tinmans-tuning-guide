@@ -13,6 +13,12 @@
 - [ ] Profile purpose and known limitations are stated.
 - [ ] Each physical print used an isolated slicer session/project, with no
       concurrent-printer state carried into the job.
+- [ ] Session owner, exact app path, PID/launch time, data directory, printer,
+      and job identity are recorded; terminal-state cleanup has an owner.
+- [ ] Isolated/copied profiles match the authoritative machine tuning record,
+      not merely the newest file timestamp.
+- [ ] Selections and overrides were rechecked after imports, sync, calibration
+      generation, resets, and reopening.
 
 ## Calibration Order
 
@@ -53,8 +59,22 @@
 
 ## Release
 
+- [ ] The tested candidate passed all required stages for this exact setup.
+- [ ] Filament and process use `TUNED | Machine ID | Nozzle mm | Brand Product
+      Material | ... | rNN`, including layer height/purpose for the process.
+- [ ] IDs, inheritance, compatibility, and project/printer associations resolve
+      correctly after promotion and reopening.
+- [ ] One recommended current pair is recorded for this scope; deliberate
+      Quality/Draft/Strength alternatives are clearly distinguished.
+- [ ] Replaced user presets have a recoverable backup and old-to-new mapping,
+      and are hidden from active choices or labeled `RETIRED - DO NOT USE`.
+- [ ] Shared parents, other machines' presets, and active jobs remain intact.
+- [ ] The job-owned session was closed and exit verified after saving evidence,
+      or active-job monitoring and eventual cleanup were explicitly handed off.
+
 ```text
 Profile name:
+Recommended filament/process pair:
 Version:
 Optimization target:
 Release date:

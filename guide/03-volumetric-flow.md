@@ -5,6 +5,11 @@ can melt and deposit per second under defined conditions. It is not a universal
 hotend specification. Filament, temperature, nozzle geometry, extruder grip,
 and cooling all affect the result.
 
+Calibration generators can override production limits. Orca 2.5 alpha changes
+some generator ceilings; this is not a higher hotend rating or an automatic
+Tinman change. Check the [upgrade comparison](21-slicer-upgrades-and-calibration-changes.md#motion-and-volumetric-limits)
+and record the actual emitted flow range.
+
 ## The Basic Equation
 
 For a straight extruded path:

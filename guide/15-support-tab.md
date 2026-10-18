@@ -5,6 +5,10 @@ Ordinary support, raft, interface, advanced, and tree groups are **Shared
 Support tuning is a compromise among underside quality, removability, print
 time, material, and the risk of a failed unsupported feature.
 
+Orca 2.5 alpha changes support-interface generation. Revalidate counts,
+materials, and removal quality after upgrading; see [changed toolpaths](21-slicer-upgrades-and-calibration-changes.md#revalidate-toolpaths-not-only-entered-values).
+That upstream change is not a documented Tinman Preview 4 backport.
+
 ## Support
 
 **What:** decides whether support is generated, where it is allowed, and which

@@ -75,6 +75,14 @@ and gap behavior.
 Tune scarf settings only after ordinary pressure and flow are stable. A scarf
 can spread an incorrect transition without correcting its cause.
 
+Tinman Preview 3/4 includes Orca's scarf tiny-segment/ramp correction intended
+to avoid planner speed dips. Re-slice an unchanged control before deciding
+whether earlier scarf settings still help; a source-level fix is not proof of
+a better surface on every machine. Orca 2.5 alpha also introduces precise seam
+modifiers for placement, which are not among Tinman's selected backports.
+Placement and pressure quality are different variables. See the
+[upgrade comparison](21-slicer-upgrades-and-calibration-changes.md).
+
 ## Surface Artifact Map
 
 | Surface evidence | First suspects |

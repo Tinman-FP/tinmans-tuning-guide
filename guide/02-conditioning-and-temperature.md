@@ -4,6 +4,10 @@ Temperature tuning is meaningful only when the material condition is stable.
 Water in filament can create defects that resemble poor temperature, flow,
 retraction, or pressure advance.
 
+When upgrading the slicer, record the temperature tower's generated geometry
+and nozzle-scaling options. See [version-specific generator changes](21-slicer-upgrades-and-calibration-changes.md#temperature-and-vfa)
+before comparing new towers with older specimens.
+
 ## Moisture Symptoms
 
 Possible signs include:

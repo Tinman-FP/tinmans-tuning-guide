@@ -118,7 +118,8 @@ inspection and a one-change repeat.
 ## Source Use
 
 No source listed above endorses Tinmans Tuning Guide. This repository does not
-bundle third-party calibration models or images. Follow each source's license
+bundle third-party calibration models. The attributed Calistar figure above
+is an explicitly licensed image exception. Follow each source's license
 and attribution requirements before redistributing its files.
 
 The settings chapters are an original operational interpretation. Upstream
@@ -126,7 +127,7 @@ documentation and source code were used to identify controls and behavior, then
 the material was reorganized around diagnosis, appropriate use, and acceptance
 criteria. Text was not copied from the OrcaSlicer Wiki.
 
-## TinmanX1 Reference
+## Historical TinmanX1 Reference
 
 The TinmanX1 comparison and custom-feature documentation are based on source
 commit `cf0cabb04146c4ff9f21b963517717acfec66055`, whose application compatibility
@@ -135,4 +136,21 @@ reported `CFBundleShortVersionString 2.4.2`. TinmanX1 custom features documented
 from that revision include continuous-fiber planning, FibreSeek profile
 contracts, Strength Lens, and experimental Wave Overhangs.
 
-- [Official public TinmanX1 downloads](https://github.com/Tinman-FP/TinManX1/releases/latest)
+TinmanX1 is now the private experimental test bed. Historical feature labels do
+not guarantee inclusion or validation in public Tinman.
+
+## October 18, 2026 Release Review
+
+- [Public Tinman Preview 4](https://github.com/Tinman-FP/Tinman/releases/tag/v2026.10.17-preview.4),
+  source `90e25afac2f79bc38f9018442e0a028587d89d53`.
+- [Tinman's pinned Orca 2.5 review and backport scope](https://github.com/Tinman-FP/Tinman/blob/90e25afac2f79bc38f9018442e0a028587d89d53/docs/ORCA_2_5_REVIEW.md).
+- [OrcaSlicer 2.5.0-alpha release](https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.5.0-alpha),
+  published 2026-10-16; an alpha, not the latest stable release.
+- [OrcaSlicer stable 2.4.2](https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.4.2).
+
+The [upgrade chapter](guide/21-slicer-upgrades-and-calibration-changes.md)
+links individual upstream pull requests for calibration, seam planning,
+per-nozzle settings, profile migration, CLI behavior, and affected toolpaths.
+These are software-behavior sources, not evidence that a numerical filament
+tune has passed on a particular printer. Its backup, comparison, and validation
+procedure is this guide's operational recommendation.

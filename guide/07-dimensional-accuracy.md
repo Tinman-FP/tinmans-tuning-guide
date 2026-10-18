@@ -4,6 +4,10 @@ Dimensional tuning works only when the cause of the error is classified. A
 proportional scale error, a constant contour offset, an undersized hole, and an
 elephant foot require different controls.
 
+After a slicer upgrade, compare the same model's resolved compensation and
+exported dimensions before revising the material tune. GUI and CLI workflows
+must resolve the same profile inheritance; see [upgrade and migration checks](21-slicer-upgrades-and-calibration-changes.md#profile-migration-and-missing-filaments).
+
 ## Measure After Extrusion Is Stable
 
 Settle temperature, MVS, PA, flow, and cooling first. Otherwise a geometry test

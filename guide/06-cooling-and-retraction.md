@@ -96,6 +96,12 @@ Tune retraction only after:
 
 ## Retraction Test
 
+In Tinman Preview 3/4, the generator disables scarf seams on the generated
+retraction object, leaving the saved production preset unchanged. Orca 2.5
+alpha includes the corresponding upstream fix. Verify object overrides after
+generation and return to a fresh production project before validating the
+chosen retraction value. An older saved tower may still contain scarf settings.
+
 1. Choose a range appropriate to the extruder path and manufacturer guidance.
 2. Keep retraction speed fixed while tuning distance.
 3. Select the shortest distance that gives the cleanest repeatable result.
@@ -111,6 +117,11 @@ Too much retraction can create:
 - unnecessary wear and print time.
 
 ## Travel, Wipe, and Z Hop
+
+Orca 2.5 alpha adds further wipe/tool-change retraction controls. Keep ordinary
+travel retraction, wipe timing, and tool-change retraction as separate
+experiments. These additions are not part of Tinman's documented selected
+backports; see [upgrade guidance](21-slicer-upgrades-and-calibration-changes.md).
 
 - **Travel speed** reduces ooze time but must remain mechanically reliable.
 - **Avoid crossing walls/perimeters** can hide strings inside a part at the

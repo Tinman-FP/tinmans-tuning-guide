@@ -52,6 +52,19 @@ machine, material, tool, and purpose. A fresh project inside a shared process
 is not always sufficient: cached tool assignments, inherited materials, and
 queued uploads can survive between projects.
 
+Record the session owner, exact app path, process ID and launch time, data
+directory, physical printer, and job/project/G-code identity. The owner saves
+required evidence and closes only that proven instance when the job completes,
+fails, is canceled, or is abandoned. Verify it exited. An active or paused job
+retains its session; carry monitoring and cleanup responsibility through a
+handoff. A retry gets a fresh instance, not another user's live window.
+
+An isolated data directory is not proof of profile freshness. Compare its
+resolved profiles with the authoritative library and machine's tuning record
+before slicing. Recheck selection after imports, synchronization, calibration
+generation, resets, and reopening. Do not resolve ambiguity by silently
+substituting a generic or another machine's tune.
+
 Before launching each physical print, home the printer and verify that the
 remote job is actually associated with the intended uploaded file. An upload or
 start request that times out is not proof of failure or success; check the
@@ -156,12 +169,44 @@ and enclosure.
 Use a distinct profile for each validated machine/tool/nozzle combination:
 
 ```text
-Material + printer + tool/nozzle + purpose + revision
+Filament: STATUS | Machine ID | Nozzle mm | Brand Product Material | rNN
+Process: STATUS | Machine ID | Nozzle mm | Brand Product Material | Layer mm Purpose | rNN
 ```
 
 Compatibility-gate the profile to that printer definition. Preserve the
 generic or supplier profile as a parent or untouched reference. Do not let a
 tuned FibreSeek profile silently appear as a valid choice for another printer.
+
+Use a stable physical machine ID, not merely a model shared by several printers.
+Include color, formulation, or hardware variants when their tuning differs.
+For example:
+
+```text
+TUNED | Qidi Plus4 | 0.6mm | Elegoo PET-CF | r01
+TUNED | Qidi Plus4 | 0.6mm | Elegoo PET-CF | 0.24mm Quality | r01
+```
+
+Use `CANDIDATE` during partial validation, `TUNED` only after the required
+sequence and representative validation for that exact setup, and
+`RETIRED - DO NOT USE` for superseded choices. Keep completed stages, remaining
+tests, evidence, approval date, and limitations in notes and the tuning record.
+A single successful coupon or inherited untested value is not a release.
+
+Keep one current tuned filament per machine/nozzle/material variant and one
+current tuned process per corresponding layer-height/purpose combination.
+Increment the revision for meaningful approved changes. Promote the tested
+candidate itself, update IDs, compatibility, inheritance and associations where
+needed, then reopen/reselect and verify effective settings and a representative
+slice. Record the exact recommended filament/process pair.
+
+Retirement is recoverable: back up the replaced user preset with an old-to-new
+mapping, then move it outside active selections or clearly label it retired.
+Do not leave an obsolete generic or Copy preset looking equally recommended
+for that scope. Preserve stock parents, generics needed by other machines,
+dependent presets, and profiles recorded by active jobs. Resolve dependencies
+before changing shared entries; never delete the only backup.
+
+<!-- pdf:page-break-before -->
 
 ## Promotion Gate
 

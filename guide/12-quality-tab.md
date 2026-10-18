@@ -5,6 +5,10 @@ no TinmanX1-only Quality controls in the stated baseline. TinmanX1 adds related
 tools elsewhere, especially [Strength Lens, fiber planning, and Wave
 Overhangs](18-tinmanx1-fiber-and-strength-tools.md).
 
+For Orca 2.5 alpha's precise seams and changed wall generation, versus Tinman's
+selected scarf fix, consult the [current upgrade comparison](21-slicer-upgrades-and-calibration-changes.md).
+The historical shared-control label does not imply identical new toolpaths.
+
 The Quality tab controls how the slicer turns model geometry into printable
 roads. It can improve a surface only when the defect matches the kind of path
 this tab changes. Do not use it to disguise wet filament, a loose machine, a

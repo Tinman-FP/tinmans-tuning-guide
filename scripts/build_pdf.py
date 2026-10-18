@@ -60,6 +60,7 @@ DOCUMENTS = [
     ("TinmanX1 Fiber and Strength Tools", Path("guide/18-tinmanx1-fiber-and-strength-tools.md")),
     ("Motion Diagnostics", Path("guide/19-motion-diagnostics.md")),
     ("Profile Integrity and Experimental Resets", Path("guide/20-profile-integrity-and-experimental-resets.md")),
+    ("Slicer Upgrades and Calibration Changes", Path("guide/21-slicer-upgrades-and-calibration-changes.md")),
     ("Diagnostic Matrix", Path("guide/diagnostic-matrix.md")),
     ("Glossary", Path("guide/glossary.md")),
     ("Experiment Log", Path("templates/experiment-log.md")),
@@ -696,7 +697,7 @@ def build_pdf(output: Path):
         bottomMargin=0.68 * inch,
         title="Tinmans Tuning Guide",
         author="William Tinney and Codex by OpenAI",
-        subject="A printer-neutral filament tuning handbook with OrcaSlicer and TinmanX1 settings reference",
+        subject="A printer-neutral filament tuning handbook with OrcaSlicer and Tinman settings reference",
         creator="Tinmans Tuning Guide build script",
     )
     story = []
@@ -713,7 +714,7 @@ def build_pdf(output: Path):
     story.append(Spacer(1, 0.55 * inch))
     story.append(Paragraph("Tinmans Tuning Guide", styles["front_title"]))
     story.append(Paragraph(
-        "A printer-neutral handbook for filament calibration, diagnosis, profile release, and practical OrcaSlicer/TinmanX1 settings.",
+        "A printer-neutral handbook for filament calibration, diagnosis, profile release, and practical OrcaSlicer/Tinman settings.",
         styles["front_subtitle"],
     ))
     story.append(Spacer(1, 0.18 * inch))
@@ -723,7 +724,7 @@ def build_pdf(output: Path):
     ))
     story.append(Spacer(1, 0.25 * inch))
     story.append(Paragraph(
-        "PDF edition generated 2026-09-21. Settings comparison baseline: OrcaSlicer 2.4.2 and TinmanX1 2.4.2 at source commit cf0cabb04146c4ff9f21b963517717acfec66055.",
+        "Edition 1.0.2 - reviewed 2026-10-18. Current release comparison: Tinman 2026.10.17 Preview 4, OrcaSlicer stable 2.4.2, and OrcaSlicer 2.5.0-alpha. Historical tab-survey revisions are identified in the settings reference.",
         styles["front_subtitle"],
     ))
     story.append(PageBreak())
