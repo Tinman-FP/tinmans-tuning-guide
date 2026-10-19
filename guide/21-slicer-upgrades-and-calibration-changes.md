@@ -8,11 +8,11 @@ claim that every upstream feature has been ported or physically validated.
 
 ## Which Application Are You Using?
 
-- **Public Tinman:** `v2026.10.17-preview.4`, source `90e25afac2f7`.
-- **Tinman Preview 5 candidate:** source `1dfc560076`, with calibration/build
-  changes at `b0db6431c5`. It retains Previews 3/4 fixes and adds the batch below.
-  Packaged-app and platform validation remain incomplete; it is not yet the
-  public download or a recommendation to replace an active installation.
+- **Public Tinman Preview 5:** `v2026.10.19-preview.5`, source `eb1bd6d028`,
+  with calibration/build changes at `b0db6431c5`. It retains Previews 3/4 fixes
+  and adds the batch below. Packaged macOS calibration exports were checked;
+  platform build results are linked in the release. These software checks do
+  not approve a material tune or qualify every printer connection.
 - **OrcaSlicer stable:** `v2.4.2` remains the latest stable release at this
   review date. Its calibration behavior is not automatically the alpha's.
 - **OrcaSlicer preview:** `v2.5.0-alpha`, released 2026-10-16, is a testing
@@ -20,10 +20,10 @@ claim that every upstream feature has been ported or physically validated.
 - **TinmanX1:** the private experimental test bed. Historical custom-tool
   documentation is not a promise of inclusion in a public Tinman release.
 
-Use the [public Tinman release page](https://github.com/Tinman-FP/Tinman/releases/tag/v2026.10.17-preview.4)
+Use the [public Tinman release page](https://github.com/Tinman-FP/Tinman/releases/tag/v2026.10.19-preview.5)
 for downloads and the tested-platform scope. A successful platform build is not
 an interactive test on every operating system or a physical printer validation.
-See the [candidate-pinned Tinman upstream review](https://github.com/Tinman-FP/Tinman/blob/1dfc560076/docs/ORCA_2_5_REVIEW.md)
+See the [revision-pinned Tinman upstream review](https://github.com/Tinman-FP/Tinman/blob/eb1bd6d028/docs/ORCA_2_5_REVIEW.md)
 and [Orca release notes](https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.5.0-alpha)
 for provenance. Application branding is not a profile-format migration.
 
@@ -46,9 +46,9 @@ Sources: Orca changes [14473](https://github.com/OrcaSlicer/OrcaSlicer/pull/1447
 [16191](https://github.com/OrcaSlicer/OrcaSlicer/pull/16191), plus the pinned
 Tinman review above. No numerical material tune is approved by these fixes.
 
-## New in the Tinman Preview 5 Candidate
+## New in Tinman Preview 5
 
-The following selected Orca alpha changes are implemented in the candidate, with additional
+The following selected Orca alpha changes are implemented in Preview 5, with additional
 Tinman validation and boundary checks. Calibration-family names can match
 older versions while the generated experiment differs. Regenerate test files.
 
@@ -82,8 +82,12 @@ Source: [nozzle-aware calibration, 14759](https://github.com/OrcaSlicer/OrcaSlic
 
 PA Line reports its actual footprint, including optional numbers and line
 width. Preview extrusion thickness is distinct from absolute Z height. PA
-Tower uses bounded interpolation; temperature and VFA towers use 25-layer
-bands, so changing layer height changes each band's physical height.
+Tower uses bounded, layer-count-based interpolation. Temperature towers divide
+the sliced layers across the requested temperature steps; they do not use a
+fixed 25-layer band. In the packaged 0.4 mm nozzle check, a 230/225/220 C tower
+used 50 layers per temperature at 0.20 mm, and 63/62/62 layers at 0.16 mm with
+resizing disabled. VFA geometry targets 25-layer speed blocks; inspect the
+exported boundaries, including first-layer and rounding effects.
 Keep each specimen's generated mapping rather than reusing a remembered height
 formula. A different adaptive-mesh area can change the first-layer context of
 a line test, so check that before comparing line quality. Adaptive-PA input

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.4 - 2026-10-19
+
+- Updated the public Tinman reference to Preview 5 and its packaged-app validation evidence.
+- Corrected temperature-band guidance: steps are distributed across the sliced
+  layer count, not fixed at 25 layers. Included measured 0.20/0.16 mm examples.
+- Recorded successful PA line numbers-on/off, bounded PA tower and temperature
+  exports; retained the calibration-project schedule persistence warning.
+- Rechecked official Orca releases: 2.4.2 stable and 2.5.0-alpha preview.
+- Rebuilt and checked the linked PDF against these chapters.
+
 ## 1.0.3 - 2026-10-19
 
 - Distinguished public Tinman Preview 4 from the Preview 5 validation candidate; Orca 2.4.2 remains

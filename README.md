@@ -20,8 +20,9 @@ Release pages move forward over time. The settings reference states the exact
 versions and source revisions used for this edition.
 
 **October 19, 2026 update:** this edition distinguishes public Tinman
-2026.10.17 Preview 4, the Preview 5 validation candidate, stable OrcaSlicer
-2.4.2, and OrcaSlicer 2.5.0-alpha. Preview 5 is not yet the public download.
+2026.10.19 Preview 5, stable OrcaSlicer 2.4.2, and OrcaSlicer 2.5.0-alpha.
+Preview 5's packaged macOS calibration checks and cross-platform build results
+are documented separately from physical printer validation.
 It covers the new nozzle-aware calibration, flow-limited VFA, PA validation,
 and upload diagnostics, with deferred alpha features identified separately.
 TinmanX1 is the private experimental test bed, not the public download.

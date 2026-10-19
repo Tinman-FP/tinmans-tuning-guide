@@ -72,7 +72,7 @@ sequence. The fix prevents an unintended large retraction; it does not change
 the physical PA optimum. These builds also stop affected calibration
 generators when model loading fails or is canceled.
 
-The Tinman Preview 5 candidate and Orca 2.5 alpha additionally change PA Line print-area
+Tinman Preview 5 and Orca 2.5 alpha additionally change PA Line print-area
 reporting and PA Tower interpolation, and validate adaptive-PA measurement
 input. Older Tinman releases do not include that batch. Keep each specimen with its own generator
 settings and G-code; do not apply an older tower's height formula blindly.

@@ -141,10 +141,10 @@ not guarantee inclusion or validation in public Tinman.
 
 ## October 19, 2026 Release Review
 
-- [Public Tinman Preview 4](https://github.com/Tinman-FP/Tinman/releases/tag/v2026.10.17-preview.4),
+- [Public Tinman Preview 5](https://github.com/Tinman-FP/Tinman/releases/tag/v2026.10.19-preview.5),
   the current download at review time.
-- [Tinman's Preview 5 candidate review and backport scope](https://github.com/Tinman-FP/Tinman/blob/1dfc560076/docs/ORCA_2_5_REVIEW.md),
-  with incomplete validation gates explicitly recorded; not yet a public release.
+- [Tinman's Preview 5 review and backport scope](https://github.com/Tinman-FP/Tinman/blob/eb1bd6d028/docs/ORCA_2_5_REVIEW.md),
+  with packaged calibration export checks and the linked platform build results.
 - [OrcaSlicer 2.5.0-alpha release](https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.5.0-alpha),
   published 2026-10-16; an alpha, not the latest stable release.
 - [OrcaSlicer stable 2.4.2](https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.4.2).

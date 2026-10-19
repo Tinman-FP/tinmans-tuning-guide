@@ -334,7 +334,7 @@ test. See the [version basis](11-orca-tinmanx1-settings-reference.md) and the
 [Speed tab](14-speed-tab.md) for the controls that remain active around the
 calibration.
 
-The Preview 5 candidate calibration backport changes this behavior: optional nozzle-aware
+The Preview 5 calibration backport changes this behavior: optional nozzle-aware
 scaling and flow-limit adjustment are now available, and VFA bands follow 25
 layers rather than a universal 5 mm height. The old specimen's mapping above
 remains its historical record, not a formula for a newly generated tower.
