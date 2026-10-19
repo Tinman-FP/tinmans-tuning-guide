@@ -139,11 +139,12 @@ contracts, Strength Lens, and experimental Wave Overhangs.
 TinmanX1 is now the private experimental test bed. Historical feature labels do
 not guarantee inclusion or validation in public Tinman.
 
-## October 18, 2026 Release Review
+## October 19, 2026 Release Review
 
 - [Public Tinman Preview 4](https://github.com/Tinman-FP/Tinman/releases/tag/v2026.10.17-preview.4),
-  source `90e25afac2f79bc38f9018442e0a028587d89d53`.
-- [Tinman's pinned Orca 2.5 review and backport scope](https://github.com/Tinman-FP/Tinman/blob/90e25afac2f79bc38f9018442e0a028587d89d53/docs/ORCA_2_5_REVIEW.md).
+  the current download at review time.
+- [Tinman's Preview 5 candidate review and backport scope](https://github.com/Tinman-FP/Tinman/blob/1dfc560076/docs/ORCA_2_5_REVIEW.md),
+  with incomplete validation gates explicitly recorded; not yet a public release.
 - [OrcaSlicer 2.5.0-alpha release](https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.5.0-alpha),
   published 2026-10-16; an alpha, not the latest stable release.
 - [OrcaSlicer stable 2.4.2](https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.4.2).

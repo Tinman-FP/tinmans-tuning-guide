@@ -65,16 +65,16 @@ a single value is demonstrably inadequate. Establish a good fixed PA first.
 
 ### Check the generator version
 
-Tinman Preview 3/4 and Orca 2.5 alpha include the PA Pattern fix for absolute
+Tinman Preview 3 and later and Orca 2.5 alpha include the PA Pattern fix for absolute
 extrusion. Older generated G-code does not acquire that correction when the
 application is upgraded: regenerate it and inspect the extrusion-mode/reset
 sequence. The fix prevents an unintended large retraction; it does not change
 the physical PA optimum. These builds also stop affected calibration
 generators when model loading fails or is canceled.
 
-Orca 2.5 alpha additionally changes PA Line print-area reporting and PA Tower
-step geometry, and validates adaptive-PA measurement input. Do not assume
-those extra changes are in Tinman. Keep each specimen with its own generator
+The Tinman Preview 5 candidate and Orca 2.5 alpha additionally change PA Line print-area
+reporting and PA Tower interpolation, and validate adaptive-PA measurement
+input. Older Tinman releases do not include that batch. Keep each specimen with its own generator
 settings and G-code; do not apply an older tower's height formula blindly.
 See the [version-specific calibration map](21-slicer-upgrades-and-calibration-changes.md).
 

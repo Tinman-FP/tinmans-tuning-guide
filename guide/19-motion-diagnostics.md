@@ -321,7 +321,7 @@ knee is needed to select a cosmetic limit.
 
 ## OrcaSlicer and TinmanX1 Version Note
 
-The TinmanX1 `2.4.2` build documented in this edition provides a VFA dialog with
+The historical TinmanX1 `2.4.2` build used for the field example provides a VFA dialog with
 start speed, end speed, and step size. Its built-in test uses a fixed 35 mm
 model and changes speed every 5 mm. It does not expose the newer nozzle-aware
 auto-scaling options described for OrcaSlicer builds after `2.4.2`. With a
@@ -333,6 +333,15 @@ identical geometry or ranges. Record the application version with every saved
 test. See the [version basis](11-orca-tinmanx1-settings-reference.md) and the
 [Speed tab](14-speed-tab.md) for the controls that remain active around the
 calibration.
+
+The Preview 5 candidate calibration backport changes this behavior: optional nozzle-aware
+scaling and flow-limit adjustment are now available, and VFA bands follow 25
+layers rather than a universal 5 mm height. The old specimen's mapping above
+remains its historical record, not a formula for a newly generated tower.
+Record the actual generated layer height and check the final speed commands.
+The [upgrade chapter](21-slicer-upgrades-and-calibration-changes.md) explains
+the two auto-adjustment controls and why reopening an ordinary calibration
+project does not guarantee restoration of its speed schedule.
 
 ## Minimum Experiment Record
 

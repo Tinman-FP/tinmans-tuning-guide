@@ -3,15 +3,16 @@
 An application update can change the experiment even when the preset name and
 entered numbers stay the same. Separate a corrected generator, a changed
 toolpath, a migrated preset, and an actual change in the filament's behavior.
-This review covers tuning-relevant changes checked on **2026-10-18**, not a
+This review covers tuning-relevant changes checked on **2026-10-19**, not a
 claim that every upstream feature has been ported or physically validated.
 
 ## Which Application Are You Using?
 
-- **Public Tinman:** `v2026.10.17-preview.4`, source
-  `90e25afac2f79bc38f9018442e0a028587d89d53`. Preview 4 retains the selected
-  Orca fixes introduced in Preview 3 and separates Tinman branding/versioning
-  from the older compatibility metadata.
+- **Public Tinman:** `v2026.10.17-preview.4`, source `90e25afac2f7`.
+- **Tinman Preview 5 candidate:** source `1dfc560076`, with calibration/build
+  changes at `b0db6431c5`. It retains Previews 3/4 fixes and adds the batch below.
+  Packaged-app and platform validation remain incomplete; it is not yet the
+  public download or a recommendation to replace an active installation.
 - **OrcaSlicer stable:** `v2.4.2` remains the latest stable release at this
   review date. Its calibration behavior is not automatically the alpha's.
 - **OrcaSlicer preview:** `v2.5.0-alpha`, released 2026-10-16, is a testing
@@ -20,9 +21,9 @@ claim that every upstream feature has been ported or physically validated.
   documentation is not a promise of inclusion in a public Tinman release.
 
 Use the [public Tinman release page](https://github.com/Tinman-FP/Tinman/releases/tag/v2026.10.17-preview.4)
-for downloads. At review time its published binary is macOS Apple Silicon;
-other CI outputs are not equivalent to published, qualified installers.
-See the [pinned Tinman upstream review](https://github.com/Tinman-FP/Tinman/blob/90e25afac2f79bc38f9018442e0a028587d89d53/docs/ORCA_2_5_REVIEW.md)
+for downloads and the tested-platform scope. A successful platform build is not
+an interactive test on every operating system or a physical printer validation.
+See the [candidate-pinned Tinman upstream review](https://github.com/Tinman-FP/Tinman/blob/1dfc560076/docs/ORCA_2_5_REVIEW.md)
 and [Orca release notes](https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.5.0-alpha)
 for provenance. Application branding is not a profile-format migration.
 
@@ -45,34 +46,82 @@ Sources: Orca changes [14473](https://github.com/OrcaSlicer/OrcaSlicer/pull/1447
 [16191](https://github.com/OrcaSlicer/OrcaSlicer/pull/16191), plus the pinned
 Tinman review above. No numerical material tune is approved by these fixes.
 
-## Additional Orca Alpha Calibration Changes
+## New in the Tinman Preview 5 Candidate
 
-The following are **upstream alpha changes, not documented Tinman backports**.
-Calibration-family names can match while the generated experiment differs.
+The following selected Orca alpha changes are implemented in the candidate, with additional
+Tinman validation and boundary checks. Calibration-family names can match
+older versions while the generated experiment differs. Regenerate test files.
 
 ### Temperature and VFA
 
-Nozzle-aware scaling and a flow-limited VFA generator change test geometry and
-attainable speeds. Record actual layer height, width, scale, MVS, and speed
-range after generation. A requested high speed is not evidence that the nozzle
-sustained it. Compare like geometry or label the result as a different
-experiment. Do not infer a temperature optimum from a flow-starved section.
+Optional nozzle-aware resizing changes temperature/VFA tower geometry. With
+resizing off, retain and record the selected process layer height; with it on,
+record the generated scale and layer height rather than assuming the previous
+tower dimensions. Do not reuse a height-to-value formula from another build.
+
+For VFA, select the intended nozzle, process and filament before generation.
+Keep the filament's validated maximum volumetric speed (MVS). With both
+**Auto-scale for nozzle** and **Auto-adjust to max volumetric speed** enabled,
+flow-limit adjustment selects a compatible layer height, then proposes a lower
+end speed if needed. The new endpoint stays on the requested speed-step grid.
+If even the first two blocks are unreachable, generation stops: reduce the
+requested range or revise the test geometry, not the validated MVS merely to
+make the warning disappear.
+
+With resizing disabled, the generator warns instead of automatically changing
+the process layer height. If you explicitly continue after a flow warning,
+label the result **flow-clamped**. Inspect sliced speed and volumetric flow;
+the requested speed is not proof of the executed speed. Record actual layer
+height, width, scale, MVS, and range after generation. Compare like geometry or
+label it a different experiment. Do not infer a temperature optimum from a
+flow-starved section.
 
 Source: [nozzle-aware calibration, 14759](https://github.com/OrcaSlicer/OrcaSlicer/pull/14759).
 
 ### Pressure Advance
 
-PA Line uses a tighter reported footprint; PA Tower step geometry changes.
+PA Line reports its actual footprint, including optional numbers and line
+width. Preview extrusion thickness is distinct from absolute Z height. PA
+Tower uses bounded interpolation; temperature and VFA towers use 25-layer
+bands, so changing layer height changes each band's physical height.
 Keep each specimen's generated mapping rather than reusing a remembered height
 formula. A different adaptive-mesh area can change the first-layer context of
 a line test, so check that before comparing line quality. Adaptive-PA input
-validation checks measurement structure; valid syntax is not physical
-validation. Keep fixed PA as the control and qualify adaptive behavior on the
-actual firmware before production use.
+validation checks each filament's measurement structure. Each measurement row
+contains PA, flow, and acceleration; incomplete, malformed or nonfinite numbers
+are rejected. Enabled malformed models also fail slice validation. Valid
+syntax is not physical validation, and quantities with different units must
+not be compared numerically to each other. Read the Prusa firmware warning
+where shown; keep fixed PA as the control and qualify adaptive behavior on the
+actual firmware before production use. Clearer field labels do not change an
+existing physical tune.
 
 Sources: [PA Line, 14440](https://github.com/OrcaSlicer/OrcaSlicer/pull/14440),
 [tower changes, 14759](https://github.com/OrcaSlicer/OrcaSlicer/pull/14759), and
-[adaptive input validation, 14198](https://github.com/OrcaSlicer/OrcaSlicer/pull/14198).
+[adaptive input validation, 14198](https://github.com/OrcaSlicer/OrcaSlicer/pull/14198),
+[Prusa warning, 14271](https://github.com/OrcaSlicer/OrcaSlicer/pull/14271), and
+[measurement labels, 14411](https://github.com/OrcaSlicer/OrcaSlicer/pull/14411).
+
+### Upload Diagnostics
+
+Moonraker upload failures now expose readable server error details where
+available. Save the returned message and job identity before retrying. This
+does not alter authentication, firmware, or whether a printer is reachable.
+Source: [upload errors, 14841](https://github.com/OrcaSlicer/OrcaSlicer/pull/14841).
+
+### Saving a Calibration Is Not Saving Its Schedule
+
+In the Preview 5 packaged-app check, reopening a saved VFA project preserved
+the model and presets, but re-slicing did **not** restore its speed sweep.
+The calibration schedule is runtime state, not a guaranteed part of a project
+3MF. Keep the audited final G-code (or sliced G-code 3MF), generator inputs,
+application revision, and specimen together. To repeat or revise the test,
+generate it again from the Calibration menu and inspect the exported commands.
+Do not print a re-sliced calibration project merely because its tower still
+looks correct. This finding is not evidence that every Orca version has the
+same behavior; verify the build you use.
+
+## Orca Alpha Changes Not Included in This Tinman Batch
 
 ### Motion and Volumetric Limits
 
@@ -105,10 +154,8 @@ Source: [filament tool-change retraction, 15039](https://github.com/OrcaSlicer/O
 infill options, belt printing, and parallel multi-tool printing can change the
 test itself. Leave unrelated transformations out of a baseline. For intentional
 use, record plugin versions, generated geometry, tool mapping, and mode, then
-validate a representative part. These are not blanket Tinman Preview 4
+validate a representative part. These are not blanket Tinman Preview 5
 capabilities. See the upstream release notes linked above.
-
-<!-- pdf:page-break-before -->
 
 ## Revalidate Toolpaths, Not Only Entered Values
 
@@ -140,7 +187,7 @@ verify effective settings. Never substitute a similar generic material for a
 missing machine-specific tune without resolving inheritance and compatibility.
 
 Use **Help > Migrate Filament Presets** only in a build providing it. This is
-not a Tinman Preview 4 instruction. Preserve the original user data and projects
+not a Tinman Preview 5 instruction. Preserve the original user data and projects
 before migration, and verify printer/slot assignments after synchronization.
 Sources: [migration, 16367](https://github.com/OrcaSlicer/OrcaSlicer/pull/16367),
 [follow-up, 16523](https://github.com/OrcaSlicer/OrcaSlicer/pull/16523), and
@@ -150,6 +197,8 @@ For command-line slicing, compare resolved inheritance and dimensional
 compensation against the GUI before substituting its output. Upstream alpha
 changes CLI profile resolution; identical filenames do not guarantee equivalent
 settings across versions. Source: [CLI loading, 15438](https://github.com/OrcaSlicer/OrcaSlicer/pull/15438).
+
+<!-- pdf:page-break-before -->
 
 ## A Controlled Upgrade Procedure
 

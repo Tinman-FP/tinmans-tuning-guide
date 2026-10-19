@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.0.3 - 2026-10-19
+
+- Distinguished public Tinman Preview 4 from the Preview 5 validation candidate; Orca 2.4.2 remains
+  latest stable and 2.5.0-alpha the current numbered prerelease at review time.
+- Documented optional nozzle-aware towers, VFA flow-limit adjustment and
+  unreachable ranges, PA interpolation/footprint/input checks, and readable
+  Moonraker upload errors. Distinguished software checks from physical tuning.
+- Kept motion-limit changes, mixed-nozzle support, precise seams, migration,
+  and larger alpha features explicitly outside this Tinman backport batch.
+- Distinguished historical 5 mm VFA specimens from the new layer-based bands;
+  documented the observed calibration-project schedule persistence limitation.
+- Rebuilt the linked PDF from the same source chapters.
+
 ## 1.0.2 - 2026-10-18
 
 - Updated public download links and version identification for Tinman Preview 4;

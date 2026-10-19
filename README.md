@@ -19,8 +19,11 @@ Slicer downloads:
 Release pages move forward over time. The settings reference states the exact
 versions and source revisions used for this edition.
 
-**October 18, 2026 update:** this edition distinguishes public Tinman
-2026.10.17 Preview 4, stable OrcaSlicer 2.4.2, and OrcaSlicer 2.5.0-alpha.
+**October 19, 2026 update:** this edition distinguishes public Tinman
+2026.10.17 Preview 4, the Preview 5 validation candidate, stable OrcaSlicer
+2.4.2, and OrcaSlicer 2.5.0-alpha. Preview 5 is not yet the public download.
+It covers the new nozzle-aware calibration, flow-limited VFA, PA validation,
+and upload diagnostics, with deferred alpha features identified separately.
 TinmanX1 is the private experimental test bed, not the public download.
 Read [Slicer Upgrades and Calibration Changes](guide/21-slicer-upgrades-and-calibration-changes.md)
 before carrying a profile or an old calibration result into a newer build.
@@ -133,7 +136,7 @@ defending a value for a defined setup.
 | [TinmanX1 fiber and strength tools](guide/18-tinmanx1-fiber-and-strength-tools.md) | Process, filament, and machine fiber controls |
 | [Motion diagnostics](guide/19-motion-diagnostics.md) | Acceleration towers, input shaping, VFA, and a worked field example |
 | [Profile integrity and experimental resets](guide/20-profile-integrity-and-experimental-resets.md) | Tool/nozzle identity, false baselines, machine-specific profiles, and a photographed FibreSeek reset |
-| [Slicer upgrades and calibration changes](guide/21-slicer-upgrades-and-calibration-changes.md) | Tinman Preview 4 versus Orca 2.5 alpha, migration, changed generators, and revalidation |
+| [Slicer upgrades and calibration changes](guide/21-slicer-upgrades-and-calibration-changes.md) | Tinman Preview 5 versus Orca 2.5 alpha, migration, changed generators, and revalidation |
 | [Diagnostic matrix](guide/diagnostic-matrix.md) | Symptom-to-cause triage |
 | [Glossary](guide/glossary.md) | Definitions and formulas |
 | [Experiment log](templates/experiment-log.md) | Reusable test record |

@@ -724,7 +724,7 @@ def build_pdf(output: Path):
     ))
     story.append(Spacer(1, 0.25 * inch))
     story.append(Paragraph(
-        "Edition 1.0.2 - reviewed 2026-10-18. Current release comparison: Tinman 2026.10.17 Preview 4, OrcaSlicer stable 2.4.2, and OrcaSlicer 2.5.0-alpha. Historical tab-survey revisions are identified in the settings reference.",
+        "Edition 1.0.3 - reviewed 2026-10-19. Public Tinman is Preview 4; Preview 5 is a validation candidate. Compared with OrcaSlicer stable 2.4.2 and 2.5.0-alpha. Historical tab-survey revisions are identified in the settings reference.",
         styles["front_subtitle"],
     ))
     story.append(PageBreak())

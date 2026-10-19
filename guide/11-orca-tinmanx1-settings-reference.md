@@ -14,7 +14,7 @@ for a group, leave that group alone.
 
 ## Version Basis
 
-The current release review was checked on 2026-10-18. The detailed tab survey
+The current release review was checked on 2026-10-19. The detailed tab survey
 retains its explicitly identified historical source baseline; new behavior is
 documented in [Slicer Upgrades and Calibration Changes](21-slicer-upgrades-and-calibration-changes.md).
 
@@ -22,12 +22,14 @@ documented in [Slicer Upgrades and Calibration Changes](21-slicer-upgrades-and-c
 | --- | --- | --- |
 | OrcaSlicer application source | `v2.4.2`, commit `8500fcdccaa10b5099ac20d252af3a7c560046f1` | The upstream 2.4.2 process tabs and controls |
 | OrcaSlicer 2.5 preview | `v2.5.0-alpha`, published 2026-10-16 | New upstream behavior; alpha, not the stable release |
-| Public Tinman | `v2026.10.17-preview.4`, commit `90e25afac2f79bc38f9018442e0a028587d89d53` | Current public build and selected 2.5 alpha backports |
+| Public Tinman | `v2026.10.17-preview.4`, source `90e25afac2f7` | Current public download |
+| Tinman Preview 5 candidate | Source `1dfc560076`; calibration/build changes at `b0db6431c5` | Selected 2.5 alpha backports under validation, not yet a public release |
 | OrcaSlicer Wiki survey | commit `f132cbf1c1e48573d229d1783ee471e61e50aaf3`, dated 2026-09-17 | Historical tab terminology, supplemented by the current release review |
 | Historical TinmanX1 source | compatibility base `2.4.2`, commit `cf0cabb04146c4ff9f21b963517717acfec66055` | The original custom-feature survey, not a public-download promise |
 
-Public Tinman displays `2026.10.17 Preview 4` and uses package version
-`2026.10.17.4`. Its retained `2.4.2` compatibility metadata is not the current
+Public Tinman displays `2026.10.17 Preview 4`; the validation candidate displays
+`2026.10.19 Preview 5` with package version `2026.10.19.5`.
+The retained `2.4.2` compatibility metadata is not the current
 Tinman product version and does not imply full Orca 2.5 parity. Record the
 product version, release tag, and source revision, not just a number embedded
 in an exported preset. TinmanX1 remains the private experimental test bed.
@@ -36,7 +38,7 @@ Official download pages:
 
 - [OrcaSlicer releases](https://github.com/SoftFever/OrcaSlicer/releases/latest)
 - [Public Tinman releases](https://github.com/Tinman-FP/Tinman/releases)
-- [Reviewed Tinman Preview 4](https://github.com/Tinman-FP/Tinman/releases/tag/v2026.10.17-preview.4)
+- [Reviewed Preview 5 candidate and validation status](https://github.com/Tinman-FP/Tinman/blob/1dfc560076/docs/ORCA_2_5_REVIEW.md)
 
 Use the releases list to distinguish stable and preview builds. Compare
 the downloaded version with the fixed documentation baseline above before
@@ -60,7 +62,7 @@ These labels describe the original tab-survey revisions, not every older or
 future release. **TinmanX1 addition** is historical provenance, not proof that
 the feature is available or validated in public Tinman. The upgrade chapter's
 Tinman/alpha distinction takes precedence for changed behavior. Never assume
-that a control documented for Orca 2.5 alpha exists in Tinman Preview 4.
+that a control documented for Orca 2.5 alpha exists in Tinman Preview 5.
 
 ## Scope
 
