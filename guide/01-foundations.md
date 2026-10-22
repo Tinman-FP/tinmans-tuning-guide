@@ -166,6 +166,10 @@ Before advanced tuning, print a simple artifact that includes:
 The purpose is not perfection. It confirms that the printer can complete a
 controlled test and reveals obvious mechanical or thermal faults.
 
+If using a Benchy, use the [official-reference inspection checklist](24-benchy-inspection-and-measurement.md).
+Completion alone does not pass the gate, and an invented numerical score is
+not an official grading requirement.
+
 If probing, homing, nozzle condition, or tool selection is not repeatable, log
 that as a machine event and suspend filament tuning. Do not count failed starts
 or hardware faults as material outcomes.
