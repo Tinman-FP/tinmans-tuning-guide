@@ -6,6 +6,18 @@ formal experiment or publication.
 
 Last source review: 2026-10-08.
 
+## 3DBenchy Official References - October 22, 2026
+
+- [Creative Tools: geometric feature descriptions](https://www.3dbenchy.com/features/).
+- [Official nominal dimensions and measurement drawings](https://www.3dbenchy.com/dimensions/).
+- [Official generic FFF print settings](https://www.3dbenchy.com/3d-print/).
+
+Reviewed 2026-10-22 for the [Benchy inspection chapter](guide/24-benchy-inspection-and-measurement.md).
+These pages supply design references, not a numerical grading scale or universal
+acceptance tolerances. The chapter's evidence categories and foundation decision
+rules are this guide's operational interpretation, not an official endorsement.
+No third-party drawings or model files are reproduced in that addition.
+
 ## Prusa Research
 
 - [Extrusion multiplier calibration](https://help.prusa3d.com/article/extrusion-multiplier-calibration_2257)

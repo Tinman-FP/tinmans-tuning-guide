@@ -143,6 +143,7 @@ defending a value for a defined setup.
 | [Filament and printer settings](guide/22-filament-and-printer-settings.md) | Material identity, thermal settings, machine contracts, scripts, tools, and dependencies |
 | [Application and project help](guide/23-application-and-project-help.md) | Profile sync, import/export, changes, and preferences |
 | [Diagnostic matrix](guide/diagnostic-matrix.md) | Symptom-to-cause triage |
+| [3DBenchy inspection and measurement](guide/24-benchy-inspection-and-measurement.md) | Official features, nominal dimensions, and evidence-based grading |
 | [Glossary](guide/glossary.md) | Definitions and formulas |
 | [Experiment log](templates/experiment-log.md) | Reusable test record |
 | [Release checklist](templates/profile-release-checklist.md) | Final profile audit |

@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.5 - 2026-10-22
+
+- Add official-source 3DBenchy feature inspection, complete nominal dimension
+  table, generic reference settings, and a reusable evidence-based grading record.
+- Distinguish official design references from local acceptance decisions,
+  unmeasured properties, and nonstandard benchmark conditions.
+- Link foundations and validation to the checklist; rebuild PDF and synchronize wiki.
+
 ## Unreleased - 2026-10-20
 
 - Replaced the dark industrial cover with the lighter Airframe brand system

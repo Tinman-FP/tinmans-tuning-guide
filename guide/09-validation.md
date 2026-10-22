@@ -25,6 +25,9 @@ before any global compensation is accepted.
 
 ### 3. Geometry artifact
 
+For a Benchy, record the [official feature checks and nominal dimensions](24-benchy-inspection-and-measurement.md),
+with local acceptance limits clearly separated from the source specifications.
+
 Checks bridges, overhangs, small towers, text, curves, corners, and travel
 stringing.
 

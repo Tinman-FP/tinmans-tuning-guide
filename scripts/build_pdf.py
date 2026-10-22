@@ -61,6 +61,7 @@ DOCUMENTS = [
     ("Motion Diagnostics", Path("guide/19-motion-diagnostics.md")),
     ("Profile Integrity and Experimental Resets", Path("guide/20-profile-integrity-and-experimental-resets.md")),
     ("Slicer Upgrades and Calibration Changes", Path("guide/21-slicer-upgrades-and-calibration-changes.md")),
+    ("3DBenchy Inspection and Measurement", Path("guide/24-benchy-inspection-and-measurement.md")),
     ("Diagnostic Matrix", Path("guide/diagnostic-matrix.md")),
     ("Glossary", Path("guide/glossary.md")),
     ("Experiment Log", Path("templates/experiment-log.md")),
