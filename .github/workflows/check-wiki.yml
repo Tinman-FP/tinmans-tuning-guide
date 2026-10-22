@@ -1,0 +1,13 @@
+name: Check Wiki
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: python3 scripts/build_wiki.py --output /tmp/tinmans-wiki

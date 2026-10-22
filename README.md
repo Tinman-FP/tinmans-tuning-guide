@@ -11,6 +11,8 @@ filament profiles.
 
 **[Download the complete linked PDF](output/pdf/Tinmans-Tuning-Guide.pdf)**
 
+**[Read the Tinmans Tuning Guide Wiki](https://github.com/Tinman-FP/tinmans-tuning-guide/wiki)**
+
 Slicer downloads:
 
 - [Download the latest official OrcaSlicer release](https://github.com/SoftFever/OrcaSlicer/releases/latest)
@@ -138,6 +140,8 @@ defending a value for a defined setup.
 | [Motion diagnostics](guide/19-motion-diagnostics.md) | Acceleration towers, input shaping, VFA, and a worked field example |
 | [Profile integrity and experimental resets](guide/20-profile-integrity-and-experimental-resets.md) | Tool/nozzle identity, false baselines, machine-specific profiles, and a photographed FibreSeek reset |
 | [Slicer upgrades and calibration changes](guide/21-slicer-upgrades-and-calibration-changes.md) | Tinman Preview 5 versus Orca 2.5 alpha, migration, changed generators, and revalidation |
+| [Filament and printer settings](guide/22-filament-and-printer-settings.md) | Material identity, thermal settings, machine contracts, scripts, tools, and dependencies |
+| [Application and project help](guide/23-application-and-project-help.md) | Profile sync, import/export, changes, and preferences |
 | [Diagnostic matrix](guide/diagnostic-matrix.md) | Symptom-to-cause triage |
 | [Glossary](guide/glossary.md) | Definitions and formulas |
 | [Experiment log](templates/experiment-log.md) | Reusable test record |
@@ -161,6 +165,9 @@ Every accepted value should have:
 The [experiment template](templates/experiment-log.md) is designed for this.
 
 ## Rebuild the PDF
+
+The [wiki publication instructions](wiki/README.md) describe how to keep the
+GitHub Wiki and Tinman's setting-help destinations synchronized with this source.
 
 The PDF is generated from the repository's Markdown sources so the web and
 single-file editions stay synchronized.

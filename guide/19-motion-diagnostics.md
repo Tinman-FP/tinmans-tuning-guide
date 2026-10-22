@@ -7,7 +7,7 @@ choose the test before changing the profile.
 
 Orca 2.5 alpha changes nozzle-aware VFA generation and motion-test limits.
 Record actual geometry and attainable speeds before comparing versions; see
-[calibration changes](21-slicer-upgrades-and-calibration-changes.md#additional-orca-alpha-calibration-changes).
+[calibration changes](21-slicer-upgrades-and-calibration-changes.md#orca-alpha-changes-not-included-in-this-tinman-batch).
 Those additions are not among Tinman's selected Preview 3/4 backports.
 
 ## Separate the Failure Families
