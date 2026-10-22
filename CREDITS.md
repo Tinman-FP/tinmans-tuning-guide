@@ -27,9 +27,9 @@ device and location metadata removed.
 
 - The central TinmanX1 thumbnail logo is the original project icon supplied by
   William Tinney. It is reproduced without redrawing or replacing the mark.
-- The circular title composition, calibration-ring motif, typography, layout,
-  and production artwork were designed and prepared by Codex, OpenAI, at
-  William Tinney's direction.
+- The Airframe composition, calibration-ring motif, typography, light color
+  system, responsive landscape/portrait layouts, and production artwork were
+  designed and prepared by Codex, OpenAI, at William Tinney's direction.
 - The editable source, rendered cover, original logo copy, and provenance are
   retained in the repository's `assets` directory.
 
