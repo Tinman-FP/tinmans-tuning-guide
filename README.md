@@ -1,6 +1,6 @@
 <p align="center">
   <img src="assets/tinmans-tuning-guide-cover.png"
-       alt="Tinmans Tuning Guide encircling the TinmanX1 thumbnail logo"
+       alt="Tinmans Tuning Guide in the bright Airframe design with the Tinman mascot and calibration rings"
        width="100%">
 </p>
 

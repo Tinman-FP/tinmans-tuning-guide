@@ -149,16 +149,16 @@ class FullPageCover(Flowable):
 
     def draw(self):
         image_width, image_height = ImageReader(str(self.image_path)).getSize()
-        rendered_height = self.page_width
-        scale = rendered_height / image_height
+        scale = min(self.page_width / image_width, self.page_height / image_height)
         rendered_width = image_width * scale
+        rendered_height = image_height * scale
         page_x = -self.left_margin
         page_y = -self.bottom_margin
         image_x = page_x + (self.page_width - rendered_width) / 2
         image_y = page_y + (self.page_height - rendered_height) / 2
 
         self.canv.saveState()
-        self.canv.setFillColor(colors.HexColor("#181F26"))
+        self.canv.setFillColor(colors.HexColor("#FFFDF8"))
         self.canv.rect(page_x, page_y, self.page_width, self.page_height, stroke=0, fill=1)
         self.canv.drawImage(
             str(self.image_path),
@@ -701,7 +701,7 @@ def build_pdf(output: Path):
         creator="Tinmans Tuning Guide build script",
     )
     story = []
-    cover = ROOT / "assets" / "tinmans-tuning-guide-cover.png"
+    cover = ROOT / "assets" / "tinmans-tuning-guide-pdf-cover.png"
     story.append(FullPageCover(
         cover,
         letter[0],

@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased - 2026-10-20
+
+- Replaced the dark industrial cover with the lighter Airframe brand system
+  and added a dedicated portrait cover for the PDF edition.
+
 ## 1.0.4 - 2026-10-19
 
 - Updated the public Tinman reference to Preview 5 and its packaged-app validation evidence.

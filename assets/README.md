@@ -21,12 +21,16 @@ replaced.
 
 - `tinmans-tuning-guide-cover.svg` is the editable `1600 x 900` source.
 - `tinmans-tuning-guide-cover.png` is the GitHub-ready rendered cover.
+- `tinmans-tuning-guide-pdf-cover.svg` is the editable `1275 x 1650` portrait
+  source for the letter-size PDF cover page.
+- `tinmans-tuning-guide-pdf-cover.png` is the rendered PDF-cover artwork.
 - The SVG references the adjacent original logo asset and preserves its aspect
   ratio.
-- The PNG was rendered from the SVG with librsvg at `1600 x 900` pixels.
+- The PNG files were rendered from their SVG sources with librsvg.
 
-The circular title composition, calibration-ring motif, typography, and layout
-were created by Codex, OpenAI, at William Tinney's direction.
+The Airframe composition, calibration-ring motif, typography, light color
+system, and responsive landscape/portrait layouts were created by Codex,
+OpenAI, at William Tinney's direction.
 
 ## Field-Test Photographs
 
