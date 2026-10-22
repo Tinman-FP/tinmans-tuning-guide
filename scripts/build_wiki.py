@@ -10,7 +10,7 @@ from urllib.parse import quote, unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 REPO = 'https://github.com/Tinman-FP/tinmans-tuning-guide'
 RAW = 'https://raw.githubusercontent.com/Tinman-FP/tinmans-tuning-guide/main/'
-LINK = re.compile(r'(!?\[[^\]\n]*\]\()([^\s)]+)(\))')
+LINK = re.compile(r'(!?\[[^\]]*\]\()([^\s)]+)(\))')
 
 
 def slug(text):
