@@ -1,5 +1,26 @@
 # Artwork and Provenance
 
+## October 22, 2026 Grading Figures
+
+- `benchy-inspection-map.svg` and `benchy-dimension-locator.svg` are original
+  2D explanatory diagrams by Codex/OpenAI, directed by William Tinney, CC BY 4.0.
+  Corresponding PNGs are rendered with librsvg. They are not CAD models,
+  official drawings or metrically scaled representations. Facts are sourced
+  to https://www.3dbenchy.com/features/ and /dimensions/, reviewed 2026-10-22.
+- #3DBenchy model: Daniel Noree / Creative Tools. Name and online identity:
+  Paulo Kiefe. Current model license: CC0 1.0, per the official license page.
+  No official website illustration is copied or assumed CC0.
+- `field-tests/pet-cf-benchy-foundation-bands.jpg`: William Tinney's original
+  IMG_6231.HEIC, October 22, 2026, showing a rejected foundation specimen.
+- `field-tests/pet-cf-temperature-unresolved.jpg`: William Tinney's original
+  IMG_6237.HEIC, October 22, 2026, showing an unresolved native Tinman/OrcaSlicer
+  temperature diagnostic. Tower geometry credit: native calibration contributors.
+- Photographs contributed by William Tinney under the guide's CC BY 4.0
+  terms at his publication direction. JPEG conversion, publication sizing and
+  metadata stripping only; no defect removal or synthetic passing reference.
+  Originals remain in the owner's private experiment archive. These photographs
+  do not establish strength, exact dimensions or a unique causal fault.
+
 ## TinmanX1 Logo
 
 `tinmanx1-thumbnail-logo.png` is the original high-resolution thumbnail icon

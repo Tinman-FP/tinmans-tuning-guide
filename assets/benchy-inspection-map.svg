@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="800" viewBox="0 0 1440 800">
+<rect width="1440" height="800" fill="#fffdf8"/>
+<style>text{font-family:Arial,sans-serif;fill:#193146}.title{font-size:36px;font-weight:bold}.sub{font-size:22px}.label{font-size:25px;font-weight:bold}.body{font-size:23px}.note{font-size:19px}.shape{fill:#dceaf0;stroke:#28536b;stroke-width:4}.line{fill:none;stroke:#277f87;stroke-width:3}.num{fill:#fff;font-size:23px;font-weight:bold;text-anchor:middle}</style>
+<text x="50" y="62" class="title">3DBenchy inspection map</text>
+<text x="50" y="100" class="sub">Feature locator, not a CAD drawing or a photograph of an accepted print</text>
+<path class="shape" d="M100 430 L695 430 Q645 575 525 605 L220 605 Q140 570 100 430Z"/>
+<path class="shape" d="M300 420 L300 275 L535 275 L535 420Z"/>
+<path class="shape" d="M275 277 L535 252 L560 277Z"/>
+<path class="shape" d="M445 255 L445 170 L500 170 L500 255Z"/>
+<ellipse class="shape" cx="472" cy="170" rx="28" ry="9"/>
+<ellipse cx="472" cy="170" rx="10" ry="4" fill="#fffdf8" stroke="#28536b" stroke-width="3"/>
+<path d="M335 416 L335 325 Q365 288 395 325 L395 416Z" fill="#fffdf8" stroke="#28536b" stroke-width="4"/>
+<rect x="440" y="315" width="60" height="65" fill="#fffdf8" stroke="#28536b" stroke-width="4"/>
+<rect class="shape" x="565" y="390" width="65" height="38"/>
+<ellipse cx="643" cy="465" rx="14" ry="10" fill="#fffdf8" stroke="#28536b" stroke-width="4"/>
+<path class="line" d="M260 515 L90 515 L90 650 M470 205 L575 205 L575 155 M340 300 L240 210 M600 405 L675 350 M350 590 L350 665"/>
+<g fill="#277f87"><circle cx="90" cy="650" r="23"/><circle cx="575" cy="155" r="23"/><circle cx="240" cy="210" r="23"/><circle cx="675" cy="350" r="23"/><circle cx="350" cy="665" r="23"/></g>
+<g class="num"><text x="90" y="658">1</text><text x="575" y="163">2</text><text x="240" y="218">3</text><text x="675" y="358">4</text><text x="350" y="673">5</text></g>
+<text x="770" y="168" class="label">1  Hull and symmetry</text>
+<text x="770" y="203" class="body">Continuous walls; compare both sides.</text>
+<text x="770" y="257" class="label">2  Chimney</text>
+<text x="770" y="292" class="body">Round bore, coherent cylinder, flat top.</text>
+<text x="770" y="346" class="label">3  Cabin and roof</text>
+<text x="770" y="381" class="body">Inspect bridges and interior overhangs.</text>
+<text x="770" y="416" class="body">Regular shallow-slope steps are normal;</text>
+<text x="770" y="451" class="body">missing tracks and open bands are not.</text>
+<text x="770" y="505" class="label">4  Deck, cargo and openings</text>
+<text x="770" y="540" class="body">Flat faces; clear holes; resolved details.</text>
+<text x="770" y="594" class="label">5  Bottom and stern</text>
+<text x="770" y="629" class="body">First-layer letters; note removal damage.</text>
+<text x="50" y="728" class="note">Record each feature: observed acceptable / defective / not assessed. Photos do not establish strength or dimensions.</text>
+<text x="50" y="764" class="note">Original schematic: Codex/OpenAI for William Tinney, CC BY 4.0. Feature basis: 3DBenchy.com/features/.</text>
+</svg>

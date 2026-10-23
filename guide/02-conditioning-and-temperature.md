@@ -79,6 +79,10 @@ display print and a fast structural print may need different values.
 A tower does not identify an optimum if the best section is at the hottest or
 coldest tested endpoint. Extend the range in that direction.
 
+An endpoint is not a winner merely because one face looks smoother. First
+check all repeated features and exclude temperature-transition layers. Do not
+extend a range when every tier retains the same unresolved failure.
+
 ## Read the Tower
 
 Evaluate every segment for:
@@ -95,6 +99,48 @@ Evaluate every segment for:
 Photographs are useful for appearance, but they cannot prove layer strength.
 Use a controlled bend or break comparison when adhesion matters. Keep geometry
 and loading consistent and use eye protection.
+
+### When Every Temperature Retains the Defect
+
+![Unresolved deposition example, not a temperature selection. This tower runs bottom to top 285, 280, 275, 270 and 265 C, with a separate 275 C first layer. Rough tracks and feature-edge discontinuities recur across bands. Photograph: William Tinney, IMG_6237, 2026-10-22. Native Tinman/OrcaSlicer calibration geometry; contributor credits are in CREDITS.](../assets/field-tests/pet-cf-temperature-unresolved.jpg)
+
+This Qidi Plus4 / CM2 0.6 mm / Elegoo PET-CF example used stock-size native
+geometry, 0.24 mm body layers, 0.30 mm first layer, flow 1.00, PA 0,
+3 mm3/s diagnostic cap, 100 C bed and 50 C chamber target. Main cooling was
+20% after the first three layers. The five body bands occupied layers
+2-42, 43-84, 85-125, 126-167 and 168-208, respectively, not fixed 25-layer
+steps. Reported temperatures followed the commands after transitions, but
+fine tracks remained defective across the range. Height, time and repeated
+feature geometry remain confounds; no temperature was accepted from this test.
+
+Do not turn a generic moisture symptom list into a diagnosis. Wet filament
+can cause roughness, pits, inconsistent extrusion and stringing, but those
+observations overlap with delivery, toolpath and thermal/cooling faults.
+Organized bands or defects that recur at the same feature transitions warrant
+mapping to the emitted paths, layer timing, speed/width/flow and retract/restart
+events. A sensor near the heater does not measure melt throughput, and an
+upstream diameter sensor does not measure deposited volume.
+
+Record actual conditioning history before deciding whether a drying A/B is
+informative. In this case the owner reported new filament kept in a Creality
+Pi dryer for four days, with a 65 C setting and humidity-triggered heater
+cycling at 18% RH. That is useful history, not a continuous 24-hour heat soak
+or a measurement of filament moisture. Conversely, a recipe mismatch alone
+does not prove the defects are moisture-caused.
+
+The [Elegoo PET-CF specification](https://www.elegoo.com/products/pet-cf),
+reviewed 2026-10-22, gives 80 +/- 5 C for 8 hours, with drying before use.
+Only use that schedule in a dryer and spool rated for it; do not defeat
+temperature limits. A documented conditioning comparison can test a moisture
+hypothesis, but a negative result must redirect diagnosis rather than trigger
+endless drying or temperature sweeps. If suitable conditioning is already
+verified, preserve it and test another supported hypothesis.
+
+If no tier resolves the failure, stop the sweep. Audit the exact failed paths
+and the machine/deposition baseline, then define a small, controlled test with
+an explicit discriminating outcome. Do not advance automatically to MVS, PA,
+flow or cosmetic retraction tuning. This is a return to the earliest affected
+prerequisite, not a requirement to repeat every previously valid check.
 
 ## Selection Rule
 
@@ -123,6 +169,12 @@ working selection. The `250 C` tier is visually competitive, but it is only one
 clean walls, readable detail, and acceptable bridge behavior while preserving
 process margin. Treat that value as a test-specific starting point and confirm
 it again at the intended production volumetric flow.
+
+This is a historical, setup-specific result, not a qualified temperature for
+every later hotend/nozzle/profile revision. It is below the 260-290 C range
+listed on Elegoo's current PET-CF product page reviewed 2026-10-22. Do not
+silently transfer it to a new setup or use it to override the manufacturer's
+current limits.
 
 ## First-Layer Temperature
 

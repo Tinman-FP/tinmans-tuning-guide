@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="800" viewBox="0 0 1440 800">
+<rect width="1440" height="800" fill="#fffdf8"/>
+<style>text{font-family:Arial,sans-serif;fill:#193146}.title{font-size:36px;font-weight:bold}.sub{font-size:22px}.label{font-size:26px;font-weight:bold}.body{font-size:24px}.note{font-size:19px}.shape{fill:#dceaf0;stroke:#28536b;stroke-width:4}.dim{fill:none;stroke:#277f87;stroke-width:3;marker-start:url(#arrow);marker-end:url(#arrow)}</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#277f87"/></marker></defs>
+<text x="50" y="62" class="title">3DBenchy nominal-dimension locator</text>
+<text x="50" y="100" class="sub">All values in mm at 100% model scale. Nominals are not tolerances. Schematic, not to scale.</text>
+<text x="65" y="160" class="label">Overall envelope</text>
+<path class="shape" d="M95 355 L515 355 Q475 450 405 470 L175 470 Q110 430 95 355Z"/>
+<rect class="shape" x="245" y="255" width="160" height="100"/>
+<path class="shape" d="M225 255 L405 238 L425 255Z"/>
+<rect class="shape" x="345" y="195" width="40" height="48"/>
+<path class="dim" d="M95 515 L515 515"/>
+<text x="270" y="552" class="body">60.00</text>
+<path class="dim" d="M560 195 L560 470"/>
+<text x="575" y="345" class="body">48.00</text>
+<path class="dim" d="M245 285 L405 285"/>
+<text x="280" y="322" class="body">23.00 roof</text>
+<text x="65" y="598" class="body">Width: 31.00 across port/starboard extremes.</text>
+<text x="65" y="638" class="body">Cargo rim: 15.50 above the bottom plane.</text>
+<text x="765" y="160" class="label">Chimney top, viewed from above</text>
+<circle class="shape" cx="910" cy="290" r="85"/>
+<circle cx="910" cy="290" r="36" fill="#fffdf8" stroke="#28536b" stroke-width="4"/>
+<path class="dim" d="M825 290 L995 290"/>
+<text x="1025" y="270" class="body">Outer diameter 7.00</text>
+<text x="1025" y="308" class="body">Bore diameter 3.00</text>
+<text x="1025" y="346" class="body">Blind depth 11.00</text>
+<text x="765" y="430" class="label">Measure faces, not shadows</text>
+<text x="765" y="474" class="body">Cool fully; zero the instrument.</text>
+<text x="765" y="514" class="body">Repeat readings; report resolution.</text>
+<text x="765" y="554" class="body">Avoid seam, brim and damaged edges.</text>
+<text x="765" y="594" class="body">Use the chapter table for every nominal.</text>
+<text x="765" y="634" class="body">Do not measure this schematic.</text>
+<text x="50" y="720" class="note">Original diagram: Codex/OpenAI for William Tinney, CC BY 4.0. Nominals: 3DBenchy.com/dimensions/ (2026-10-22).</text>
+<text x="50" y="760" class="note">Model: Daniel Noree / Creative Tools; name and online identity: Paulo Kiefe. No third-party drawing reproduced.</text>
+</svg>

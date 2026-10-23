@@ -11,12 +11,26 @@ Last source review: 2026-10-08.
 - [Creative Tools: geometric feature descriptions](https://www.3dbenchy.com/features/).
 - [Official nominal dimensions and measurement drawings](https://www.3dbenchy.com/dimensions/).
 - [Official generic FFF print settings](https://www.3dbenchy.com/3d-print/).
+- [Official model license and creator attribution](https://www.3dbenchy.com/license/).
 
 Reviewed 2026-10-22 for the [Benchy inspection chapter](guide/24-benchy-inspection-and-measurement.md).
 These pages supply design references, not a numerical grading scale or universal
 acceptance tolerances. The chapter's evidence categories and foundation decision
 rules are this guide's operational interpretation, not an official endorsement.
 No third-party drawings or model files are reproduced in that addition.
+The original inspection/dimension schematics paraphrase the cited facts and
+are independently drawn, not copied from official website illustrations.
+
+## Product-Specific Conditioning Reference - October 22, 2026
+
+- [Elegoo PET-CF specifications](https://www.elegoo.com/products/pet-cf):
+  drying before use, 80 +/- 5 C for 8 hours; nozzle 260-290 C, bed 90-110 C,
+  chamber 45-60 C. Product/spool/dryer limits still govern safe application.
+
+The conditioning chapter's October 22 field case separates a possible
+moisture contribution from an established cause and records an unresolved
+285-265 C diagnostic. Manufacturer guidance is not proof of the cause of a
+photographed defect. Earlier 255 C field evidence remains explicitly historical.
 
 ## Prusa Research
 
