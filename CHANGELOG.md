@@ -2,6 +2,14 @@
 
 ## 1.0.5 - 2026-10-22
 
+- Add original illustrated Benchy inspection and dimension locators, a
+  photographed foundation-failure example, and full model/figure/photo credits.
+- Add an unresolved temperature-tower example and stop rules: distinguish
+  moisture-compatible symptoms from proof, audit repeated path-linked defects,
+  preserve actual conditioning history and do not promote failed bands.
+- Mark historical 255 C PET-CF evidence as setup-specific and outside the
+  manufacturer's currently cited 260-290 C range; do not silently reuse it.
+- Restore chapters 22 and 23 to the complete PDF, matching the maintained web edition.
 - Add official-source 3DBenchy feature inspection, complete nominal dimension
   table, generic reference settings, and a reusable evidence-based grading record.
 - Distinguish official design references from local acceptance decisions,

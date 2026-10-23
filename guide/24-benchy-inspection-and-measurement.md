@@ -36,6 +36,8 @@ separate protocol, not a substitute for quality inspection.
 
 ## Official Feature Checks
 
+![Inspection locations and evidence limits. Original schematic by Codex/OpenAI for William Tinney, CC BY 4.0; feature descriptions from the official 3DBenchy website. Not an official drawing or a passing-print reference.](../assets/benchy-inspection-map.png)
+
 | Feature | Inspect on the fully cooled boat |
 | --- | --- |
 | Curved hull | Uneven texture, discontinuous tracks, and overhang distortion |
@@ -58,6 +60,8 @@ by normal shallow-roof stair stepping.
 
 All linear values below are millimeters. They are nominal design values,
 not tolerances. Use the official linked drawings to locate measurement faces.
+
+![Overall envelope, roof faces and chimney measurement locations. Original schematic by Codex/OpenAI for William Tinney, CC BY 4.0, using official nominal dimensions. Schematic only: use instruments on the cooled specimen, not the illustration.](../assets/benchy-dimension-locator.png)
 
 | Item | Nominal |
 | --- | --- |
@@ -102,3 +106,40 @@ a cosmetically perfect boat before temperature tuning. Use
 [Foundations](01-foundations.md), the [diagnostic matrix](diagnostic-matrix.md),
 and the earliest affected prerequisite. Later dimensional, surface, and
 representative validation stages still require their own evidence.
+
+<!-- pdf:page-break-before -->
+
+## Photographed Foundation Failure: Do Not Grade by Completion Alone
+
+![Rejected foundation example: a completed Elegoo PET-CF Benchy with open-looking chimney bands and irregular cabin tracks. Photograph: William Tinney, IMG_6231, 2026-10-22. Model: Daniel Noree / Creative Tools, 3DBenchy.com. This is a defect example, not an official reference print.](../assets/field-tests/pet-cf-benchy-foundation-bands.jpg)
+
+The photographed boat completed on a Qidi Plus4 with a Micro Swiss CM2
+0.6 mm nozzle, 0.24 mm body layers, 0.30 mm first layer, 275 C nozzle,
+100 C bed, 50 C chamber target, flow 1.00, PA 0 and a 3 mm3/s diagnostic
+volumetric cap. These are recorded experimental conditions, not recommended
+settings or an accepted tune. Other views of this specimen show hull and
+opening irregularities as well.
+
+The chimney's deep discontinuities and malformed rim are different from the
+regular layer steps expected on the shallow roof. The local foundation result
+is **defective**, not an official numerical grade. Dimensions, internal
+bonding and load capacity remain **not assessed**. Neither this image nor a
+stable reported nozzle temperature identifies moisture, a clog, or incorrect
+flow as the cause. Consult the diagnostic matrix and audit the affected paths
+before choosing a one-variable comparison.
+
+## Figure and Model Attribution
+
+The inspection and dimension locators are original explanatory schematics,
+not copies of the official website's drawings and not replacement CAD/STL
+files. Editable SVG sources and publication PNGs are retained in `assets`.
+The field photograph was made and supplied by William Tinney; publication
+conversion removes device/location metadata without altering the specimen.
+
+Daniel Noree designed #3DBenchy while at Creative Tools. Paulo Kiefe named it
+and established its online identity. The official [license and attribution
+page](https://www.3dbenchy.com/license/) identifies the model as CC0 1.0.
+That model license is not assumed to license every website illustration.
+Original guide diagrams, text and contributed photographs are distributed
+under this repository's CC BY 4.0 license; source creators retain their own
+rights. No endorsement is implied.
