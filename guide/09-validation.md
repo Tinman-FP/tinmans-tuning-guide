@@ -38,7 +38,7 @@ stringing.
 
 ### 4. Representative production part
 
-[VAL01](#val01-the-last-test-before-tuned) is the guide's standard functional
+[VAL01](#val01-functional-bracket-and-fit-coupon) is the guide's standard functional
 part for this step. Add your own production part as well when you have one.
 
 Uses the actual layer height, wall strategy, infill, support, speed, chamber,
@@ -174,14 +174,15 @@ A visually improved coupon is still a candidate. Promote it only after a clean
 project reproduces the slice and a representative functional part passes its
 dimensional, fit, surface, and strength requirements.
 
-## VAL01: The Last Test Before TUNED
+## VAL01: Functional Bracket and Fit Coupon
 
-VAL01 is a functional bracket with a fit coupon. It is the last print before a
-filament profile is called `TUNED`, on every printer and for every material.
+VAL01 is a functional bracket with a fit coupon. It is the release gate: the
+last print before a filament profile goes from `CANDIDATE` to `TUNED`, on every
+printer and for every material.
 Each calibration print tests one thing. VAL01 tests everything together, on a
 part that has to work.
 
-![The VAL01 model: a bracket with a cable channel, a windowed wall, gussets, a boss and clearance holes, and a fit coupon with four pins. Letters mark the pass marks A to H below. Rendered from models/val01.scad, CC BY 4.0.](../assets/val01-model.png)
+![The VAL01 model: a bracket with a cable channel, a windowed wall, gussets, a boss and clearance holes, and a fit coupon with four pins. Letters mark the pass marks A to H below. Rendered from models/val01_template.scad, CC BY 4.0.](../assets/val01-model.png)
 
 ### When and Why to Run It
 
@@ -208,9 +209,11 @@ change, when the profile is meant to stay `TUNED`.
 
 ### The Model
 
-Download [models/val01.scad](../models/val01.scad) (OpenSCAD source) or
-[models/val01.stl](../models/val01.stl) (labelled "VAL01"). The part is
-70 × 85 × 38 mm.
+Download [models/val01_template.scad](../models/val01_template.scad)
+(OpenSCAD source) or [models/val01.stl](../models/val01.stl) (labelled
+"VAL01"). The part is 70 × 85 × 38 mm.
+
+![VAL01 dimensions in millimetres: top view of the bracket and fit coupon, and front view of the bracket. Original drawing generated from models/val01_template.scad, CC BY 4.0.](../assets/val01-drawing.png)
 
 - **Bracket:** a 70 × 40 × 8 mm base with a cable channel underneath, 40 mm
   wide and 4 mm tall, open at the front. That makes a 40 mm bridge with a 4 mm
@@ -223,7 +226,7 @@ Download [models/val01.scad](../models/val01.scad) (OpenSCAD source) or
   dimple is the tightest (Ø7.9), four the loosest (Ø7.6).
 
 Change only the label (`label` at the top of the `.scad` file), to the
-material and revision under test. Print at the profile's own layer height, on
+material and revision under test, and export your own STL. Print at the profile's own layer height, on
 the plate it will be used with.
 
 ### Pass Marks
@@ -242,15 +245,20 @@ tests: at mid-side, on the upper half of walls, away from seams.
 | G | First layer and warp | sits flat on a flat surface without rocking; no corner lift over 0.2 mm; no bottom flare that stops a straight edge sitting flat |
 | H | Layer adhesion | the wall survives a firm thumb push at its top, toward the front, with no crack or delamination. If you break a pin, it bends before it breaks. |
 
-These limits were set for PCTG on a 0.4 mm nozzle. If a material needs a
-different limit (a flexible or high-shrink material, a larger nozzle), write the
-new limit and the reason in the experiment log **before** printing.
+These limits were written for a 0.4 mm nozzle and 0.20 mm layers, and first
+used with PCTG. If a material or setup needs a different limit (a flexible or
+high-shrink material, a larger nozzle, thicker layers), write the new limit and
+the reason in the experiment log **before** printing.
 
 The tightest pin that slides (criterion C) is worth keeping: it is the
 sliding-fit allowance for this material, nozzle and profile, and it is the
-number to use when you design parts. Expect small round holes to print slightly
-small and small round parts slightly large. In the first run's dimension tests,
-8 mm holes came out about 0.05 mm under size.
+number to use when you design parts.
+
+**Expected, not yet observed.** In the first run's dimension tests, 8 mm holes
+came out about 0.05 mm small and small round parts slightly large. From that,
+the 1-dimple pin probably won't fit, the 2-dimple pin may be snug, the 3-dimple
+pin should slide and the 4-dimple pin will be loose. This is an inference; the
+first VAL01 has not been graded yet.
 
 ### If a Check Fails
 
@@ -271,8 +279,9 @@ A profile becomes `TUNED` only when every check passes, plus whatever sign-off
 your own process requires. Record the result, the measurements and the
 tightest sliding pin in the profile's notes.
 
-The first VAL01 was printed on a CORE One+ INDX with 3D-Fuel Pro PCTG on
-2026-11-21; its result was still pending when this edition was written.
+**Observed so far.** The first VAL01 was printed on 2026-11-21 on a CORE One+
+INDX (one tool, 0.4 mm high-flow nozzle, 0.20 mm layers) with 3D-Fuel Pro
+PCTG. It had not been graded when this edition was written.
 
 ## Tuning Prints and Validation Prints
 

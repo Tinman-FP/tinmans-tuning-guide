@@ -5,6 +5,7 @@
   "routes": {
     "": "Home",
     "calibration_guide": "Home#start-here",
+    "validation_val01": "09-validation#val01-functional-bracket-and-fit-coupon",
     "pressure_advance_calib": "04-pressure-advance",
     "temp_calib": "02-conditioning-and-temperature",
     "volumetric_speed_calib": "03-volumetric-flow",

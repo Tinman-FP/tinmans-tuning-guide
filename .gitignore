@@ -3,6 +3,7 @@
 *.bgcode
 *.3mf
 *.stl
+!models/*.stl
 *.step
 *.stp
 *.log

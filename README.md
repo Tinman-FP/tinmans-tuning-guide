@@ -78,7 +78,7 @@ printing anything: bonding, stringing, bridges, dimensions.
    [Seams and surfaces](guide/08-seams-and-surfaces.md) ·
    [motion tests](guide/19-motion-diagnostics.md) if the texture depends on
    speed or direction
-10. **Validate and release** with [VAL01](guide/09-validation.md#val01-the-last-test-before-tuned),
+10. **Validate and release** with [VAL01](guide/09-validation.md#val01-functional-bracket-and-fit-coupon),
     the functional bracket and fit coupon, sliced fresh from the saved profile.
     Only when every check passes, rename `CANDIDATE` to `TUNED`.
     [Validation](guide/09-validation.md)

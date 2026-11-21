@@ -30,7 +30,7 @@
 <text x="22" y="476" class="lgb">H</text><text x="58" y="476" class="lg">wall survives a firm push</text>
 <text x="22" y="540" class="small">70 × 85 × 38 mm. Print without supports;</text>
 <text x="22" y="564" class="small">change only the debossed label.</text>
-<text x="22" y="596" class="small">models/val01.scad in this repository</text>
+<text x="22" y="596" class="small">models/val01_template.scad</text>
 </g>
-<text x="40" y="880" class="small">Tinmans Tuning Guide, CC BY 4.0. Rendered from models/val01.scad with OpenSCAD; letters match the pass marks in chapter 09.</text>
+<text x="40" y="880" class="small">Tinmans Tuning Guide, CC BY 4.0. Rendered from models/val01_template.scad with OpenSCAD; letters match the pass marks in chapter 09.</text>
 </svg>

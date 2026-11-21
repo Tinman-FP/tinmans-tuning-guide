@@ -5,8 +5,10 @@
 Design and readability pass on edition 1.1, plus the VAL01 test.
 
 - New: VAL01, the functional bracket and fit coupon that is the last test
-  before a profile is called TUNED (chapter 09), with its OpenSCAD model and
-  STL in `models/`, pass marks A–H, and where to go back when a check fails.
+  before a profile is called TUNED (chapter 09), with its OpenSCAD template
+  and STL in `models/`, a dimensioned drawing, pass marks A–H, and where to
+  go back when a check fails. New help route `validation_val01` for a
+  Tinman Calibration-menu item.
   The quick path now starts a new filament with a stock 3DBenchy and ends
   with VAL01.
 
