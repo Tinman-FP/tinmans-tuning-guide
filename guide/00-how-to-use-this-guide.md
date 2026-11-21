@@ -1,5 +1,10 @@
 # How to Use This Guide
 
+> **At a glance**
+> - **Decide:** what the profile is for and how you will know it is finished
+> - **Test:** none yet: write three to five pass marks and plan one change per print
+> - **Keep:** the written pass marks and an experiment record for every test
+
 Filament tuning is controlled experimentation. The goal is not to make one
 calibration model look perfect. The goal is to produce a profile that behaves
 predictably on real parts and can be explained, repeated, and maintained.
@@ -131,8 +136,6 @@ used, preserve the observation but change its status to `rejected - invalid
 baseline`. Such a trial can show how a control influences a defect, but its
 numerical value cannot be promoted to the intended profile.
 
-<!-- pdf:page-break-before -->
-
 ## Measure Carefully
 
 - Let the part fully cool before measuring.
@@ -143,8 +146,8 @@ numerical value cannot be promoted to the intended profile.
   uncertainty.
 - Test both external and internal features before claiming a tolerance.
 
-A `0.02 mm` difference measured once with ordinary calipers is not necessarily
-real. A repeatable `0.13 mm` difference on multiple axes deserves attention.
+A 0.02 mm difference measured once with ordinary calipers is not necessarily
+real. A repeatable 0.13 mm difference on multiple axes deserves attention.
 
 ## Separate Observation from Interpretation
 
@@ -181,14 +184,15 @@ smaller nozzle was fitted.
 
 - **Start Here** on the [home page](../README.md#start-here) is a one-page
   quick path through the whole process.
-- **Chapters 01-09** explain each step: what it measures, how to read it, and
-  what went right and wrong in real runs. Each starts with a short "Quick path"
-  box.
+- **Every chapter** opens with an "At a glance" box: what you decide, the test
+  to use, and what you keep.
+- **Chapters 01–09** explain each step: what it measures, how to read it, and
+  what went right and wrong in real runs.
 - **[Running Tinman's Calibration Tests](25-running-tinman-calibrations.md)**
   covers the Calibration menu itself and its traps.
 - **[Worked Examples](26-worked-examples.md)** follows four complete tuning
   runs from start to finish.
-- **Chapters 11-24** are reference: every slicer settings tab, profile
+- **Chapters 11–24** are reference: every slicer settings tab, profile
   integrity, upgrades, motion tests, and Benchy grading.
 
 Move to [Foundations](01-foundations.md) before changing filament values.

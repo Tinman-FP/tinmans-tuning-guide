@@ -58,8 +58,6 @@ Ramp checked in the preview (yes / no):
 Machine events during the print (and whether reprinted):
 ```
 
-<!-- pdf:page-break-before -->
-
 ## Controlled Test
 
 ```text

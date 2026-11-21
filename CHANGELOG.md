@@ -1,5 +1,35 @@
 # Changelog
 
+## 1.2.0 - 2026-11-21
+
+Design and readability pass on edition 1.1, plus the VAL01 test.
+
+- New: VAL01, the functional bracket and fit coupon that is the last test
+  before a profile is called TUNED (chapter 09), with its OpenSCAD template
+  and STL in `models/`, a dimensioned drawing, pass marks A–H, and where to
+  go back when a check fails. New help route `validation_val01` for a
+  Tinman Calibration-menu item.
+  The quick path now starts a new filament with a stock 3DBenchy and ends
+  with VAL01.
+
+- Every chapter opens with an "At a glance" box: what you decide, the test to
+  use, and what you keep. It replaces 1.1's "Quick path" boxes.
+- Every test has a visual: five more field photographs (a clean pin break,
+  too-high flow coupons, overhang fins, a retraction tower that never strung,
+  the five-shape seam test) and four original diagrams (reading a Max
+  flowrate ramp, reading a PA chevron, the dimension frames test, where each
+  tuned value lives in the filament settings). The PET-CF support figure is
+  also shown in the validation chapter.
+- The settings reference (chapters 12-18) is set out as an "At a glance"
+  table and a control table for each group instead of solid prose.
+- Typography: temperatures written with °C, arrows as →, number ranges with
+  en dashes, and plain numbers no longer set in code style (inline code spans
+  down from about 1,030 to about 330; code style is kept for setting names,
+  G-code, versions and file names).
+- PDF: contents cut to chapters plus the sections of the tuning chapters (two
+  pages instead of ten); forced page breaks removed; figures capped lower so
+  they stop leaving large gaps; "At a glance" boxes render as callouts.
+
 ## 1.1.0 - 2026-11-21
 
 Written against Tinman on its OrcaSlicer 2.5.1 base (source `baf3f00dfe`) and
@@ -10,8 +40,8 @@ Corrections:
 - YOLO flow tests **add** the coupon label to the current flow ratio; Pass 1 and
   Pass 2 multiply. The earlier flow example left this to the reader, and one
   field run misrecorded a result because of it.
-- Withdrew the `255 C` Elegoo PET-CF selection. After a first-layer fault was
-  fixed, the same printer and nozzle gave `275 C`; the cold-flow margin lesson
+- Withdrew the 255 °C Elegoo PET-CF selection. After a first-layer fault was
+  fixed, the same printer and nozzle gave 275 °C; the cold-flow margin lesson
   is kept.
 - Profile names now use ` - ` separators instead of `|`, which Windows does not
   allow in file names.
@@ -56,8 +86,8 @@ Additions:
 - Add an unresolved temperature-tower example and stop rules: distinguish
   moisture-compatible symptoms from proof, audit repeated path-linked defects,
   preserve actual conditioning history and do not promote failed bands.
-- Mark historical 255 C PET-CF evidence as setup-specific and outside the
-  manufacturer's currently cited 260-290 C range; do not silently reuse it.
+- Mark historical 255 °C PET-CF evidence as setup-specific and outside the
+  manufacturer's currently cited 260–290 °C range; do not silently reuse it.
 - Restore chapters 22 and 23 to the complete PDF, matching the maintained web edition.
 - Add official-source 3DBenchy feature inspection, complete nominal dimension
   table, generic reference settings, and a reusable evidence-based grading record.
@@ -120,8 +150,8 @@ Additions:
   normal production cooling.
 
 - Added a photographed FibreSeek profile-integrity case study showing how an
-  assumed `0.6 mm` process produced misleading seam experiments and how the
-  verified `0.4 mm` baseline collapsed the broad disturbance to one narrow seam.
+  assumed 0.6 mm process produced misleading seam experiments and how the
+  verified 0.4 mm baseline collapsed the broad disturbance to one narrow seam.
 - Added a four-identity preflight gate covering the physical machine, printer
   profile, machine-specific filament profile, process, and final G-code.
 - Added an experimental-reset procedure that preserves useful negative results
@@ -134,10 +164,10 @@ Additions:
   conditioning chapter, with original field-photo attribution and a warning
   against compensating for moisture through unrelated slicer settings.
 - Documented a repeatable low-temperature PET-CF flow stop and selected
-  `255 C` as the test-specific working value above the observed cold-flow
-  boundary for the documented Qidi Plus 4 and `0.6 mm` nozzle.
+  255 °C as the test-specific working value above the observed cold-flow
+  boundary for the documented Qidi Plus 4 and 0.6 mm nozzle.
 - Expanded the photographed FibreSeek VFA case study with representative-part
-  confirmation, releasing `70 mm/s` for the documented machine/profile and
+  confirmation, releasing 70 mm/s for the documented machine/profile and
   separating the remaining layer-context band from broad VFA.
 - Added production-cover photographs, a toolpath-based cooling diagnosis, and
   guidance explaining why adaptive layer height does not correct vertical XY

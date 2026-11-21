@@ -1,14 +1,14 @@
 # Pressure Advance and Linear Advance
 
+> **At a glance**
+> - **Decide:** the pressure-advance value
+> - **Test:** a **PA Tower** to find the band, then a **PA Pattern** at your real speeds and accelerations
+> - **Keep:** the lowest value with sharp corners and full lines in every pattern
+
 Molten polymer, filament, Bowden tubes, and the extrusion path behave like a
 spring-damper system. When toolhead speed changes, nozzle pressure does not
 change instantly. Pressure advance (PA) compensates for that lag by adjusting
 extruder motion around acceleration and deceleration.
-
-> **Quick path.** Print a **PA Tower** over a wide range to find the useful
-> band. Then print a **PA Pattern** across that band at your real production
-> speeds and accelerations. Choose the lowest value that gives sharp corners
-> and full lines in every pattern.
 
 Common names include:
 
@@ -17,9 +17,9 @@ Common names include:
 - flow dynamics or similar vendor-specific terms.
 
 The values are not portable between algorithms, firmware families, or even
-printers. The guide's field runs recorded `0.026` (K2 Plus), `0.035` (CORE One
-L+), `0.055` (CORE One+ INDX), `0.032` (Qidi Plus4, PCTG), `0` (Qidi Plus4,
-PET-CF), and `0.150` (Sovol SV08 Max). Compare a value only with earlier values
+printers. The guide's field runs recorded 0.026 (K2 Plus), 0.035 (CORE One
+L+), 0.055 (CORE One+ INDX), 0.032 (Qidi Plus4, PCTG), 0 (Qidi Plus4,
+PET-CF), and 0.150 (Sovol SV08 Max). Compare a value only with earlier values
 from the same printer and hotend.
 
 ## What PA Can and Cannot Fix
@@ -66,7 +66,7 @@ default ranges. The fields and formulas are in
 A hollow two-wall tower in which PA rises in equal bands, about one step per
 millimetre of height.
 It shows repeated corners and does not depend on the first layer. Use it first,
-over a wide range (the default `0 -> 0.1` in `0.002` steps suits most direct
+over a wide range (the default 0 → 0.1 in 0.002 steps suits most direct
 drives), to find where corners turn from swollen to sharp to starved.
 
 PA at a height `h` mm above the first layer is about:
@@ -91,11 +91,11 @@ outer-wall, inner-wall and infill speeds, and its accelerations. Print it over
 the narrow band the tower found, in small steps.
 
 On a Creality K2 Plus with PCTG, a tower printed with its walls forced to
-`100 mm/s` suggested `0.032` was too high and chose `0.022-0.026`. A PA Pattern
-from `0.016` to `0.036` at the production speeds `33`, `62` and `82 mm/s` and
-accelerations `1200` and `3600 mm/s²` showed no too-high sign anywhere up to
-`0.036`, rounded tips below `0.022` at the fastest speed, and matching tips
-from about `0.026`. The pattern at production conditions decided: `0.026`.
+100 mm/s suggested 0.032 was too high and chose 0.022–0.026. A PA Pattern
+from 0.016 to 0.036 at the production speeds 33, 62 and 82 mm/s and
+accelerations 1200 and 3600 mm/s² showed no too-high sign anywhere up to
+0.036, rounded tips below 0.022 at the fastest speed, and matching tips
+from about 0.026. The pattern at production conditions decided: 0.026.
 
 ![PA Pattern for PCTG on a K2 Plus: one of six patterns, chevrons from PA 0.016 at the top to 0.036, with the PA values printed beside the lines. Field photograph from the guide's tuning runs, 2026-11-21; cropped.](../assets/field-tests/k2-pctg-pa-pattern.jpg)
 
@@ -115,6 +115,8 @@ the INDX run kept a single fixed value for this reason.
 
 ## Read the Result
 
+![Reading a PA Pattern chevron: a bulging, rounded tip means PA is too low; a line that thins or breaks at the tip means it is too high; choose the lowest value with a sharp tip and even width. Original schematic, CC BY 4.0.](../assets/pa-chevron-reading.png)
+
 | Appearance | Likely interpretation |
 | --- | --- |
 | Corner protrudes or remains swollen; tip of a chevron rounded | PA too low |
@@ -132,8 +134,8 @@ excessive PA can create subtle starvation and demands more extruder response.
 
 If corners look the same from the bottom to the top of a wide tower, at speeds
 at or above your production speeds, the honest answer is the lowest value. On a
-Qidi Plus4 with PET-CF and slow production walls, a `0 -> 0.080` tower showed
-no difference, and the profile uses PA `0`. Write down the speeds and
+Qidi Plus4 with PET-CF and slow production walls, a 0 → 0.080 tower showed
+no difference, and the profile uses PA 0. Write down the speeds and
 accelerations it was tested at, and test again if you raise them.
 
 ### Lighting and Photographs
@@ -142,19 +144,17 @@ Glossy filament and mixed light can make one part of a pattern look better
 than another. On the K2 pattern above, lighting changed across the plate in the
 same direction as the PA values. Photograph under even, diffuse light, turn the
 part and compare again, and do not claim more precision than the photographs
-support: "about `0.026`" is honest; "`0.025` exactly" usually is not.
-
-<!-- pdf:page-break-before -->
+support: "about 0.026" is honest; "0.025 exactly" usually is not.
 
 ## The Chamber Changes PA
 
 On a Prusa CORE One+ INDX, three PA towers of the same PCTG read differently:
 
-- the first tower: `0.062` at the front corner, `0.068` at the back;
-- a narrow retest: corners clean at different heights, `0.052-0.065`, with a
+- the first tower: 0.062 at the front corner, 0.068 at the back;
+- a narrow retest: corners clean at different heights, 0.052–0.065, with a
   faint horizontal line partway up;
 - a tower with the chamber pre-warmed and its fans held off: a clean, single
-  reading of `0.055` and no line.
+  reading of 0.055 and no line.
 
 The printer's chamber fans had started partway through the first towers, once
 the chamber passed its target temperature. Every corner changed at that moment.
@@ -171,8 +171,8 @@ condition.
   the test's *start* value, which then stays active until something sets it
   again. The next job's start code normally does; if yours does not, add a reset
   to the end G-code. One U1 run added one.
-- **Marlin:** `M900 K`. Values from a Klipper machine do not transfer.
-- **Prusa Buddy:** `M572` or `M900 K`. In the INDX run's reading of the
+- **Marlin:** M900 K. Values from a Klipper machine do not transfer.
+- **Prusa Buddy:** M572 or M900 K. In the INDX run's reading of the
   firmware source, each change waits for queued moves to finish.
 - **Printer-side calibration:** some printers run their own pressure or flow
   calibration at the start of a job, which can replace the slicer's values. A

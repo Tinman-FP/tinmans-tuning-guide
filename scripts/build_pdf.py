@@ -130,7 +130,8 @@ class GuideDocTemplate(BaseDocTemplate):
         title = strip_markdown(flowable.getPlainText())
         self.canv.bookmarkPage(key)
         self.canv.addOutlineEntry(title, key, level=level, closed=level > 0)
-        self.notify("TOCEntry", (level, title, self.page, key))
+        if getattr(flowable, "_toc_include", True):
+            self.notify("TOCEntry", (level, title, self.page, key))
 
 
 class FullPageCover(Flowable):
@@ -521,6 +522,8 @@ def make_mermaid_flow(lines, styles, available_width):
 def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, available_width):
     source = rel_path
     compact_document = rel_path.as_posix() == "CREDITS.md"
+    # The printed contents list chapters, plus second-level sections of the tuning chapters only.
+    contents_sections = rel_path.name.startswith(("01-", "02-", "03-", "04-", "05-", "06-", "07-", "08-", "09-", "25-"))
     body_style = styles["compact_body"] if compact_document else styles["body"]
     list_item_style = styles["compact_list_item"] if compact_document else styles["list_item"]
     lines = (ROOT / rel_path).read_text(encoding="utf-8").splitlines()
@@ -579,7 +582,7 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
             if not image_path.is_relative_to(ROOT.resolve()) or not image_path.exists():
                 raise FileNotFoundError(image_path)
             figure = Image(str(image_path))
-            figure._restrictSize(available_width, 3.75 * inch)
+            figure._restrictSize(available_width, 3.2 * inch)
             figure.hAlign = "CENTER"
             caption = strip_markdown(image_match.group(1))
             figure_flows = [figure]
@@ -618,9 +621,16 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
             while index < len(lines) and lines[index].strip().startswith(">"):
                 quote_lines.append(re.sub(r"^\s*>\s?", "", lines[index]))
                 index += 1
-            text = " ".join(part.strip() for part in quote_lines).strip()
-            box = Table([[Paragraph(inline_markup(text, source, file_anchors, heading_anchors), body_style)]],
-                        colWidths=[available_width], hAlign="LEFT")
+            blocks = []
+            for part in quote_lines:
+                if re.match(r"^\s*[-*]\s+", part) or not blocks:
+                    blocks.append(re.sub(r"^\s*[-*]\s+", "", part).strip() if re.match(r"^\s*[-*]\s+", part) else part.strip())
+                    if re.match(r"^\s*[-*]\s+", part):
+                        blocks[-1] = "\u2022 " + blocks[-1]
+                else:
+                    blocks[-1] += " " + part.strip()
+            cell = [Paragraph(inline_markup(block, source, file_anchors, heading_anchors), body_style) for block in blocks if block]
+            box = Table([[cell]], colWidths=[available_width], hAlign="LEFT")
             box.setStyle(TableStyle([
                 ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F3F7F6")),
                 ("LINEBEFORE", (0, 0), (0, -1), 2.5, colors.HexColor("#0D6B63")),
@@ -645,7 +655,9 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
             if first_heading:
                 anchor = file_anchors[source.as_posix()]
                 first_heading = False
-            flows.append(make_heading(title, level, anchor, styles))
+            heading_flow = make_heading(title, level, anchor, styles)
+            heading_flow._toc_include = level == 1 or (level == 2 and contents_sections)
+            flows.append(heading_flow)
             index += 1
             continue
         if stripped.startswith("|") and index + 1 < len(lines) and is_table_separator(lines[index + 1]):
@@ -654,6 +666,10 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
             while index < len(lines) and lines[index].strip().startswith("|"):
                 table_lines.append(lines[index])
                 index += 1
+            if len(table_lines) > 12 and flows and getattr(flows[-1], "_toc_level", None) is not None:
+                # A long table may start under its heading and continue on the next page,
+                # instead of the heading's keep-with-next pushing both to a new page.
+                flows.append(Spacer(1, 1))
             flows.append(make_table(table_lines, source, file_anchors, heading_anchors, styles, available_width))
             flows.append(Spacer(1, 8))
             continue
@@ -758,10 +774,18 @@ def build_pdf(output: Path):
     story.append(Paragraph("Contents", styles["toc_title"]))
     toc = TableOfContents()
     toc.levelStyles = [
-        ParagraphStyle("TOC1", fontName="Helvetica-Bold", fontSize=10, leading=14, leftIndent=0, firstLineIndent=0, textColor=colors.HexColor("#111827"), spaceBefore=4),
-        ParagraphStyle("TOC2", fontName="Helvetica", fontSize=8.5, leading=11, leftIndent=15, firstLineIndent=0, textColor=colors.HexColor("#374151")),
+        ParagraphStyle("TOC1", fontName="Helvetica-Bold", fontSize=9.5, leading=11.5, leftIndent=0, firstLineIndent=0, textColor=colors.HexColor("#111827"), spaceBefore=2),
+        ParagraphStyle("TOC2", fontName="Helvetica", fontSize=7.8, leading=8.9, leftIndent=15, firstLineIndent=0, textColor=colors.HexColor("#374151")),
         ParagraphStyle("TOC3", fontName="Helvetica", fontSize=7.5, leading=9.5, leftIndent=30, firstLineIndent=0, textColor=colors.HexColor("#6B7280")),
     ]
+    # Compact rows: no cell padding, so the contents fit on about two pages.
+    toc.tableStyle = TableStyle([
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+        ("TOPPADDING", (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 0.5),
+    ])
     story.append(toc)
     story.append(PageBreak())
 

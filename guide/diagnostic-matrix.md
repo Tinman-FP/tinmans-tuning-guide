@@ -38,14 +38,12 @@ inspection of the machine baseline.
 | Calibration ramp printed flat or at one value | the test changed a different filament; or a reopened calibration project | which filament was open for editing; regenerate from the menu | the profile's MVS or PA |
 | Flow coupons do not match their labels | coupons printed from a different slot than the edited filament | slot of every coupon; YOLO adds, Pass tests multiply | the flow ratio |
 | Every flow coupon looks the same | flow already in the useful range | top pattern, speed, line width | flow ratio (keep it) |
-| No strings at any retraction length | short travels and slow pillars | a seam or real part with long travels | retraction to `0` |
+| No strings at any retraction length | short travels and slow pillars | a seam or real part with long travels | retraction to 0 |
 | PA reading changes partway up a tower | chamber fans, vent or heater changing state | chamber state, start G-code | PA from that tower |
 | Repeatable probe, first layer still too thick | plastic on the nozzle tip, soft bed, wrong plate model | caliper the first layer; nozzle wipe | flow or temperature |
-| Flow ratio result outside about `0.90-1.05` | first layer, Z offset, filament diameter | extruder calibration, nozzle size | accepting the value |
+| Flow ratio result outside about 0.90–1.05 | first layer, Z offset, filament diameter | extruder calibration, nozzle size | accepting the value |
 | Whiskers only on tiny features | nozzle size versus feature size | smaller nozzle | more retraction |
 | Bed hotter than the filament asks | another filament on the plate sets the bed | bed formula, support material | adhesion settings |
-
-<!-- pdf:page-break-before -->
 
 ## Triage Order
 

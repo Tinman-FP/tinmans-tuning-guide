@@ -1,5 +1,10 @@
 # Application and Project Help
 
+> **At a glance**
+> - **Decide:** how to save, sync, import and move profiles safely
+> - **Test:** a backup before every import, sync or update
+> - **Keep:** recoverable copies of every tuned profile
+
 Application preferences govern the workspace. They do not qualify a filament
 tune. Keep machine-specific settings in the appropriate machine, filament, and
 process profiles and follow the [tuning order](../README.md#start-here).

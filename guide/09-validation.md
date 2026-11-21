@@ -1,5 +1,10 @@
 # Validation and Profile Release
 
+> **At a glance**
+> - **Decide:** whether the profile is finished
+> - **Test:** a real part sliced fresh from the saved profile, checked against the pass marks
+> - **Keep:** the candidate renamed `TUNED`, with a revision number and notes
+
 A calibration value is not finished when its test looks good. A profile is
 finished when the complete settings work together on representative parts and
 the evidence can be reproduced.
@@ -32,6 +37,9 @@ Checks bridges, overhangs, small towers, text, curves, corners, and travel
 stringing.
 
 ### 4. Representative production part
+
+[VAL01](#val01-functional-bracket-and-fit-coupon) is the guide's standard functional
+part for this step. Add your own production part as well when you have one.
 
 Uses the actual layer height, wall strategy, infill, support, speed, chamber,
 and build plate expected in service.
@@ -132,9 +140,9 @@ Rules that kept the field runs honest:
 - **A new revision for each accepted change.** When a test changes an accepted
   value, save a new revision (`r09 -> r10`) and note which value changed and
   why. When a test confirms the current values, **do not** make a new revision:
-  one K2 run finished four confirming tests with no change and stayed at `r10`.
+  one K2 run finished four confirming tests with no change and stayed at r10.
 - **Filament and process counters are independent.** The recommended release is
-  a pair, such as filament `r14` with process `r25`, not "both at r14".
+  a pair, such as filament r14 with process r25, not "both at r14".
 - **Promote the tested file unchanged.** `TUNED` is the last `CANDIDATE`
   renamed, with its values byte-for-byte the same and a note of the release
   date. If anything changes during promotion, it is a new candidate.
@@ -166,7 +174,118 @@ A visually improved coupon is still a candidate. Promote it only after a clean
 project reproduces the slice and a representative functional part passes its
 dimensional, fit, surface, and strength requirements.
 
+## VAL01: Functional Bracket and Fit Coupon
+
+VAL01 is a functional bracket with a fit coupon. It is the release gate: the
+last print before a filament profile goes from `CANDIDATE` to `TUNED`, on every
+printer and for every material.
+Each calibration print tests one thing. VAL01 tests everything together, on a
+part that has to work.
+
+![The VAL01 model: a bracket with a cable channel, a windowed wall, gussets, a boss and clearance holes, and a fit coupon with four pins. Letters mark the pass marks A to H below. Rendered from models/val01_template.scad, CC BY 4.0.](../assets/val01-model.png)
+
+### When and Why to Run It
+
+Run VAL01 after chapters 01–08 have chosen their values, with the exact
+filament and process pair you intend to release. Slice it fresh from the saved
+profiles, with no project-only changes, no object overrides and no supports:
+the bridges are part of the test.
+
+It was designed during the guide's tuning runs, on a CORE One+ INDX with PCTG
+in November 2026. The profile there had passed every calibration test, but
+nothing had yet shown that the values worked together on a real part. The
+bracket puts the risky features of a typical functional print side by side:
+
+- two 40 mm bridges, one of them under a solid deck that carries a boss (the
+  layout that left craters on bridge decks in an earlier cooling test);
+- 45° gussets;
+- clearance holes for M5 and M3 screws;
+- pins with 0.1 to 0.4 mm of clearance in 8 mm holes;
+- flat tops with debossed text, seams, and a base that must sit flat;
+- a tall wall that must not split.
+
+Run it again as a regression check after a nozzle, hotend, firmware or slicer
+change, when the profile is meant to stay `TUNED`.
+
+### The Model
+
+Download [models/val01_template.scad](../models/val01_template.scad)
+(OpenSCAD source) or [models/val01.stl](../models/val01.stl) (labelled
+"VAL01"). The part is 70 × 85 × 38 mm.
+
+![VAL01 dimensions in millimetres: top view of the bracket and fit coupon, and front view of the bracket. Original drawing generated from models/val01_template.scad, CC BY 4.0.](../assets/val01-drawing.png)
+
+- **Bracket:** a 70 × 40 × 8 mm base with a cable channel underneath, 40 mm
+  wide and 4 mm tall, open at the front. That makes a 40 mm bridge with a 4 mm
+  solid deck on top. An upright wall, 6 mm thick and 38 mm tall overall, has a
+  40 × 12 mm window, which makes a 40 mm lintel bridge. Two 45° gussets, a
+  Ø14 mm boss with a Ø5 mm bore standing on the bridge deck, two Ø5.5 mm (M5
+  clearance) holes, two Ø3.4 mm (M3 clearance) holes, and a debossed label.
+- **Fit coupon:** a plate with four Ø8.0 mm holes, and four 12 mm pins of
+  Ø7.9, 7.8, 7.7 and 7.6 mm. Each pin carries 1 to 4 dimples on top: one
+  dimple is the tightest (Ø7.9), four the loosest (Ø7.6).
+
+Change only the label (`label` at the top of the `.scad` file), to the
+material and revision under test, and export your own STL. Print at the profile's own layer height, on
+the plate it will be used with.
+
+### Pass Marks
+
+Let the part cool for at least 30 minutes. Measure as for the dimensional
+tests: at mid-side, on the upper half of walls, away from seams.
+
+| # | Check | Pass if |
+| --- | --- | --- |
+| A | Bracket outside dimensions | base length 70.00 ± 0.15 mm; depth 40.00 ± 0.10 mm; wall thickness 6.00 ± 0.10 mm; boss Ø14.00 ± 0.15 mm; overall height 38.00 ± 0.10 mm |
+| B | Clearance holes | an M5 screw (or a 5 mm drill shank) passes both Ø5.5 holes freely; an M3 screw passes both Ø3.4 holes freely. Record the boss bore (Ø5.0 nominal). |
+| C | Fit coupon | at least the 3-dimple pin (Ø7.7, 0.3 mm clearance) slides fully through its hole by hand without force. Record the tightest pin that slides. |
+| D | Bridges | channel underside: continuous strands, none dropped, sag at mid-span no more than about 0.5 mm. Deck top, text and boss: no crater, hole or lifted strand. Lintel underside continuous. |
+| E | Overhangs | the 45° gusset faces are clean, with no curl or droop |
+| F | Surfaces | tops closed with no open channels; no rows of beads along top edges; the label legible; seams narrow; at most fine hairs of stringing |
+| G | First layer and warp | sits flat on a flat surface without rocking; no corner lift over 0.2 mm; no bottom flare that stops a straight edge sitting flat |
+| H | Layer adhesion | the wall survives a firm thumb push at its top, toward the front, with no crack or delamination. If you break a pin, it bends before it breaks. |
+
+These limits were written for a 0.4 mm nozzle and 0.20 mm layers, and first
+used with PCTG. If a material or setup needs a different limit (a flexible or
+high-shrink material, a larger nozzle, thicker layers), write the new limit and
+the reason in the experiment log **before** printing.
+
+The tightest pin that slides (criterion C) is worth keeping: it is the
+sliding-fit allowance for this material, nozzle and profile, and it is the
+number to use when you design parts.
+
+**Expected, not yet observed.** In the first run's dimension tests, 8 mm holes
+came out about 0.05 mm small and small round parts slightly large. From that,
+the 1-dimple pin probably won't fit, the 2-dimple pin may be snug, the 3-dimple
+pin should slide and the 4-dimple pin will be loose. This is an inference; the
+first VAL01 has not been graded yet.
+
+### If a Check Fails
+
+Go back to the chapter that owns the defect, change one variable, and print
+VAL01 again.
+
+| Failed | Go back to |
+| --- | --- |
+| A | [Dimensional accuracy](07-dimensional-accuracy.md): shrinkage or contour compensation |
+| B, C | [Dimensional accuracy](07-dimensional-accuracy.md#holes-and-fits): holes, polyholes, design allowance |
+| D | [Bridges](06-cooling-and-retraction.md#bridge-controls); for craters on the deck, try **Extra bridge layers** |
+| E | [Cooling](06-cooling-and-retraction.md#cooling-test-method): overhang fan |
+| F | [Flow ratio](05-flow-ratio.md), [top surfaces](08-seams-and-surfaces.md#top-and-bottom-surfaces), [retraction](06-cooling-and-retraction.md#retraction-test) |
+| G | [Foundations](01-foundations.md): first layer and plate; warping materials in [material families](10-material-families.md) |
+| H | [Temperature and the bond check](02-conditioning-and-temperature.md#a-simple-bond-check); normal fan in [cooling](06-cooling-and-retraction.md) |
+
+A profile becomes `TUNED` only when every check passes, plus whatever sign-off
+your own process requires. Record the result, the measurements and the
+tightest sliding pin in the profile's notes.
+
+**Observed so far.** The first VAL01 was printed on 2026-11-21 on a CORE One+
+INDX (one tool, 0.4 mm high-flow nozzle, 0.20 mm layers) with 3D-Fuel Pro
+PCTG. It had not been graded when this edition was written.
+
 ## Tuning Prints and Validation Prints
+
+![The same PET-CF part after three support settings on its validation print: r05 concentric interface (swirls), r06 ironed solid interface (fused), r07 spaced interface with 100 % interface fan (clean). Field photographs from the guide's tuning runs, 2026-11-19 and 2026-11-20; cropped and labeled.](../assets/field-tests/qidi-pet-cf-support-interface-r05-r07.jpg)
 
 Tuning prints are printed **without supports**, so that supports do not hide or
 cause the defect being tuned. Validation prints are printed the way production

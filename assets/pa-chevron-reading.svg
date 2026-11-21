@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="700" viewBox="0 0 1440 700">
+<rect width="1440" height="700" fill="#fffdf8"/>
+<style>
+text{font-family:Arial,sans-serif;fill:#193146}
+.title{font-size:36px;font-weight:bold}
+.sub{font-size:21px}
+.label{font-size:25px;font-weight:bold}
+.body{font-size:21px}
+.small{font-size:18px;fill:#28536b}
+.bead{fill:none;stroke:#e1b300;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<text x="50" y="60" class="title">Reading a PA Pattern chevron</text>
+<text x="50" y="96" class="sub">Look at the tip, where the line slows down, turns and speeds up again. Ignore the first and last few millimetres of each line.</text>
+
+<!-- panel frames -->
+<g fill="#f3f7f6" stroke="#bfcac8" stroke-width="2">
+<rect x="50" y="130" width="420" height="380" rx="14"/>
+<rect x="510" y="130" width="420" height="380" rx="14"/>
+<rect x="970" y="130" width="420" height="380" rx="14"/>
+</g>
+
+<!-- too low: bulged, rounded tip -->
+<path class="bead" d="M110 200 L260 380 L410 200" stroke-width="18"/>
+<circle cx="260" cy="382" r="20" fill="#e1b300"/>
+<circle cx="260" cy="382" r="34" fill="none" stroke="#a5621c" stroke-width="3" stroke-dasharray="7 5"/>
+<text x="90" y="460" class="label">PA too low</text>
+<text x="90" y="492" class="body">Tip bulges and rounds over</text>
+
+<!-- right: sharp, even -->
+<path class="bead" d="M570 200 L720 380 L870 200" stroke-width="18" stroke-linejoin="miter"/>
+<circle cx="720" cy="384" r="34" fill="none" stroke="#277f87" stroke-width="3" stroke-dasharray="7 5"/>
+<text x="550" y="460" class="label">About right</text>
+<text x="550" y="492" class="body">Sharp tip, even width throughout</text>
+
+<!-- too high: thin before the tip, gap -->
+<path class="bead" d="M1030 200 L1160 356" stroke-width="18"/>
+<path class="bead" d="M1160 356 L1180 380" stroke-width="7"/>
+<path class="bead" d="M1200 356 L1330 200" stroke-width="18"/>
+<path class="bead" d="M1186 372 L1200 356" stroke-width="5"/>
+<circle cx="1180" cy="372" r="34" fill="none" stroke="#a5621c" stroke-width="3" stroke-dasharray="7 5"/>
+<text x="1010" y="460" class="label">PA too high</text>
+<text x="1010" y="492" class="body">Line thins or breaks at the tip</text>
+
+<g>
+<rect x="50" y="545" width="1340" height="110" rx="14" fill="#fff3df" stroke="#a5621c" stroke-width="3"/>
+<text x="80" y="588" class="label">Choose the lowest value that looks "about right" in every pattern.</text>
+<text x="80" y="624" class="body">Print one pattern per speed and acceleration you use. Photograph in even light and turn the plate: lighting can mimic a trend.</text>
+</g>
+<text x="50" y="685" class="small">Tinmans Tuning Guide, CC BY 4.0. Original schematic; not to scale.</text>
+</svg>

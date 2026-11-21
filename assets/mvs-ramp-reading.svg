@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="760" viewBox="0 0 1440 760">
+<rect width="1440" height="760" fill="#fffdf8"/>
+<style>
+text{font-family:Arial,sans-serif;fill:#193146}
+.title{font-size:36px;font-weight:bold}
+.sub{font-size:21px}
+.axis{font-size:19px}
+.label{font-size:22px;font-weight:bold}
+.body{font-size:21px}
+.small{font-size:18px;fill:#28536b}
+.bad{fill:#a5621c}
+</style>
+<defs>
+<pattern id="lines" width="16" height="6" patternUnits="userSpaceOnUse"><rect width="16" height="6" fill="#dceaf0"/><line x1="0" y1="5" x2="16" y2="5" stroke="#9db8c6" stroke-width="1"/></pattern>
+<pattern id="rough" width="22" height="14" patternUnits="userSpaceOnUse"><rect width="22" height="14" fill="#f6e3c8"/><path d="M0 7 Q5 2 11 8 T22 6" fill="none" stroke="#a5621c" stroke-width="2"/></pattern>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#277f87"/></marker>
+</defs>
+<text x="50" y="60" class="title">Reading a Max flowrate ramp</text>
+<text x="50" y="96" class="sub">Example: start 10, end 30, step 0.5 mm³/s. The requested flow rises with height.</text>
+
+<!-- axis -->
+<line x1="170" y1="660" x2="170" y2="150" stroke="#193146" stroke-width="2"/>
+<g class="axis">
+<text x="160" y="666" text-anchor="end">0 mm</text>
+<text x="160" y="539" text-anchor="end">10 mm</text>
+<text x="160" y="411" text-anchor="end">20 mm</text>
+<text x="160" y="284" text-anchor="end">30 mm</text>
+<text x="160" y="156" text-anchor="end">40 mm</text>
+</g>
+<g stroke="#193146" stroke-width="2"><line x1="165" y1="533" x2="175" y2="533"/><line x1="165" y1="405" x2="175" y2="405"/><line x1="165" y1="278" x2="175" y2="278"/><line x1="165" y1="150" x2="175" y2="150"/></g>
+<text x="60" y="420" class="axis" transform="rotate(-90 60 420)">height above the bed</text>
+
+<!-- wall: clean lower part, rough upper part -->
+<rect x="210" y="392" width="330" height="268" fill="url(#lines)" stroke="#28536b" stroke-width="3"/>
+<rect x="210" y="150" width="330" height="242" fill="url(#rough)" stroke="#a5621c" stroke-width="3"/>
+<line x1="200" y1="392" x2="560" y2="392" stroke="#a5621c" stroke-width="3" stroke-dasharray="10 6"/>
+
+<!-- right-hand flow scale -->
+<g class="axis">
+<text x="575" y="666">10.0 mm³/s</text>
+<text x="575" y="539">15.0</text>
+<text x="575" y="282">25.0</text>
+<text x="575" y="156">30.0</text>
+</g>
+
+<!-- annotations -->
+<text x="575" y="384" class="label bad">Onset at 21 mm</text>
+<text x="575" y="414" class="body bad">= 10 + 0.5 × 21 = 20.5 mm³/s</text>
+<rect x="236" y="240" width="250" height="70" rx="8" fill="#fffdf8" opacity="0.92"/>
+<text x="250" y="270" class="label bad">gaps, thin lines,</text>
+<text x="250" y="298" class="label bad">loose strands</text>
+<rect x="236" y="512" width="140" height="40" rx="8" fill="#fffdf8" opacity="0.92"/>
+<text x="250" y="540" class="label">even wall</text>
+
+<g>
+<rect x="880" y="150" width="510" height="190" rx="14" fill="#dceaf0" stroke="#28536b" stroke-width="3"/>
+<text x="905" y="192" class="label">1. Find the first lasting change</text>
+<text x="905" y="224" class="body">Measure its height with calipers on</text>
+<text x="905" y="252" class="body">every side; the lowest reading counts.</text>
+<text x="905" y="284" class="body">Ignore one isolated blemish.</text>
+<text x="905" y="316" class="small">Straight sides often fail before curves.</text>
+</g>
+<g>
+<rect x="880" y="360" width="510" height="130" rx="14" fill="#dceaf0" stroke="#28536b" stroke-width="3"/>
+<text x="905" y="402" class="label">2. Convert height to flow</text>
+<text x="905" y="436" class="body">flow = start + step × height</text>
+<text x="905" y="468" class="small">10 + 0.5 × 21 = 20.5 mm³/s</text>
+</g>
+<g>
+<rect x="880" y="510" width="510" height="150" rx="14" fill="#fff3df" stroke="#a5621c" stroke-width="3"/>
+<text x="905" y="552" class="label">3. Keep a margin</text>
+<text x="905" y="586" class="body">MVS = 0.90 to 0.95 × onset</text>
+<text x="905" y="618" class="body">20.5 × 0.93 ≈ 19 mm³/s</text>
+<text x="905" y="646" class="small">Enter it in Filament › Max volumetric speed.</text>
+</g>
+<text x="50" y="725" class="small">Tinmans Tuning Guide, CC BY 4.0. Original diagram; numbers from a CORE One+ INDX PCTG ramp.</text>
+</svg>
