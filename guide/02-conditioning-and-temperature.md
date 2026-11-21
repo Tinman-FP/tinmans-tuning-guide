@@ -160,7 +160,7 @@ nozzle). The maker publishes `250-280 C`.
 - **K2 Plus, tower `280 -> 240 C`:** stringing and bridge sag rose steadily
   with temperature. `240 C` was nearly clean, `245-250 C` showed a few light
   wisps, and `265-280 C` had heavy webs. Every band had glossy walls, and the
-  small pins were "super strong and hard to break". Selected: **`245 C`**,
+  small pins were strong and hard to break in every band. Selected: **`245 C`**,
   the coolest band with the required bonding that was not the end band.
   A colder tower was not run because `240 C` is already below the maker's
   minimum.

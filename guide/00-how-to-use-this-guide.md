@@ -49,9 +49,9 @@ Dimensions: within +/- 0.10 mm over 50 mm, both axes.
 ```
 
 This is the step most often skipped, and skipping it is expensive. One field
-run tuned cooling and bridges for four prints and was "not seeing any
-improvements" because nobody had said what "good enough" meant, so there was
-no point at which to stop. The restart began by writing these criteria.
+run tuned cooling and bridges for four prints without visible progress,
+because nobody had said what "good enough" meant, so there was no point at
+which to stop. The restart began by writing these criteria.
 
 Pass marks should be things you can check with the tools you have. If you
 cannot judge a surface by fingertip feel, write criteria you can photograph or

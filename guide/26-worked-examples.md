@@ -29,8 +29,8 @@ The early tests ran out of order and on shifting ground:
   meant to show bonding broke differently in identical prints.
 - Nobody had written down what "good enough" meant.
 
-After the fourth cooling test the owner called a halt: "Lets go back to basics
-... I am not seeing any improvements and think we may be spinning our wheels."
+After the fourth cooling test the owner called a halt: the tests weren't
+showing progress, so it was time to go back to basics.
 
 ### The restart
 
@@ -41,7 +41,7 @@ After the fourth cooling test the owner called a halt: "Lets go back to basics
 | 2 | **Temperature** `280 -> 240 C` | stringing and bridge sag rise steadily with temperature; pins strong in every band | `245 C` |
 | 3 | **Max flowrate** `20 -> 45 mm³/s` | onset `34.5-38.5 mm³/s` (measured heights `29-37 mm`) | MVS `32` confirmed |
 | 4 | **PA Pattern** `0.016 -> 0.036` at `33/62/82 mm/s`, `1200/3600 mm/s²` | no too-high sign; tips match from about `0.026` | PA `0.026` |
-| 5 | **Flow ratio, YOLO (Perfectionist)** around `0.9476` | "They all feel about the same, slightly rough" | flow `0.9476` |
+| 5 | **Flow ratio, YOLO (Perfectionist)** around `0.9476` | all coupons felt alike, slightly rough | flow `0.9476` |
 | 6 | Cooling model plus a new bridge piece | stopped three times by printer faults; not graded yet | open |
 
 Steps 2-5 confirmed the profile instead of changing it, so no new revision was
@@ -91,10 +91,10 @@ a partly clogged nozzle moved the work to the second tool.
 | PA Tower | `0 -> 0.1` | corners read `0.062` and `0.068`; a faint line partway up | inconclusive |
 | PA Tower | `0.040 -> 0.090` | corners clean at different heights, `0.052-0.065` | inconclusive |
 | PA Tower, chamber pre-warmed | same | single clean reading, no line | PA `0.055` (`r5`) |
-| Flow ratio, YOLO | `0.95 -> 1.05` | "All feel the same" | flow `1.00` |
+| Flow ratio, YOLO | `0.95 -> 1.05` | no coupon felt different from the others | flow `1.00` |
 | Cooling model | bridges `10-40 mm`, fins to `70` deg | all bridges pass at `90 %` bridge fan; overhangs clean to `65` deg; pin snaps clean | - |
 | Cooling model, max fan `15 %` | one setting changed | geometry the same; pin still snaps clean on layers both prints ran at minimum fan | inconclusive |
-| Pins only, max fan `15 %` | short layers so the fan limit applies | "all three 3mm pins bent before breaking" | max fan `15 %` (`r6`) |
+| Pins only, max fan `15 %` | short layers so the fan limit applies | all three `3 mm` pins bent before they broke | max fan `15 %` (`r6`) |
 | Retraction | `0 -> 2 mm` | no strings at any length | kept `1.6 mm` |
 | Dimensions | frames `120/80/40 mm`, holes `3-10 mm` | same-sign `0.4 %` error in X and Y | Shrinkage (XY) `99.6 %` (`r7`) |
 | Dimensions, confirm | same model on `r7` | `120 mm` frame within `0.10 mm` | no change |
@@ -152,10 +152,10 @@ revisions:
 
 | Revision | Support interface | Result |
 | --- | --- | --- |
-| `r03` | tree supports, `0.2 mm` gaps | "extremely hard to remove" (a per-object override in the project made it worse) |
+| `r03` | tree supports, `0.2 mm` gaps | very hard to remove (a per-object override in the project made it worse) |
 | `r05` | concentric interface, three layers | came off easily, but each tree tip left a swirl |
 | `r06` | normal supports, rectilinear interface, support ironing on | clean underside where it came off, but the ironed interface fused to the part |
-| `r07` | as `r06` without ironing; interface spacing `0.2 mm`, top gap `0.2 mm`; support-interface fan `100 %` | "Much better": easy removal, clean underside |
+| `r07` | as `r06` without ironing; interface spacing `0.2 mm`, top gap `0.2 mm`; support-interface fan `100 %` | a clear improvement: easy removal, clean underside |
 
 ![The same PET-CF frame after three support settings: r05 concentric interface (swirls under every tree tip), r06 ironed solid interface (fused to the part), r07 spaced rectilinear interface with 100 % interface fan (clean). Field photographs from the guide's tuning runs, 2026-11-19 and 2026-11-20; cropped and labeled.](../assets/field-tests/qidi-pet-cf-support-interface-r05-r07.jpg)
 
@@ -180,7 +180,7 @@ heated chamber `50 C`, textured PEI.
 | 8 | Cooling model | bridges pass; fins clean to `55` deg; `70` deg fails | overhang fan `70 %` (`r05`) |
 | 8b | Fins again | `70` deg fins print full height | - |
 | 9 | Dimension stack | same-sign proportional error in X and Y; holes not a constant error | Shrinkage (XY) `99.60 %` (`r06`) |
-| 10 | Seams and surfaces | "these prints are almost perfect" | `TUNED r06` |
+| 10 | Seams and surfaces | judged nearly perfect | `TUNED r06` |
 
 Two Tinman lessons came out of this run. The Max flowrate test was built
 while a different filament was open for editing, so the ramp was capped at

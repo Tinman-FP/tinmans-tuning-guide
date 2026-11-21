@@ -100,7 +100,7 @@ can judge it; calipers and photographs work too.
 A rule that worked well on the Archimedean-chord coupons: choose the
 **highest flow before the raised ring appears**.
 
-![YOLO (Perfectionist) flow coupons for PCTG on a K2 Plus, sixteen coupons from 0.9076 to 0.9826. The owner's verdict was that they all feel about the same, so the profile kept its current flow ratio. Field photograph from the guide's tuning runs, 2026-11-21; cropped.](../assets/field-tests/k2-pctg-yolo-flow-coupons.jpg)
+![YOLO (Perfectionist) flow coupons for PCTG on a K2 Plus, sixteen coupons from 0.9076 to 0.9826. The coupons could not be told apart, so the profile kept its current flow ratio. Field photograph from the guide's tuning runs, 2026-11-21; cropped.](../assets/field-tests/k2-pctg-yolo-flow-coupons.jpg)
 
 ### Grading Without Touch
 
@@ -119,8 +119,8 @@ field runs:
 
 ### When Every Coupon Looks the Same
 
-Two runs printed a full YOLO set and could not tell the coupons apart ("They
-all feel about the same, slightly rough"; "All feel the same"). That is a
+Two runs printed a full YOLO set and could not tell the coupons apart: every
+coupon felt the same, slightly rough on one printer. That is a
 result: the flow ratio is already inside the useful region and this test
 cannot resolve it further. Keep the current value. Remaining roughness that
 does not change with flow belongs to the top-surface pattern, speed, or line
