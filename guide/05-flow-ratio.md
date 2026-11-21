@@ -45,10 +45,11 @@ YOLO, best coupon +0.02:     0.98 + 0.02         = 1.00
 Pass 1, best coupon +5:      0.98 * 105 / 100    = 1.029
 ```
 
-"Current" is the flow ratio of the filament open for editing when the test was
-built. If the coupons then print from a different filament, every coupon's
-flow comes out wrong, and the labels can even seem to *multiply* instead of
-add. On a Snapmaker U1 run, YOLO coupons printed at `0.95 x (1 + label)`
+For the YOLO tests, "current" is the flow ratio of the filament open for
+editing when the test was built. If the coupons then print from a different
+filament, every coupon's flow comes out wrong, and the labels can even seem to
+*multiply* instead of add. (Pass 1 and Pass 2 coupons simply scale the flow
+ratio of whichever filament prints them.) On a Snapmaker U1 run, YOLO coupons printed at `0.95 x (1 + label)`
 rather than `0.95 + label`. That is exactly what Tinman produces when the
 filament open for editing has a flow of `1.00` and the printing filament has
 `0.95`. If coupons do not match the arithmetic above, check which filament was

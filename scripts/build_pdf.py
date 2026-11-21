@@ -611,6 +611,27 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
                 flows.append(Preformatted("\n".join(code_lines), styles["code"]))
             index += 1
             continue
+        if stripped.startswith(">"):
+            # Blockquotes render as a shaded callout (the chapters' "Quick path" boxes).
+            flush_paragraph()
+            quote_lines = []
+            while index < len(lines) and lines[index].strip().startswith(">"):
+                quote_lines.append(re.sub(r"^\s*>\s?", "", lines[index]))
+                index += 1
+            text = " ".join(part.strip() for part in quote_lines).strip()
+            box = Table([[Paragraph(inline_markup(text, source, file_anchors, heading_anchors), body_style)]],
+                        colWidths=[available_width], hAlign="LEFT")
+            box.setStyle(TableStyle([
+                ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F3F7F6")),
+                ("LINEBEFORE", (0, 0), (0, -1), 2.5, colors.HexColor("#0D6B63")),
+                ("LEFTPADDING", (0, 0), (-1, -1), 9),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 9),
+                ("TOPPADDING", (0, 0), (-1, -1), 6),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+            ]))
+            flows.append(box)
+            flows.append(Spacer(1, 8))
+            continue
         heading = re.match(r"^(#{1,3})\s+(.+?)\s*$", line)
         if heading:
             flush_paragraph()
@@ -640,6 +661,7 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
         if list_match:
             flush_paragraph()
             ordered = list_match.group(1)[0].isdigit()
+            first_number = list_match.group(1)[:-1] if ordered else "1"
             items = []
             while index < len(lines):
                 item_match = re.match(r"^\s*([-*]|\d+\.)\s+(.+)", lines[index])
@@ -674,7 +696,7 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
                 "spaceAfter": 7,
             }
             if ordered:
-                list_options["start"] = "1"
+                list_options["start"] = first_number
             flows.append(ListFlowable(items, **list_options))
             continue
         if not stripped or stripped == "---":

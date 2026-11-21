@@ -36,6 +36,12 @@ maximum steady extrusion speed = 15 / (0.45 * 0.20) = 166.7 mm/s
 The machine may still be limited by acceleration, motion, minimum layer time,
 or feature-specific speed.
 
+The rectangle is an approximation. Slicers model a bead as a rectangle with
+rounded sides, so the real cross-section is slightly smaller than
+`width x height`: for a `0.45 x 0.20 mm` line, about `0.0814 mm²` instead of
+`0.09 mm²`. The simple formula therefore slightly underestimates the speed a
+given MVS allows, which errs on the safe side.
+
 ## Why Tune MVS Before Flow Ratio
 
 A flow-ratio test printed beyond the melt limit can look under-extruded even

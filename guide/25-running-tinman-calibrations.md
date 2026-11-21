@@ -41,8 +41,11 @@ test, Tinman:
 2. writes some test settings onto the model itself (stored in the project);
 3. changes the **process, filament and printer presets that are open for
    editing**, without saving them. They show a `*` as modified;
-4. keeps the ramp (the start, end and step you typed) in memory for the slice.
-   The ramp is **not** saved in the project file.
+4. for the tower tests (Temperature, Max flowrate, PA Tower, Retraction, VFA,
+   Cornering, Input Shaping), keeps the ramp (the start, end and step you typed)
+   in memory for the slice. That ramp is **not** saved in the project file.
+   PA Pattern and Flow ratio are different: their values are stored on the
+   plate and the coupons, and survive a save.
 
 Four consequences follow:
 
@@ -55,8 +58,8 @@ Four consequences follow:
   **Max flowrate** the edited filament shows an MVS of at least `200`, and after
   **Temperature** its nozzle temperature equals the tower's start temperature.
   Saving the preset at that moment writes those test values into your profile.
-- **A reopened calibration project has lost its ramp.** It slices as a plain
-  model at one value. Generate the test again from the menu instead.
+- **A reopened tower project has lost its ramp.** It slices as a plain model
+  at one value. Generate the test again from the menu instead.
 
 ## The Safe Recipe
 
@@ -78,7 +81,9 @@ common wasted prints.
    test into the open project (Flow ratio is the exception).
 6. **Move the objects to the right slot.** Select all test objects and press the
    slot's number key (for example `2`). Check the filament column in the
-   Objects list.
+   Objects list. **PA Pattern is the exception:** it sizes its lines from the
+   *first* filament slot, so put the filament under test in slot 1 for that
+   test.
 7. **Slice and inspect before printing.** In the preview, confirm the values
    change through the part: temperature bands, the speed ramp, PA steps or
    retraction bands. On a multi-tool printer, confirm the G-code uses only the
@@ -139,21 +144,25 @@ common wasted prints.
 - **Defaults (direct drive):** Tower and Line `0 -> 0.1`, step `0.002`; Pattern
   `0 -> 0.08`, step `0.005`. Bowden defaults run `0 -> 1.0` (step `0.02` for
   Tower and Line, `0.05` for Pattern), because a long tube needs far more PA.
-- **PA Tower:** a hollow two-wall tower, one PA step per millimetre of height.
-  PA at a height `h` is about `start + step * h`, counting from the top of the
-  first layer. Tinman writes the exact value of every band into the G-code as a
-  comment, so confirm a borderline reading there.
+- **PA Tower:** a hollow two-wall tower cut to about one millimetre per PA
+  step. Tinman divides the sliced layers evenly among the PA values, so PA at a
+  height `h` is about `start + step * h`, counting from the top of the first
+  layer. The exact value of each band is in the PA command at that layer
+  (`SET_PRESSURE_ADVANCE`, `M900 K` or `M572 S`); confirm a borderline reading
+  there.
 - **PA Line:** rows of slow-fast-slow lines on the first layers, labelled if
   **Print numbers** is ticked. Quick, but it is only as good as the first
   layer.
 - **PA Pattern:** a set of chevrons per speed and acceleration pair, with every
-  other PA value printed beside them. Enter your real production speeds and
+  other PA value printed beside them, followed by the pattern's volumetric
+  flow (in `mm³/s`) and acceleration. Enter your real production speeds and
   accelerations. The dialog requires the smallest acceleration to be larger than
   the largest speed. Leave the lists empty and Tinman picks one speed and the
-  outer-wall acceleration for you, and says so.
+  outer-wall acceleration for you, and says so. Each layer of the pattern ends
+  by setting PA back to the test's start value.
 - **Placement:** the patterns are placed in object order, not sorted by speed
-  or acceleration. Read the speed and acceleration printed beside each pattern
-  instead of assuming a layout.
+  or acceleration. Read the flow and acceleration printed beside each pattern
+  (a higher flow means a faster speed) instead of assuming a layout.
 
 ### Flow ratio
 
@@ -177,9 +186,10 @@ YOLO choice as `x 0.975`; the next test showed the coupons had printed at
 `current + label`, and the profile value was corrected. The dialog itself
 does not say which arithmetic applies.
 
-"Current" means the flow ratio of the filament **open for editing** (recipe
-step 2), and the coupons only print at the intended flow if they also print
-from that slot (recipe step 6).
+For the YOLO tests, "current" is read from the filament **open for editing**
+(recipe step 2), and the coupons only print at the intended flow if they also
+print from that slot (recipe step 6). Pass 1 and Pass 2 coupons simply scale
+the flow ratio of whichever filament prints them.
 
 ### Retraction
 
@@ -230,7 +240,8 @@ Checked against Tinman `main` on 2026-11-21:
   1. Use the recipe.
 - Cancel at the "save first?" prompt still builds the test into the open
   project, for every test except Flow ratio.
-- A reopened calibration project slices without its ramp.
+- A reopened tower-type calibration project slices without its ramp.
+- PA Pattern sizes its lines from filament slot 1, whichever slot prints it.
 - Discarding changes in the "Transfer or discard changes" dialog has reset the
   process to the default once in testing. Check the process name before you
   slice.
@@ -243,8 +254,10 @@ Checked against Tinman `main` on 2026-11-21:
 ## Tinman Changes to the Upstream Tests
 
 - Help buttons and **Calibration Guide** open this guide.
-- Towers use shared step arithmetic: a range that is not a whole number of
-  steps no longer runs one step past its end value.
+- The Temperature, PA Tower, VFA, Cornering and Input Shaping towers use
+  shared step arithmetic: a range that is not a whole number of steps no
+  longer runs one step past its end value. (Max flowrate still ramps
+  continuously with height.)
 - Retraction-tower bands are exactly `1 mm` (PR 53, 2026-11-21).
 - PA Pattern preview tags follow the selected printer, which fixes a halved
   time estimate on the first slice for non-Bambu printers (PR 53).

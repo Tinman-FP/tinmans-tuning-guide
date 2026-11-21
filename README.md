@@ -41,9 +41,10 @@ If the printer is mechanically sound, this is the whole process on one page.
 Each step keeps one value; the next step builds on it. Follow the links for the
 detail.
 
-0. **Decide what "good enough" means.** Write three to five pass marks before
-   printing anything: bonding, stringing, bridges, dimensions.
-   [How](guide/00-how-to-use-this-guide.md#step-0-decide-what-good-enough-means)
+**0. Decide what "good enough" means.** Write three to five pass marks before
+printing anything: bonding, stringing, bridges, dimensions.
+[How](guide/00-how-to-use-this-guide.md#step-0-decide-what-good-enough-means)
+
 1. **Prove the baseline.** Clean nozzle, clean plate, a first layer you have
    measured with calipers, and the right nozzle selected in the slicer.
    [Foundations](guide/01-foundations.md) ·

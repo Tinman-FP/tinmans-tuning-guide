@@ -94,9 +94,11 @@ shared: selecting another nozzle does not prove each value was tuned for it.
 
 ## Saving a Calibration Is Not Saving Its Schedule
 
-A calibration's ramp (its start, end and step) lives in memory, not in the
-project file. Reopening a saved calibration project restores the model and
-presets but slices it at a single value. This is confirmed in Tinman's current
+A tower calibration's ramp (its start, end and step) lives in memory, not in
+the project file. Reopening a saved temperature, max-flowrate, PA-tower,
+retraction or VFA project restores the model and presets but slices it at a
+single value. PA Pattern and flow-ratio coupons keep their values in the
+project. This is confirmed in Tinman's current
 source and was seen in field runs: a reopened PA test sliced at one constant
 PA, and a reopened retraction tower at one length throughout.
 

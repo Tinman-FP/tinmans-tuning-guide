@@ -63,7 +63,8 @@ default ranges. The fields and formulas are in
 
 ### PA Tower: find the band
 
-A hollow two-wall tower in which PA rises by one step per millimetre of height.
+A hollow two-wall tower in which PA rises in equal bands, about one step per
+millimetre of height.
 It shows repeated corners and does not depend on the first layer. Use it first,
 over a wide range (the default `0 -> 0.1` in `0.002` steps suits most direct
 drives), to find where corners turn from swollen to sharp to starved.
@@ -74,8 +75,8 @@ PA at a height `h` mm above the first layer is about:
 PA = start + step * h
 ```
 
-Tinman also writes the value of each band into the G-code as a comment; use it
-to settle a borderline reading. Read the corners away from the seam.
+The exact value of each band is in the G-code's PA command at that height; use
+it to settle a borderline reading. Read the corners away from the seam.
 
 The tower prints its walls fast, from the filament's MVS. That is good for
 seeing PA, but it is one speed and one acceleration, and it may not be yours.
@@ -83,7 +84,9 @@ seeing PA, but it is one speed and one acceleration, and it may not be yours.
 ### PA Pattern: choose the value at production conditions
 
 A set of chevrons for each combination of speed and acceleration you list,
-with every other PA value printed beside the lines. Enter your profile's real
+with every other PA value printed beside the lines, then the pattern's
+volumetric flow and acceleration. Put the filament under test in the first
+filament slot: the pattern sizes its lines from slot 1. Enter your profile's real
 outer-wall, inner-wall and infill speeds, and its accelerations. Print it over
 the narrow band the tower found, in small steps.
 
@@ -164,11 +167,13 @@ condition.
 
 ## Firmware Notes
 
-- **Klipper:** `SET_PRESSURE_ADVANCE`. A PA Pattern ends with the last value it
-  tested still active. The next job's start code normally sets PA again; if
-  yours does not, add a reset to the end G-code. One U1 run added it.
+- **Klipper:** `SET_PRESSURE_ADVANCE`. A PA Pattern finishes with PA set to
+  the test's *start* value, which then stays active until something sets it
+  again. The next job's start code normally does; if yours does not, add a reset
+  to the end G-code. One U1 run added one.
 - **Marlin:** `M900 K`. Values from a Klipper machine do not transfer.
-- **Prusa Buddy:** `M572` or `M900 K`. Each change synchronizes the planner.
+- **Prusa Buddy:** `M572` or `M900 K`. In the INDX run's reading of the
+  firmware source, each change waits for queued moves to finish.
 - **Printer-side calibration:** some printers run their own pressure or flow
   calibration at the start of a job, which can replace the slicer's values. A
   K2 Plus job started from the touchscreen ran Creality's pre-print
