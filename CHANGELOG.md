@@ -1,5 +1,54 @@
 # Changelog
 
+## 1.1.0 - 2026-11-21
+
+Written against Tinman on its OrcaSlicer 2.5.1 base (source `baf3f00dfe`) and
+the guide's November tuning runs.
+
+Corrections:
+
+- YOLO flow tests **add** the coupon label to the current flow ratio; Pass 1 and
+  Pass 2 multiply. The earlier flow example left this to the reader, and one
+  field run misrecorded a result because of it.
+- Withdrew the `255 C` Elegoo PET-CF selection. After a first-layer fault was
+  fixed, the same printer and nozzle gave `275 C`; the cold-flow margin lesson
+  is kept.
+- Profile names now use ` - ` separators instead of `|`, which Windows does not
+  allow in file names.
+- The Max flowrate "cap" seen in the field is not built in: it appears when the
+  printing filament is not the one open for editing.
+- Rewrote the upgrade chapter and version notes for the OrcaSlicer 2.5.1 base;
+  removed "Preview 5 versus 2.5 alpha" framing throughout.
+- Replaced two published photographs whose files still carried location
+  metadata; every published JPEG is now metadata-free. Reduced two oversized
+  photographs.
+
+Additions:
+
+- Chapter 25, Running Tinman's Calibration Tests: every Calibration-menu test,
+  its fields, defaults and reading formula, what it changes, a safe recipe, and
+  known issues.
+- Chapter 26, Worked Examples: complete PCTG, PET-CF and ABS tuning runs on a
+  K2 Plus, CORE One+ INDX, Qidi Plus4 and Snapmaker U1, including wrong turns.
+- A one-page quick path on the home page with a new tuning-path diagram, and a
+  "Quick path" box at the top of each core chapter.
+- Step 0 (write pass marks first) and a stop rule; tuning versus validation
+  prints; naming, versioning and promotion rules.
+- Drying records from the field runs; color change within a spool; a simple
+  comparative bond check and when it cannot work.
+- Foundations: measuring the first layer, repeatable-but-wrong probing, plate
+  changes, machine events that are not filament results.
+- MVS: which signal ended the test, and five field results. PA: tower then
+  pattern at production speeds, chamber effects, "nothing changes" results.
+  Flow: grading without touch, a sanity bound. Retraction: towers that never
+  string, wipe, small-feature whiskers. Dimensions: proportional versus
+  constant-offset field examples, multi-filament shrinkage. Seams: a seam test
+  and a top-surface path example. Materials: PCTG, PET-CF, PC, ABS and HIPS
+  field results; mixed-plate bed temperature.
+- Diagnostic-matrix rows and glossary terms for calibration traps.
+- Seven new field photographs and figures, all cropped and metadata-free.
+- Grouped wiki sidebar.
+
 ## 1.0.5 - 2026-10-22
 
 - Add original illustrated Benchy inspection and dimension locators, a

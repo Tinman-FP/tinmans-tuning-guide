@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1180" viewBox="0 0 1440 1180">
+<rect width="1440" height="1180" fill="#fffdf8"/>
+<style>
+text{font-family:Arial,sans-serif;fill:#193146}
+.title{font-size:38px;font-weight:bold}
+.sub{font-size:22px}
+.step{fill:#dceaf0;stroke:#28536b;stroke-width:3}
+.gate{fill:#fff3df;stroke:#a5621c;stroke-width:3}
+.name{font-size:25px;font-weight:bold}
+.menu{font-size:19px;fill:#28536b}
+.keep{font-size:19px}
+.num{fill:#fff;font-size:24px;font-weight:bold;text-anchor:middle}
+.arrow{fill:none;stroke:#277f87;stroke-width:4}
+.back{fill:none;stroke:#a5621c;stroke-width:3;stroke-dasharray:10 8}
+.note{font-size:19px;fill:#7a4512}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#277f87"/></marker></defs>
+<text x="50" y="62" class="title">The tuning path: one question per step</text>
+<text x="50" y="98" class="sub">Each step keeps one value, then the next step builds on it. Menu names are Tinman's Calibration menu.</text>
+
+<!-- Left column: steps 0-5 -->
+<g>
+<rect class="gate" x="50" y="130" width="640" height="118" rx="14"/>
+<circle cx="92" cy="189" r="24" fill="#a5621c"/><text x="92" y="197" class="num">0</text>
+<text x="130" y="170" class="name">Decide the goal and the pass marks</text>
+<text x="130" y="200" class="menu">No print. Write what the profile is for.</text>
+<text x="130" y="228" class="keep">Keep: 3-5 pass/fail criteria written down</text>
+</g>
+<path class="arrow" d="M370 248 L370 270" marker-end="url(#a)"/>
+<g>
+<rect class="step" x="50" y="276" width="640" height="118" rx="14"/>
+<circle cx="92" cy="335" r="24" fill="#277f87"/><text x="92" y="343" class="num">1</text>
+<text x="130" y="316" class="name">Baseline: machine, plate, first layer</text>
+<text x="130" y="346" class="menu">Clean nozzle, clean plate, known start, one test print</text>
+<text x="130" y="374" class="keep">Keep: a first layer that repeats</text>
+</g>
+<path class="arrow" d="M370 394 L370 416" marker-end="url(#a)"/>
+<g>
+<rect class="step" x="50" y="422" width="640" height="118" rx="14"/>
+<circle cx="92" cy="481" r="24" fill="#277f87"/><text x="92" y="489" class="num">2</text>
+<text x="130" y="462" class="name">Dry and identify the spool</text>
+<text x="130" y="492" class="menu">Dryer time and temperature, colour, roll, date</text>
+<text x="130" y="520" class="keep">Keep: a dry spool you can name exactly</text>
+</g>
+<path class="arrow" d="M370 540 L370 562" marker-end="url(#a)"/>
+<g>
+<rect class="step" x="50" y="568" width="640" height="118" rx="14"/>
+<circle cx="92" cy="627" r="24" fill="#277f87"/><text x="92" y="635" class="num">3</text>
+<text x="130" y="608" class="name">Nozzle temperature</text>
+<text x="130" y="638" class="menu">Calibration &gt; Temperature</text>
+<text x="130" y="666" class="keep">Keep: lowest band with good bonding, not an end band</text>
+</g>
+<path class="arrow" d="M370 686 L370 708" marker-end="url(#a)"/>
+<g>
+<rect class="step" x="50" y="714" width="640" height="118" rx="14"/>
+<circle cx="92" cy="773" r="24" fill="#277f87"/><text x="92" y="781" class="num">4</text>
+<text x="130" y="754" class="name">Maximum volumetric speed</text>
+<text x="130" y="784" class="menu">Calibration &gt; Max flowrate</text>
+<text x="130" y="812" class="keep">Keep: first sustained failure x 0.90-0.95</text>
+</g>
+<path class="arrow" d="M370 832 L370 854" marker-end="url(#a)"/>
+<g>
+<rect class="step" x="50" y="860" width="640" height="118" rx="14"/>
+<circle cx="92" cy="919" r="24" fill="#277f87"/><text x="92" y="927" class="num">5</text>
+<text x="130" y="900" class="name">Pressure advance</text>
+<text x="130" y="930" class="menu">Calibration &gt; Pressure advance (Tower, then Pattern)</text>
+<text x="130" y="958" class="keep">Keep: lowest value with sharp corners at your speeds</text>
+</g>
+<path class="arrow" d="M690 919 L720 919 L720 189 L746 189" marker-end="url(#a)"/>
+
+<!-- Right column: steps 6-10 -->
+<g>
+<rect class="step" x="750" y="130" width="640" height="118" rx="14"/>
+<circle cx="792" cy="189" r="24" fill="#277f87"/><text x="792" y="197" class="num">6</text>
+<text x="830" y="170" class="name">Flow ratio</text>
+<text x="830" y="200" class="menu">Calibration &gt; Flow ratio (YOLO)</text>
+<text x="830" y="228" class="keep">Keep: current value + best coupon label</text>
+</g>
+<path class="arrow" d="M1070 248 L1070 270" marker-end="url(#a)"/>
+<g>
+<rect class="step" x="750" y="276" width="640" height="118" rx="14"/>
+<circle cx="792" cy="335" r="24" fill="#277f87"/><text x="792" y="343" class="num">7</text>
+<text x="830" y="316" class="name">Cooling, bridges, retraction</text>
+<text x="830" y="346" class="menu">Bridge and overhang model; Calibration &gt; Retraction</text>
+<text x="830" y="374" class="keep">Keep: least fan and shortest retraction that pass</text>
+</g>
+<path class="arrow" d="M1070 394 L1070 416" marker-end="url(#a)"/>
+<g>
+<rect class="step" x="750" y="422" width="640" height="118" rx="14"/>
+<circle cx="792" cy="481" r="24" fill="#277f87"/><text x="792" y="489" class="num">8</text>
+<text x="830" y="462" class="name">Dimensions and fit</text>
+<text x="830" y="492" class="menu">Measured stack or grid; Filament &gt; Shrinkage</text>
+<text x="830" y="520" class="keep">Keep: shrinkage % from several sizes, both axes</text>
+</g>
+<path class="arrow" d="M1070 540 L1070 562" marker-end="url(#a)"/>
+<g>
+<rect class="step" x="750" y="568" width="640" height="118" rx="14"/>
+<circle cx="792" cy="627" r="24" fill="#277f87"/><text x="792" y="635" class="num">9</text>
+<text x="830" y="608" class="name">Seams and top surfaces</text>
+<text x="830" y="638" class="menu">Process settings, one change per print</text>
+<text x="830" y="666" class="keep">Keep: the plainest setting that meets the goal</text>
+</g>
+<path class="arrow" d="M1070 686 L1070 708" marker-end="url(#a)"/>
+<g>
+<rect class="gate" x="750" y="714" width="640" height="118" rx="14"/>
+<circle cx="792" cy="773" r="24" fill="#a5621c"/><text x="792" y="781" class="num">10</text>
+<text x="830" y="754" class="name">Validate and release</text>
+<text x="830" y="784" class="menu">A real part, sliced fresh from the saved profile</text>
+<text x="830" y="812" class="keep">Keep: CANDIDATE becomes TUNED rNN</text>
+</g>
+
+<!-- Loop-back rule -->
+<text x="770" y="905" class="note">New colour, new roll, new nozzle or a slicer update?</text>
+<text x="770" y="933" class="note">Go back to the earliest step it can change.</text>
+<text x="80" y="1080" class="note">A step that fails sends you back to the earliest step that could cause the failure, not forward.</text>
+<text x="80" y="1110" class="note">Bridges, seams and surfaces are tuned last: they depend on every value above them.</text>
+<text x="80" y="1150" class="menu">Tinmans Tuning Guide, CC BY 4.0. Original diagram.</text>
+</svg>

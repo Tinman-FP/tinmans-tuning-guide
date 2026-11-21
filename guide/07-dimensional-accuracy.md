@@ -4,9 +4,14 @@ Dimensional tuning works only when the cause of the error is classified. A
 proportional scale error, a constant contour offset, an undersized hole, and an
 elephant foot require different controls.
 
+> **Quick path.** Print a stack of square frames at several sizes plus a row of
+> holes, with all compensation off. Measure after cooling. If the error grows
+> with size and has the same sign in X and Y, set **Shrinkage (XY)**. If it is
+> the same at every size, use contour compensation instead.
+
 After a slicer upgrade, compare the same model's resolved compensation and
 exported dimensions before revising the material tune. GUI and CLI workflows
-must resolve the same profile inheritance; see [upgrade and migration checks](21-slicer-upgrades-and-calibration-changes.md#profile-migration-and-missing-filaments).
+must resolve the same profile inheritance; see [upgrade and migration checks](21-slicer-upgrades-and-calibration-changes.md#profiles-across-updates).
 
 ## Measure After Extrusion Is Stable
 
@@ -161,10 +166,56 @@ The corresponding effective scale was:
 After entering `100.65%` as the XY measured percentage and retaining `100%` in
 Z, the confirmation cube measured exactly `20.00 x 20.00 x 20.00 mm`.
 
-This result was produced in a controlled September 2026 experiment by William
-Tinney with analysis by Codex. It demonstrates the convention, not a universal
+This result comes from a controlled September 2026 experiment in the guide's
+tuning runs, analyzed by Codex. It demonstrates the convention, not a universal
 material value. A small cube is a fast test; confirm the result on a larger
 artifact and a functional tolerance model.
+
+## Two Field Results That Needed Different Fixes
+
+Both runs used a simple model of nested square frames at several sizes, each
+frame measured outside and inside, plus a bar of round holes. All
+compensation was off for the first print.
+
+**Proportional error (CORE One+ INDX, PCTG).** Frames of `120`, `80` and
+`40 mm` measured `119.54`, `79.62` and `40.06 mm` in X and `119.64`, `79.61`
+and `40.01 mm` in Y; inside spans followed the same pattern. A straight-line
+fit gave a scale of `0.9960` in both X and Y, with a contour offset under
+`0.05 mm`. Same sign, both axes, growing with size: a material shrinkage
+error. The profile got **Shrinkage (XY) `99.6 %`**, which makes Tinman scale
+parts by `100 / 99.6 = 1.00402`. The confirmation print held the `120 mm`
+frame within `0.10 mm`. A Snapmaker U1 ABS run found the same pattern and the
+same `99.60 %`.
+
+**Constant offset (Qidi Plus4, PET-CF).** Frames of `70`, `45` and `20 mm` all
+measured about `0.27 mm` too large outside, at every size. The error did not
+grow with size, so it was not shrinkage. The profile got **XY contour
+compensation `-0.13 mm`** (about half the error per side) and kept shrinkage
+at `100 %`. The confirmation print measured `69.97-70.00`, `45.02-45.06` and
+`19.96-20.02 mm`.
+
+What neither run could fix with one setting: small round holes. Holes of
+`3-5 mm` stayed about `0.1-0.2 mm` small while `8-10 mm` holes were close to
+size, so a single hole-compensation value would make some holes worse. Both
+runs left hole compensation at `0` and noted it for part design: draw small
+holes slightly larger, or use polyholes (the Qidi run turned them on).
+
+### Where the Settings Live in Tinman
+
+- **Filament > Basic information > Shrinkage (XY)** and **Shrinkage (Z)**:
+  the measured percentage (`99.6` if `100 mm` measured `99.6 mm`). Tinman
+  scales the part by `100 / value`.
+- **Process > Quality > Precision**: X-Y contour compensation, X-Y hole
+  compensation, elephant foot compensation, polyholes.
+
+Tinman has no dimensional test in its Calibration menu; print your own frames
+or a grid such as Calistar.
+
+**Multi-filament prints:** if the filaments a print actually uses have
+different shrinkage values, Tinman turns shrinkage compensation off for the
+whole print and shows a notice. Unused slots do not count; a prime-tower
+filament does. Check the notice before trusting compensation on a
+multi-material part.
 
 ## Why a Value Above 100% Can Be Correct
 

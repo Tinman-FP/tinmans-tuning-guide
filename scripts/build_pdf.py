@@ -49,6 +49,8 @@ DOCUMENTS = [
     ("Dimensional Accuracy and Tolerances", Path("guide/07-dimensional-accuracy.md")),
     ("Seams and Surface Quality", Path("guide/08-seams-and-surfaces.md")),
     ("Validation and Profile Release", Path("guide/09-validation.md")),
+    ("Running Tinman's Calibration Tests", Path("guide/25-running-tinman-calibrations.md")),
+    ("Worked Examples from Real Tuning Runs", Path("guide/26-worked-examples.md")),
     ("Material-Family Priorities", Path("guide/10-material-families.md")),
     ("Settings Reference and Versions", Path("guide/11-orca-tinmanx1-settings-reference.md")),
     ("Quality Tab", Path("guide/12-quality-tab.md")),

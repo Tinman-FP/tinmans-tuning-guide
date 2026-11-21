@@ -75,13 +75,32 @@ and gap behavior.
 Tune scarf settings only after ordinary pressure and flow are stable. A scarf
 can spread an incorrect transition without correcting its cause.
 
-Tinman Preview 3/4 includes Orca's scarf tiny-segment/ramp correction intended
-to avoid planner speed dips. Re-slice an unchanged control before deciding
-whether earlier scarf settings still help; a source-level fix is not proof of
-a better surface on every machine. Orca 2.5 alpha also introduces precise seam
-modifiers for placement, which are not among Tinman's selected backports.
-Placement and pressure quality are different variables. See the
-[upgrade comparison](21-slicer-upgrades-and-calibration-changes.md).
+Tinman on OrcaSlicer 2.5.1 includes the scarf tiny-segment and ramp
+corrections that avoid planner speed dips, and OrcaSlicer's seam-placement
+modifiers. Re-slice an unchanged control before deciding whether earlier scarf
+settings still help; a source-level fix is not proof of a better surface on
+every machine. Placement and pressure quality are different variables: moving
+a defect out of sight is not correcting it. See the
+[upgrade chapter](21-slicer-upgrades-and-calibration-changes.md).
+
+## A Seam Test That Works
+
+The field runs used small seam models rather than a full part: a cylinder, a
+square, a triangle, an L-shape and a flat block, about `15 mm` tall, with
+**aligned** seams, a seam gap of about `10 %`, no scarf, and the production
+wall order. The different shapes give both long and short travels between
+objects, so starts after both can be compared.
+
+- **Find the seam in the G-code or preview, not in the photo.** The slicer
+  chooses the corner; on one U1 test it put the seams on the sharp front
+  corners and on the side of a pin facing the next object.
+- **Light it at a low angle, without flash.** Flash exaggerates ridges,
+  especially on black or glossy plastic.
+- **A clean seam test also checks retraction** on realistic travels, which a
+  retraction tower may not ([Retraction Test](06-cooling-and-retraction.md#retraction-test)).
+- **Filled materials may hide seams entirely.** On a PET-CF run, seam gaps of
+  `0`, `15` and `30 %` looked the same because the fibre texture was coarser
+  than the difference; `15 %` was kept and the test stopped there.
 
 ## Surface Artifact Map
 
@@ -139,6 +158,19 @@ latter may trade those seams for more material interaction at the perimeter.
 Judge both the boundary and the center. If pattern choice does not solve the
 artifact, test retraction and wipe behavior separately. Do not combine a
 pattern, flow, line-width, and pressure-advance change in one trial.
+
+**Field example.** A PCTG seam test on a CORE One+ INDX left a row of beads
+along every top-surface edge. The G-code showed why: the top used Monotonic
+Line, whose lines are never joined, so each of the `152` strokes on one block
+ended with a `0.53 mm` travel to the next. Those hops were shorter than the
+`1.5 mm` minimum travel for retraction, so none of them retracted or wiped.
+The next print put the same objects side by side with **Strength > Top/bottom
+shells > Top surface pattern** set to Monotonic on one copy only, as an
+object-level change. Monotonic joined almost all of those hops into extruded
+links. The comparison changes one variable, on the part, without touching the
+filament profile. If it does not settle the defect, the next single-variable
+tests are a shorter minimum travel for retraction, or a lower top-surface speed
+or acceleration.
 
 ## Judge in Appropriate Light
 

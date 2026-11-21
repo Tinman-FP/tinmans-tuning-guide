@@ -4,10 +4,11 @@ All groups in this chapter are **Shared 2.4.2**. TinmanX1's continuous-fiber
 system is not configured through these ordinary color/material-change controls;
 see [TinmanX1 fiber and strength tools](18-tinmanx1-fiber-and-strength-tools.md).
 
-Orca 2.5 alpha extends nozzle variants and tool-change settings. Use the
-[upgrade comparison](21-slicer-upgrades-and-calibration-changes.md#new-controls-do-not-replace-the-tuning-order)
-to distinguish that behavior from public Tinman. Verify each tool's resolved
-filament values and slot mapping after sync or migration.
+OrcaSlicer 2.5, and so current Tinman, extends nozzle variants and
+tool-change settings; see the [upgrade chapter](21-slicer-upgrades-and-calibration-changes.md#new-controls-do-not-replace-the-tuning-order).
+Verify each tool's resolved filament values and slot mapping after sync or
+migration, and check the bed temperature the G-code actually uses when
+materials with different bed temperatures share a plate.
 
 ## Prime Tower
 

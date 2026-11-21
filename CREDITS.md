@@ -11,7 +11,11 @@ the source material instead of reproducing it.
   print orientation and results, and directed publication.
 - **Codex by OpenAI** researched the sources, developed the dependency-aware
   method, analyzed the experimental evidence, wrote and organized the guide,
-  created the repository, and published this edition.
+  created the repository, and published the 1.0 editions.
+- **Claude by Anthropic** reviewed the guide against Tinman's source and the
+  November 2026 tuning records, wrote the 1.1 corrections, the calibration and
+  worked-example chapters and the tuning-path diagram, and prepared the new
+  photographs for publication.
 
 The worked `20.00 mm -> 20.13 mm -> 100.65% -> 20.00 mm` dimensional example
 comes from a controlled calibration performed by William Tinney and analyzed
@@ -20,8 +24,9 @@ with Codex in September 2026.
 The motion-diagnostics field photographs and physical FibreSeek and Prusa CORE
 One L+ experiments were made and supplied by William Tinney. Codex designed the
 controlled tests, audited the emitted G-code, analyzed the evidence, and
-authored the worked interpretation. The published photographs have their
-device and location metadata removed.
+authored the worked interpretation. All published photographs have their
+device and location metadata removed (two that still carried it were replaced
+in edition 1.1).
 
 ## Cover Artwork
 

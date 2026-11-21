@@ -11,6 +11,14 @@ ROOT = Path(__file__).resolve().parents[1]
 REPO = 'https://github.com/Tinman-FP/tinmans-tuning-guide'
 RAW = 'https://raw.githubusercontent.com/Tinman-FP/tinmans-tuning-guide/main/'
 LINK = re.compile(r'(!?\[[^\]]*\]\()([^\s)]+)(\))')
+# Wiki sidebar groups, in reading order; each chapter goes in the first group whose prefix matches.
+SIDEBAR_GROUPS = [
+    ('Tune a Filament', ('00-', '01-', '02-', '03-', '04-', '05-', '06-', '07-', '08-', '09-')),
+    ('Tinman Calibration', ('25-', '26-')),
+    ('Profiles, Materials and Updates', ('10-', '20-', '21-', '22-', '23-')),
+    ('Settings Reference', ('11-', '12-', '13-', '14-', '15-', '16-', '17-', '18-')),
+    ('Diagnostics', ('19-', '24-', 'diagnostic-matrix', 'glossary')),
+]
 
 
 def slug(text):
@@ -118,11 +126,18 @@ def build(output, header=None):
     output.mkdir(parents=True, exist_ok=True)
     for path, name in pages.items():
         (output/(name+'.md')).write_text(convert(texts[path], path, pages, anchors))
-    sidebar = ['[Home](Home)', '[Diagnostic Matrix](diagnostic-matrix)', '[Settings Reference](11-orca-tinmanx1-settings-reference)', '', '## Chapters', '']
-    for path, name in pages.items():
-        if path.parent.name == 'guide':
-            title = texts[path].splitlines()[0].lstrip('# ')
-            sidebar.append(f'- [{title}]({name})')
+    sidebar = ['[Home: Start Here](Home#start-here)', '[Diagnostic Matrix](diagnostic-matrix)', '[Settings Reference](11-orca-tinmanx1-settings-reference)']
+    chapters = {name: texts[path].splitlines()[0].lstrip('# ') for path, name in pages.items() if path.parent.name == 'guide'}
+    listed = set()
+    for group, prefixes in SIDEBAR_GROUPS:
+        sidebar.extend(['', f'## {group}', ''])
+        for name in sorted(chapters):
+            if name not in listed and any(name.startswith(prefix) for prefix in prefixes):
+                sidebar.append(f'- [{chapters[name]}]({name})')
+                listed.add(name)
+    remaining = [name for name in sorted(chapters) if name not in listed]
+    if remaining:
+        sidebar.extend(['', '## More', ''] + [f'- [{chapters[name]}]({name})' for name in remaining])
     sidebar.extend(['', '[Experiment Log](experiment-log) · [Release Checklist](profile-release-checklist)',
                     '[Sources](SOURCES) · [Credits](CREDITS)'])
     (output/'_Sidebar.md').write_text('\n'.join(sidebar)+'\n')

@@ -1,5 +1,34 @@
 # Artwork and Provenance
 
+## November 21, 2026 Additions
+
+- `tuning-path.svg` / `tuning-path.png`: original diagram by Claude/Anthropic
+  for the guide, CC BY 4.0, in the guide's existing diagram palette. The PNG is
+  rendered with librsvg and compressed with pngquant.
+- Field photographs from the guide's November 2026 tuning runs, contributed by
+  the printers' owner under the guide's CC BY 4.0 terms. Each was cropped to
+  the test print, resized, and saved with all metadata removed (no EXIF, GPS,
+  XMP or IPTC). Before publication each was checked for faces, room
+  interiors, screens, labels, serial numbers, addresses and account names;
+  crops remove any background that showed a room or furniture.
+  - `field-tests/k2-pctg-temperature-tower-280-240.jpg` (K2 Plus temperature
+    tower, back view; temperature labels added).
+  - `field-tests/indx-pctg-temperature-tower-270-240.jpg` (CORE One+ INDX
+    temperature tower, front view).
+  - `field-tests/indx-pctg-max-flowrate-onset.jpg` (top of a Max flowrate
+    ramp).
+  - `field-tests/k2-pctg-pa-pattern.jpg` (one PA Pattern).
+  - `field-tests/k2-pctg-yolo-flow-coupons.jpg` (YOLO Perfectionist coupons).
+  - `field-tests/indx-pctg-cooling-bridges.jpg` (bridge openings of the
+    cooling model, zoom crop).
+  - `field-tests/qidi-pet-cf-support-interface-r05-r07.jpg` (three photographs
+    of one part after three support settings, labels added).
+- `fibreseek-seam-mismatched-0p6-staggered.jpeg` and
+  `fibreseek-seam-corrected-0p4.jpeg` were re-saved with their metadata
+  removed (pixels unchanged; colour profile kept).
+  `fibreseek-acceleration-tower-*.jpeg` were resized from 4032 to 1800 pixels
+  wide and saved without metadata.
+
 ## October 22, 2026 Grading Figures
 
 - `benchy-inspection-map.svg` and `benchy-dimension-locator.svg` are original

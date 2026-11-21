@@ -5,9 +5,16 @@ Ordinary support, raft, interface, advanced, and tree groups are **Shared
 Support tuning is a compromise among underside quality, removability, print
 time, material, and the risk of a failed unsupported feature.
 
-Orca 2.5 alpha changes support-interface generation. Revalidate counts,
-materials, and removal quality after upgrading; see [changed toolpaths](21-slicer-upgrades-and-calibration-changes.md#revalidate-toolpaths-not-only-entered-values).
-That upstream change is not a documented Tinman Preview 5 backport.
+OrcaSlicer 2.5, and so current Tinman, changes support-interface generation.
+Revalidate counts, materials, and removal quality after upgrading; see
+[changed toolpaths](21-slicer-upgrades-and-calibration-changes.md#revalidate-toolpaths-not-only-entered-values).
+
+Supports are tuned on validation parts, not on calibration coupons, which are
+printed without supports. Every value in this chapter is a range you choose,
+not a preset you must accept: the Z gaps, interface spacing and interface
+layers can be set to any value the part needs. A PET-CF run's progression from
+hard-to-remove supports to clean undersides is in
+[Worked Examples](26-worked-examples.md#qidi-plus4-elegoo-pet-cf).
 
 ## Support
 

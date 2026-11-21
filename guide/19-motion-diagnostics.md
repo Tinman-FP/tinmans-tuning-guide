@@ -5,10 +5,11 @@ wall can all look like vertical bands in a photograph. They do not respond to
 the same setting. Use the shape, direction, and repeatability of the evidence to
 choose the test before changing the profile.
 
-Orca 2.5 alpha changes nozzle-aware VFA generation and motion-test limits.
-Record actual geometry and attainable speeds before comparing versions; see
-[calibration changes](21-slicer-upgrades-and-calibration-changes.md#orca-alpha-changes-not-included-in-this-tinman-batch).
-Those additions are not among Tinman's selected Preview 3/4 backports.
+Tinman on OrcaSlicer 2.5.1 sizes VFA towers to the nozzle and checks the
+requested speeds against the filament's MVS, and its motion tests use the
+machine limits. Record actual geometry and attainable speeds before comparing
+versions; see [what the 2.5.1 base changed](21-slicer-upgrades-and-calibration-changes.md#what-the-251-base-changed-for-tuners)
+and [Running Tinman's Calibration Tests](25-running-tinman-calibrations.md#cornering-input-shaping-and-vfa).
 
 ## Separate the Failure Families
 
@@ -334,9 +335,9 @@ test. See the [version basis](11-orca-tinmanx1-settings-reference.md) and the
 [Speed tab](14-speed-tab.md) for the controls that remain active around the
 calibration.
 
-The Preview 5 calibration backport changes this behavior: optional nozzle-aware
-scaling and flow-limit adjustment are now available, and VFA bands follow 25
-layers rather than a universal 5 mm height. The old specimen's mapping above
+Current Tinman (OrcaSlicer 2.5.1 base) changes this behavior: optional
+nozzle-aware scaling and flow-limit adjustment are available, and VFA bands
+follow 25 layers rather than a universal 5 mm height. The old specimen's mapping above
 remains its historical record, not a formula for a newly generated tower.
 Record the actual generated layer height and check the final speed commands.
 The [upgrade chapter](21-slicer-upgrades-and-calibration-changes.md) explains

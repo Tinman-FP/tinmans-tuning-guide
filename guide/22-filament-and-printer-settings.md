@@ -31,6 +31,23 @@ values have different roles. An active chamber target requires compatible
 hardware, firmware, and start G-code; a saved number alone does not prove the
 chamber reaches that target.
 
+In Tinman the chamber fields are on **Filament > Print chamber temperature**:
+**Activate temperature control**, a **Target**, and a **Minimal** temperature.
+What they do depends on the printer's start G-code. On one printer a non-zero
+minimal temperature makes the start code hold the bed hot until the chamber
+warms; on another the "chamber control" only runs fans to cool the chamber
+toward the target, because the printer has no chamber heater.
+
+The printer can also act on its own. A Prusa CORE One+ opened its top vent at
+the start of every print because the printer's *own* filament entry for that
+material had a low chamber target, whatever the slicer sent; its chamber fans
+then started partway through a print and changed the pressure-advance reading
+(see [Pressure Advance](04-pressure-advance.md#the-chamber-changes-pa)).
+Check the printer's own filament and chamber settings, not only the slicer's.
+
+On multi-material plates, many printer profiles set the bed from the hottest
+filament used. Check the bed temperature the G-code actually uses.
+
 Judge adhesion, distortion, extrusion consistency, and strength together. Keep
 temperatures within the material and hardware limits. Follow
 [conditioning and temperature](02-conditioning-and-temperature.md) before

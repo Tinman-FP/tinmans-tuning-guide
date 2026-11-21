@@ -45,22 +45,22 @@ Do not begin fine tuning until all six checks agree.
 
 ## Isolate Concurrent Slicer Sessions
 
-When several printers are being tuned at once, do not reuse one live slicer
-process for more than one physical print. Open a distinct application instance
-with its own project and state for each job, and name the output after the
-machine, material, tool, and purpose. A fresh project inside a shared process
-is not always sufficient: cached tool assignments, inherited materials, and
-queued uploads can survive between projects.
+When several printers are being tuned at once, keep each job's state separate.
+Give each job its own project, named after the machine, material, tool, and
+purpose, and select its printer, process and filament explicitly before slicing.
+A fresh project is not always enough: cached tool assignments, inherited
+materials, and queued uploads can survive between projects, so check the
+selections again before every slice.
 
-Record the session owner, exact app path, process ID and launch time, data
-directory, physical printer, and job/project/G-code identity. The owner saves
-required evidence and closes only that proven instance when the job completes,
-fails, is canceled, or is abandoned. Verify it exited. An active or paused job
-retains its session; carry monitoring and cleanup responsibility through a
-handoff. A retry gets a fresh instance, not another user's live window.
+Do not run two copies of the slicer on the same data folder at the same time.
+In Tinman a second window on the same data folder could not open the Print or
+Settings dialogs, and one copy's save can overwrite another's prepared project.
+If several people or tools share one installation, take turns: one job at a
+time, from opening the project to confirming the upload. For fully separate
+work, use a separate installation with its own data folder.
 
-An isolated data directory is not proof of profile freshness. Compare its
-resolved profiles with the authoritative library and machine's tuning record
+An isolated data folder is not proof of profile freshness. Compare its resolved
+profiles with your saved, authoritative profiles and the machine's tuning record
 before slicing. Recheck selection after imports, synchronization, calibration
 generation, resets, and reopening. Do not resolve ambiguity by silently
 substituting a generic or another machine's tune.
@@ -169,22 +169,28 @@ and enclosure.
 Use a distinct profile for each validated machine/tool/nozzle combination:
 
 ```text
-Filament: STATUS | Machine ID | Nozzle mm | Brand Product Material | rNN
-Process: STATUS | Machine ID | Nozzle mm | Brand Product Material | Layer mm Purpose | rNN
+Filament: STATUS - Machine ID - Nozzle mm - Brand Product Material - rNN
+Process: STATUS - Machine ID - Nozzle mm - Brand Product Material - Layer mm Purpose - rNN
 ```
 
-Compatibility-gate the profile to that printer definition. Preserve the
-generic or supplier profile as a parent or untouched reference. Do not let a
-tuned FibreSeek profile silently appear as a valid choice for another printer.
+Compatibility-gate the profile to that printer definition, or use Tinman's
+**Printer scope** when saving. Preserve the generic or supplier profile as a
+parent or untouched reference. Do not let a tuned FibreSeek profile silently
+appear as a valid choice for another printer.
 
 Use a stable physical machine ID, not merely a model shared by several printers.
 Include color, formulation, or hardware variants when their tuning differs.
 For example:
 
 ```text
-TUNED | Qidi Plus4 | 0.6mm | Elegoo PET-CF | r01
-TUNED | Qidi Plus4 | 0.6mm | Elegoo PET-CF | 0.24mm Quality | r01
+TUNED - Qidi Plus4 - 0.6mm - Elegoo PET-CF - r14
+TUNED - Qidi Plus4 - 0.6mm - Elegoo PET-CF - 0.24mm Production - r25
 ```
+
+Separate the parts with ` - `. Earlier editions used `|`, but profiles are
+saved as files and Windows does not allow `|` in file names; Tinman's save
+dialog once refused such names outright. The full rules are in
+[Name, Version and Promote](09-validation.md#name-version-and-promote).
 
 Use `CANDIDATE` during partial validation, `TUNED` only after the required
 sequence and representative validation for that exact setup, and
