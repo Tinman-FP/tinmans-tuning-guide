@@ -1,5 +1,10 @@
 # Validation and Profile Release
 
+> **At a glance**
+> - **Decide:** whether the profile is finished
+> - **Test:** a real part sliced fresh from the saved profile, checked against the pass marks
+> - **Keep:** the candidate renamed `TUNED`, with a revision number and notes
+
 A calibration value is not finished when its test looks good. A profile is
 finished when the complete settings work together on representative parts and
 the evidence can be reproduced.
@@ -132,9 +137,9 @@ Rules that kept the field runs honest:
 - **A new revision for each accepted change.** When a test changes an accepted
   value, save a new revision (`r09 -> r10`) and note which value changed and
   why. When a test confirms the current values, **do not** make a new revision:
-  one K2 run finished four confirming tests with no change and stayed at `r10`.
+  one K2 run finished four confirming tests with no change and stayed at r10.
 - **Filament and process counters are independent.** The recommended release is
-  a pair, such as filament `r14` with process `r25`, not "both at r14".
+  a pair, such as filament r14 with process r25, not "both at r14".
 - **Promote the tested file unchanged.** `TUNED` is the last `CANDIDATE`
   renamed, with its values byte-for-byte the same and a note of the release
   date. If anything changes during promotion, it is a new candidate.
@@ -167,6 +172,8 @@ project reproduces the slice and a representative functional part passes its
 dimensional, fit, surface, and strength requirements.
 
 ## Tuning Prints and Validation Prints
+
+![The same PET-CF part after three support settings on its validation print: r05 concentric interface (swirls), r06 ironed solid interface (fused), r07 spaced interface with 100 % interface fan (clean). Field photographs from the guide's tuning runs, 2026-11-19 and 2026-11-20; cropped and labeled.](../assets/field-tests/qidi-pet-cf-support-interface-r05-r07.jpg)
 
 Tuning prints are printed **without supports**, so that supports do not hide or
 cause the defect being tuned. Validation prints are printed the way production

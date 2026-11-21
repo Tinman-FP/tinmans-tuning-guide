@@ -9,7 +9,7 @@ Enlargement of the lowest layers caused by Z compression, heat, or first-layer
 flow. Correct it locally rather than scaling the whole part.
 
 **Extrusion multiplier / flow ratio**  
-A multiplier on commanded material. `1.00` is `100%`; `0.98` is `98%`.
+A multiplier on commanded material. 1.00 is 100%; 0.98 is 98%.
 
 **FFF / FDM**  
 Layer-by-layer material-extrusion printing. FDM is a common industry term and a

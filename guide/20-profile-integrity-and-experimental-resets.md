@@ -1,5 +1,10 @@
 # Profile Integrity and Experimental Resets
 
+> **At a glance**
+> - **Decide:** whether the setup you are testing is the one you think
+> - **Test:** the identity gate: tool, nozzle, profiles and final G-code
+> - **Keep:** machine-specific, compatibility-gated profiles
+
 A controlled test is only controlled when the printer, tool, nozzle, filament,
 and process geometry are the ones the experiment claims to use. A slicer can
 display a familiar profile name while inherited values, a stale project,
@@ -125,15 +130,15 @@ The trials taught useful local lessons:
 
 Those are valid observations about the failure mode, but they were not valid
 profile-acceptance results. A later audit found that the coupons had been
-sliced as if the plastic tool used a `0.6 mm` nozzle, with `0.30 mm` layers and
-approximately `0.60/0.63 mm` outer/inner line widths. The installed plastic
-tool and the machine configuration identified that nozzle as `0.4 mm`.
+sliced as if the plastic tool used a 0.6 mm nozzle, with 0.30 mm layers and
+approximately 0.60/0.63 mm outer/inner line widths. The installed plastic
+tool and the machine configuration identified that nozzle as 0.4 mm.
 
 ![A rejected FibreSeek seam trial made under the mismatched 0.6 mm process assumption. Staggering distributed the disturbed transition across a broad wall region. This photograph is diagnostic evidence, not an accepted profile result.](../assets/field-tests/fibreseek-seam-mismatched-0p6-staggered.jpeg)
 
-The experiment was reset on the same geometry with the true `0.4 mm` plastic
-tool, `0.20 mm` layers, `0.40/0.42 mm` outer/inner line widths, the established
-`0.030` pressure-advance value, inner-before-outer walls, an aligned rear seam,
+The experiment was reset on the same geometry with the true 0.4 mm plastic
+tool, 0.20 mm layers, 0.40/0.42 mm outer/inner line widths, the established
+0.030 pressure-advance value, inner-before-outer walls, an aligned rear seam,
 and no scarf, stagger, or wipe. The broad disturbed zone collapsed into one
 narrow, straight, repeatable seam while the surrounding wall remained smooth.
 
@@ -211,8 +216,6 @@ Do not leave an obsolete generic or Copy preset looking equally recommended
 for that scope. Preserve stock parents, generics needed by other machines,
 dependent presets, and profiles recorded by active jobs. Resolve dependencies
 before changing shared entries; never delete the only backup.
-
-<!-- pdf:page-break-before -->
 
 ## Promotion Gate
 

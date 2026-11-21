@@ -1,14 +1,13 @@
 # Cooling, Bridges, Retraction, and Travel
 
+> **At a glance**
+> - **Decide:** fan speeds, bridge settings and retraction length
+> - **Test:** a bridge-and-overhang model, then **Calibration > Retraction**, then a real part
+> - **Keep:** the least fan that passes, and the shortest clean retraction confirmed on real travels
+
 Cooling and retraction both affect strings and small features, but they solve
 different physical problems. Tune cooling first for deposited geometry, then
 use retraction and travel controls for pressure and ooze during non-print moves.
-
-> **Quick path.** Print one cooling model with bridges, overhang fins and small
-> pins. Raise the overhang and bridge fan until overhangs and short bridges
-> pass, keep the normal fan as low as bonding needs, then run **Calibration >
-> Retraction** and keep the shortest length that stays clean, confirmed on a
-> real part.
 
 This step comes after temperature, MVS, pressure advance and flow are settled.
 One field run tuned bridges and cooling first, on top of an unfinished
@@ -54,11 +53,11 @@ auxiliary and exhaust fans.
 ## Cooling Test Method
 
 Tinman has no built-in cooling or bridge test. The field runs shared one simple
-model that works well: a `100 x 90 mm` plate with
+model that works well: a 100 × 90 mm plate with
 
-- bridges of `10`, `20`, `30` and `40 mm` under a deck at least `2 mm` thick;
-- overhang fins at `30`, `45`, `55`, `65` and `70` degrees;
-- small pins: `3 mm` round, `5 mm` round and `5 mm` square, `20 mm` tall.
+- bridges of 10, 20, 30 and 40 mm under a deck at least 2 mm thick;
+- overhang fins at 30, 45, 55, 65 and 70 degrees;
+- small pins: 3 mm round, 5 mm round and 5 mm square, 20 mm tall.
 
 Hold temperature, flow, and speed constant. Change one fan setting per print,
 as a project-only change, until a value passes.
@@ -67,7 +66,7 @@ Evaluate:
 
 - overhang edge curl and underside shape;
 - bridge sag, strand separation, and anchoring;
-- the top of each bridge deck (a deck thinner than about `2 mm` cannot show
+- the top of each bridge deck (a deck thinner than about 2 mm cannot show
   whether the bridge spoiled the surface above it);
 - small-feature deformation;
 - layer adhesion after cooling;
@@ -79,21 +78,23 @@ used for production.
 
 ![Bridge undersides of the shared cooling model in PCTG on a CORE One+ INDX: 10, 20, 30 and 40 mm spans at 90 % bridge fan, all attached, with the 40 mm span slightly ridged. Field photograph from the guide's tuning runs, 2026-11-20; cropped.](../assets/field-tests/indx-pctg-cooling-bridges.jpg)
 
+![Overhang fins of the same cooling model on the CORE One+ INDX, which printed clean up to 65 degrees; the 70 degree fin had a serrated edge. Field photograph from the guide's tuning runs, 2026-11-20; zoom crop.](../assets/field-tests/indx-pctg-overhang-fins.jpg)
+
 ### Field Results with the Same Model
 
 | Printer, filament | Change | Result |
 | --- | --- | --- |
-| K2 Plus, PCTG, `0.6 mm` | overhang and bridge fan `40 -> 80 %` | the `40 mm` deck top closed; spans still sagged; fins unchanged |
-| K2 Plus, PCTG | bridge flow `1.0 -> 0.85` | no visible change |
+| K2 Plus, PCTG, 0.6 mm | overhang and bridge fan 40 → 80 % | the 40 mm deck top closed; spans still sagged; fins unchanged |
+| K2 Plus, PCTG | bridge flow 1.0 → 0.85 | no visible change |
 | K2 Plus, PCTG | chamber heater off | no gain |
-| CORE One+ INDX, PCTG, `0.4 mm` | bridge fan `90 %` | `10-40 mm` bridges pass; overhangs clean to `65` degrees |
-| CORE One+ INDX, PCTG | normal fan maximum `40 -> 15 %` | geometry unchanged; pins bend before breaking |
-| U1, Push ABS, `0.4 mm` | overhang and bridge fan `45 -> 70 %` | `70` degree fins print full height |
-| Qidi Plus4, PET-CF, `0.6 mm` | overhang fan `100 %` above `50 %` overhang | curl fixed; bonding survived |
+| CORE One+ INDX, PCTG, 0.4 mm | bridge fan 90 % | 10–40 mm bridges pass; overhangs clean to 65 degrees |
+| CORE One+ INDX, PCTG | normal fan maximum 40 → 15 % | geometry unchanged; pins bend before breaking |
+| U1, Push ABS, 0.4 mm | overhang and bridge fan 45 → 70 % | 70 degree fins print full height |
+| Qidi Plus4, PET-CF, 0.6 mm | overhang fan 100 % above 50 % overhang | curl fixed; bonding survived |
 
-Overhang limits depend strongly on nozzle and layer height: `65-70` degree
-fins failed with a `0.6 mm` nozzle and `0.24 mm` layers on the K2, and passed
-with a `0.4 mm` nozzle elsewhere.
+Overhang limits depend strongly on nozzle and layer height: 65–70 degree
+fins failed with a 0.6 mm nozzle and 0.24 mm layers on the K2, and passed
+with a 0.4 mm nozzle elsewhere.
 
 ### Testing Bonding Under a Fan Setting
 
@@ -119,9 +120,9 @@ Tune them as a feature after general temperature and cooling are credible.
 
 Test the span lengths and directions that matter to the actual part. Measuring
 sag is easier than it sounds: on the Qidi run, the owner measured the thickness
-of a `2.0 mm` deck at mid-span with calipers. Anything above `2.0 mm` is sag.
-That compared four bridge settings in one print and kept bridge flow `0.9` at
-`16 mm/s`.
+of a 2.0 mm deck at mid-span with calipers. Anything above 2.0 mm is sag.
+That compared four bridge settings in one print and kept bridge flow 0.9 at
+16 mm/s.
 
 Rough patches or craters on top of a bridge deck can come from the first solid
 layer printed over the bridge, which runs at the internal solid-infill speed.
@@ -156,10 +157,10 @@ Tune retraction only after:
 
 ## Retraction Test
 
-Use **Calibration > Retraction** (default `0 -> 2 mm` in `0.1 mm` steps). It
-prints two pillars on a `0.4 mm` base; each step above the base is a `1 mm`
+Use **Calibration > Retraction** (default 0 → 2 mm in 0.1 mm steps). It
+prints two pillars on a 0.4 mm base; each step above the base is a 1 mm
 band, and Tinman writes each band's length into the G-code. The length at band
-`n` (counting the base band as `0`) is `start + step * n`. Builds before
+`n` (counting the base band as 0) is `start + step * n`. Builds before
 2026-11-21, and OrcaSlicer 2.5.1, made some bands four layers and others six;
 read those towers from the G-code comments, not by counting millimetres.
 
@@ -171,10 +172,12 @@ read those towers from the G-code comments, not by counting millimetres.
 
 ### When the Tower Never Strings
 
-On fast, modern printers the tower may show no strings at all, even at `0 mm`.
+On fast, modern printers the tower may show no strings at all, even at 0 mm.
 Four of the guide's printers showed no strings, or almost none, at any length. Small pillars print slowly, at
 the minimum layer time, with very short travels, so there is little time for
-ooze. A clean tower at `0 mm` does not prove `0 mm` is right.
+ooze. A clean tower at 0 mm does not prove 0 mm is right.
+
+![A PCTG retraction tower on a CORE One+ INDX after a 0 to 2 mm test: no strings at any length, so the tower could not choose a value. Field photograph from the guide's tuning runs, 2026-11-21; cropped.](../assets/field-tests/indx-pctg-retraction-tower-no-strings.jpg)
 
 When that happens:
 
@@ -183,13 +186,13 @@ When that happens:
 - confirm it on a part with real travel distances, such as the seam test in
   [Seams and Surfaces](08-seams-and-surfaces.md). On the INDX, a five-shape
   seam model with about 25 travels per layer showed one fine wisp at
-  `1.6 mm`, which confirmed the value.
+  1.6 mm, which confirmed the value.
 
 ### Wipe Changes the Effective Speed
 
 When wipe is on, Tinman spreads part of the retraction over the wipe move. The
 extruder then retracts more slowly than the configured retraction speed. On a
-Qidi run this worked out to about `5 mm/s` at the extruder for a `30 mm/s`
+Qidi run this worked out to about 5 mm/s at the extruder for a 30 mm/s
 setting. Test
 retraction with the same wipe settings production uses, and change wipe and
 retraction separately.
@@ -197,9 +200,9 @@ retraction separately.
 ### Small-Feature Whiskers Are Often Geometry
 
 Fine whiskers on features narrower than about two nozzle widths may not respond
-to retraction, temperature or fan at all. A PET-CF run on a `0.6 mm` nozzle
-tried a `5 C` drop, more fan, retract-before-wipe and a longer retraction with
-little gain; switching to a `0.4 mm` nozzle removed the whiskers. Size the
+to retraction, temperature or fan at all. A PET-CF run on a 0.6 mm nozzle
+tried a 5 °C drop, more fan, retract-before-wipe and a longer retraction with
+little gain; switching to a 0.4 mm nozzle removed the whiskers. Size the
 nozzle to the smallest feature before tuning retraction for it.
 
 Too much retraction can create:

@@ -1,5 +1,10 @@
 # Seams and Surface Quality
 
+> **At a glance**
+> - **Decide:** seam placement and top-surface settings
+> - **Test:** a small seam model, read from the G-code; one object-level change per print
+> - **Keep:** the plainest setting that meets your pass marks
+
 A seam is the repeated start and stop of a perimeter. It concentrates pressure,
 ooze, travel, retraction, wipe, and placement effects into one visible region.
 Treat it as a local transition problem, not automatic evidence that global flow
@@ -62,7 +67,7 @@ of curing it.
 
 The photographed [FibreSeek seam reset](20-profile-integrity-and-experimental-resets.md#worked-fibreseek-seam-reset)
 shows this pattern: a broad disturbed region survived many cosmetic controls,
-then collapsed to one narrow seam when the actual `0.4 mm` nozzle and matching
+then collapsed to one narrow seam when the actual 0.4 mm nozzle and matching
 process geometry were restored.
 
 ## Scarf Seams
@@ -85,9 +90,11 @@ a defect out of sight is not correcting it. See the
 
 ## A Seam Test That Works
 
+![A five-shape seam and surface test in PCTG on a CORE One+ INDX: cylinder, square, triangle, L-shape and a flat block. Field photograph from the guide's tuning runs, 2026-11-21; cropped.](../assets/field-tests/indx-pctg-seam-test-shapes.jpg)
+
 The field runs used small seam models rather than a full part: a cylinder, a
-square, a triangle, an L-shape and a flat block, about `15 mm` tall, with
-**aligned** seams, a seam gap of about `10 %`, no scarf, and the production
+square, a triangle, an L-shape and a flat block, about 15 mm tall, with
+**aligned** seams, a seam gap of about 10 %, no scarf, and the production
 wall order. The different shapes give both long and short travels between
 objects, so starts after both can be compared.
 
@@ -99,8 +106,8 @@ objects, so starts after both can be compared.
 - **A clean seam test also checks retraction** on realistic travels, which a
   retraction tower may not ([Retraction Test](06-cooling-and-retraction.md#retraction-test)).
 - **Filled materials may hide seams entirely.** On a PET-CF run, seam gaps of
-  `0`, `15` and `30 %` looked the same because the fibre texture was coarser
-  than the difference; `15 %` was kept and the test stopped there.
+  0, 15 and 30 % looked the same because the fibre texture was coarser
+  than the difference; 15 % was kept and the test stopped there.
 
 ## Surface Artifact Map
 
@@ -161,9 +168,9 @@ pattern, flow, line-width, and pressure-advance change in one trial.
 
 **Field example.** A PCTG seam test on a CORE One+ INDX left a row of beads
 along every top-surface edge. The G-code showed why: the top used Monotonic
-Line, whose lines are never joined, so each of the `152` strokes on one block
-ended with a `0.53 mm` travel to the next. Those hops were shorter than the
-`1.5 mm` minimum travel for retraction, so none of them retracted or wiped.
+Line, whose lines are never joined, so each of the 152 strokes on one block
+ended with a 0.53 mm travel to the next. Those hops were shorter than the
+1.5 mm minimum travel for retraction, so none of them retracted or wiped.
 The next print put the same objects side by side with **Strength > Top/bottom
 shells > Top surface pattern** set to Monotonic on one copy only, as an
 object-level change. Monotonic joined almost all of those hops into extruded

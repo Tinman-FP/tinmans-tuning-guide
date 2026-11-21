@@ -1,9 +1,16 @@
 # Filament and Printer Settings
 
+> **At a glance**
+> - **Decide:** where a value belongs: printer, filament or process
+> - **Test:** the identity, temperature and machine-contract sections
+> - **Keep:** hardware facts in the printer profile, material facts in the filament
+
 Machine settings describe installed hardware and firmware. Filament settings
 describe how one material behaves on that hardware. Verify the resolved machine,
 tool, nozzle, filament, and process together before changing a value. See the
 [identity gate](20-profile-integrity-and-experimental-resets.md).
+
+![Where each tuned value lives in Tinman's filament settings, and which test fills it. Original schematic, CC BY 4.0, drawn from Tinman's source labels.](../assets/filament-settings-map.png)
 
 ## Filament Identity and Physical Properties
 

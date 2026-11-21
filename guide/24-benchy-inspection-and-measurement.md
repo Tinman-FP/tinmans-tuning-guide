@@ -1,5 +1,10 @@
 # 3DBenchy: Official References and Evidence-Based Grading
 
+> **At a glance**
+> - **Decide:** whether a Benchy passes as a baseline print
+> - **Test:** the official features and nominal dimensions, measured after cooling
+> - **Keep:** a graded record of what passed and what did not, not a score
+
 Source review: 2026-10-22. This chapter uses the original single-part
 #3DBenchy by Creative Tools, designed by Daniel Noree. Official references:
 [features](https://www.3dbenchy.com/features/),
@@ -54,8 +59,6 @@ These checks paraphrase the official feature descriptions. Deep open bands,
 missing perimeter segments, or a distorted chimney are not explained merely
 by normal shallow-roof stair stepping.
 
-<!-- pdf:page-break-before -->
-
 ## Official Nominal Dimensions at 100% Scale
 
 All linear values below are millimeters. They are nominal design values,
@@ -69,9 +72,9 @@ not tolerances. Use the official linked drawings to locate measurement faces.
 | Roof front-to-rear faces | 23.00 |
 | Chimney bore / top outside diameter / blind depth | 3.00 / 7.00 / 11.00 |
 | Cargo rim height above base | 15.50 |
-| Cargo outside / inside / depth | 12.00 x 10.81 / 8.00 x 7.00 / 9.00 |
+| Cargo outside / inside / depth | 12.00 × 10.81 / 8.00 × 7.00 / 9.00 |
 | Bow hawsepipe bore / flange depth | 4.00 / 0.30 |
-| Front rectangular window | 10.50 x 9.50 |
+| Front rectangular window | 10.50 × 9.50 |
 | Rear window bore / outside / flange depth | 9.00 / 12.00 / 0.30 |
 | Stern sign and lettering relief | 0.10 |
 | Bow overhang / roof slope, relative to horizontal | 40 degrees / 5.5 degrees |
@@ -107,15 +110,13 @@ a cosmetically perfect boat before temperature tuning. Use
 and the earliest affected prerequisite. Later dimensional, surface, and
 representative validation stages still require their own evidence.
 
-<!-- pdf:page-break-before -->
-
 ## Photographed Foundation Failure: Do Not Grade by Completion Alone
 
 ![Rejected foundation example: a completed Elegoo PET-CF Benchy with open-looking chimney bands and irregular cabin tracks. Photograph: the guide's maintainer, IMG_6231, 2026-10-22. Model: Daniel Noree / Creative Tools, 3DBenchy.com. This is a defect example, not an official reference print.](../assets/field-tests/pet-cf-benchy-foundation-bands.jpg)
 
 The photographed boat completed on a Qidi Plus4 with a Micro Swiss CM2
-0.6 mm nozzle, 0.24 mm body layers, 0.30 mm first layer, 275 C nozzle,
-100 C bed, 50 C chamber target, flow 1.00, PA 0 and a 3 mm3/s diagnostic
+0.6 mm nozzle, 0.24 mm body layers, 0.30 mm first layer, 275 °C nozzle,
+100 °C bed, 50 °C chamber target, flow 1.00, PA 0 and a 3 mm3/s diagnostic
 volumetric cap. These are recorded experimental conditions, not recommended
 settings or an accepted tune. Other views of this specimen show hull and
 opening irregularities as well.

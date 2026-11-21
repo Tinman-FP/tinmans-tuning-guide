@@ -1,5 +1,10 @@
 # OrcaSlicer and Tinman Settings Reference
 
+> **At a glance**
+> - **Decide:** which settings group matches a symptom
+> - **Test:** the tab chapters that follow, starting from the symptom
+> - **Keep:** one change per print, and the default when there is no evidence
+
 This part of the guide translates the process-profile screens into practical
 decisions. It is not a replacement for calibration and it is not a rewritten
 copy of the OrcaSlicer Wiki. Each setting group answers three questions:
@@ -15,7 +20,7 @@ for a group, leave that group alone.
 ## Version Basis
 
 The current release review was checked on 2026-11-21 against Tinman's source.
-The detailed tab survey in chapters 12-18 keeps its explicitly identified
+The detailed tab survey in chapters 12–18 keeps its explicitly identified
 historical source baseline; changed behavior is documented in
 [Slicer Upgrades and Calibration Changes](21-slicer-upgrades-and-calibration-changes.md)
 and [Running Tinman's Calibration Tests](25-running-tinman-calibrations.md).
@@ -25,9 +30,9 @@ and [Running Tinman's Calibration Tests](25-running-tinman-calibrations.md).
 | Tinman source, `main` | `baf3f00dfe` (2026-11-21), on the OrcaSlicer 2.5.1 base since 2026-11-15 | Calibration menu, dialogs, generators and filament-setting labels described in this edition |
 | OrcaSlicer releases | `v2.5.0` (2026-11-07), `v2.5.1` (2026-11-14), `v2.5.2` (2026-11-21) | Current official upstream; 2.5.2 not reviewed for this edition |
 | Public Tinman previews | Preview 5 `v2026.10.19-preview.5`; Preview 6 pre-release `v2026.10.22-preview.6` | Public downloads that predate the 2.5.1 base (2.4.2 with selected backports) |
-| OrcaSlicer application source (historical survey) | `v2.4.2`, commit `8500fcdccaa10b5099ac20d252af3a7c560046f1` | The 2.4.2 process tabs and controls surveyed for chapters 12-17 |
+| OrcaSlicer application source (historical survey) | `v2.4.2`, commit `8500fcdccaa10b5099ac20d252af3a7c560046f1` | The 2.4.2 process tabs and controls surveyed for chapters 12–17 |
 | OrcaSlicer Wiki survey (historical) | commit `f132cbf1c1e48573d229d1783ee471e61e50aaf3`, dated 2026-09-17 | Historical tab terminology |
-| Historical TinmanX1 source | compatibility base `2.4.2`, commit `cf0cabb04146c4ff9f21b963517717acfec66055` | The original custom-feature survey, not a public-download promise |
+| Historical TinmanX1 source | compatibility base 2.4.2, commit `cf0cabb04146c4ff9f21b963517717acfec66055` | The original custom-feature survey, not a public-download promise |
 
 Record the product version, release tag, and source revision shown in
 **Help > About**, not just a number embedded in an exported preset. TinmanX1
@@ -41,8 +46,6 @@ Official download pages:
 Use the releases list to distinguish stable and preview builds. Compare
 the downloaded version with the baseline above before assuming every screen
 and option will be identical.
-
-<!-- pdf:page-break-before -->
 
 ## Difference Labels
 

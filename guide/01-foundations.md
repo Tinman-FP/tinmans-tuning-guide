@@ -1,5 +1,10 @@
 # Foundations: Establish a Trustworthy Baseline
 
+> **At a glance**
+> - **Decide:** whether the printer is ready for filament tuning
+> - **Test:** a measured first layer (caliper the base) and one baseline print
+> - **Keep:** a first layer that repeats, and a record of the machine baseline
+
 Filament calibration cannot compensate for a loose printer, a partially
 blocked nozzle, an unstable bed, or an incorrect tool offset. Prove the machine
 first.
@@ -51,27 +56,27 @@ texture, and initial-layer flow deliberately change its appearance.
 
 ### Measure the First Layer, Not Only Look at It
 
-Slice a simple flat part with a known base thickness, for example a `0.8 mm`
+Slice a simple flat part with a known base thickness, for example a 0.8 mm
 solid base, print it, and measure the base with calipers. It should match the
 sliced thickness within a few hundredths of a millimetre. A K2 Plus cooling
-model's base measured `0.71 mm` against `0.72 mm` sliced once the Z offset was
-right; earlier, a retraction tower's base measured `0.69 mm` against `0.40 mm`
+model's base measured 0.71 mm against 0.72 mm sliced once the Z offset was
+right; earlier, a retraction tower's base measured 0.69 mm against 0.40 mm
 sliced, and the first layer had almost no squish.
 
 The cause there was mechanical: the K2 Plus's stock spring-mounted bed moved
-down about `0.23-0.25 mm` under the nozzle's load, so the probe's zero was
+down about 0.23–0.25 mm under the nozzle's load, so the probe's zero was
 right for a bed at rest and wrong for a bed being printed on. A printer-side
-offset of `-0.25 mm` fixed it. Machines differ; the caliper check finds the
+offset of -0.25 mm fixed it. Machines differ; the caliper check finds the
 problem whatever its cause.
 
 ## Repeatable Is Not the Same as Correct
 
 Probing can be perfectly repeatable and still wrong. On a Qidi Plus4, contact
-probing read the same height every time, within `0.005 mm`, yet the first
+probing read the same height every time, within 0.005 mm, yet the first
 layer printed far too thick. Plastic left on the nozzle tip after the purge was
-touching the bed first, so every touch set zero `0.3-0.4 mm` too high, with
-excellent repeatability. First-layer coupons sliced at `0.30 mm` measured
-`0.45-0.66 mm`. Every temperature, PA and flow test printed on that foundation
+touching the bed first, so every touch set zero 0.3–0.4 mm too high, with
+excellent repeatability. First-layer coupons sliced at 0.30 mm measured
+0.45–0.66 mm. Every temperature, PA and flow test printed on that foundation
 had to be marked invalid.
 
 What fixed it:
@@ -86,15 +91,15 @@ Related traps from the same runs:
 
 - **Changing the build plate** changes what a proximity probe sees. After a
   plate change, the probe's model or offset must be recalibrated. On the Qidi,
-  the gate read `+0.45 mm` on a new plate until it was.
+  the gate read +0.45 mm on a new plate until it was.
 - **A cold recalibration can replace a hot one.** Loading filament on an
   unhomed printer triggered a homing run that saved a new probe model at room
   temperature over the hot one. The next prints failed the gate until the
   saved model was reloaded.
 - **Large Z searches first.** When a first layer is clearly wrong, try steps of
-  `0.05-0.10 mm` before fine `0.01 mm` changes; the Qidi error was ten times
+  0.05–0.10 mm before fine 0.01 mm changes; the Qidi error was ten times
   larger than the first searches.
-- **A flow ratio outside about `0.90-1.05`** is a warning sign that the first
+- **A flow ratio outside about 0.90–1.05** is a warning sign that the first
   layer or Z offset is wrong, not a flow result. See
   [Flow Ratio](05-flow-ratio.md#a-sanity-bound).
 
@@ -117,8 +122,8 @@ is a field result for the tested plates, materials, and procedures, not a
 universal compatibility claim.
 
 The photographed K2 Plus pressure-advance test below used dry 3D-Fuel PCTG, a
-`0.6 mm` nozzle, an `85 C` bed, and the same hash-verified G-code in every run.
-Three attempts released by PA `0.018`, including one after the Beacon cover was
+0.6 mm nozzle, an 85 °C bed, and the same hash-verified G-code in every run.
+Three attempts released by PA 0.018, including one after the Beacon cover was
 secured and the plate had been cleaned. The failed third attempt formed the
 filament nest shown here.
 
@@ -126,9 +131,9 @@ filament nest shown here.
 
 For the fourth attempt, the operator thoroughly washed the plate with warm
 water and dish soap, rinsed and dried it, then applied a fresh coat of Vision
-Miner Nano Polymer. The printer, material, profile, `5 mm` outer-only zero-gap
-brim, and PA `0.016-0.048` schedule were unchanged. The tower remained attached
-through PA `0.048` and completed normally.
+Miner Nano Polymer. The printer, material, profile, 5 mm outer-only zero-gap
+brim, and PA 0.016–0.048 schedule were unchanged. The tower remained attached
+through PA 0.048 and completed normally.
 
 ![The unchanged K2 Plus PCTG PA tower completed and remained attached after a thorough warm soap-and-water wash and fresh Vision Miner Nano Polymer application. Printer camera frame from the guide's tuning runs, 2026.](../assets/field-tests/r3men-pctg-nano-polymer-completion.jpg)
 
@@ -142,7 +147,7 @@ procedure is:
    dry with a clean lint-free material. Do not touch the print area afterward.
 3. Apply a fresh, even Nano Polymer coating according to its product
    instructions.
-4. For a small-contact calibration object, use a `5 mm` outer-only, zero-gap
+4. For a small-contact calibration object, use a 5 mm outer-only, zero-gap
    brim and verify the emitted brim actually joins the model.
 5. Keep the preparation identical for confirmation and production prints, and
    log any change as an experimental variable.
@@ -202,8 +207,6 @@ passes. If you do not track lot numbers, treat every new spool that way.
 Add the filament's condition to its identity: when and how it was dried, the
 dry box's humidity, and whether the spool changed color partway through (some
 do). See [Conditioning and Temperature](02-conditioning-and-temperature.md#treat-every-new-roll-and-colour-as-unverified).
-
-<!-- pdf:page-break-before -->
 
 ## Baseline Acceptance Print
 

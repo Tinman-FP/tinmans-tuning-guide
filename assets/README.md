@@ -1,5 +1,18 @@
 # Artwork and Provenance
 
+## November 21, 2026 Additions (1.2)
+
+- Original diagrams by Claude/Anthropic, CC BY 4.0, in the guide's palette,
+  rendered with librsvg and compressed with pngquant: `mvs-ramp-reading`,
+  `pa-chevron-reading`, `dimension-frames-test`, `filament-settings-map`
+  (SVG source and PNG). The settings map is drawn from Tinman's source labels;
+  it is not a screenshot.
+- Field photographs, checked and prepared exactly as the 1.1 photographs
+  below (cropped to the print, metadata removed): `indx-pctg-pin-clean-break`,
+  `k2-pctg-flow-too-high-rings`, `indx-pctg-overhang-fins`,
+  `indx-pctg-retraction-tower-no-strings` (a couch removed by cropping),
+  `indx-pctg-seam-test-shapes` (workshop shelves removed by cropping).
+
 ## November 21, 2026 Additions
 
 - `tuning-path.svg` / `tuning-path.png`: original diagram by Claude/Anthropic

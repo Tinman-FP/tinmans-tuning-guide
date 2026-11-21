@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+<rect width="1440" height="900" fill="#fffdf8"/>
+<style>
+text{font-family:Arial,sans-serif;fill:#193146}
+.title{font-size:36px;font-weight:bold}
+.sub{font-size:21px}
+.tab{font-size:19px;font-weight:bold}
+.group{font-size:20px;font-weight:bold;fill:#28536b}
+.field{font-size:19px}
+.test{font-size:19px;font-weight:bold;fill:#fff}
+.small{font-size:17px;fill:#28536b}
+.win{fill:#ffffff;stroke:#28536b;stroke-width:3}
+.grp{fill:#f3f7f6;stroke:#bfcac8;stroke-width:2}
+.pill{fill:#277f87}
+.pill2{fill:#a5621c}
+.link{stroke:#277f87;stroke-width:2.5;fill:none}
+.link2{stroke:#a5621c;stroke-width:2.5;fill:none}
+</style>
+<text x="50" y="60" class="title">Where each tuned value lives</text>
+<text x="50" y="96" class="sub">Tinman's filament settings (the edit button on a filament slot). Labels as shown in Tinman on the OrcaSlicer 2.5.1 base.</text>
+
+<!-- window -->
+<rect x="50" y="125" width="860" height="730" rx="12" class="win"/>
+<rect x="50" y="125" width="860" height="46" rx="12" fill="#dceaf0"/>
+<g class="tab">
+<text x="72" y="155" fill="#193146">Filament</text>
+<text x="180" y="155" fill="#28536b">Cooling</text>
+<text x="275" y="155" fill="#28536b">Setting Overrides</text>
+<text x="455" y="155" fill="#28536b">Advanced</text>
+<text x="560" y="155" fill="#28536b">Multimaterial</text>
+<text x="700" y="155" fill="#28536b">Dependencies</text>
+<text x="845" y="155" fill="#28536b">Notes</text>
+</g>
+<line x1="66" y1="164" x2="160" y2="164" stroke="#277f87" stroke-width="4"/>
+
+<!-- groups on the Filament page -->
+<rect x="75" y="190" width="810" height="120" rx="10" class="grp"/>
+<text x="95" y="220" class="group">Basic information</text>
+<text x="95" y="252" class="field">Type · Vendor · Diameter · Density · Required nozzle HRC</text>
+<text x="95" y="284" class="field"><tspan font-weight="bold">Shrinkage (XY)</tspan> · <tspan font-weight="bold">Shrinkage (Z)</tspan> · Recommended nozzle temperature</text>
+
+<rect x="75" y="325" width="810" height="120" rx="10" class="grp"/>
+<text x="95" y="355" class="group">Flow ratio and Pressure Advance</text>
+<text x="95" y="387" class="field"><tspan font-weight="bold">Flow ratio</tspan> · <tspan font-weight="bold">Enable pressure advance</tspan> · <tspan font-weight="bold">Pressure advance</tspan></text>
+<text x="95" y="419" class="field">Adaptive pressure advance (beta) and its measurements</text>
+
+<rect x="75" y="460" width="810" height="90" rx="10" class="grp"/>
+<text x="95" y="490" class="group">Print chamber temperature</text>
+<text x="95" y="522" class="field">Activate temperature control · <tspan font-weight="bold">Target</tspan> · <tspan font-weight="bold">Minimal</tspan></text>
+
+<rect x="75" y="565" width="810" height="90" rx="10" class="grp"/>
+<text x="95" y="595" class="group">Print temperature · Bed temperature (per plate type)</text>
+<text x="95" y="627" class="field">Nozzle: <tspan font-weight="bold">First layer</tspan> · <tspan font-weight="bold">Other layers</tspan></text>
+
+<rect x="75" y="670" width="810" height="90" rx="10" class="grp"/>
+<text x="95" y="700" class="group">Volumetric speed limitation</text>
+<text x="95" y="732" class="field"><tspan font-weight="bold">Max volumetric speed</tspan> (cannot be zero)</text>
+
+<text x="95" y="800" class="small">Cooling page: min and max fan speed with layer-time thresholds, overhang and bridge fan,</text>
+<text x="95" y="826" class="small">support-interface fan. Setting Overrides page: retraction length, speed, wipe and Z hop.</text>
+
+<!-- test pills -->
+<g>
+<rect x="960" y="240" width="420" height="44" rx="22" class="pill2"/><text x="985" y="269" class="test">Dimensions → Shrinkage (XY / Z)</text>
+<path d="M960 262 L890 262" class="link2"/>
+<rect x="960" y="345" width="420" height="44" rx="22" class="pill"/><text x="985" y="374" class="test">Calibration › Flow ratio → Flow ratio</text>
+<path d="M960 367 L890 380" class="link"/>
+<rect x="960" y="400" width="420" height="44" rx="22" class="pill"/><text x="985" y="429" class="test">Calibration › Pressure advance</text>
+<path d="M960 422 L890 395" class="link"/>
+<rect x="960" y="483" width="420" height="44" rx="22" class="pill2"/><text x="985" y="512" class="test">Chamber state for PA and ABS</text>
+<path d="M960 505 L890 505" class="link2"/>
+<rect x="960" y="588" width="420" height="44" rx="22" class="pill"/><text x="985" y="617" class="test">Calibration › Temperature</text>
+<path d="M960 610 L890 610" class="link"/>
+<rect x="960" y="693" width="420" height="44" rx="22" class="pill"/><text x="985" y="722" class="test">Calibration › Max flowrate</text>
+<path d="M960 715 L890 715" class="link"/>
+<rect x="960" y="790" width="420" height="44" rx="22" class="pill2"/><text x="985" y="819" class="test">Cooling model, Retraction test</text>
+<path d="M960 812 L890 812" class="link2"/>
+</g>
+<text x="960" y="200" class="small">Each test's result goes here.</text>
+<text x="960" y="222" class="small">Save only that value; discard other test edits.</text>
+<text x="50" y="885" class="small">Tinmans Tuning Guide, CC BY 4.0. Original schematic drawn from Tinman's source labels; not a screenshot.</text>
+</svg>

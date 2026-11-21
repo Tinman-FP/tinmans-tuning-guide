@@ -1,15 +1,15 @@
 # Slicer Upgrades and Calibration Changes
 
+> **At a glance**
+> - **Decide:** what to re-test after a slicer update
+> - **Test:** re-slice your last test in the new build and compare the G-code
+> - **Keep:** the old tune until a new result passes
+
 An application update can change the experiment even when the preset name and
 entered numbers stay the same. Separate a corrected generator, a changed
 toolpath, a migrated preset, and an actual change in the filament's behavior.
 This review was checked on **2026-11-21** against Tinman's source. It is not a
 claim that every upstream feature has been physically validated.
-
-> **Quick path.** After any update: back up your profiles, re-slice your last
-> test in the new build, and compare the G-code with the old one. If only the
-> timestamps differ, carry on. If anything else differs, find out why before
-> comparing a new result with an old one.
 
 ## Which Application Are You Using?
 
@@ -72,7 +72,7 @@ None of these approves a numerical material value.
 
 | Tinman PR | Change | Why it matters |
 | --- | --- | --- |
-| 53 | Retraction-tower bands are exactly `1 mm`; PA Pattern preview tags follow the printer | Older retraction towers had uneven bands; read them from G-code comments |
+| 53 | Retraction-tower bands are exactly 1 mm; PA Pattern preview tags follow the printer | Older retraction towers had uneven bands; read them from G-code comments |
 | 32 | Presets that tuned profiles inherit from are kept in a local layer when a vendor bundle is updated | Before this, an update could delete a profile's parent so it no longer loaded |
 | 6, 9, 13, 15 | **Printer scope** when saving; move or import profiles onto one physical printer | A tune made on one printer does not appear for another |
 | 35, 45 | Names containing `|` can be saved (macOS) | Windows still forbids `|` in file names; use ` - ` |
@@ -166,8 +166,6 @@ Sources: [migration, 16367](https://github.com/OrcaSlicer/OrcaSlicer/pull/16367)
 [follow-up, 16523](https://github.com/OrcaSlicer/OrcaSlicer/pull/16523),
 [filament identity, 15513](https://github.com/OrcaSlicer/OrcaSlicer/pull/15513),
 [CLI loading, 15438](https://github.com/OrcaSlicer/OrcaSlicer/pull/15438).
-
-<!-- pdf:page-break-before -->
 
 ## A Controlled Upgrade Procedure
 

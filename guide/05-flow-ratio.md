@@ -1,19 +1,19 @@
 # Global and Feature-Specific Flow
 
+> **At a glance**
+> - **Decide:** the global flow ratio
+> - **Test:** **Calibration > Flow ratio > YOLO (Recommended)**
+> - **Keep:** current value **plus** the best coupon's label; unchanged if every coupon looks the same
+
 Flow ratio, also called extrusion multiplier, scales the amount of material the
 slicer commands. Tune it for continuous, well-formed extrusion. Do not use it
 as a general dimensional correction.
-
-> **Quick path.** Run **Calibration > Flow ratio > YOLO (Recommended)** around
-> your current flow ratio. Pick the smoothest coupon. The new flow ratio is the
-> current value **plus** that coupon's label. If every coupon looks the same,
-> keep the current value and move on.
 
 ## Global Flow Versus Volumetric Flow
 
 These are different controls:
 
-- **Flow ratio** scales commanded material, such as `0.98` for `98%`.
+- **Flow ratio** scales commanded material, such as 0.98 for 98%.
 - **Maximum volumetric flow** limits how quickly material is requested.
 
 A correct flow ratio can still fail above the hotend's melt capacity. A low MVS
@@ -33,12 +33,12 @@ does not say which one applies:
 
 | Test type | Labels | New flow ratio |
 | --- | --- | --- |
-| **YOLO (Recommended)** | `-0.05` to `+0.05`, steps of `0.01` | current **+** label |
-| **YOLO (Perfectionist)** | `-0.040` to `+0.035`, steps of `0.005` | current **+** label |
-| **Pass 1 (Coarse)** | `-20` to `+20`, steps of `5` (percent) | current **x** (100 + label) / 100 |
-| **Pass 2 (Fine)** | `0` to `-9`, steps of `1` (percent), run after Pass 1 | current **x** (100 + label) / 100 |
+| **YOLO (Recommended)** | -0.05 to +0.05, steps of 0.01 | current **+** label |
+| **YOLO (Perfectionist)** | -0.040 to +0.035, steps of 0.005 | current **+** label |
+| **Pass 1 (Coarse)** | -20 to +20, steps of 5 (percent) | current **x** (100 + label) / 100 |
+| **Pass 2 (Fine)** | 0 to -9, steps of 1 (percent), run after Pass 1 | current **x** (100 + label) / 100 |
 
-Examples, starting from a current flow ratio of `0.98`:
+Examples, starting from a current flow ratio of 0.98:
 
 ```text
 YOLO, best coupon +0.02:     0.98 + 0.02         = 1.00
@@ -51,13 +51,13 @@ filament, every coupon's flow comes out wrong, and the labels can even seem to
 *multiply* instead of add. (Pass 1 and Pass 2 coupons simply scale the flow
 ratio of whichever filament prints them.) On a Snapmaker U1 run, YOLO coupons printed at `0.95 x (1 + label)`
 rather than `0.95 + label`. That is exactly what Tinman produces when the
-filament open for editing has a flow of `1.00` and the printing filament has
-`0.95`. If coupons do not match the arithmetic above, check which filament was
+filament open for editing has a flow of 1.00 and the printing filament has
+0.95. If coupons do not match the arithmetic above, check which filament was
 open and which one printed.
 
-One K2 Plus run recorded a YOLO choice as "`x 0.975`". The next test showed the
+One K2 Plus run recorded a YOLO choice as "x 0.975". The next test showed the
 coupons had printed at "current + label", and the profile value was corrected
-by `0.0007`. Small here, but the same mistake on a Pass test could be several
+by 0.0007. Small here, but the same mistake on a Pass test could be several
 percent.
 
 ## Read the Coupons
@@ -97,6 +97,8 @@ can judge it; calipers and photographs work too.
 - rough, overfilled corners;
 - dimensional swelling across otherwise simple features.
 
+![PCTG flow coupons on a K2 Plus from the high end of a YOLO (Perfectionist) range: raised concentric rings and bumpy outer corners show too much flow. The lower-flow coupons on the same plate were smooth. Field photograph from the guide's tuning runs, 2026-11-18; cropped.](../assets/field-tests/k2-pctg-flow-too-high-rings.jpg)
+
 A rule that worked well on the Archimedean-chord coupons: choose the
 **highest flow before the raised ring appears**.
 
@@ -109,9 +111,9 @@ field runs:
 
 - **Calipers.** Measure each coupon's height and width at the same points.
   On a Qidi PET-CF run, a first set showed the top surface still open at
-  `0.96-0.98` and closing toward `1.04`. A second set from `1.02` to `1.10`
-  measured `3.63-3.69 mm` high and `30.11-30.27 mm` wide: the parts kept
-  growing with flow after the top had closed. `1.04` was kept and confirmed on
+  0.96–0.98 and closing toward 1.04. A second set from 1.02 to 1.10
+  measured 3.63–3.69 mm high and 30.11–30.27 mm wide: the parts kept
+  growing with flow after the top had closed. 1.04 was kept and confirmed on
   a fresh patch.
 - **Photographs** under raking light, with the coupon labels in frame, taken
   from two directions. Lighting can follow position on the plate rather than
@@ -130,25 +132,25 @@ width ([Seams and Surfaces](08-seams-and-surfaces.md)), not to flow.
 
 If the smoothest coupon is the first or last of the range, the optimum may lie
 outside it. Run the test again centred on that coupon. A U1 ABS run picked the
-`-0.05` coupon, re-ran YOLO around the new value, and confirmed it.
+-0.05 coupon, re-ran YOLO around the new value, and confirmed it.
 
 ## A Sanity Bound
 
 Most well-set-up printers with a correct filament diameter land between about
-`0.90` and `1.05`. A result outside that window is a reason to check the
+0.90 and 1.05. A result outside that window is a reason to check the
 foundations before accepting it: first-layer height, Z offset, filament
 diameter, extruder calibration, nozzle size. One PET-CF profile carried a flow
-of `1.137` for weeks; the real cause was a first layer printing far thicker
+of 1.137 for weeks; the real cause was a first layer printing far thicker
 than commanded. After the foundation was fixed the same filament tuned to
-`1.04`.
+1.04.
 
 ## Coarse and Fine Passes
 
 Whichever test you use, the method is the same:
 
 1. Start from a sane material profile.
-2. Compare broad changes, often `1-2%`, to locate the useful region.
-3. Refine around the best result in `0.5%` steps when needed.
+2. Compare broad changes, often 1–2%, to locate the useful region.
+3. Refine around the best result in 0.5% steps when needed.
 4. Confirm on a fresh specimen.
 
 ## Measured Single-Wall Methods
@@ -191,12 +193,12 @@ top flow = 1.04
 effective top flow = 0.98 * 1.04 = 1.0192
 ```
 
-This deposits `1.92%` more than nominal on top surfaces while leaving walls at
+This deposits 1.92% more than nominal on top surfaces while leaving walls at
 the accepted global ratio. Tinman's flow coupons reset the top-surface flow
-ratio to `1.0` while testing, so a coupon result is a *global* value.
+ratio to 1.0 while testing, so a coupon result is a *global* value.
 
 Enter the global result in **Filament > Flow ratio and Pressure Advance >
-Flow ratio**. Its tooltip suggests `0.95-1.05` as the usual range.
+Flow ratio**. Its tooltip suggests 0.95–1.05 as the usual range.
 
 ## First-Layer and Top-Surface Traps
 

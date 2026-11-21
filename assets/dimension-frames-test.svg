@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="800" viewBox="0 0 1440 800">
+<rect width="1440" height="800" fill="#fffdf8"/>
+<style>
+text{font-family:Arial,sans-serif;fill:#193146}
+.title{font-size:36px;font-weight:bold}
+.sub{font-size:21px}
+.label{font-size:23px;font-weight:bold}
+.body{font-size:20px}
+.small{font-size:17px;fill:#28536b}
+.frame{fill:#dceaf0;stroke:#28536b;stroke-width:3}
+.hole{fill:#fffdf8;stroke:#28536b;stroke-width:3}
+.out{stroke:#277f87;stroke-width:3;fill:none}
+.in{stroke:#a5621c;stroke-width:3;fill:none}
+.grid{stroke:#bfcac8;stroke-width:1.5}
+</style>
+<defs>
+<marker id="b" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#277f87"/></marker>
+<marker id="o" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a5621c"/></marker>
+</defs>
+<text x="50" y="60" class="title">A dimension test that tells the two errors apart</text>
+<text x="50" y="96" class="sub">Nested square frames of several sizes plus a bar of round holes. Print with all compensation off; measure after cooling.</text>
+
+<!-- nested frames, top view (outer 100/75/50/25 scaled) -->
+<g transform="translate(80,130)">
+<rect x="0" y="0" width="400" height="400" class="frame"/>
+<rect x="20" y="20" width="360" height="360" fill="#fffdf8" stroke="#28536b" stroke-width="2"/>
+<rect x="50" y="50" width="300" height="300" class="frame"/>
+<rect x="70" y="70" width="260" height="260" fill="#fffdf8" stroke="#28536b" stroke-width="2"/>
+<rect x="100" y="100" width="200" height="200" class="frame"/>
+<rect x="120" y="120" width="160" height="160" fill="#fffdf8" stroke="#28536b" stroke-width="2"/>
+<rect x="150" y="150" width="100" height="100" class="frame"/>
+<rect x="170" y="170" width="60" height="60" fill="#fffdf8" stroke="#28536b" stroke-width="2"/>
+<!-- outside X of largest frame -->
+<line x1="0" y1="-14" x2="400" y2="-14" class="out" marker-start="url(#b)" marker-end="url(#b)"/>
+<!-- inside X of largest frame -->
+<line x1="22" y1="35" x2="378" y2="35" class="in" marker-start="url(#o)" marker-end="url(#o)"/>
+<!-- outside Y -->
+<line x1="-16" y1="0" x2="-16" y2="400" class="out" marker-start="url(#b)" marker-end="url(#b)"/>
+<!-- hole bar -->
+<rect x="0" y="430" width="400" height="60" class="frame"/>
+<circle cx="45" cy="460" r="8" class="hole"/><circle cx="105" cy="460" r="11" class="hole"/><circle cx="170" cy="460" r="14" class="hole"/><circle cx="240" cy="460" r="17" class="hole"/><circle cx="320" cy="460" r="22" class="hole"/>
+</g>
+<text x="80" y="660" class="body"><tspan fill="#277f87" font-weight="bold">Outside</tspan> and <tspan fill="#a5621c" font-weight="bold">inside</tspan> of every frame, in X and in Y.</text>
+<text x="80" y="690" class="body">Avoid seams and corners. Record signed readings.</text>
+<text x="80" y="720" class="small">Example sizes: frames 100 / 75 / 50 / 25 mm, holes 3–10 mm.</text>
+
+<!-- two small error charts -->
+<g transform="translate(640,140)">
+<rect x="0" y="0" width="360" height="300" rx="12" fill="#f3f7f6" stroke="#bfcac8" stroke-width="2"/>
+<text x="20" y="38" class="label">Error grows with size</text>
+<line x1="50" y1="250" x2="330" y2="250" class="grid"/><line x1="50" y1="70" x2="50" y2="250" class="grid"/>
+<line x1="50" y1="250" x2="320" y2="95" stroke="#277f87" stroke-width="4"/>
+<g fill="#277f87"><circle cx="110" cy="216" r="7"/><circle cx="180" cy="176" r="7"/><circle cx="250" cy="136" r="7"/><circle cx="320" cy="95" r="7"/></g>
+<text x="60" y="280" class="small">size →</text>
+<text x="20" y="160" class="small" transform="rotate(-90 20 160)">error</text>
+</g>
+<text x="640" y="480" class="label">Proportional: material shrinkage</text>
+<text x="640" y="512" class="body">Same sign in X and Y. Set Filament ›</text>
+<text x="640" y="540" class="body">Shrinkage (XY) to the measured %.</text>
+<text x="640" y="572" class="small">INDX PCTG: 120 mm read 119.54 → 99.6 %.</text>
+
+<g transform="translate(1040,140)">
+<rect x="0" y="0" width="360" height="300" rx="12" fill="#f3f7f6" stroke="#bfcac8" stroke-width="2"/>
+<text x="20" y="38" class="label">Error is the same</text>
+<line x1="50" y1="250" x2="330" y2="250" class="grid"/><line x1="50" y1="70" x2="50" y2="250" class="grid"/>
+<line x1="50" y1="140" x2="330" y2="140" stroke="#a5621c" stroke-width="4"/>
+<g fill="#a5621c"><circle cx="110" cy="142" r="7"/><circle cx="180" cy="138" r="7"/><circle cx="250" cy="141" r="7"/><circle cx="320" cy="139" r="7"/></g>
+<text x="60" y="280" class="small">size →</text>
+</g>
+<text x="1040" y="480" class="label">Constant offset: contour</text>
+<text x="1040" y="512" class="body">Every outside too big by the</text>
+<text x="1040" y="540" class="body">same amount. Use X-Y contour</text>
+<text x="1040" y="568" class="body">compensation, not shrinkage.</text>
+<text x="1040" y="600" class="small">Qidi PET-CF: +0.27 mm at all sizes → -0.13 mm.</text>
+
+<rect x="640" y="630" width="760" height="90" rx="12" fill="#fff3df" stroke="#a5621c" stroke-width="3"/>
+<text x="665" y="668" class="label">X and Y disagree in sign? Stop.</text>
+<text x="665" y="700" class="body">Check belts, squareness and the measurement before any compensation.</text>
+<text x="50" y="775" class="small">Tinmans Tuning Guide, CC BY 4.0. Original schematic; not to scale.</text>
+</svg>

@@ -1,14 +1,14 @@
 # Filament Conditioning and Temperature
 
+> **At a glance**
+> - **Decide:** how to dry the spool, and the nozzle temperature
+> - **Test:** **Calibration > Temperature** over the maker's range plus one step each way
+> - **Keep:** the coolest band that bonds well and is not an end band
+
 Temperature tuning is meaningful only when the material condition is stable.
 Water in filament can create defects that resemble poor temperature, flow,
 retraction, or pressure advance. Dry the spool, name it exactly, then find the
 temperature.
-
-> **Quick path.** Dry the spool and record how. Print **Calibration >
-> Temperature** over the maker's range plus one step each side. Pick the
-> coolest band that still bonds well and is not an end band. Confirm it again
-> at production flow in the [next chapter](03-volumetric-flow.md).
 
 ## Moisture Symptoms
 
@@ -48,9 +48,9 @@ They show the kind of detail worth writing down.
 
 | Material | Conditioning recorded | What it showed |
 | --- | --- | --- |
-| 3D-Fuel Pro PCTG (K2 Plus) | New roll dried at about `65 C` for `6-8 h`; dry-box desiccant replaced; box read `40 %` RH just after opening | The restart that followed found stable results; earlier tests on a roll that had sat in the feeder for weeks were confounded |
-| 3D-Fuel Pro PCTG (CORE One+ INDX) | New vacuum-sealed spool straight into a heated dry box; printing from a `65 C` box at `12 %` RH | Fine hairs on the first Benchy were read as temperature and retraction, not moisture |
-| Elegoo PET-CF (Qidi Plus4) | `16 h` at `60 C`, then a heated dry box at `14-18 %` RH | Below the maker's `80 C / 8 h`; accepted because the storage history was known. Later whiskers proved to be geometry, not moisture |
+| 3D-Fuel Pro PCTG (K2 Plus) | New roll dried at about 65 °C for 6–8 h; dry-box desiccant replaced; box read 40 % RH just after opening | The restart that followed found stable results; earlier tests on a roll that had sat in the feeder for weeks were confounded |
+| 3D-Fuel Pro PCTG (CORE One+ INDX) | New vacuum-sealed spool straight into a heated dry box; printing from a 65 °C box at 12 % RH | Fine hairs on the first Benchy were read as temperature and retraction, not moisture |
+| Elegoo PET-CF (Qidi Plus4) | 16 h at 60 °C, then a heated dry box at 14–18 % RH | Below the maker's 80 °C / 8 h; accepted because the storage history was known. Later whiskers proved to be geometry, not moisture |
 | Elegoo PET-CF (CORE One L+) | Straight from the vacuum bag into a dry box | Treated as **undried**: a sealed bag is not proof of a dry spool |
 
 ### Treat Every New Roll and Colour as Unverified
@@ -99,16 +99,16 @@ tuning with its slot's edit button, as described in
 [Running Tinman's Calibration Tests](25-running-tinman-calibrations.md#the-safe-recipe).
 
 1. Pick the filament type. It fills in a default range (for example PCTG
-   `280 -> 240 C`). Replace it with the maker's range, extended by one or two
-   `5 C` steps where that is safe, so the best band is unlikely to be an end
+   280 → 240 °C). Replace it with the maker's range, extended by one or two
+   5 °C steps where that is safe, so the best band is unlikely to be an end
    band.
 2. Leave **Auto-scale for nozzle** on unless you need to compare with an older
-   unscaled tower. It sizes the tower and layer height to the nozzle: `10 mm`
-   bands for a `0.4 mm` nozzle, `15 mm` for `0.6 mm`.
+   unscaled tower. It sizes the tower and layer height to the nozzle: 10 mm
+   bands for a 0.4 mm nozzle, 15 mm for 0.6 mm.
 3. After the test is built, move the tower to your filament's slot and check
    the temperature bands in the preview.
 
-The tower prints **hottest at the bottom**, `5 C` cooler per band, with the
+The tower prints **hottest at the bottom**, 5 °C cooler per band, with the
 temperature embossed on each band. One field run read a tower upside down
 before this was checked; count from the bottom.
 
@@ -117,7 +117,7 @@ before this was checked; count from the bottom.
 The same rules apply to any tower, built-in or your own:
 
 1. Begin inside the manufacturer's safe range.
-2. Use steps large enough to reveal a trend, commonly `5 C`.
+2. Use steps large enough to reveal a trend, commonly 5 °C.
 3. Keep layer height, width, speed, cooling, and geometry fixed.
 4. Verify in G-code preview or text that temperature commands occur at the
    intended heights.
@@ -152,24 +152,24 @@ across five bands is much more reliable.
 ### Worked Example: PCTG on Two Printers
 
 The same product, 3D-Fuel Pro PCTG, was tuned on a Creality K2 Plus
-(`0.6 mm` hardened nozzle) and a Prusa CORE One+ INDX (`0.4 mm` high-flow
-nozzle). The maker publishes `250-280 C`.
+(0.6 mm hardened nozzle) and a Prusa CORE One+ INDX (0.4 mm high-flow
+nozzle). The maker publishes 250–280 °C.
 
-![Back of a K2 Plus PCTG temperature tower, 280 C at the bottom to 240 C at the top in 5 C bands. Strings in the round holes and across the bridged windows increase steadily toward the hot bottom bands, and the window roofs sag more at higher temperature. Field photograph from the guide's tuning runs, 2026-11-20; cropped.](../assets/field-tests/k2-pctg-temperature-tower-280-240.jpg)
+![Back of a K2 Plus PCTG temperature tower, 280 °C at the bottom to 240 °C at the top in 5 °C bands. Strings in the round holes and across the bridged windows increase steadily toward the hot bottom bands, and the window roofs sag more at higher temperature. Field photograph from the guide's tuning runs, 2026-11-20; cropped.](../assets/field-tests/k2-pctg-temperature-tower-280-240.jpg)
 
-- **K2 Plus, tower `280 -> 240 C`:** stringing and bridge sag rose steadily
-  with temperature. `240 C` was nearly clean, `245-250 C` showed a few light
-  wisps, and `265-280 C` had heavy webs. Every band had glossy walls, and the
-  small pins were strong and hard to break in every band. Selected: **`245 C`**,
+- **K2 Plus, tower 280 → 240 °C:** stringing and bridge sag rose steadily
+  with temperature. 240 °C was nearly clean, 245–250 °C showed a few light
+  wisps, and 265–280 °C had heavy webs. Every band had glossy walls, and the
+  small pins were strong and hard to break in every band. Selected: **245 °C**,
   the coolest band with the required bonding that was not the end band.
-  A colder tower was not run because `240 C` is already below the maker's
+  A colder tower was not run because 240 °C is already below the maker's
   minimum.
-- **CORE One+ INDX, tower `270 -> 240 C`:** `260-270 C` had wavy, curled
-  overhang lips and the most hairs; `250 C` had a straight lip, a clean bridge,
-  and light stringing; `245 C` and `240 C` had sagging bridge strands.
-  Selected: **`250 C`**.
+- **CORE One+ INDX, tower 270 → 240 °C:** 260–270 °C had wavy, curled
+  overhang lips and the most hairs; 250 °C had a straight lip, a clean bridge,
+  and light stringing; 245 °C and 240 °C had sagging bridge strands.
+  Selected: **250 °C**.
 
-![CORE One+ INDX PCTG temperature tower, 270 C at the bottom to 240 C at the top, seen from behind through the bridged windows. The 250 C band has a clean, flat bridge; the cooler bands above it show sagging strands. Field photograph from the guide's tuning runs, 2026-11-19; cropped.](../assets/field-tests/indx-pctg-temperature-tower-270-240.jpg)
+![CORE One+ INDX PCTG temperature tower, 270 °C at the bottom to 240 °C at the top, seen from behind through the bridged windows. The 250 °C band has a clean, flat bridge; the cooler bands above it show sagging strands. Field photograph from the guide's tuning runs, 2026-11-19; cropped.](../assets/field-tests/indx-pctg-temperature-tower-270-240.jpg)
 
 Two well-run towers of the same filament chose different temperatures. The
 nozzle, hotend, cooling, and layer height differ, so a temperature is a value
@@ -182,13 +182,15 @@ structurally, or when two bands look equally good, add a comparative bond
 check. It ranks candidates; it does not measure strength.
 
 1. Print the same small vertical feature at each candidate temperature: the
-   tower's pins, or a separate bar about `10 x 5 x 45 mm` printed upright, one
+   tower's pins, or a separate bar about 10 × 5 × 45 mm printed upright, one
    temperature per print.
 2. Let the parts cool fully. Wear eye protection.
 3. Break each one the same way: the same grip, the same direction, the same
    distance from the base.
 4. Record how it failed. A part that bends or turns white before breaking, with
    a rough break, bonds better than one that snaps flat along a single layer.
+
+![A 3 mm test pin snapped off flat across a single layer: the sign of weak bonding on that layer. In this cooling test the pin broke this way at both fan settings, because its lower layers ran at the minimum fan in both prints. Field photograph from the guide's tuning runs, 2026-11-20; cropped.](../assets/field-tests/indx-pctg-pin-clean-break.jpg)
 
 **Watch which layers you are testing.** A small pin next to large, slow layers
 prints at whatever fan speed those large layers set. In one cooling run the pin
@@ -205,20 +207,20 @@ bonding; do not build a decision on it.
 
 ### When Every Temperature Retains the Defect
 
-![Unresolved deposition example, not a temperature selection. This tower runs bottom to top 285, 280, 275, 270 and 265 C, with a separate 275 C first layer. Rough tracks and feature-edge discontinuities recur across bands. Field photograph from the guide's tuning runs, 2026-10-22. Native Tinman/OrcaSlicer calibration geometry; contributor credits are in CREDITS.](../assets/field-tests/pet-cf-temperature-unresolved.jpg)
+![Unresolved deposition example, not a temperature selection. This tower runs bottom to top 285, 280, 275, 270 and 265 °C, with a separate 275 °C first layer. Rough tracks and feature-edge discontinuities recur across bands. Field photograph from the guide's tuning runs, 2026-10-22. Native Tinman/OrcaSlicer calibration geometry; contributor credits are in CREDITS.](../assets/field-tests/pet-cf-temperature-unresolved.jpg)
 
 This Qidi Plus4 / CM2 0.6 mm / Elegoo PET-CF example used stock-size native
 geometry, 0.24 mm body layers, 0.30 mm first layer, flow 1.00, PA 0,
-3 mm3/s diagnostic cap, 100 C bed and 50 C chamber target. Main cooling was
+3 mm3/s diagnostic cap, 100 °C bed and 50 °C chamber target. Main cooling was
 20% after the first three layers. The five body bands occupied layers
-2-42, 43-84, 85-125, 126-167 and 168-208, respectively, not fixed 25-layer
+2–42, 43–84, 85–125, 126–167 and 168–208, respectively, not fixed 25-layer
 steps. Reported temperatures followed the commands after transitions, but
 fine tracks remained defective across the range. Height, time and repeated
 feature geometry remain confounds; no temperature was accepted from this test.
 
 The cause turned out to be below the filament. A later audit found first-layer
-coupons sliced at `0.30 mm` measuring `0.45-0.66 mm`, and traced it to plastic
-left on the nozzle after the purge, which made the probe set zero `0.3-0.4 mm`
+coupons sliced at 0.30 mm measuring 0.45–0.66 mm, and traced it to plastic
+left on the nozzle after the purge, which made the probe set zero 0.3–0.4 mm
 too high. Once that foundation was fixed (see
 [Foundations](01-foundations.md#repeatable-is-not-the-same-as-correct)), the
 same filament gave a clear temperature result.
@@ -234,7 +236,7 @@ upstream diameter sensor does not measure deposited volume.
 Record actual conditioning history before deciding whether a drying A/B is
 informative. A recipe mismatch alone does not prove the defects are
 moisture-caused. The [Elegoo PET-CF specification](https://www.elegoo.com/products/pet-cf),
-reviewed 2026-10-22, gives 80 +/- 5 C for 8 hours, with drying before use.
+reviewed 2026-10-22, gives 80 +/- 5 °C for 8 hours, with drying before use.
 Only use that schedule in a dryer and spool rated for it; do not defeat
 temperature limits. A documented conditioning comparison can test a moisture
 hypothesis, but a negative result must redirect diagnosis rather than trigger
@@ -267,23 +269,23 @@ enough for production.
 
 ### Preserve Margin Above a Cold-Flow Failure
 
-The dried Elegoo PET-CF tower below ran from `265 C` at the bottom through
-`260 C`, `255 C`, and `250 C`. Two attempts stopped at approximately the same
+The dried Elegoo PET-CF tower below ran from 265 °C at the bottom through
+260 °C, 255 °C, and 250 °C. Two attempts stopped at approximately the same
 point as the program moved toward the next, colder step. After cancellation,
-the same filament path extruded `300 mm` normally after the nozzle was heated
-to `300 C`. That result is consistent with insufficient melt capacity at the
+the same filament path extruded 300 mm normally after the nozzle was heated
+to 300 °C. That result is consistent with insufficient melt capacity at the
 low-temperature endpoint rather than a persistent clog.
 
-![Dried Elegoo PET-CF tower details after removal from the plate. The repeated tower stopped below the completed 250 C tier. This tower's lesson is the cold-flow stop, not a temperature choice: see the text for the later, corrected selection. Field photographs from the guide's tuning runs, 2026.](../assets/field-tests/elegoo-pet-cf-dried-tower-detail.jpg)
+![Dried Elegoo PET-CF tower details after removal from the plate. The repeated tower stopped below the completed 250 °C tier. This tower's lesson is the cold-flow stop, not a temperature choice: see the text for the later, corrected selection. Field photographs from the guide's tuning runs, 2026.](../assets/field-tests/elegoo-pet-cf-dried-tower-detail.jpg)
 
-**Correction (November 2026).** An earlier edition chose `255 C` from this
+**Correction (November 2026).** An earlier edition chose 255 °C from this
 tower. That selection is withdrawn. Later work on the same printer replaced
 part of the filament path, found the first-layer fault described above, and
-an owner pin-break check rated `260 C` weak and `265 C` and hotter strong. After
-the foundation was fixed, a new tower on the same printer and `0.6 mm` nozzle
-showed `260 C` failing, `265 C` marginal, and `270-285 C` equal. The tuned
-profile uses **`275 C`**, `10 C` above the failure and inside Elegoo's
-published `260-290 C` range.
+an owner pin-break check rated 260 °C weak and 265 °C and hotter strong. After
+the foundation was fixed, a new tower on the same printer and 0.6 mm nozzle
+showed 260 °C failing, 265 °C marginal, and 270–285 °C equal. The tuned
+profile uses **275 °C**, 10 °C above the failure and inside Elegoo's
+published 260–290 °C range.
 
 The lesson that survives is the margin rule: keep at least one full step above
 a repeatable loss-of-flow or loss-of-bonding boundary, and confirm the choice

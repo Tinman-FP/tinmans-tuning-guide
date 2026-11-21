@@ -1,5 +1,10 @@
 # Motion Diagnostics: Acceleration, Input Shaping, and VFA
 
+> **At a glance**
+> - **Decide:** whether a wall texture is a motion problem or an extrusion problem
+> - **Test:** an acceleration tower, input-shaping tests or a VFA sweep
+> - **Keep:** machine settings in the printer profile, not the filament
+
 Ringing, frame motion, vertical fine artifacts, and geometry showing through a
 wall can all look like vertical bands in a photograph. They do not respond to
 the same setting. Use the shape, direction, and repeatability of the evidence to
@@ -48,7 +53,7 @@ gantry components.
 3. Start below the current production acceleration and stop below known motor,
    frame, firmware, and shaper limits.
 4. Confirm in the G-code or firmware log that the intended acceleration owns
-   each band. A later slicer `M204` or `M205` command can silently override an
+   each band. A later slicer M204 or M205 command can silently override an
    earlier firmware tuning command. Audit the last effective writer, then
    verify live state after extrusion begins.
 5. Compare broad faces, corner echoes, registration, and dimensional shape.
@@ -89,8 +94,8 @@ Choose the upper speed with the volumetric-flow check:
 required flow = line width x layer height x speed
 ```
 
-For a `0.60 mm` line, `0.30 mm` layer, and `80 mm/s` wall, the nominal request
-is `14.4 mm3/s` before slicer-specific width and flow adjustments. The test is
+For a 0.60 mm line, 0.30 mm layer, and 80 mm/s wall, the nominal request
+is 14.4 mm3/s before slicer-specific width and flow adjustments. The test is
 not valid if the slicer caps the upper bands at the filament's maximum
 volumetric flow. Inspect the preview or emitted feed rates.
 
@@ -140,7 +145,7 @@ than the emitted segment direction.
 | 90 degrees | 1.000 | 1.000 | both loops equally, with a different Cartesian direction |
 | 135 degrees | 0.000 | 1.414 | B isolated in the ideal transform |
 
-This comparison is strongest when the specimen includes both `45` and `135`
+This comparison is strongest when the specimen includes both 45 and 135
 degree walls. Without the opposite diagonal, one loop can be isolated while
 the other remains only dominant, which limits the conclusion.
 
@@ -165,7 +170,7 @@ one-pulley-revolution distance = N x p
 ```
 
 On an axis-aligned CoreXY move, each active loop commonly runs at the Cartesian
-wall speed. On a single-loop `45` or `135` degree move, the active loop runs at
+wall speed. On a single-loop 45 or 135 degree move, the active loop runs at
 approximately `sqrt(2)` times Cartesian speed. A belt-related frequency should
 therefore appear at about `1/sqrt(2)` of the axis-wall Cartesian speed on the
 single-loop diagonal. The corresponding wall-space orders are `p` versus
@@ -191,29 +196,29 @@ then inspect in this order:
 Do not repeatedly retension by feel between comparison prints. Record the
 before state, change one identified condition, re-run any motion compensation
 invalidated by that change, and repeat the same final G-code. A compact
-`0/45/90/135` degree control provides both equal-loop and isolated-loop views.
+0/45/90/135 degree control provides both equal-loop and isolated-loop views.
 
 ### Bounded field finding: GT1.5 conversion
 
 One controlled CORE One L-to-L+ investigation used GT1.5 belts, 21-tooth motor
-pulleys, and byte-identical `40-160 mm/s` VFA G-code across repeated prints.
+pulleys, and byte-identical 40–160 mm/s VFA G-code across repeated prints.
 The walls remained fully fed after temperature, flow, pressure advance, and
 maximum volumetric flow had been settled. Gantry squaring, belt tuning, phase
 stepping, input shaping, homing, Z alignment, and load-cell checks did not
 remove the direction-dependent face waves.
 
 The three photographs below are from the same completed job and the same final
-G-code. Read each wall from the lower `40 mm/s` band toward the upper
-`160 mm/s` band. Lighting and camera angle differ, so use them to compare onset
+G-code. Read each wall from the lower 40 mm/s band toward the upper
+160 mm/s band. Lighting and camera angle differ, so use them to compare onset
 and pattern family rather than to calculate a numerical amplitude ratio.
 
 ![The 90 degree wall loads both CoreXY loops equally. Its lower bands are comparatively calm, while broad diagonal waves become prominent through the upper, faster bands.](../assets/field-tests/prusa-core-one-lplus-vfa-both-loops-90deg.jpeg)
 
-Axis-aligned walls were worst in the `130-160 mm/s` bands. With `1.50 mm`
-pitch, those speeds produce `86.7-106.7 Hz` tooth pass; the `130` and
-`140 mm/s` bands produce `86.7` and `93.3 Hz`, inside the machine's documented
-`85-95 Hz` belt-tuning range. The isolated `45` degree face began showing the
-same family around `90-100 mm/s`, close to the `90.2-100.8 mm/s` range predicted
+Axis-aligned walls were worst in the 130–160 mm/s bands. With 1.50 mm
+pitch, those speeds produce 86.7–106.7 Hz tooth pass; the 130 and
+140 mm/s bands produce 86.7 and 93.3 Hz, inside the machine's documented
+85–95 Hz belt-tuning range. The isolated 45 degree face began showing the
+same family around 90–100 mm/s, close to the 90.2–100.8 mm/s range predicted
 by the `sqrt(2)` loop-speed shift.
 
 ![The actual 45 degree wall isolates one loop in the ideal CoreXY transform. The broad packets begin at a lower Cartesian speed than on the equal-loop axis wall, which is the diagnostic shift predicted by the square-root-of-two loop-speed relationship.](../assets/field-tests/prusa-core-one-lplus-vfa-upper-loop-45deg.jpeg)
@@ -230,20 +235,20 @@ claim boundary for a frequency-and-angle correlation.
 
 A moving-bed printer produced dimensionally correct ABS parts but showed broad
 vertical texture on a large curved cover. Its production outer wall used
-`48 mm/s` and `1200 mm/s2`. Measured input shaping was active. A conservative
-`300-1500 mm/s2` acceleration tower retained registration through every band,
+48 mm/s and 1200 mm/s2. Measured input shaping was active. A conservative
+300–1500 mm/s2 acceleration tower retained registration through every band,
 and the deliberate corner echoes did not develop a repeatable step change.
 
 The correct conclusion was limited: the machine was mechanically stable
 through the tested acceleration range under those conditions. The tower did
-not prove that `1500 mm/s2` was ideal, and it did not support changing the
+not prove that 1500 mm/s2 was ideal, and it did not support changing the
 already validated flow or dimensional compensation. The next test held
-acceleration at `1200 mm/s2` and swept outer-wall speed from `20` to `80 mm/s`
+acceleration at 1200 mm/s2 and swept outer-wall speed from 20 to 80 mm/s
 in seven 5 mm bands.
 
 That follow-up also exposed a useful preflight lesson. Its machine-contract
-block requested square-corner velocity `1 mm/s`, but a later slicer `M205`
-line became the effective writer and live firmware reported `10 mm/s`. The
+block requested square-corner velocity 1 mm/s, but a later slicer M205
+line became the effective writer and live firmware reported 10 mm/s. The
 test remained controlled because the value stayed fixed across every speed
 band, but the record had to use the live value. Do not infer active motion
 state from the first matching command in a file.
@@ -251,13 +256,13 @@ state from the first matching command in a file.
 ### Physical VFA result
 
 The printed sweep resolved a useful quality window. Read this particular
-artifact by height: the final file changed every outer wall from `20` to
-`80 mm/s` in 5 mm bands from bottom to top. The embossed speed numbers around
+artifact by height: the final file changed every outer wall from 20 to
+80 mm/s in 5 mm bands from bottom to top. The embossed speed numbers around
 the base came from the source model and did not identify the active speed of
 each vane after postprocessing.
 
 Under both diffuse and glancing light, the coarsest repeating texture appeared
-from `30-50 mm/s`. The `60 mm/s` band improved, while `70-80 mm/s` formed the
+from 30–50 mm/s. The 60 mm/s band improved, while 70–80 mm/s formed the
 broadest quiet region. The result was also direction-sensitive: some vane
 orientations displayed the pattern much more strongly than others at the same
 height. That combination supports a speed-dependent motion interaction rather
@@ -265,10 +270,10 @@ than random moisture, global flow error, or Z-axis banding.
 
 ![The most revealing vane orientation shows coarse texture in the lower and middle speed bands, followed by a quieter upper region. Read the bands from bottom to top, not from the embossed base labels.](../assets/field-tests/fibreseek-vfa-noisy-orientation.jpeg)
 
-The selected candidate was `70 mm/s`, with acceleration held at
-`1200 mm/s2`. Although `80 mm/s` was often visually competitive, its nominal
-flow request was `14.4 mm3/s` against a recorded `15 mm3/s` material limit.
-Choosing `70 mm/s` preserved more melt-flow margin and followed the rule of
+The selected candidate was 70 mm/s, with acceleration held at
+1200 mm/s2. Although 80 mm/s was often visually competitive, its nominal
+flow request was 14.4 mm3/s against a recorded 15 mm3/s material limit.
+Choosing 70 mm/s preserved more melt-flow margin and followed the rule of
 using the middle of a broad quiet region.
 
 ![A differently oriented vane is quieter through much of the same height, showing why every major face must be inspected before choosing a VFA band.](../assets/field-tests/fibreseek-vfa-quiet-orientation.jpeg)
@@ -282,9 +287,9 @@ geometry.
 ### Representative-part confirmation
 
 The same machine then printed the original curved cover with only the normal
-outer-wall speed changed from `48` to `70 mm/s`. First-layer walls retained
-their original speed, acceleration remained `1200 mm/s2`, pressure advance
-remained `0.025`, and the production nozzle, layer height, line width,
+outer-wall speed changed from 48 to 70 mm/s. First-layer walls retained
+their original speed, acceleration remained 1200 mm/s2, pressure advance
+remained 0.025, and the production nozzle, layer height, line width,
 temperature, cooling schedule, wall order, flow, and input shaping were held
 constant. The uploaded and downloaded G-code matched byte-for-byte, and live
 firmware state confirmed the intended contract during the print.
@@ -292,8 +297,8 @@ firmware state confirmed the intended contract during the print.
 ![The completed production cover on the printer bed. This representative geometry, rather than the calibration tower alone, confirmed the selected wall-speed range.](../assets/field-tests/fibreseek-back-cover-70-overall.jpeg)
 
 The broad repeating texture on the production curves was substantially reduced.
-That confirmed `70 mm/s` as the production outer-wall value for this exact
-machine, material, `0.6 mm` nozzle, `0.30 mm` layer, and `0.60 mm` line-width
+That confirmed 70 mm/s as the production outer-wall value for this exact
+machine, material, 0.6 mm nozzle, 0.30 mm layer, and 0.60 mm line-width
 profile. It is not a general maximum or a universal FibreSeek setting.
 
 ![The curved collar is smooth through most of its height after the 70 mm/s representative validation, confirming that the broad VFA was speed-dependent.](../assets/field-tests/fibreseek-back-cover-70-curved-wall.jpeg)
@@ -322,14 +327,14 @@ knee is needed to select a cosmetic limit.
 
 ## OrcaSlicer and TinmanX1 Version Note
 
-The historical TinmanX1 `2.4.2` build used for the field example provides a VFA dialog with
+The historical TinmanX1 2.4.2 build used for the field example provides a VFA dialog with
 start speed, end speed, and step size. Its built-in test uses a fixed 35 mm
 model and changes speed every 5 mm. It does not expose the newer nozzle-aware
-auto-scaling options described for OrcaSlicer builds after `2.4.2`. With a
+auto-scaling options described for OrcaSlicer builds after 2.4.2. With a
 larger nozzle or layer height, verify model size, requested volumetric flow,
 actual feed rates, and the number of usable bands before printing.
 
-Do not assume a later OrcaSlicer calibration screen and TinmanX1 `2.4.2` create
+Do not assume a later OrcaSlicer calibration screen and TinmanX1 2.4.2 create
 identical geometry or ranges. Record the application version with every saved
 test. See the [version basis](11-orca-tinmanx1-settings-reference.md) and the
 [Speed tab](14-speed-tab.md) for the controls that remain active around the
