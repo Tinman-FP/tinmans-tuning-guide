@@ -23,15 +23,39 @@ after cooling.
 Time or temperature condition used to let the bed, chamber, frame, and tool
 reach a repeatable thermal state before calibration or printing.
 
+**CANDIDATE / TUNED / RETIRED**  
+Profile status words. `CANDIDATE` while any stage is open; `TUNED` after the
+required stages and a representative part pass; `RETIRED - DO NOT USE` for a
+superseded profile kept for recovery.
+
+**Edited filament**  
+The filament profile open in Tinman's filament settings editor, normally the
+one you last opened with a slot's edit button. Calibration tests change this
+profile, not necessarily the one that prints the test.
+
 **Line width**  
 The nominal width of a deposited path. It influences required flow, geometry,
 strength, and speed.
 
 **Maximum volumetric speed (MVS)**  
-The profile limit for requested plastic volume per second, in `mm^3/s`.
+The profile limit for requested plastic volume per second, in `mm^3/s`. Tinman's
+test for it is **Calibration > Max flowrate**; the filament setting is
+**Max volumetric speed**.
+
+**PA Pattern / PA Tower / PA Line**  
+Tinman's three pressure-advance tests: chevrons at chosen speeds and
+accelerations; a tower whose PA rises with height; and first-layer test lines.
 
 **Pressure Advance (PA) / Linear Advance**  
 Firmware compensation for lag in nozzle pressure during speed changes.
+
+**Project-only change**  
+A setting changed for one project or object without saving it into a profile.
+Calibration tests make many of these; they are stored in the project file.
+
+**rNN**  
+A profile revision number. A new revision is saved only when an accepted value
+changes. Filament and process revisions count separately.
 
 **Retraction**  
 Temporary reverse or relief motion in the extrusion path during non-print
@@ -51,6 +75,11 @@ Requested deposited volume per second:
 Q = speed * line width * layer height
 ```
 
+**YOLO flow test**  
+Tinman's (and OrcaSlicer's) recommended flow-ratio test. Each coupon's label is
+**added** to the current flow ratio: `new = current + label`. The older Pass 1
+and Pass 2 tests multiply instead.
+
 **XY contour compensation**  
 A near-constant offset applied to external contours.
 
@@ -69,5 +98,12 @@ measured percentage = measured dimension / nominal dimension * 100
 effective correction scale = 100 / measured percentage
 
 effective feature flow = global flow ratio * feature flow ratio
+
+YOLO flow result = current flow ratio + coupon label
+Pass 1/2 flow result = current flow ratio * (100 + coupon label) / 100
+
+Max flowrate test: flow at height h = start + step * h
+PA tower: PA at height h = start + step * h
+Shrinkage scale = 100 / Shrinkage (%)
 ```
 

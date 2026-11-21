@@ -49,6 +49,8 @@ DOCUMENTS = [
     ("Dimensional Accuracy and Tolerances", Path("guide/07-dimensional-accuracy.md")),
     ("Seams and Surface Quality", Path("guide/08-seams-and-surfaces.md")),
     ("Validation and Profile Release", Path("guide/09-validation.md")),
+    ("Running Tinman's Calibration Tests", Path("guide/25-running-tinman-calibrations.md")),
+    ("Worked Examples from Real Tuning Runs", Path("guide/26-worked-examples.md")),
     ("Material-Family Priorities", Path("guide/10-material-families.md")),
     ("Settings Reference and Versions", Path("guide/11-orca-tinmanx1-settings-reference.md")),
     ("Quality Tab", Path("guide/12-quality-tab.md")),
@@ -609,6 +611,27 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
                 flows.append(Preformatted("\n".join(code_lines), styles["code"]))
             index += 1
             continue
+        if stripped.startswith(">"):
+            # Blockquotes render as a shaded callout (the chapters' "Quick path" boxes).
+            flush_paragraph()
+            quote_lines = []
+            while index < len(lines) and lines[index].strip().startswith(">"):
+                quote_lines.append(re.sub(r"^\s*>\s?", "", lines[index]))
+                index += 1
+            text = " ".join(part.strip() for part in quote_lines).strip()
+            box = Table([[Paragraph(inline_markup(text, source, file_anchors, heading_anchors), body_style)]],
+                        colWidths=[available_width], hAlign="LEFT")
+            box.setStyle(TableStyle([
+                ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F3F7F6")),
+                ("LINEBEFORE", (0, 0), (0, -1), 2.5, colors.HexColor("#0D6B63")),
+                ("LEFTPADDING", (0, 0), (-1, -1), 9),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 9),
+                ("TOPPADDING", (0, 0), (-1, -1), 6),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+            ]))
+            flows.append(box)
+            flows.append(Spacer(1, 8))
+            continue
         heading = re.match(r"^(#{1,3})\s+(.+?)\s*$", line)
         if heading:
             flush_paragraph()
@@ -638,6 +661,7 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
         if list_match:
             flush_paragraph()
             ordered = list_match.group(1)[0].isdigit()
+            first_number = list_match.group(1)[:-1] if ordered else "1"
             items = []
             while index < len(lines):
                 item_match = re.match(r"^\s*([-*]|\d+\.)\s+(.+)", lines[index])
@@ -672,7 +696,7 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
                 "spaceAfter": 7,
             }
             if ordered:
-                list_options["start"] = "1"
+                list_options["start"] = first_number
             flows.append(ListFlowable(items, **list_options))
             continue
         if not stripped or stripped == "---":
@@ -699,7 +723,7 @@ def build_pdf(output: Path):
         topMargin=0.65 * inch,
         bottomMargin=0.68 * inch,
         title="Tinmans Tuning Guide",
-        author="William Tinney and Codex by OpenAI",
+        author="Tinmans Tuning Guide maintainers, with Codex by OpenAI and Claude by Anthropic",
         subject="A printer-neutral filament tuning handbook with OrcaSlicer and Tinman settings reference",
         creator="Tinmans Tuning Guide build script",
     )
@@ -722,7 +746,7 @@ def build_pdf(output: Path):
     ))
     story.append(Spacer(1, 0.18 * inch))
     story.append(Paragraph(
-        "Project initiated and experimentally informed by William Tinney. Researched, written, organized, and published with Codex by OpenAI.",
+        "Project initiated and experimentally informed by the Tinman project's maintainer. Researched, written, organized, and published with Codex by OpenAI; the November 2026 edition was revised with Claude by Anthropic.",
         styles["front_subtitle"],
     ))
     story.append(Spacer(1, 0.25 * inch))

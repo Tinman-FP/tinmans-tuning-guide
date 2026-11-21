@@ -43,7 +43,9 @@ flow rate, cooling, orientation, and environmental conditioning.
 
 ## Acceptance Criteria
 
-Define limits before printing. Examples:
+Define limits **before the first tuning print**, not at the end (see
+[Step 0](00-how-to-use-this-guide.md#step-0-decide-what-good-enough-means)).
+Revisit them here. Examples:
 
 ```text
 No missing or discontinuous perimeter lines.
@@ -98,28 +100,79 @@ active filename, selected tool, temperatures, PA, and job progress after it
 starts. A control request timing out does not establish its outcome; live state
 is the authoritative record.
 
-## Version the Profile
+## Name, Version and Promote
 
-Record:
+A profile name should tell you, at a glance in a drop-down list, whether it is
+safe to print with and what it is for. The field runs settled on this pattern:
 
-- profile name and semantic or dated revision;
-- parent printer and process profiles;
+```text
+Filament: STATUS - Machine - Nozzle - Brand Material - rNN
+Process:  STATUS - Machine - Nozzle - Brand Material - Layer Purpose - rNN
+```
+
+For example:
+
+```text
+CANDIDATE - CORE One+ INDX 8T 0.4 HF - 3D-Fuel Pro PCTG - r7
+TUNED - Qidi Plus4 - 0.6mm - Elegoo PET-CF - r14
+TUNED - Qidi Plus4 - 0.6mm - Elegoo PET-CF - 0.24mm Production - r25
+```
+
+Use ` - ` (space, hyphen, space) between parts. Avoid `|`, `/`, `\`, `:`,
+`*`, `?`, `"`, `<`, `>`, `[` and `]`: profiles are saved as files, and Windows
+does not allow these characters in file names. Tinman on macOS accepts `|`,
+but a profile named that way cannot be shared with a Windows machine.
+
+Rules that kept the field runs honest:
+
+- **Status.** `CANDIDATE` while any stage is open. `TUNED` only after the
+  required stages and a representative part pass for that exact machine,
+  nozzle and material. `RETIRED - DO NOT USE` for anything superseded that must
+  stay visible.
+- **A new revision for each accepted change.** When a test changes an accepted
+  value, save a new revision (`r09 -> r10`) and note which value changed and
+  why. When a test confirms the current values, **do not** make a new revision:
+  one K2 run finished four confirming tests with no change and stayed at `r10`.
+- **Filament and process counters are independent.** The recommended release is
+  a pair, such as filament `r14` with process `r25`, not "both at r14".
+- **Promote the tested file unchanged.** `TUNED` is the last `CANDIDATE`
+  renamed, with its values byte-for-byte the same and a note of the release
+  date. If anything changes during promotion, it is a new candidate.
+- **One current generation.** Keep one tuned filament per machine, nozzle and
+  material, and one tuned process per layer height and purpose. Move older
+  generations out of the active lists into a dated folder with a short note of
+  what replaced them, so they can be restored.
+- **Test values never reach a release.** Calibration tests leave unsaved test
+  values in the presets (see
+  [Running Tinman's Calibration Tests](25-running-tinman-calibrations.md#how-a-test-is-built));
+  save only the one value the test chose.
+
+Record with every revision:
+
+- the parent printer and process profiles;
 - slicer and firmware versions;
 - accepted values and their experiment records;
-- known limits and provisional values;
+- known limits and provisional values (for example "MVS not reached",
+  "0.4 mm values inherited from 0.6 mm, not retested");
 - date, author, and reason for change.
 
-Never overwrite the only known-good profile during experimentation. Duplicate
-it, mark the new copy `candidate`, and promote it after validation.
-
-Keep tuned filament profiles machine-specific. Include the machine, tool/nozzle,
-purpose, and revision in the name or metadata, and restrict compatibility to
-the matching printer definition. Preserve the generic or supplier profile as
-an untouched reference.
+Keep tuned filament profiles machine-specific and restrict their compatibility
+to the matching printer. Tinman can also scope a profile to one physical printer
+and nozzle when you save it (**Printer scope**), so a profile tuned on one
+machine does not appear for another. Preserve the generic or supplier profile
+as an untouched reference.
 
 A visually improved coupon is still a candidate. Promote it only after a clean
 project reproduces the slice and a representative functional part passes its
 dimensional, fit, surface, and strength requirements.
+
+## Tuning Prints and Validation Prints
+
+Tuning prints are printed **without supports**, so that supports do not hide or
+cause the defect being tuned. Validation prints are printed the way production
+will print them, **with supports** where the part needs them. Support settings
+are then tuned on the validation part, not on coupons. A PET-CF run's
+support-interface lessons are in [Worked Examples](26-worked-examples.md).
 
 ## Regression Triggers
 

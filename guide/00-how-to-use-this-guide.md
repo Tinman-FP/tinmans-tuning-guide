@@ -34,6 +34,29 @@ Run the [profile-integrity gate](20-profile-integrity-and-experimental-resets.md
 before the first calibration and after nozzle, hotend, firmware, slicer, or
 profile changes.
 
+## Step 0: Decide What Good Enough Means
+
+Before the first tuning print, write down what the profile is for and how you
+will know it is finished. Three to five pass marks are enough. For example:
+
+```text
+Purpose: functional brackets in PCTG, quality over speed.
+Layer bonding: test bars bend or whiten before they break; no clean split
+  along a layer.
+Stringing: no more than light wisps between features 10 mm apart.
+Bridges: 20 mm clean; 30 mm with only slight droop.
+Dimensions: within +/- 0.10 mm over 50 mm, both axes.
+```
+
+This is the step most often skipped, and skipping it is expensive. One field
+run tuned cooling and bridges for four prints without visible progress,
+because nobody had said what "good enough" meant, so there was no point at
+which to stop. The restart began by writing these criteria.
+
+Pass marks should be things you can check with the tools you have. If you
+cannot judge a surface by fingertip feel, write criteria you can photograph or
+measure with calipers instead.
+
 ## Define the Question Before Printing
 
 A useful test begins with one sentence:
@@ -141,5 +164,31 @@ Stop tuning when the profile meets the defined requirements with margin. A
 functional enclosure and a display model can need different profiles for the
 same spool. Chasing an invisible difference can reduce strength, speed, or
 reliability.
+
+Within a single step, stop when both of these are true:
+
+1. the remaining defects do not matter for the parts you print, and
+2. your last change gave no measurable improvement.
+
+When a step stalls, do not add a third and fourth variable. Go back to the
+earliest step that could cause the defect (see the
+[tuning path](../README.md#start-here)), or accept the limit and write it into
+the profile's notes. Some limits belong to the hardware: fine whiskers on
+features smaller than two nozzle widths disappeared on one printer only when a
+smaller nozzle was fitted.
+
+## How the Guide Is Organized
+
+- **Start Here** on the [home page](../README.md#start-here) is a one-page
+  quick path through the whole process.
+- **Chapters 01-09** explain each step: what it measures, how to read it, and
+  what went right and wrong in real runs. Each starts with a short "Quick path"
+  box.
+- **[Running Tinman's Calibration Tests](25-running-tinman-calibrations.md)**
+  covers the Calibration menu itself and its traps.
+- **[Worked Examples](26-worked-examples.md)** follows four complete tuning
+  runs from start to finish.
+- **Chapters 11-24** are reference: every slicer settings tab, profile
+  integrity, upgrades, motion tests, and Benchy grading.
 
 Move to [Foundations](01-foundations.md) before changing filament values.

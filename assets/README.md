@@ -1,21 +1,50 @@
 # Artwork and Provenance
 
+## November 21, 2026 Additions
+
+- `tuning-path.svg` / `tuning-path.png`: original diagram by Claude/Anthropic
+  for the guide, CC BY 4.0, in the guide's existing diagram palette. The PNG is
+  rendered with librsvg and compressed with pngquant.
+- Field photographs from the guide's November 2026 tuning runs, contributed by
+  the printers' owner under the guide's CC BY 4.0 terms. Each was cropped to
+  the test print, resized, and saved with all metadata removed (no EXIF, GPS,
+  XMP or IPTC). Before publication each was checked for faces, room
+  interiors, screens, labels, serial numbers, addresses and account names;
+  crops remove any background that showed a room or furniture.
+  - `field-tests/k2-pctg-temperature-tower-280-240.jpg` (K2 Plus temperature
+    tower, back view; temperature labels added).
+  - `field-tests/indx-pctg-temperature-tower-270-240.jpg` (CORE One+ INDX
+    temperature tower, front view).
+  - `field-tests/indx-pctg-max-flowrate-onset.jpg` (top of a Max flowrate
+    ramp).
+  - `field-tests/k2-pctg-pa-pattern.jpg` (one PA Pattern).
+  - `field-tests/k2-pctg-yolo-flow-coupons.jpg` (YOLO Perfectionist coupons).
+  - `field-tests/indx-pctg-cooling-bridges.jpg` (bridge openings of the
+    cooling model, zoom crop).
+  - `field-tests/qidi-pet-cf-support-interface-r05-r07.jpg` (three photographs
+    of one part after three support settings, labels added).
+- `fibreseek-seam-mismatched-0p6-staggered.jpeg` and
+  `fibreseek-seam-corrected-0p4.jpeg` were re-saved with their metadata
+  removed (pixels unchanged; colour profile kept).
+  `fibreseek-acceleration-tower-*.jpeg` were resized from 4032 to 1800 pixels
+  wide and saved without metadata.
+
 ## October 22, 2026 Grading Figures
 
 - `benchy-inspection-map.svg` and `benchy-dimension-locator.svg` are original
-  2D explanatory diagrams by Codex/OpenAI, directed by William Tinney, CC BY 4.0.
+  2D explanatory diagrams by Codex/OpenAI, directed by the guide's maintainer, CC BY 4.0.
   Corresponding PNGs are rendered with librsvg. They are not CAD models,
   official drawings or metrically scaled representations. Facts are sourced
   to https://www.3dbenchy.com/features/ and /dimensions/, reviewed 2026-10-22.
 - #3DBenchy model: Daniel Noree / Creative Tools. Name and online identity:
   Paulo Kiefe. Current model license: CC0 1.0, per the official license page.
   No official website illustration is copied or assumed CC0.
-- `field-tests/pet-cf-benchy-foundation-bands.jpg`: William Tinney's original
+- `field-tests/pet-cf-benchy-foundation-bands.jpg`: The maintainer's original
   IMG_6231.HEIC, October 22, 2026, showing a rejected foundation specimen.
-- `field-tests/pet-cf-temperature-unresolved.jpg`: William Tinney's original
+- `field-tests/pet-cf-temperature-unresolved.jpg`: The maintainer's original
   IMG_6237.HEIC, October 22, 2026, showing an unresolved native Tinman/OrcaSlicer
   temperature diagnostic. Tower geometry credit: native calibration contributors.
-- Photographs contributed by William Tinney under the guide's CC BY 4.0
+- Photographs contributed by the guide's maintainer under the guide's CC BY 4.0
   terms at his publication direction. JPEG conversion, publication sizing and
   metadata stripping only; no defect removal or synthetic passing reference.
   Originals remain in the owner's private experiment archive. These photographs
@@ -24,7 +53,7 @@
 ## TinmanX1 Logo
 
 `tinmanx1-thumbnail-logo.png` is the original high-resolution thumbnail icon
-used by the TinmanX1 project. William Tinney identified this as the required
+used by the TinmanX1 project. The maintainer identified this as the required
 logo for the guide cover.
 
 Source asset:
@@ -51,11 +80,11 @@ replaced.
 
 The Airframe composition, calibration-ring motif, typography, light color
 system, and responsive landscape/portrait layouts were created by Codex,
-OpenAI, at William Tinney's direction.
+OpenAI, at the maintainer's direction.
 
 ## Field-Test Photographs
 
-The photographs under `assets/field-tests/` were supplied by William Tinney
+The photographs under `assets/field-tests/` were supplied by the guide's maintainer
 from the documented tuning sessions. They are retained as experimental
 evidence and are captioned with the scope of the result. In particular:
 
@@ -72,7 +101,7 @@ evidence and are captioned with the scope of the result. In particular:
   is on the left and the dried tower is on the right.
 - `field-tests/elegoo-pet-cf-dried-tower-detail.jpg` combines three views of the
   dried tower used to select a working nozzle temperature.
-- Original HEIC photographs: William Tinney, 2026.
+- Original HEIC photographs: the guide's maintainer, 2026.
 - The composites preserve the photographed specimens; only orientation,
   scaling, spacing, and JPEG conversion were applied for publication.
 
@@ -85,5 +114,5 @@ evidence and are captioned with the scope of the result. In particular:
   from the unchanged fourth attempt after a thorough warm soap-and-water plate
   wash and a fresh Vision Miner Nano Polymer application. The tower remained
   attached through PA `0.048` and normal completion.
-- Field camera frames: William Tinney, 2026. The repository copies are
+- Field camera frames: the guide's maintainer, 2026. The repository copies are
   unaltered from the preserved evidence files.

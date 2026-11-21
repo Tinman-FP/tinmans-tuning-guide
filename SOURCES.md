@@ -4,7 +4,30 @@ This guide favors official documentation and well-documented experimental work.
 Pages can change over time, so record the access date when using a source for a
 formal experiment or publication.
 
-Last source review: 2026-10-08.
+Last source review: 2026-11-21.
+
+## November 21, 2026 Review
+
+- [Tinman source](https://github.com/Tinman-FP/Tinman) at `main` revision
+  `baf3f00dfe`: the Calibration menu, dialogs, generators and G-code output
+  described in [Running Tinman's Calibration Tests](guide/25-running-tinman-calibrations.md).
+  Behavior statements in that chapter were checked against this source.
+- Tinman pull requests [20](https://github.com/Tinman-FP/Tinman/pull/20)
+  (OrcaSlicer 2.5.1 base), [32](https://github.com/Tinman-FP/Tinman/pull/32)
+  (presets kept across vendor updates), [45](https://github.com/Tinman-FP/Tinman/pull/45)
+  (names with `|` on macOS) and [53](https://github.com/Tinman-FP/Tinman/pull/53)
+  (retraction-tower bands and PA Pattern tags).
+- [OrcaSlicer 2.5.1 release](https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.5.1)
+  and the [OrcaSlicer releases list](https://github.com/OrcaSlicer/OrcaSlicer/releases).
+- 3D-Fuel, [Developing Pro PCTG settings for a printer without a PCTG profile](https://support.3dfuel.com/hc/en-us/articles/33676470547095)
+  (nozzle `250-280 C`, low part-cooling fan) and
+  [How to get the best printing experience with Pro PCTG](https://3dfuel.com/blogs/news/how-to-get-the-best-printing-experience-with-pro-pctg),
+  consulted 2026-11-21 for the PCTG field results.
+- The field results in chapters 02-10 and [Worked Examples](guide/26-worked-examples.md)
+  come from the guide's own tuning records (photographs, caliper readings,
+  sliced G-code and decisions) for a Creality K2 Plus, a Prusa CORE One+ INDX
+  and CORE One L+, a Qidi Plus4 and a Snapmaker U1, November 2026. They are
+  setup-specific evidence, not general recommendations.
 
 ## 3DBenchy Official References - October 22, 2026
 
