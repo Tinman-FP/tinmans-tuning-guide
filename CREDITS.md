@@ -6,7 +6,7 @@ the source material instead of reproducing it.
 
 ## Project Authors
 
-- **William Tinney** initiated the project, supplied the practical tuning
+- **The project's maintainer** initiated the project, supplied the practical tuning
   questions, performed the physical experiments and measurements, documented
   print orientation and results, and directed publication.
 - **Codex by OpenAI** researched the sources, developed the dependency-aware
@@ -18,11 +18,11 @@ the source material instead of reproducing it.
   photographs for publication.
 
 The worked `20.00 mm -> 20.13 mm -> 100.65% -> 20.00 mm` dimensional example
-comes from a controlled calibration performed by William Tinney and analyzed
+comes from a controlled calibration performed by the guide's maintainer and analyzed
 with Codex in September 2026.
 
 The motion-diagnostics field photographs and physical FibreSeek and Prusa CORE
-One L+ experiments were made and supplied by William Tinney. Codex designed the
+One L+ experiments were made and supplied by the guide's maintainer. Codex designed the
 controlled tests, audited the emitted G-code, analyzed the evidence, and
 authored the worked interpretation. All published photographs have their
 device and location metadata removed (two that still carried it were replaced
@@ -31,10 +31,10 @@ in edition 1.1).
 ## Cover Artwork
 
 - The central TinmanX1 thumbnail logo is the original project icon supplied by
-  William Tinney. It is reproduced without redrawing or replacing the mark.
+  the guide's maintainer. It is reproduced without redrawing or replacing the mark.
 - The Airframe composition, calibration-ring motif, typography, light color
   system, responsive landscape/portrait layouts, and production artwork were
-  designed and prepared by Codex, OpenAI, at William Tinney's direction.
+  designed and prepared by Codex, OpenAI, at the maintainer's direction.
 - The editable source, rendered cover, original logo copy, and provenance are
   retained in the repository's `assets` directory.
 
@@ -46,8 +46,8 @@ in edition 1.1).
   and established its online identity. The current official model license is
   [CC0 1.0](https://www.3dbenchy.com/license/); website artwork is not assumed
   to share that license. The guide's locator diagrams are original schematics
-  by Codex/OpenAI for William Tinney, CC BY 4.0, not official drawings.
-- **William Tinney** for the October 22, 2026 Qidi Plus4 / Elegoo PET-CF
+  by Codex/OpenAI for the guide, CC BY 4.0, not official drawings.
+- **The project's maintainer** for the October 22, 2026 Qidi Plus4 / Elegoo PET-CF
   Benchy and temperature-tower field photographs, physical tests, diameter
   measurements, conditioning history and observations. **Codex/OpenAI**
   audited commands/telemetry, interpreted evidence and authored the captions
@@ -64,7 +64,7 @@ in edition 1.1).
   calibration contributors, not to the photographer or guide as model authors.
 - **TinmanX1 contributors** for the source implementation used to document its
   continuous-fiber planning, FibreSeek contracts, Strength Lens, and Wave
-  Overhang extensions. William Tinney directed the practical scope of this
+  Overhang extensions. The maintainer directed the practical scope of this
   documentation; Codex authored the plain-language operational reference.
 - **Kevin O'Connor and the Klipper contributors** for the pressure-advance
   implementation and calibration documentation.

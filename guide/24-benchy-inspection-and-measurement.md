@@ -36,7 +36,7 @@ separate protocol, not a substitute for quality inspection.
 
 ## Official Feature Checks
 
-![Inspection locations and evidence limits. Original schematic by Codex/OpenAI for William Tinney, CC BY 4.0; feature descriptions from the official 3DBenchy website. Not an official drawing or a passing-print reference.](../assets/benchy-inspection-map.png)
+![Inspection locations and evidence limits. Original schematic by Codex/OpenAI for the guide, CC BY 4.0; feature descriptions from the official 3DBenchy website. Not an official drawing or a passing-print reference.](../assets/benchy-inspection-map.png)
 
 | Feature | Inspect on the fully cooled boat |
 | --- | --- |
@@ -61,7 +61,7 @@ by normal shallow-roof stair stepping.
 All linear values below are millimeters. They are nominal design values,
 not tolerances. Use the official linked drawings to locate measurement faces.
 
-![Overall envelope, roof faces and chimney measurement locations. Original schematic by Codex/OpenAI for William Tinney, CC BY 4.0, using official nominal dimensions. Schematic only: use instruments on the cooled specimen, not the illustration.](../assets/benchy-dimension-locator.png)
+![Overall envelope, roof faces and chimney measurement locations. Original schematic by Codex/OpenAI for the guide, CC BY 4.0, using official nominal dimensions. Schematic only: use instruments on the cooled specimen, not the illustration.](../assets/benchy-dimension-locator.png)
 
 | Item | Nominal |
 | --- | --- |
@@ -111,7 +111,7 @@ representative validation stages still require their own evidence.
 
 ## Photographed Foundation Failure: Do Not Grade by Completion Alone
 
-![Rejected foundation example: a completed Elegoo PET-CF Benchy with open-looking chimney bands and irregular cabin tracks. Photograph: William Tinney, IMG_6231, 2026-10-22. Model: Daniel Noree / Creative Tools, 3DBenchy.com. This is a defect example, not an official reference print.](../assets/field-tests/pet-cf-benchy-foundation-bands.jpg)
+![Rejected foundation example: a completed Elegoo PET-CF Benchy with open-looking chimney bands and irregular cabin tracks. Photograph: the guide's maintainer, IMG_6231, 2026-10-22. Model: Daniel Noree / Creative Tools, 3DBenchy.com. This is a defect example, not an official reference print.](../assets/field-tests/pet-cf-benchy-foundation-bands.jpg)
 
 The photographed boat completed on a Qidi Plus4 with a Micro Swiss CM2
 0.6 mm nozzle, 0.24 mm body layers, 0.30 mm first layer, 275 C nozzle,
@@ -133,7 +133,7 @@ before choosing a one-variable comparison.
 The inspection and dimension locators are original explanatory schematics,
 not copies of the official website's drawings and not replacement CAD/STL
 files. Editable SVG sources and publication PNGs are retained in `assets`.
-The field photograph was made and supplied by William Tinney; publication
+The field photograph was made and supplied by the guide's maintainer; publication
 conversion removes device/location metadata without altering the specimen.
 
 Daniel Noree designed #3DBenchy while at Creative Tools. Paulo Kiefe named it

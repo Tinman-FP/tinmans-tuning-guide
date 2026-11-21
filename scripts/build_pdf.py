@@ -701,7 +701,7 @@ def build_pdf(output: Path):
         topMargin=0.65 * inch,
         bottomMargin=0.68 * inch,
         title="Tinmans Tuning Guide",
-        author="William Tinney and Codex by OpenAI",
+        author="Tinmans Tuning Guide maintainers, with Codex by OpenAI and Claude by Anthropic",
         subject="A printer-neutral filament tuning handbook with OrcaSlicer and Tinman settings reference",
         creator="Tinmans Tuning Guide build script",
     )
@@ -724,7 +724,7 @@ def build_pdf(output: Path):
     ))
     story.append(Spacer(1, 0.18 * inch))
     story.append(Paragraph(
-        "Project initiated and experimentally informed by William Tinney. Researched, written, organized, and published with Codex by OpenAI.",
+        "Project initiated and experimentally informed by the Tinman project's maintainer. Researched, written, organized, and published with Codex by OpenAI; the November 2026 edition was revised with Claude by Anthropic.",
         styles["front_subtitle"],
     ))
     story.append(Spacer(1, 0.25 * inch))

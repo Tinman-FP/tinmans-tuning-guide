@@ -204,7 +204,7 @@ The original text and diagrams in this repository are licensed under
 [CC BY 4.0](LICENSE). Source projects retain their own licenses. See
 [CREDITS.md](CREDITS.md) and [SOURCES.md](SOURCES.md) for attribution.
 
-Project initiated and experimentally informed by William Tinney. Researched,
+Project initiated and experimentally informed by the Tinman project's maintainer. Researched,
 written, organized, and published with Codex by OpenAI; the November 2026
 edition was revised with Claude by Anthropic. No source author, project, or
 company listed here has endorsed this guide.
