@@ -31,7 +31,7 @@ text{font-family:Arial,sans-serif;fill:#193146}
 <rect class="step" x="50" y="276" width="640" height="118" rx="14"/>
 <circle cx="92" cy="335" r="24" fill="#277f87"/><text x="92" y="343" class="num">1</text>
 <text x="130" y="316" class="name">Baseline: machine, plate, first layer</text>
-<text x="130" y="346" class="menu">Clean nozzle, clean plate, known start, one test print</text>
+<text x="130" y="346" class="menu">Clean nozzle and plate; a 3DBenchy graded by chapter 24</text>
 <text x="130" y="374" class="keep">Keep: a first layer that repeats</text>
 </g>
 <path class="arrow" d="M370 394 L370 416" marker-end="url(#a)"/>
@@ -105,7 +105,7 @@ text{font-family:Arial,sans-serif;fill:#193146}
 <rect class="gate" x="750" y="714" width="640" height="118" rx="14"/>
 <circle cx="792" cy="773" r="24" fill="#a5621c"/><text x="792" y="781" class="num">10</text>
 <text x="830" y="754" class="name">Validate and release</text>
-<text x="830" y="784" class="menu">A real part, sliced fresh from the saved profile</text>
+<text x="830" y="784" class="menu">VAL01 bracket and fit coupon, sliced fresh</text>
 <text x="830" y="812" class="keep">Keep: CANDIDATE becomes TUNED rNN</text>
 </g>
 

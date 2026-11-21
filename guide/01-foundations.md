@@ -222,7 +222,9 @@ Before advanced tuning, print a simple artifact that includes:
 The purpose is not perfection. It confirms that the printer can complete a
 controlled test and reveals obvious mechanical or thermal faults.
 
-If using a Benchy, use the [official-reference inspection checklist](24-benchy-inspection-and-measurement.md).
+When you start tuning a new filament, make this baseline print a stock
+3DBenchy at 100 % scale, without supports, and grade and measure it with the
+[official-reference inspection checklist](24-benchy-inspection-and-measurement.md).
 Completion alone does not pass the gate, and an invented numerical score is
 not an official grading requirement.
 

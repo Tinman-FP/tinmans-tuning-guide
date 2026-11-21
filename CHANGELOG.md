@@ -2,7 +2,13 @@
 
 ## 1.2.0 - 2026-11-21
 
-Design and readability pass on edition 1.1; no tuning advice changed.
+Design and readability pass on edition 1.1, plus the VAL01 test.
+
+- New: VAL01, the functional bracket and fit coupon that is the last test
+  before a profile is called TUNED (chapter 09), with its OpenSCAD model and
+  STL in `models/`, pass marks A–H, and where to go back when a check fails.
+  The quick path now starts a new filament with a stock 3DBenchy and ends
+  with VAL01.
 
 - Every chapter opens with an "At a glance" box: what you decide, the test to
   use, and what you keep. It replaces 1.1's "Quick path" boxes.

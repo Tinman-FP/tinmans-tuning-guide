@@ -38,6 +38,8 @@
 - [ ] Internal holes and required fits pass.
 - [ ] Elephant foot is within the defined limit.
 - [ ] Bridges, overhangs, and small features pass.
+- [ ] VAL01 (chapter 09) passes every check A–H; the tightest sliding pin
+      is recorded.
 - [ ] Representative production part passes.
 - [ ] Mechanical comparison passes where strength matters.
 - [ ] G-code review confirms the expected tool, temperatures, fans, PA, flow,

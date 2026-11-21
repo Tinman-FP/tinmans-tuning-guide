@@ -48,7 +48,9 @@ printing anything: bonding, stringing, bridges, dimensions.
 [How](guide/00-how-to-use-this-guide.md#step-0-decide-what-good-enough-means)
 
 1. **Prove the baseline.** Clean nozzle, clean plate, a first layer you have
-   measured with calipers, and the right nozzle selected in the slicer.
+   measured with calipers, and the right nozzle selected in the slicer. With a
+   new filament, the first print is a stock 3DBenchy at 100 %, graded with
+   [chapter 24](guide/24-benchy-inspection-and-measurement.md).
    [Foundations](guide/01-foundations.md) ·
    [profile identity](guide/20-profile-integrity-and-experimental-resets.md)
 2. **Dry the spool and name it.** Record how it was dried. A new roll or a new
@@ -76,8 +78,9 @@ printing anything: bonding, stringing, bridges, dimensions.
    [Seams and surfaces](guide/08-seams-and-surfaces.md) ·
    [motion tests](guide/19-motion-diagnostics.md) if the texture depends on
    speed or direction
-10. **Validate and release** on a real part sliced fresh from the saved
-    profile; rename `CANDIDATE` to `TUNED`.
+10. **Validate and release** with [VAL01](guide/09-validation.md#val01-the-last-test-before-tuned),
+    the functional bracket and fit coupon, sliced fresh from the saved profile.
+    Only when every check passes, rename `CANDIDATE` to `TUNED`.
     [Validation](guide/09-validation.md)
 
 **Before your first calibration in Tinman,** read the one-page
