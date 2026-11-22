@@ -228,6 +228,13 @@ if you printed VAL01 before 1.2.1. The part is 70 × 85 × 38 mm.
   Ø7.9, 7.8, 7.7 and 7.6 mm. Each pin carries 1 to 4 dimples on top: one
   dimple is the tightest (Ø7.9), four the loosest (Ø7.6).
 
+**Known limitation: the dimples are hard to read.** On the PCTG runs (0.4 mm
+nozzle) the dimples printed as short dashes, and the single dimple on the
+Ø7.9 pin was barely visible on its small, rough top. The pins also stand in order: seen
+from the coupon side, they run from 1 dimple (Ø7.9) on the left to 4 dimples
+(Ø7.6) on the right, each in line with a hole. Note that order before you take
+them off the plate. The marking does not affect the geometry under test.
+
 Change only the label (`label` at the top of the `.scad` file), to the
 material and revision under test, and export your own STL. Print at the profile's own layer height, on
 the plate it will be used with.
@@ -260,8 +267,9 @@ number to use when you design parts.
 **Expected, not yet observed.** In the first run's dimension tests, 8 mm holes
 came out about 0.05 mm small and small round parts slightly large. From that,
 the 1-dimple pin probably won't fit, the 2-dimple pin may be snug, the 3-dimple
-pin should slide and the 4-dimple pin will be loose. This is an inference; the
-first VAL01 has not been graded yet.
+pin should slide and the 4-dimple pin will be loose. This was an inference
+written before the first print; what the second run showed is under
+"Observed so far" below.
 
 ### If a Check Fails
 
@@ -282,29 +290,53 @@ A profile becomes `TUNED` only when every check passes, plus whatever sign-off
 your own process requires. Record the result, the measurements and the
 tightest sliding pin in the profile's notes.
 
-**Observed so far.** The first VAL01 was printed on 2026-11-21 on a CORE One+
+**Observed so far.** VAL01 was printed twice on 2026-11-21 on a CORE One+
 INDX (one tool, 0.4 mm high-flow nozzle, 0.20 mm layers) with 3D-Fuel Pro
-PCTG, from the v1 model. These notes come from photographs of the print and
-from the sliced G-code. Nothing has been measured yet.
+PCTG and the same profile pair: run 1 from the v1 model, run 2 from v2. These
+notes come from photographs of the prints and from the sliced G-code. Nothing
+has been measured yet.
 
-- **Deck top:** no crater, hole or lifted strand. The G-code printed the
-  solid infill over the channel bridge at about 233 mm/s, the condition
-  suspected of leaving craters in the earlier cooling test. On this part that
-  crater did not appear.
-- **Channel underside:** the bridge strands were continuous, except around
-  the boss bore, where they tangled and drooped. That is the v1 design flaw
-  described in the [revision history](#val01-revision-history-why-v1-became-v2), not a
-  profile result.
-- **Pins:** each pin shows two faint rings, about 5 mm and 8 mm up. The G-code
-  changes the conditions at exactly those heights. At Z 5 the coupon plate
-  ends and the part fan steps up from 10 % to 14 %. At Z 8 the bracket base
-  ends, the layer time drops to about 8 s, and the pin walls slow from 200 to
-  120 mm/s. The filament fed per pin layer stays the same. Inference: these
-  are gloss changes at feature transitions (see the
-  [surface artifact map](08-seams-and-surfaces.md#surface-artifact-map)),
-  not over-extrusion. Whether they affect the fit (C) is not known yet.
-- **Not graded yet:** A, B, C, G and H need measurements and hands-on
-  checks. A v2 reprint has been sent; its result will be added here.
+**Status of the PCTG result: photos pass, measurements pending.** Nothing seen
+on run 2 fails. Still to come: the dimensions (A), the screw test (B), a
+hands-on check of the fit (C), a view of the channel underside and its sag
+(D), flatness (G) and the thumb push (H). Until then the profile stays
+`CANDIDATE`.
+
+- **Channel bridge (D):**
+  - Run 1 (v1): the strands were continuous, except around the boss bore,
+    where they tangled and drooped. That is the v1 design flaw described in
+    the [revision history](#val01-revision-history-why-v1-became-v2), not a
+    profile result.
+  - Run 2 (v2): the bridge held, with no tangle under the blind bore. Seen
+    from the front, the outermost strand at the channel mouth looks slightly
+    wavy and one thin string hangs in the channel. The sag has not been
+    measured.
+- **Deck top (D):** no crater, hole or lifted strand on either run. Both
+  times the G-code printed the solid infill over the channel bridge at about
+  233 mm/s, the condition suspected of leaving craters in the earlier cooling
+  test. On this part that crater has not appeared.
+- **Fit (C), run 2:** the 2-, 3- and 4-dimple pins sit down in their holes,
+  through to the bed. The 1-dimple pin (Ø7.9) stands on top of its hole.
+  - *Inference, waiting for confirmation that the pins went in by hand
+    without force:* the tightest sliding pin is the 2-dimple pin, so PCTG's
+    sliding-fit allowance with this profile is 0.2 mm on the diameter. That is
+    one step tighter than the 0.3 mm expected above.
+  - Run 1's photos showed one pin through, but it is not known whether the
+    others were pushed, so the two runs are not compared on fit.
+- **Rings on the pins:** on both runs each pin shows two faint rings, about
+  5 mm and 8 mm up. The G-code changes the conditions at exactly those
+  heights. At Z 5 the coupon plate ends and the part fan steps up from 10 % to
+  14 %. At Z 8 the bracket base ends, the layer time drops to about 8 s, and
+  the pin walls slow from 200 to 120 mm/s. The filament fed per pin layer stays
+  the same.
+  - *Inference:* these are gloss changes at feature transitions (see the
+    [surface artifact map](08-seams-and-surfaces.md#surface-artifact-map)),
+    not over-extrusion.
+  - On run 2 the rings did not stop pins 2–4 going in.
+- **Other checks on run 2's photos:** the gusset faces are clean (E). The tops
+  are closed, the label is crisp, and there is one fine hair at a wall corner
+  (F). The M5 and M3 holes and the blind bore are round and open; the screws
+  have not been tried yet (B).
 
 ### VAL01 Revision History: Why v1 Became v2
 
@@ -323,6 +355,9 @@ from the sliced G-code. Nothing has been measured yet.
   the condition criterion D is meant to check. Nothing else changed: the
   outside size, holes, pins, label and pass marks A–H are the same, and the
   files keep their names.
+  - *Observed on run 2:* the bridge held, with no tangle under the bore. The
+    run-2 G-code has no wall moves around the bore on the bridge layer, and
+    the strands run straight across. That supports the inference above.
 - If you printed v1, print v2 before you grade the bridges (D).
 
 ## Tuning Prints and Validation Prints

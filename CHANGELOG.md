@@ -14,13 +14,19 @@ VAL01 model correction.
   template's default label is "VAL01".
 - The dimensioned drawing gains a section through the boss, showing the blind
   bore with v1's bore dashed. The render gains a view of the underside.
-- Chapter 09: a VAL01 revision history, and what the first run showed so far
-  (no crater on the deck top; faint rings on the pins at feature
-  transitions), with observation kept apart from inference. That run is not
-  graded yet.
+- Chapter 09: a VAL01 revision history, and what the first two PCTG runs
+  showed, with observation kept apart from inference. On the v2 reprint the
+  bridge held with no tangle, the deck top had no crater, and pins 2–4 fit
+  while pin 1 did not. Status: photos pass, measurements pending.
+- Chapter 09: a known limitation. The pin dimples print as short dashes and
+  can be hard to read, so the text adds the pins' order on the plate. The
+  model is unchanged.
 - PDF: the title page's edition line still said 1.0.4; it now says 1.2.1.
   Link text and captions keep underscores inside names, so
-  `val01_template.scad` no longer prints as "val01template.scad".
+  `val01_template.scad` no longer prints as "val01template.scad". The
+  contents fit on two pages again (1.2.0 put its last line on a third), and
+  a heading directly above a figure now moves to the next page with it
+  instead of ending a page alone (three places).
 
 ## 1.2.0 - 2026-11-21
 

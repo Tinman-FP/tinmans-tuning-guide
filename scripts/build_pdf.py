@@ -595,6 +595,9 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
                         Paragraph(html.escape(caption), styles["small"]),
                     ]
                 )
+            # A heading right before a figure travels with it, so it never ends a page alone.
+            if flows and getattr(flows[-1], "_toc_level", None) is not None:
+                figure_flows.insert(0, flows.pop())
             flows.append(KeepTogether(figure_flows))
             flows.append(Spacer(1, 10))
             index += 1
@@ -777,7 +780,7 @@ def build_pdf(output: Path):
     toc = TableOfContents()
     toc.levelStyles = [
         ParagraphStyle("TOC1", fontName="Helvetica-Bold", fontSize=9.5, leading=11.5, leftIndent=0, firstLineIndent=0, textColor=colors.HexColor("#111827"), spaceBefore=2),
-        ParagraphStyle("TOC2", fontName="Helvetica", fontSize=7.8, leading=8.9, leftIndent=15, firstLineIndent=0, textColor=colors.HexColor("#374151")),
+        ParagraphStyle("TOC2", fontName="Helvetica", fontSize=7.8, leading=8.75, leftIndent=15, firstLineIndent=0, textColor=colors.HexColor("#374151")),
         ParagraphStyle("TOC3", fontName="Helvetica", fontSize=7.5, leading=9.5, leftIndent=30, firstLineIndent=0, textColor=colors.HexColor("#6B7280")),
     ]
     # Compact rows: no cell padding, so the contents fit on about two pages.
