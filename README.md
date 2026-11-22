@@ -17,7 +17,7 @@ Slicer downloads:
 - [Download the latest official OrcaSlicer release](https://github.com/SoftFever/OrcaSlicer/releases/latest)
 - [Download public Tinman](https://github.com/Tinman-FP/Tinman/releases)
 
-**November 2026 edition (1.2.0).** This edition is written for Tinman on its
+**November 2026 edition (1.2.1).** This edition is written for Tinman on its
 OrcaSlicer 2.5.1 base and checked against Tinman's source on 2026-11-21. It
 adds a chapter on [running Tinman's calibration tests](guide/25-running-tinman-calibrations.md)
 and their traps, and [four complete worked examples](guide/26-worked-examples.md)
@@ -25,7 +25,8 @@ from PCTG, PET-CF and ABS tuning runs on a Creality K2 Plus, a Prusa CORE One+
 INDX, a Qidi Plus4 and a Snapmaker U1. Several earlier statements were
 corrected; see the [changelog](CHANGELOG.md). Edition 1.2 is a design pass:
 every chapter opens with an "At a glance" box, every test has a photograph or
-diagram, and the settings reference is set out as tables. Public Tinman previews older than
+diagram, and the settings reference is set out as tables. 1.2.1 corrects the
+[VAL01 model](guide/09-validation.md#val01-revision-history-why-v1-became-v2). Public Tinman previews older than
 the 2.5.1 base may show different dialogs; see
 [Slicer Upgrades](guide/21-slicer-upgrades-and-calibration-changes.md).
 

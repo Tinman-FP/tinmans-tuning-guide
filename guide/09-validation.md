@@ -111,17 +111,21 @@ is the authoritative record.
 ## Name, Version and Promote
 
 A profile name should tell you, at a glance in a drop-down list, whether it is
-safe to print with and what it is for. The field runs settled on this pattern:
+safe to print with and what it is for. The field runs settled on these parts:
 
 ```text
 Filament: STATUS - Machine - Nozzle - Brand Material - rNN
 Process:  STATUS - Machine - Nozzle - Brand Material - Layer Purpose - rNN
 ```
 
-For example:
+The status always comes first and the revision last. The parts in between
+came in two orders in the field runs: machine first on the Qidi and Snapmaker
+printers, material first on the Prusa printers. Either works. Pick one order
+for each printer and keep it, so that printer's lists sort the same way every
+time. For example:
 
 ```text
-CANDIDATE - CORE One+ INDX 8T 0.4 HF - 3D-Fuel Pro PCTG - r7
+CANDIDATE - 3D-Fuel Pro PCTG - CORE One+ INDX 8T 0.4 HF - r7
 TUNED - Qidi Plus4 - 0.6mm - Elegoo PET-CF - r14
 TUNED - Qidi Plus4 - 0.6mm - Elegoo PET-CF - 0.24mm Production - r25
 ```
@@ -145,7 +149,9 @@ Rules that kept the field runs honest:
   a pair, such as filament r14 with process r25, not "both at r14".
 - **Promote the tested file unchanged.** `TUNED` is the last `CANDIDATE`
   renamed, with its values byte-for-byte the same and a note of the release
-  date. If anything changes during promotion, it is a new candidate.
+  date. If anything changes during promotion, it is a new candidate. In
+  Tinman, detach the new preset from the candidate before you retire the
+  candidate (see below).
 - **One current generation.** Keep one tuned filament per machine, nozzle and
   material, and one tuned process per layer height and purpose. Move older
   generations out of the active lists into a dated folder with a short note of
@@ -154,6 +160,28 @@ Rules that kept the field runs honest:
   values in the presets (see
   [Running Tinman's Calibration Tests](25-running-tinman-calibrations.md#how-a-test-is-built));
   save only the one value the test chose.
+
+**Promoting in Tinman: detach the new preset first.** In Tinman (OrcaSlicer
+2.5.1 base, November 2026), saving a `CANDIDATE` under its `TUNED` name with
+**Save as** can write the new preset as a *child* of the candidate. Its file
+then holds `"inherits": "CANDIDATE …"` and stores only the name, ID and notes;
+every tuned value still lives in the candidate. Retire the candidate, as the
+rule above says, and the tuned preset is orphaned and loses its values. This
+happened on the guide's first release.
+
+1. Turn on **Preferences → Developer → Developer mode**. The save dialog
+   shows its parent option only in developer mode.
+2. Save the `TUNED` preset with the parent box ticked. It is labelled
+   **Detach from parent** when the dialog sees a parent, and **Save without
+   parent** when it does not. In the field run the first save offered **Save
+   without parent**, unticked, and still wrote a child. Saving again under the
+   same name with **Detach from parent** ticked fixed it.
+3. Open the saved preset's `.json` file in the user `filament` folder and
+   check that `inherits` is empty (`""`).
+4. Only then retire the `CANDIDATE`, and reload Tinman to confirm the `TUNED`
+   preset still shows the tuned values.
+
+This is Tinman's behaviour at the time of writing; a fix may change it.
 
 Record with every revision:
 
@@ -182,7 +210,7 @@ printer and for every material.
 Each calibration print tests one thing. VAL01 tests everything together, on a
 part that has to work.
 
-![The VAL01 model: a bracket with a cable channel, a windowed wall, gussets, a boss and clearance holes, and a fit coupon with four pins. Letters mark the pass marks A to H below. Rendered from models/val01_template.scad, CC BY 4.0.](../assets/val01-model.png)
+![The VAL01 model: a bracket with a cable channel, a windowed wall, gussets, a boss and clearance holes, and a fit coupon with four pins. Letters mark the pass marks A to H below; the inset shows the underside, where the deck over the channel has no hole. Rendered from models/val01_template.scad (v2), CC BY 4.0.](../assets/val01-model.png)
 
 ### When and Why to Run It
 
@@ -211,19 +239,29 @@ change, when the profile is meant to stay `TUNED`.
 
 Download [models/val01_template.scad](../models/val01_template.scad)
 (OpenSCAD source) or [models/val01.stl](../models/val01.stl) (labelled
-"VAL01"). The part is 70 × 85 × 38 mm.
+"VAL01"). Both are version 2; see the [revision history](#val01-revision-history-why-v1-became-v2)
+if you printed VAL01 before 1.2.1. The part is 70 × 85 × 38 mm.
 
-![VAL01 dimensions in millimetres: top view of the bracket and fit coupon, and front view of the bracket. Original drawing generated from models/val01_template.scad, CC BY 4.0.](../assets/val01-drawing.png)
+![VAL01 dimensions in millimetres: top view of the bracket and fit coupon, front view of the bracket, and a section through the boss showing the blind bore and, dashed, the withdrawn v1 bore. Original drawing generated from models/val01_template.scad, CC BY 4.0.](../assets/val01-drawing.png)
 
 - **Bracket:** a 70 × 40 × 8 mm base with a cable channel underneath, 40 mm
   wide and 4 mm tall, open at the front. That makes a 40 mm bridge with a 4 mm
   solid deck on top. An upright wall, 6 mm thick and 38 mm tall overall, has a
   40 × 12 mm window, which makes a 40 mm lintel bridge. Two 45° gussets, a
-  Ø14 mm boss with a Ø5 mm bore standing on the bridge deck, two Ø5.5 mm (M5
-  clearance) holes, two Ø3.4 mm (M3 clearance) holes, and a debossed label.
+  Ø14 mm boss standing on the bridge deck, two Ø5.5 mm (M5 clearance) holes,
+  two Ø3.4 mm (M3 clearance) holes, and a debossed label. The boss has a
+  blind Ø5 mm bore, 10 mm deep, whose floor is the deck top, so nothing cuts
+  through the bridge.
 - **Fit coupon:** a plate with four Ø8.0 mm holes, and four 12 mm pins of
   Ø7.9, 7.8, 7.7 and 7.6 mm. Each pin carries 1 to 4 dimples on top: one
   dimple is the tightest (Ø7.9), four the loosest (Ø7.6).
+
+**Known limitation: the dimples are hard to read.** On the PCTG runs (0.4 mm
+nozzle) the dimples printed as short dashes, and the single dimple on the
+Ø7.9 pin was barely visible on its small, rough top. The pins also stand in order: seen
+from the coupon side, they run from 1 dimple (Ø7.9) on the left to 4 dimples
+(Ø7.6) on the right, each in line with a hole. Note that order before you take
+them off the plate. The marking does not affect the geometry under test.
 
 Change only the label (`label` at the top of the `.scad` file), to the
 material and revision under test, and export your own STL. Print at the profile's own layer height, on
@@ -237,13 +275,19 @@ tests: at mid-side, on the upper half of walls, away from seams.
 | # | Check | Pass if |
 | --- | --- | --- |
 | A | Bracket outside dimensions | base length 70.00 ± 0.15 mm; depth 40.00 ± 0.10 mm; wall thickness 6.00 ± 0.10 mm; boss Ø14.00 ± 0.15 mm; overall height 38.00 ± 0.10 mm |
-| B | Clearance holes | an M5 screw (or a 5 mm drill shank) passes both Ø5.5 holes freely; an M3 screw passes both Ø3.4 holes freely. Record the boss bore (Ø5.0 nominal). |
+| B | Clearance holes | an M5 screw (or a 5 mm drill shank) passes both Ø5.5 holes freely; an M3 screw passes both Ø3.4 holes freely. Without screws, measure the holes instead: each must be at least the screw size plus 0.2 mm (M5: 5.2 mm or more; M3: 3.2 mm or more). Record the boss bore (Ø5.0 nominal). |
 | C | Fit coupon | at least the 3-dimple pin (Ø7.7, 0.3 mm clearance) slides fully through its hole by hand without force. Record the tightest pin that slides. |
-| D | Bridges | channel underside: continuous strands, none dropped, sag at mid-span no more than about 0.5 mm. Deck top, text and boss: no crater, hole or lifted strand. Lintel underside continuous. |
+| D | Bridges | channel underside: continuous strands, none dropped, sag at mid-span no more than about 0.5 mm (measured as below). Deck top, text and boss: no crater, hole or lifted strand. Lintel underside continuous. |
 | E | Overhangs | the 45° gusset faces are clean, with no curl or droop |
 | F | Surfaces | tops closed with no open channels; no rows of beads along top edges; the label legible; seams narrow; at most fine hairs of stringing |
 | G | First layer and warp | sits flat on a flat surface without rocking; no corner lift over 0.2 mm; no bottom flare that stops a straight edge sitting flat |
 | H | Layer adhesion | the wall survives a firm thumb push at its top, toward the front, with no crack or delamination. If you break a pin, it bends before it breaks. |
+
+**Measuring sag (D).** Measure the height of each opening at both ends and
+at mid-span: the channel (4.0 mm nominal) and the window (12.0 mm nominal).
+The sag is how far the mid-span height falls below the average of the two
+end heights. Measuring mid-span alone against the nominal height assumes the
+ends printed exactly to size.
 
 These limits were written for a 0.4 mm nozzle and 0.20 mm layers, and first
 used with PCTG. If a material or setup needs a different limit (a flexible or
@@ -254,11 +298,12 @@ The tightest pin that slides (criterion C) is worth keeping: it is the
 sliding-fit allowance for this material, nozzle and profile, and it is the
 number to use when you design parts.
 
-**Expected, not yet observed.** In the first run's dimension tests, 8 mm holes
+**Expected before the first print.** In the first run's dimension tests, 8 mm holes
 came out about 0.05 mm small and small round parts slightly large. From that,
 the 1-dimple pin probably won't fit, the 2-dimple pin may be snug, the 3-dimple
-pin should slide and the 4-dimple pin will be loose. This is an inference; the
-first VAL01 has not been graded yet.
+pin should slide and the 4-dimple pin will be loose. This was an inference
+written before the first print; the measured result is under
+"First result" below.
 
 ### If a Check Fails
 
@@ -279,9 +324,86 @@ A profile becomes `TUNED` only when every check passes, plus whatever sign-off
 your own process requires. Record the result, the measurements and the
 tightest sliding pin in the profile's notes.
 
-**Observed so far.** The first VAL01 was printed on 2026-11-21 on a CORE One+
-INDX (one tool, 0.4 mm high-flow nozzle, 0.20 mm layers) with 3D-Fuel Pro
-PCTG. It had not been graded when this edition was written.
+**First result: PCTG passed VAL01 and was released as `TUNED` r7.** VAL01 was
+printed twice on 2026-11-21 on a CORE One+ INDX with 3D-Fuel Pro PCTG and the
+same profile pair: run 1 from the v1 model, run 2 from v2. Run 1's bridge
+failed because of the model (see the
+[revision history](#val01-revision-history-why-v1-became-v2)). Run 2 passed
+every check, graded from measurements of the part, photographs and the sliced
+G-code. With the owner's approval the profile was released the same day as
+`TUNED - 3D-Fuel Pro PCTG - CORE One+ INDX 8T 0.4 HF - r7`, with every value
+unchanged from the tested r7, and the `CANDIDATE` was retired. A fresh slice of
+VAL01 with the released profile gave G-code identical to the passing run, all
+88,933 lines apart from comments. It was the first release through VAL01.
+
+The pass covers this scope only: one toolhead with a 0.4 mm high-flow nozzle,
+0.20 mm layers (a balanced process with Monotonic top surfaces), a
+high-temperature plate at 85 °C, and the enclosure vent closed with the
+chamber warmed to 40 °C.
+
+| # | Run 2 (v2), measured or seen | Result |
+| --- | --- | --- |
+| A | base 70.12 mm (+0.12), depth 40.00, wall 6.01, boss Ø13.88 (−0.12), height 37.93 (−0.07) | pass |
+| B | the Ø5.5 hole measured 5.41 mm and the Ø3.4 hole 3.24 mm, so both clear their screws by more than 0.2 mm; graded by measurement, without a screw test | pass |
+| C | the 2-, 3- and 4-dimple pins slide by hand; the 1-dimple pin (Ø7.9) does not; tightest sliding pin Ø7.8 | pass |
+| D | channel strands continuous, channel height 3.8 mm at mid-span against 4.0 nominal (about 0.2 mm sag); deck top with no crater, hole or lifted strand; window 11.68 mm at mid-span against 12.0 (about 0.3 mm) | pass |
+| E | gusset faces clean (photographs) | pass |
+| F | tops closed, label crisp, one fine hair at a wall corner (photographs) | pass |
+| G | no rocking on a flat surface | pass |
+| H | no crack on the thumb push | pass |
+
+- **Sliding fit:** the tightest pin that slides is Ø7.8 in a Ø8.0 hole. So
+  PCTG's sliding-fit allowance with this profile is 0.2 mm on the diameter,
+  one step tighter than the 0.3 mm expected above. This was checked by hand,
+  not inferred.
+- **Sag:** only the mid-span heights were measured, so both sag figures assume
+  the ends of each opening came out at their nominal height. *Inference:* the
+  overall height came out 0.07 mm under, so the error from that assumption is
+  small. Measure both ends next time (see the pass marks).
+- **Holes:** the small holes came out 0.09 mm (Ø5.5) and 0.16 mm (Ø3.4)
+  under size, the small-hole effect described in
+  [Dimensional Accuracy](07-dimensional-accuracy.md#holes-and-fits). They
+  still clear their screws. Allow for it when you design small holes.
+- **Deck top:** no crater on either run. Both times the G-code printed the
+  solid infill over the channel bridge at about 233 mm/s, the condition
+  suspected of leaving craters in the earlier cooling test. If craters appear
+  on a production part, try **Extra bridge layers** next.
+- **Rings on the pins:** on both runs each pin shows two faint rings, about
+  5 mm and 8 mm up. The G-code changes the conditions at exactly those
+  heights. At Z 5 the coupon plate ends and the part fan steps up from 10 % to
+  14 %. At Z 8 the bracket base ends, the layer time drops to about 8 s, and
+  the pin walls slow from 200 to 120 mm/s. The filament fed per pin layer stays
+  the same.
+  - *Inference:* these are gloss changes at feature transitions (see the
+    [surface artifact map](08-seams-and-surfaces.md#surface-artifact-map)),
+    not over-extrusion.
+  - They did not stop the pins sliding.
+- **Cosmetic only:** the front strand at the channel mouth is slightly wavy,
+  and one thin string hangs in the channel.
+- **Not covered by this pass:** other layer heights, the other toolheads,
+  multi-tool jobs, and prints much longer than this one (about 70 minutes).
+
+### VAL01 Revision History: Why v1 Became v2
+
+- **v1 (2026-11-21, withdrawn).** The boss's Ø5 mm bore ran down through the
+  4 mm deck into the cable channel. On the first bridge layer, the slicer had
+  to print the bore's edge as a loop of wall with nothing under it: the run-1
+  G-code has 66 "Overhang wall" segments within 6 mm of the bore. The bridge
+  strands were cut by the hole and anchored on that loose loop.
+  - *Observed:* on run 1 the strands tangled around the bore and were
+    continuous everywhere else.
+  - *Inferred, from the G-code:* the loop in mid-air caused the tangle. A
+    hole through a bridged span would fail with almost any filament, so v1
+    tested the model, not the profile.
+- **v2 (2026-11-21, current).** The bore is blind: it starts on the deck top
+  (Z 8) and is 10 mm deep, so the deck is one unbroken 40 mm bridge. That is
+  the condition criterion D is meant to check. Nothing else changed: the
+  outside size, holes, pins, label and pass marks A–H are the same, and the
+  files keep their names.
+  - *Observed on run 2:* the bridge held, with no tangle under the bore. The
+    run-2 G-code has no wall moves around the bore on the bridge layer, and
+    the strands run straight across. That supports the inference above.
+- If you printed v1, print v2 before you grade the bridges (D).
 
 ## Tuning Prints and Validation Prints
 

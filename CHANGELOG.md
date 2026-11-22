@@ -1,5 +1,48 @@
 # Changelog
 
+## 1.2.1 - 2026-11-21
+
+VAL01 model correction.
+
+- VAL01 v2: the boss bore is now blind and starts on the deck top. In v1 it
+  ran down through the bridged deck into the cable channel. The first bridge
+  layer then had to print the bore's edge in mid-air, and on the first print
+  the 40 mm bridge strands tangled around it. That would fail with almost any
+  filament, so it tested the model, not the profile. Nothing else changed:
+  pass marks A–H, outside size, holes, pins and file names are the same.
+  `models/val01_template.scad` and `models/val01.stl` now hold v2, and the
+  template's default label is "VAL01".
+- The dimensioned drawing gains a section through the boss, showing the blind
+  bore with v1's bore dashed. The render gains a view of the underside.
+- Chapter 09: a VAL01 revision history, and VAL01's first result. PCTG on a
+  CORE One+ INDX passed every check A–H on the v2 reprint, graded from
+  measurements. The bridge held with about 0.2 mm sag, the deck top had no
+  crater, and the tightest sliding pin gives a 0.2 mm sliding-fit allowance.
+  The profile was then released as TUNED r7 with its values unchanged, the
+  first release through VAL01. Observation is kept apart from inference.
+  Chapter 26's INDX example says the same.
+- Chapter 09 and the release checklist: a Tinman promotion trap. Saving a
+  CANDIDATE as TUNED can write the new preset as a child of the candidate,
+  so retiring the candidate would orphan it. Tick the save dialog's parent
+  box (developer mode), check that `inherits` is empty, then retire.
+- VAL01 pass marks: B may be graded by measuring the holes (at least the
+  screw size plus 0.2 mm) instead of a screw test, and D now says how to
+  measure sag (mid-span against both ends of each opening).
+- Profile names: the status comes first and the revision last; the machine
+  and material parts may come in either order, one order per printer.
+  Chapter 09's INDX example now matches the real profile
+  (`CANDIDATE - 3D-Fuel Pro PCTG - CORE One+ INDX 8T 0.4 HF - r7`), and
+  chapter 20 and the release checklist say the same.
+- Chapter 09: a known limitation. The pin dimples print as short dashes and
+  can be hard to read, so the text adds the pins' order on the plate. The
+  model is unchanged.
+- PDF: the title page's edition line still said 1.0.4; it now says 1.2.1.
+  Link text and captions keep underscores inside names, so
+  `val01_template.scad` no longer prints as "val01template.scad". The
+  contents fit on two pages again (1.2.0 put its last line on a third), and
+  a heading directly above a figure now moves to the next page with it
+  instead of ending a page alone (three places).
+
 ## 1.2.0 - 2026-11-21
 
 Design and readability pass on edition 1.1, plus the VAL01 test.

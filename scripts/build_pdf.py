@@ -87,7 +87,9 @@ def slugify(value: str) -> str:
 def strip_markdown(value: str) -> str:
     value = re.sub(r"!\[([^]]*)\]\([^)]*\)", r"\1", value)
     value = re.sub(r"\[([^]]+)\]\([^)]*\)", r"\1", value)
-    value = re.sub(r"[`*_]", "", value)
+    value = re.sub(r"[`*]", "", value)
+    # Drop emphasis underscores only; keep those inside names such as val01_template.scad.
+    value = re.sub(r"(?<!\w)_|_(?!\w)", "", value)
     return html.unescape(value).strip()
 
 
@@ -593,6 +595,9 @@ def markdown_flowables(rel_path, styles, file_anchors, heading_anchors, availabl
                         Paragraph(html.escape(caption), styles["small"]),
                     ]
                 )
+            # A heading right before a figure travels with it, so it never ends a page alone.
+            if flows and getattr(flows[-1], "_toc_level", None) is not None:
+                figure_flows.insert(0, flows.pop())
             flows.append(KeepTogether(figure_flows))
             flows.append(Spacer(1, 10))
             index += 1
@@ -767,7 +772,7 @@ def build_pdf(output: Path):
     ))
     story.append(Spacer(1, 0.25 * inch))
     story.append(Paragraph(
-        "Edition 1.0.4 - reviewed 2026-10-19. Public Tinman Preview 5, compared with OrcaSlicer stable 2.4.2 and 2.5.0-alpha. Packaged software validation is distinct from physical printer qualification. Historical tab-survey revisions are identified in the settings reference.",
+        "Edition 1.2.1 - reviewed 2026-11-21. Written for Tinman on its OrcaSlicer 2.5.1 base and checked against Tinman's source. Packaged software validation is distinct from physical printer qualification. Historical tab-survey revisions are identified in the settings reference.",
         styles["front_subtitle"],
     ))
     story.append(PageBreak())
@@ -775,7 +780,7 @@ def build_pdf(output: Path):
     toc = TableOfContents()
     toc.levelStyles = [
         ParagraphStyle("TOC1", fontName="Helvetica-Bold", fontSize=9.5, leading=11.5, leftIndent=0, firstLineIndent=0, textColor=colors.HexColor("#111827"), spaceBefore=2),
-        ParagraphStyle("TOC2", fontName="Helvetica", fontSize=7.8, leading=8.9, leftIndent=15, firstLineIndent=0, textColor=colors.HexColor("#374151")),
+        ParagraphStyle("TOC2", fontName="Helvetica", fontSize=7.8, leading=8.75, leftIndent=15, firstLineIndent=0, textColor=colors.HexColor("#374151")),
         ParagraphStyle("TOC3", fontName="Helvetica", fontSize=7.5, leading=9.5, leftIndent=30, firstLineIndent=0, textColor=colors.HexColor("#6B7280")),
     ]
     # Compact rows: no cell padding, so the contents fit on about two pages.

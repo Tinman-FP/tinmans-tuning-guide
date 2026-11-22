@@ -1,15 +1,19 @@
-// VAL01: functional bracket and fit coupon, the last test before a filament
+// VAL01 v2: functional bracket and fit coupon, the last test before a filament
 // profile is called TUNED. Tinmans Tuning Guide, chapter 09. CC BY 4.0.
-// Change only `label` (material and revision, up to about 8 characters).
+// Change only `label` (material and revision, up to about 8 characters), e.g.
+//   openscad -D 'label="ASA r19"' -o val01_ASA.stl val01_template.scad
+// v2 (2026-11-21): the boss bore is blind and starts on the deck top (Z 8).
+//   In v1 it ran down through the bridged deck into the channel, which broke
+//   the 40 mm bridge. Nothing else changed.
 //
 // Part 1: a bracket: base 70 x 40 x 8 with a cable channel underneath
 //   (40 mm bridge under a 4 mm deck), upright wall 70 x 6, 38 tall overall, with a
 //   40 x 12 window (40 mm lintel bridge), two 45-degree gussets, a 14 mm boss with a
-//   5 mm bore standing on the bridge deck, two 5.5 mm (M5 clearance) and two 3.4 mm
+//   blind 5 mm bore standing on the bridge deck, two 5.5 mm (M5 clearance) and two 3.4 mm
 //   (M3 clearance) holes, and the debossed label.
 // Part 2: a fit coupon: four 8.0 mm holes and four pins at 7.9 / 7.8 / 7.7 / 7.6 mm
 //   (0.1 / 0.2 / 0.3 / 0.4 mm diametral clearance), pins marked with 1-4 dimples on top.
-label = "PCTG r7";
+label = "VAL01";
 $fn = 128;
 
 module gusset(x) {
@@ -29,7 +33,7 @@ module bracket() {
     translate([15, 33, 20]) cube([40, 8, 12]);    // window 40 x 12 in the wall, lintel z 32..38
     for (p = [[6, 6], [64, 6]]) translate([p[0], p[1], -1]) cylinder(d = 5.5, h = 10);   // M5 clearance
     for (p = [[5, 24], [65, 24]]) translate([p[0], p[1], -1]) cylinder(d = 3.4, h = 10); // M3 clearance
-    translate([35, 17, -1]) cylinder(d = 5, h = 20);                                     // boss bore
+    translate([35, 17, 8]) cylinder(d = 5, h = 11);                                      // boss bore, blind: starts on the deck top (Z 8), never cuts the bridge
     translate([35, 5, 7.4]) linear_extrude(1) text(label, size = 4.5, halign = "center", valign = "center");
   }
 }
