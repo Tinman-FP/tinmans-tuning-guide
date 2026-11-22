@@ -111,10 +111,11 @@ every corner reading changed at that moment. Warming the chamber first and
 keeping its fans off gave a single, clean reading. The profile now asks the
 printer to warm the chamber before printing.
 
-At the time of writing the profile is `CANDIDATE r7`. With Monotonic top
-surfaces it passed [VAL01](09-validation.md#val01-functional-bracket-and-fit-coupon),
-the representative part, on 2026-11-21, and it is waiting for the owner's
-approval to become `TUNED`.
+With Monotonic top surfaces, r7 passed
+[VAL01](09-validation.md#val01-functional-bracket-and-fit-coupon), the
+representative part, on 2026-11-21. It was released the same day as
+`TUNED - 3D-Fuel Pro PCTG - CORE One+ INDX 8T 0.4 HF - r7`, with the values
+unchanged, and the candidate was retired.
 
 ## Qidi Plus4, Elegoo PET-CF
 

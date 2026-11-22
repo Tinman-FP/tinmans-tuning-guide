@@ -149,7 +149,9 @@ Rules that kept the field runs honest:
   a pair, such as filament r14 with process r25, not "both at r14".
 - **Promote the tested file unchanged.** `TUNED` is the last `CANDIDATE`
   renamed, with its values byte-for-byte the same and a note of the release
-  date. If anything changes during promotion, it is a new candidate.
+  date. If anything changes during promotion, it is a new candidate. In
+  Tinman, detach the new preset from the candidate before you retire the
+  candidate (see below).
 - **One current generation.** Keep one tuned filament per machine, nozzle and
   material, and one tuned process per layer height and purpose. Move older
   generations out of the active lists into a dated folder with a short note of
@@ -158,6 +160,28 @@ Rules that kept the field runs honest:
   values in the presets (see
   [Running Tinman's Calibration Tests](25-running-tinman-calibrations.md#how-a-test-is-built));
   save only the one value the test chose.
+
+**Promoting in Tinman: detach the new preset first.** In Tinman (OrcaSlicer
+2.5.1 base, November 2026), saving a `CANDIDATE` under its `TUNED` name with
+**Save as** can write the new preset as a *child* of the candidate. Its file
+then holds `"inherits": "CANDIDATE …"` and stores only the name, ID and notes;
+every tuned value still lives in the candidate. Retire the candidate, as the
+rule above says, and the tuned preset is orphaned and loses its values. This
+happened on the guide's first release.
+
+1. Turn on **Preferences → Developer → Developer mode**. The save dialog
+   shows its parent option only in developer mode.
+2. Save the `TUNED` preset with the parent box ticked. It is labelled
+   **Detach from parent** when the dialog sees a parent, and **Save without
+   parent** when it does not. In the field run the first save offered **Save
+   without parent**, unticked, and still wrote a child. Saving again under the
+   same name with **Detach from parent** ticked fixed it.
+3. Open the saved preset's `.json` file in the user `filament` folder and
+   check that `inherits` is empty (`""`).
+4. Only then retire the `CANDIDATE`, and reload Tinman to confirm the `TUNED`
+   preset still shows the tuned values.
+
+This is Tinman's behaviour at the time of writing; a fix may change it.
 
 Record with every revision:
 
@@ -300,14 +324,17 @@ A profile becomes `TUNED` only when every check passes, plus whatever sign-off
 your own process requires. Record the result, the measurements and the
 tightest sliding pin in the profile's notes.
 
-**First result: PCTG passed VAL01; promotion pending the owner.** VAL01 was
+**First result: PCTG passed VAL01 and was released as `TUNED` r7.** VAL01 was
 printed twice on 2026-11-21 on a CORE One+ INDX with 3D-Fuel Pro PCTG and the
 same profile pair: run 1 from the v1 model, run 2 from v2. Run 1's bridge
 failed because of the model (see the
 [revision history](#val01-revision-history-why-v1-became-v2)). Run 2 passed
 every check, graded from measurements of the part, photographs and the sliced
-G-code. The profile stays `CANDIDATE` until the owner approves promoting it to
-`TUNED`.
+G-code. With the owner's approval the profile was released the same day as
+`TUNED - 3D-Fuel Pro PCTG - CORE One+ INDX 8T 0.4 HF - r7`, with every value
+unchanged from the tested r7, and the `CANDIDATE` was retired. A fresh slice of
+VAL01 with the released profile gave G-code identical to the passing run, all
+88,933 lines apart from comments. It was the first release through VAL01.
 
 The pass covers this scope only: one toolhead with a 0.4 mm high-flow nozzle,
 0.20 mm layers (a balanced process with Monotonic top surfaces), a

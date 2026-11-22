@@ -61,6 +61,10 @@
       (no `|`). In between, they name the machine ID, nozzle and brand,
       product and material, in the order this printer's profiles already use.
       The process also names its layer height and purpose.
+- [ ] In Tinman, the `TUNED` preset was saved with the parent box ticked
+      (**Detach from parent** or **Save without parent**; needs developer
+      mode), and its file's `inherits` is empty, **before** the candidate it
+      came from is retired.
 - [ ] IDs, inheritance, compatibility, and project/printer associations resolve
       correctly after promotion and reopening.
 - [ ] One recommended current pair is recorded for this scope; deliberate

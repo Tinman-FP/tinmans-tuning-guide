@@ -18,8 +18,13 @@ VAL01 model correction.
   CORE One+ INDX passed every check A–H on the v2 reprint, graded from
   measurements. The bridge held with about 0.2 mm sag, the deck top had no
   crater, and the tightest sliding pin gives a 0.2 mm sliding-fit allowance.
-  Promotion to TUNED is pending the owner. Observation is kept apart from
-  inference. Chapter 26's INDX example says the same.
+  The profile was then released as TUNED r7 with its values unchanged, the
+  first release through VAL01. Observation is kept apart from inference.
+  Chapter 26's INDX example says the same.
+- Chapter 09 and the release checklist: a Tinman promotion trap. Saving a
+  CANDIDATE as TUNED can write the new preset as a child of the candidate,
+  so retiring the candidate would orphan it. Tick the save dialog's parent
+  box (developer mode), check that `inherits` is empty, then retire.
 - VAL01 pass marks: B may be graded by measuring the holes (at least the
   screw size plus 0.2 mm) instead of a screw test, and D now says how to
   measure sag (mid-span against both ends of each opening).
