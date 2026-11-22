@@ -111,17 +111,21 @@ is the authoritative record.
 ## Name, Version and Promote
 
 A profile name should tell you, at a glance in a drop-down list, whether it is
-safe to print with and what it is for. The field runs settled on this pattern:
+safe to print with and what it is for. The field runs settled on these parts:
 
 ```text
 Filament: STATUS - Machine - Nozzle - Brand Material - rNN
 Process:  STATUS - Machine - Nozzle - Brand Material - Layer Purpose - rNN
 ```
 
-For example:
+The status always comes first and the revision last. The parts in between
+came in two orders in the field runs: machine first on the Qidi and Snapmaker
+printers, material first on the Prusa printers. Either works. Pick one order
+for each printer and keep it, so that printer's lists sort the same way every
+time. For example:
 
 ```text
-CANDIDATE - CORE One+ INDX 8T 0.4 HF - 3D-Fuel Pro PCTG - r7
+CANDIDATE - 3D-Fuel Pro PCTG - CORE One+ INDX 8T 0.4 HF - r7
 TUNED - Qidi Plus4 - 0.6mm - Elegoo PET-CF - r14
 TUNED - Qidi Plus4 - 0.6mm - Elegoo PET-CF - 0.24mm Production - r25
 ```
@@ -247,13 +251,19 @@ tests: at mid-side, on the upper half of walls, away from seams.
 | # | Check | Pass if |
 | --- | --- | --- |
 | A | Bracket outside dimensions | base length 70.00 ± 0.15 mm; depth 40.00 ± 0.10 mm; wall thickness 6.00 ± 0.10 mm; boss Ø14.00 ± 0.15 mm; overall height 38.00 ± 0.10 mm |
-| B | Clearance holes | an M5 screw (or a 5 mm drill shank) passes both Ø5.5 holes freely; an M3 screw passes both Ø3.4 holes freely. Record the boss bore (Ø5.0 nominal). |
+| B | Clearance holes | an M5 screw (or a 5 mm drill shank) passes both Ø5.5 holes freely; an M3 screw passes both Ø3.4 holes freely. Without screws, measure the holes instead: each must be at least the screw size plus 0.2 mm (M5: 5.2 mm or more; M3: 3.2 mm or more). Record the boss bore (Ø5.0 nominal). |
 | C | Fit coupon | at least the 3-dimple pin (Ø7.7, 0.3 mm clearance) slides fully through its hole by hand without force. Record the tightest pin that slides. |
-| D | Bridges | channel underside: continuous strands, none dropped, sag at mid-span no more than about 0.5 mm. Deck top, text and boss: no crater, hole or lifted strand. Lintel underside continuous. |
+| D | Bridges | channel underside: continuous strands, none dropped, sag at mid-span no more than about 0.5 mm (measured as below). Deck top, text and boss: no crater, hole or lifted strand. Lintel underside continuous. |
 | E | Overhangs | the 45° gusset faces are clean, with no curl or droop |
 | F | Surfaces | tops closed with no open channels; no rows of beads along top edges; the label legible; seams narrow; at most fine hairs of stringing |
 | G | First layer and warp | sits flat on a flat surface without rocking; no corner lift over 0.2 mm; no bottom flare that stops a straight edge sitting flat |
 | H | Layer adhesion | the wall survives a firm thumb push at its top, toward the front, with no crack or delamination. If you break a pin, it bends before it breaks. |
+
+**Measuring sag (D).** Measure the height of each opening at both ends and
+at mid-span: the channel (4.0 mm nominal) and the window (12.0 mm nominal).
+The sag is how far the mid-span height falls below the average of the two
+end heights. Measuring mid-span alone against the nominal height assumes the
+ends printed exactly to size.
 
 These limits were written for a 0.4 mm nozzle and 0.20 mm layers, and first
 used with PCTG. If a material or setup needs a different limit (a flexible or
@@ -264,12 +274,12 @@ The tightest pin that slides (criterion C) is worth keeping: it is the
 sliding-fit allowance for this material, nozzle and profile, and it is the
 number to use when you design parts.
 
-**Expected, not yet observed.** In the first run's dimension tests, 8 mm holes
+**Expected before the first print.** In the first run's dimension tests, 8 mm holes
 came out about 0.05 mm small and small round parts slightly large. From that,
 the 1-dimple pin probably won't fit, the 2-dimple pin may be snug, the 3-dimple
 pin should slide and the 4-dimple pin will be loose. This was an inference
-written before the first print; what the second run showed is under
-"Observed so far" below.
+written before the first print; the measured result is under
+"First result" below.
 
 ### If a Check Fails
 
@@ -290,39 +300,47 @@ A profile becomes `TUNED` only when every check passes, plus whatever sign-off
 your own process requires. Record the result, the measurements and the
 tightest sliding pin in the profile's notes.
 
-**Observed so far.** VAL01 was printed twice on 2026-11-21 on a CORE One+
-INDX (one tool, 0.4 mm high-flow nozzle, 0.20 mm layers) with 3D-Fuel Pro
-PCTG and the same profile pair: run 1 from the v1 model, run 2 from v2. These
-notes come from photographs of the prints and from the sliced G-code. Nothing
-has been measured yet.
+**First result: PCTG passed VAL01; promotion pending the owner.** VAL01 was
+printed twice on 2026-11-21 on a CORE One+ INDX with 3D-Fuel Pro PCTG and the
+same profile pair: run 1 from the v1 model, run 2 from v2. Run 1's bridge
+failed because of the model (see the
+[revision history](#val01-revision-history-why-v1-became-v2)). Run 2 passed
+every check, graded from measurements of the part, photographs and the sliced
+G-code. The profile stays `CANDIDATE` until the owner approves promoting it to
+`TUNED`.
 
-**Status of the PCTG result: photos pass, measurements pending.** Nothing seen
-on run 2 fails. Still to come: the dimensions (A), the screw test (B), a
-hands-on check of the fit (C), a view of the channel underside and its sag
-(D), flatness (G) and the thumb push (H). Until then the profile stays
-`CANDIDATE`.
+The pass covers this scope only: one toolhead with a 0.4 mm high-flow nozzle,
+0.20 mm layers (a balanced process with Monotonic top surfaces), a
+high-temperature plate at 85 °C, and the enclosure vent closed with the
+chamber warmed to 40 °C.
 
-- **Channel bridge (D):**
-  - Run 1 (v1): the strands were continuous, except around the boss bore,
-    where they tangled and drooped. That is the v1 design flaw described in
-    the [revision history](#val01-revision-history-why-v1-became-v2), not a
-    profile result.
-  - Run 2 (v2): the bridge held, with no tangle under the blind bore. Seen
-    from the front, the outermost strand at the channel mouth looks slightly
-    wavy and one thin string hangs in the channel. The sag has not been
-    measured.
-- **Deck top (D):** no crater, hole or lifted strand on either run. Both
-  times the G-code printed the solid infill over the channel bridge at about
-  233 mm/s, the condition suspected of leaving craters in the earlier cooling
-  test. On this part that crater has not appeared.
-- **Fit (C), run 2:** the 2-, 3- and 4-dimple pins sit down in their holes,
-  through to the bed. The 1-dimple pin (Ø7.9) stands on top of its hole.
-  - *Inference, waiting for confirmation that the pins went in by hand
-    without force:* the tightest sliding pin is the 2-dimple pin, so PCTG's
-    sliding-fit allowance with this profile is 0.2 mm on the diameter. That is
-    one step tighter than the 0.3 mm expected above.
-  - Run 1's photos showed one pin through, but it is not known whether the
-    others were pushed, so the two runs are not compared on fit.
+| # | Run 2 (v2), measured or seen | Result |
+| --- | --- | --- |
+| A | base 70.12 mm (+0.12), depth 40.00, wall 6.01, boss Ø13.88 (−0.12), height 37.93 (−0.07) | pass |
+| B | the Ø5.5 hole measured 5.41 mm and the Ø3.4 hole 3.24 mm, so both clear their screws by more than 0.2 mm; graded by measurement, without a screw test | pass |
+| C | the 2-, 3- and 4-dimple pins slide by hand; the 1-dimple pin (Ø7.9) does not; tightest sliding pin Ø7.8 | pass |
+| D | channel strands continuous, channel height 3.8 mm at mid-span against 4.0 nominal (about 0.2 mm sag); deck top with no crater, hole or lifted strand; window 11.68 mm at mid-span against 12.0 (about 0.3 mm) | pass |
+| E | gusset faces clean (photographs) | pass |
+| F | tops closed, label crisp, one fine hair at a wall corner (photographs) | pass |
+| G | no rocking on a flat surface | pass |
+| H | no crack on the thumb push | pass |
+
+- **Sliding fit:** the tightest pin that slides is Ø7.8 in a Ø8.0 hole. So
+  PCTG's sliding-fit allowance with this profile is 0.2 mm on the diameter,
+  one step tighter than the 0.3 mm expected above. This was checked by hand,
+  not inferred.
+- **Sag:** only the mid-span heights were measured, so both sag figures assume
+  the ends of each opening came out at their nominal height. *Inference:* the
+  overall height came out 0.07 mm under, so the error from that assumption is
+  small. Measure both ends next time (see the pass marks).
+- **Holes:** the small holes came out 0.09 mm (Ø5.5) and 0.16 mm (Ø3.4)
+  under size, the small-hole effect described in
+  [Dimensional Accuracy](07-dimensional-accuracy.md#holes-and-fits). They
+  still clear their screws. Allow for it when you design small holes.
+- **Deck top:** no crater on either run. Both times the G-code printed the
+  solid infill over the channel bridge at about 233 mm/s, the condition
+  suspected of leaving craters in the earlier cooling test. If craters appear
+  on a production part, try **Extra bridge layers** next.
 - **Rings on the pins:** on both runs each pin shows two faint rings, about
   5 mm and 8 mm up. The G-code changes the conditions at exactly those
   heights. At Z 5 the coupon plate ends and the part fan steps up from 10 % to
@@ -332,11 +350,11 @@ hands-on check of the fit (C), a view of the channel underside and its sag
   - *Inference:* these are gloss changes at feature transitions (see the
     [surface artifact map](08-seams-and-surfaces.md#surface-artifact-map)),
     not over-extrusion.
-  - On run 2 the rings did not stop pins 2–4 going in.
-- **Other checks on run 2's photos:** the gusset faces are clean (E). The tops
-  are closed, the label is crisp, and there is one fine hair at a wall corner
-  (F). The M5 and M3 holes and the blind bore are round and open; the screws
-  have not been tried yet (B).
+  - They did not stop the pins sliding.
+- **Cosmetic only:** the front strand at the channel mouth is slightly wavy,
+  and one thin string hangs in the channel.
+- **Not covered by this pass:** other layer heights, the other toolheads,
+  multi-tool jobs, and prints much longer than this one (about 70 minutes).
 
 ### VAL01 Revision History: Why v1 Became v2
 

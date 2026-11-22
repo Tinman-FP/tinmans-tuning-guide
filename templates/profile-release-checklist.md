@@ -57,9 +57,10 @@
 ## Release
 
 - [ ] The tested candidate passed all required stages for this exact setup.
-- [ ] Filament and process use `TUNED - Machine ID - Nozzle mm - Brand Product
-      Material - ... - rNN` (no `|`), including layer height/purpose for the
-      process.
+- [ ] Filament and process names start with `TUNED - ` and end with `- rNN`
+      (no `|`). In between, they name the machine ID, nozzle and brand,
+      product and material, in the order this printer's profiles already use.
+      The process also names its layer height and purpose.
 - [ ] IDs, inheritance, compatibility, and project/printer associations resolve
       correctly after promotion and reopening.
 - [ ] One recommended current pair is recorded for this scope; deliberate

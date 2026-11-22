@@ -14,10 +14,20 @@ VAL01 model correction.
   template's default label is "VAL01".
 - The dimensioned drawing gains a section through the boss, showing the blind
   bore with v1's bore dashed. The render gains a view of the underside.
-- Chapter 09: a VAL01 revision history, and what the first two PCTG runs
-  showed, with observation kept apart from inference. On the v2 reprint the
-  bridge held with no tangle, the deck top had no crater, and pins 2–4 fit
-  while pin 1 did not. Status: photos pass, measurements pending.
+- Chapter 09: a VAL01 revision history, and VAL01's first result. PCTG on a
+  CORE One+ INDX passed every check A–H on the v2 reprint, graded from
+  measurements. The bridge held with about 0.2 mm sag, the deck top had no
+  crater, and the tightest sliding pin gives a 0.2 mm sliding-fit allowance.
+  Promotion to TUNED is pending the owner. Observation is kept apart from
+  inference. Chapter 26's INDX example says the same.
+- VAL01 pass marks: B may be graded by measuring the holes (at least the
+  screw size plus 0.2 mm) instead of a screw test, and D now says how to
+  measure sag (mid-span against both ends of each opening).
+- Profile names: the status comes first and the revision last; the machine
+  and material parts may come in either order, one order per printer.
+  Chapter 09's INDX example now matches the real profile
+  (`CANDIDATE - 3D-Fuel Pro PCTG - CORE One+ INDX 8T 0.4 HF - r7`), and
+  chapter 20 and the release checklist say the same.
 - Chapter 09: a known limitation. The pin dimples print as short dashes and
   can be hard to read, so the text adds the pins' order on the plate. The
   model is unchanged.

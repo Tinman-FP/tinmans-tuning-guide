@@ -178,6 +178,10 @@ Filament: STATUS - Machine ID - Nozzle mm - Brand Product Material - rNN
 Process: STATUS - Machine ID - Nozzle mm - Brand Product Material - Layer mm Purpose - rNN
 ```
 
+The status comes first and the revision last. The machine and material parts
+may come in either order, as long as all of one printer's profiles use the
+same order.
+
 Compatibility-gate the profile to that printer definition, or use Tinman's
 **Printer scope** when saving. Preserve the generic or supplier profile as a
 parent or untouched reference. Do not let a tuned FibreSeek profile silently
