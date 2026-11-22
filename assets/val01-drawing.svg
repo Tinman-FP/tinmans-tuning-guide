@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1060" viewBox="0 0 1440 1060">
-<rect width="1440" height="1060" fill="#fffdf8"/>
-<style>text{font-family:Arial,sans-serif;fill:#193146}.t{font-size:34px;font-weight:bold}.h{font-size:22px;font-weight:bold}.d{font-size:17px}.n{font-size:15px;fill:#28536b}.body{fill:#dceaf0;stroke:#28536b;stroke-width:2}.cut{fill:#fffdf8;stroke:#28536b;stroke-width:2}.hid{fill:none;stroke:#28536b;stroke-width:1.5;stroke-dasharray:6 4}.dim{stroke:#a5621c;stroke-width:1.4;fill:none}.ext{stroke:#a5621c;stroke-width:1;fill:none}</style><defs><marker id="m" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1L10 5L0 9z" fill="#a5621c"/></marker></defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1100" viewBox="0 0 1440 1100">
+<rect width="1440" height="1100" fill="#fffdf8"/>
+<style>text{font-family:Arial,sans-serif;fill:#193146}.t{font-size:34px;font-weight:bold}.h{font-size:22px;font-weight:bold}.d{font-size:17px}.n{font-size:15px;fill:#28536b}.body{fill:#dceaf0;stroke:#28536b;stroke-width:2}.cut{fill:#fffdf8;stroke:#28536b;stroke-width:2}.hid{fill:none;stroke:#28536b;stroke-width:1.5;stroke-dasharray:6 4}.dim{stroke:#a5621c;stroke-width:1.4;fill:none}.ext{stroke:#a5621c;stroke-width:1;fill:none}.sec{fill:url(#hatch);stroke:#28536b;stroke-width:2}.old{fill:none;stroke:#a5621c;stroke-width:2;stroke-dasharray:7 4}.lead{stroke:#28536b;stroke-width:1.2;fill:none}</style><defs><marker id="m" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1L10 5L0 9z" fill="#a5621c"/></marker><pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" fill="#bcd3de"/><line x1="0" y1="0" x2="0" y2="9" stroke="#28536b" stroke-width="1.2"/></pattern></defs>
 <text class="t" x="40" y="52">VAL01: dimensions (mm)</text>
 <text class="h" x="40" y="100">Top view</text>
 <rect class="body" x="110.0" y="160.0" width="420.0" height="240.0"/>
@@ -43,7 +43,7 @@
 <text class="d" x="320.0" y="446.0" text-anchor="middle">channel 40 (under the deck)</text>
 <line class="ext" x1="200.0" y1="400.0" x2="200.0" y2="430.0"/>
 <line class="ext" x1="440.0" y1="400.0" x2="440.0" y2="430.0"/>
-<text class="d" x="320.0" y="248.0" text-anchor="middle">boss Ø14, bore Ø5</text>
+<text class="d" x="320.0" y="248.0" text-anchor="middle">boss Ø14, blind bore Ø5</text>
 <text class="d" x="102.0" y="370.0" text-anchor="end">Ø5.5 (M5)</text>
 <text class="d" x="102.0" y="262.0" text-anchor="end">Ø3.4 (M3)</text>
 <text class="d" x="182.0" y="338.0" text-anchor="middle">gusset 4</text>
@@ -51,13 +51,14 @@
 <text class="d" x="290.0" y="716.0" text-anchor="middle">fit coupon 60 × 14 × 5, four Ø8.0 holes at 14 pitch</text>
 <line class="ext" x1="110.0" y1="670.0" x2="110.0" y2="700.0"/>
 <line class="ext" x1="470.0" y1="670.0" x2="470.0" y2="700.0"/>
-<text class="d" x="484.0" y="520.0">pins 12 tall; dimples on top: 1 = Ø7.9 … 4 = Ø7.6</text>
+<text class="d" x="110.0" y="568.0">pins 12 tall; dimples on top: 1 = Ø7.9 … 4 = Ø7.6</text>
 <text class="h" x="810" y="100">Front view (bracket)</text>
 <rect class="body" x="830.0" y="172.0" width="420.0" height="228.0" style="fill:#bcd3de"/>
 <rect class="cut" x="920.0" y="208.0" width="240.0" height="72.0"/>
 <rect class="body" x="830.0" y="352.0" width="420.0" height="48.0"/>
 <rect class="cut" x="920.0" y="376.0" width="240.0" height="24.0"/>
 <rect class="body" x="998.0" y="292.0" width="84.0" height="60.0"/>
+<rect class="hid" x="1025.0" y="292.0" width="30.0" height="60.0"/>
 <rect class="body" x="890.0" y="232.0" width="24.0" height="120.0"/>
 <rect class="body" x="1166.0" y="232.0" width="24.0" height="120.0"/>
 <line class="dim" x1="830.0" y1="146.0" x2="1250.0" y2="146.0" marker-start="url(#m)" marker-end="url(#m)"/>
@@ -83,15 +84,39 @@
 <line class="dim" x1="1276.0" y1="292.0" x2="1276.0" y2="400.0" marker-start="url(#m)" marker-end="url(#m)"/>
 <text class="d" x="1284.0" y="352.0" text-anchor="start">boss 18</text>
 <line class="ext" x1="1082.0" y1="292.0" x2="1282.0" y2="292.0"/>
-<rect x="810" y="630" width="590" height="278" rx="12" fill="#f3f7f6" stroke="#bfcac8" stroke-width="2"/>
-<text class="d" x="830" y="664">Overall 70 × 85 × 38 mm (bracket and coupon on one plate).</text>
-<text class="d" x="830" y="692">Two 40 mm bridges: the channel deck (4 mm solid deck,</text>
-<text class="d" x="830" y="720">carrying the boss) and the window lintel.</text>
-<text class="d" x="830" y="748">Hidden line: channel under the deck, open at the front.</text>
-<text class="d" x="830" y="776">Pin clearances on Ø8.0 holes: 0.1, 0.2, 0.3, 0.4 mm.</text>
-<text class="d" x="830" y="804">45° gussets, 4 thick, rise to height 28.</text>
-<text class="d" x="830" y="832">Print without supports; change only the label.</text>
-<text class="d" x="830" y="860">Limits in chapter 09 were written for a 0.4 mm nozzle</text>
-<text class="d" x="830" y="888">and 0.20 mm layers.</text>
-<text class="n" x="40" y="1040">Tinmans Tuning Guide, CC BY 4.0. Original drawing generated from models/val01_template.scad; not to scale between views.</text>
+<text class="h" x="810" y="500">Section through the boss (cut faces hatched)</text>
+<rect class="body" x="1084.0" y="568.0" width="36.0" height="72.0" style="fill:#e8f0f3;stroke-dasharray:3 3"/>
+<polygon class="sec" points="880.0,736.0 880.0,712.0 940.0,712.0 940.0,652.0 967.0,652.0 967.0,712.0 997.0,712.0 997.0,652.0 1024.0,652.0 1024.0,712.0 1084.0,712.0 1084.0,640.0 1120.0,640.0 1120.0,760.0 1090.0,760.0 1090.0,736.0"/>
+<rect class="sec" x="1084.0" y="532.0" width="36.0" height="36.0"/>
+<rect class="old" x="967.0" y="712.0" width="30.0" height="24.0"/>
+<text class="n" x="1076.0" y="555.0" text-anchor="end">lintel</text>
+<text class="n" x="1076.0" y="609.0" text-anchor="end">window (wall beyond)</text>
+<line class="dim" x1="926.0" y1="652.0" x2="926.0" y2="712.0" marker-start="url(#m)" marker-end="url(#m)"/>
+<text class="d" x="918.0" y="688.0" text-anchor="end">blind, 10 deep</text>
+<line class="dim" x1="866.0" y1="712.0" x2="866.0" y2="736.0" marker-start="url(#m)" marker-end="url(#m)"/>
+<text class="d" x="858.0" y="730.0" text-anchor="end">deck 4</text>
+<line class="dim" x1="866.0" y1="736.0" x2="866.0" y2="760.0" marker-start="url(#m)" marker-end="url(#m)"/>
+<text class="d" x="858.0" y="754.0" text-anchor="end">channel 4</text>
+<path class="lead" d="M982.0 676.0 H1150.0"/>
+<text class="d" x="1156.0" y="660.0">bore Ø5 is blind: its floor</text>
+<text class="d" x="1156.0" y="682.0">is the deck top, so the 40 mm</text>
+<text class="d" x="1156.0" y="704.0">deck bridge has no hole (v2).</text>
+<path class="lead" d="M997.0 724.0 H1150.0"/>
+<text class="d" x="1156.0" y="730.0" style="fill:#a5621c">dashed: v1 ran the bore on</text>
+<text class="d" x="1156.0" y="752.0" style="fill:#a5621c">through the deck into the</text>
+<text class="d" x="1156.0" y="774.0" style="fill:#a5621c">channel. Withdrawn.</text>
+<text class="n" x="880.0" y="782.0" text-anchor="start">front</text>
+<text class="n" x="1120.0" y="782.0" text-anchor="end">back</text>
+<rect x="60" y="750" width="590" height="306" rx="12" fill="#f3f7f6" stroke="#bfcac8" stroke-width="2"/>
+<text class="d" x="80" y="784">Overall 70 × 85 × 38 mm (bracket and coupon on one plate).</text>
+<text class="d" x="80" y="812">Two 40 mm bridges: the channel deck (4 mm solid deck,</text>
+<text class="d" x="80" y="840">carrying the boss) and the window lintel.</text>
+<text class="d" x="80" y="868">Hidden lines: channel under the deck, open at the front;</text>
+<text class="d" x="80" y="896">the blind bore in the boss, 10 deep, floor on the deck top.</text>
+<text class="d" x="80" y="924">Pin clearances on Ø8.0 holes: 0.1, 0.2, 0.3, 0.4 mm.</text>
+<text class="d" x="80" y="952">45° gussets, 4 thick, rise to height 28.</text>
+<text class="d" x="80" y="980">Print without supports; change only the label.</text>
+<text class="d" x="80" y="1008">Limits in chapter 09 were written for a 0.4 mm nozzle</text>
+<text class="d" x="80" y="1036">and 0.20 mm layers.</text>
+<text class="n" x="40" y="1080">Tinmans Tuning Guide, CC BY 4.0. Original drawing generated from models/val01_template.scad; not to scale between views.</text>
 </svg>

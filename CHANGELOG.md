@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.2.1 - 2026-11-21
+
+VAL01 model correction.
+
+- VAL01 v2: the boss bore is now blind and starts on the deck top. In v1 it
+  ran down through the bridged deck into the cable channel. The first bridge
+  layer then had to print the bore's edge in mid-air, and on the first print
+  the 40 mm bridge strands tangled around it. That would fail with almost any
+  filament, so it tested the model, not the profile. Nothing else changed:
+  pass marks A–H, outside size, holes, pins and file names are the same.
+  `models/val01_template.scad` and `models/val01.stl` now hold v2, and the
+  template's default label is "VAL01".
+- The dimensioned drawing gains a section through the boss, showing the blind
+  bore with v1's bore dashed. The render gains a view of the underside.
+- Chapter 09: a VAL01 revision history, and what the first run showed so far
+  (no crater on the deck top; faint rings on the pins at feature
+  transitions), with observation kept apart from inference. That run is not
+  graded yet.
+- PDF: the title page's edition line still said 1.0.4; it now says 1.2.1.
+  Link text and captions keep underscores inside names, so
+  `val01_template.scad` no longer prints as "val01template.scad".
+
 ## 1.2.0 - 2026-11-21
 
 Design and readability pass on edition 1.1, plus the VAL01 test.

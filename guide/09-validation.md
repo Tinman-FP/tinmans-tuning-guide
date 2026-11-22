@@ -182,7 +182,7 @@ printer and for every material.
 Each calibration print tests one thing. VAL01 tests everything together, on a
 part that has to work.
 
-![The VAL01 model: a bracket with a cable channel, a windowed wall, gussets, a boss and clearance holes, and a fit coupon with four pins. Letters mark the pass marks A to H below. Rendered from models/val01_template.scad, CC BY 4.0.](../assets/val01-model.png)
+![The VAL01 model: a bracket with a cable channel, a windowed wall, gussets, a boss and clearance holes, and a fit coupon with four pins. Letters mark the pass marks A to H below; the inset shows the underside, where the deck over the channel has no hole. Rendered from models/val01_template.scad (v2), CC BY 4.0.](../assets/val01-model.png)
 
 ### When and Why to Run It
 
@@ -211,16 +211,19 @@ change, when the profile is meant to stay `TUNED`.
 
 Download [models/val01_template.scad](../models/val01_template.scad)
 (OpenSCAD source) or [models/val01.stl](../models/val01.stl) (labelled
-"VAL01"). The part is 70 × 85 × 38 mm.
+"VAL01"). Both are version 2; see the [revision history](#val01-revision-history-why-v1-became-v2)
+if you printed VAL01 before 1.2.1. The part is 70 × 85 × 38 mm.
 
-![VAL01 dimensions in millimetres: top view of the bracket and fit coupon, and front view of the bracket. Original drawing generated from models/val01_template.scad, CC BY 4.0.](../assets/val01-drawing.png)
+![VAL01 dimensions in millimetres: top view of the bracket and fit coupon, front view of the bracket, and a section through the boss showing the blind bore and, dashed, the withdrawn v1 bore. Original drawing generated from models/val01_template.scad, CC BY 4.0.](../assets/val01-drawing.png)
 
 - **Bracket:** a 70 × 40 × 8 mm base with a cable channel underneath, 40 mm
   wide and 4 mm tall, open at the front. That makes a 40 mm bridge with a 4 mm
   solid deck on top. An upright wall, 6 mm thick and 38 mm tall overall, has a
   40 × 12 mm window, which makes a 40 mm lintel bridge. Two 45° gussets, a
-  Ø14 mm boss with a Ø5 mm bore standing on the bridge deck, two Ø5.5 mm (M5
-  clearance) holes, two Ø3.4 mm (M3 clearance) holes, and a debossed label.
+  Ø14 mm boss standing on the bridge deck, two Ø5.5 mm (M5 clearance) holes,
+  two Ø3.4 mm (M3 clearance) holes, and a debossed label. The boss has a
+  blind Ø5 mm bore, 10 mm deep, whose floor is the deck top, so nothing cuts
+  through the bridge.
 - **Fit coupon:** a plate with four Ø8.0 mm holes, and four 12 mm pins of
   Ø7.9, 7.8, 7.7 and 7.6 mm. Each pin carries 1 to 4 dimples on top: one
   dimple is the tightest (Ø7.9), four the loosest (Ø7.6).
@@ -281,7 +284,46 @@ tightest sliding pin in the profile's notes.
 
 **Observed so far.** The first VAL01 was printed on 2026-11-21 on a CORE One+
 INDX (one tool, 0.4 mm high-flow nozzle, 0.20 mm layers) with 3D-Fuel Pro
-PCTG. It had not been graded when this edition was written.
+PCTG, from the v1 model. These notes come from photographs of the print and
+from the sliced G-code. Nothing has been measured yet.
+
+- **Deck top:** no crater, hole or lifted strand. The G-code printed the
+  solid infill over the channel bridge at about 233 mm/s, the condition
+  suspected of leaving craters in the earlier cooling test. On this part that
+  crater did not appear.
+- **Channel underside:** the bridge strands were continuous, except around
+  the boss bore, where they tangled and drooped. That is the v1 design flaw
+  described in the [revision history](#val01-revision-history-why-v1-became-v2), not a
+  profile result.
+- **Pins:** each pin shows two faint rings, about 5 mm and 8 mm up. The G-code
+  changes the conditions at exactly those heights. At Z 5 the coupon plate
+  ends and the part fan steps up from 10 % to 14 %. At Z 8 the bracket base
+  ends, the layer time drops to about 8 s, and the pin walls slow from 200 to
+  120 mm/s. The filament fed per pin layer stays the same. Inference: these
+  are gloss changes at feature transitions (see the
+  [surface artifact map](08-seams-and-surfaces.md#surface-artifact-map)),
+  not over-extrusion. Whether they affect the fit (C) is not known yet.
+- **Not graded yet:** A, B, C, G and H need measurements and hands-on
+  checks. A v2 reprint has been sent; its result will be added here.
+
+### VAL01 Revision History: Why v1 Became v2
+
+- **v1 (2026-11-21, withdrawn).** The boss's Ø5 mm bore ran down through the
+  4 mm deck into the cable channel. On the first bridge layer, the slicer had
+  to print the bore's edge as a loop of wall with nothing under it: the run-1
+  G-code has 66 "Overhang wall" segments within 6 mm of the bore. The bridge
+  strands were cut by the hole and anchored on that loose loop.
+  - *Observed:* on run 1 the strands tangled around the bore and were
+    continuous everywhere else.
+  - *Inferred, from the G-code:* the loop in mid-air caused the tangle. A
+    hole through a bridged span would fail with almost any filament, so v1
+    tested the model, not the profile.
+- **v2 (2026-11-21, current).** The bore is blind: it starts on the deck top
+  (Z 8) and is 10 mm deep, so the deck is one unbroken 40 mm bridge. That is
+  the condition criterion D is meant to check. Nothing else changed: the
+  outside size, holes, pins, label and pass marks A–H are the same, and the
+  files keep their names.
+- If you printed v1, print v2 before you grade the bridges (D).
 
 ## Tuning Prints and Validation Prints
 

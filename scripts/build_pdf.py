@@ -87,7 +87,9 @@ def slugify(value: str) -> str:
 def strip_markdown(value: str) -> str:
     value = re.sub(r"!\[([^]]*)\]\([^)]*\)", r"\1", value)
     value = re.sub(r"\[([^]]+)\]\([^)]*\)", r"\1", value)
-    value = re.sub(r"[`*_]", "", value)
+    value = re.sub(r"[`*]", "", value)
+    # Drop emphasis underscores only; keep those inside names such as val01_template.scad.
+    value = re.sub(r"(?<!\w)_|_(?!\w)", "", value)
     return html.unescape(value).strip()
 
 
@@ -767,7 +769,7 @@ def build_pdf(output: Path):
     ))
     story.append(Spacer(1, 0.25 * inch))
     story.append(Paragraph(
-        "Edition 1.0.4 - reviewed 2026-10-19. Public Tinman Preview 5, compared with OrcaSlicer stable 2.4.2 and 2.5.0-alpha. Packaged software validation is distinct from physical printer qualification. Historical tab-survey revisions are identified in the settings reference.",
+        "Edition 1.2.1 - reviewed 2026-11-21. Written for Tinman on its OrcaSlicer 2.5.1 base and checked against Tinman's source. Packaged software validation is distinct from physical printer qualification. Historical tab-survey revisions are identified in the settings reference.",
         styles["front_subtitle"],
     ))
     story.append(PageBreak())
